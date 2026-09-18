@@ -1,0 +1,250 @@
+[
+  {
+    "category_id": 21,
+    "category_name": "Guilt / can't forgive myself",
+    "existential_roots": ["Freedom", "Meaninglessness"],
+    "safety_notes": [
+      "ESCALATION CANDIDATE. Moral-injury-adjacent guilt (self-condemnation tied to real/perceived serious harm caused, especially in a caregiving or high-stakes role, e.g. \"I don't think I deserve to feel okay again\") is explicitly linked to suicide risk in current literature and should be treated as a crisis-redirect candidate, not routed to a philosophy match. This wisdom content is for the non-clinical majority of guilt presentations (everyday regret)."
+    ],
+    "entries": [
+      {
+        "entry_id": "21-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Plum Village tradition)",
+        "source_author": "Thich Nhat Hanh",
+        "source_work": "Teaching on forgiveness grounded in mindfulness practice and the Satipatthana Sutta",
+        "citation_urls": ["https://plumvillage.org/articles/how-do-i-forgive-myself-and-others"],
+        "teaching": "Forgiveness of others is not possible without first forgiving oneself, grounded in mindfulness practice rather than erasing the past: 'the practice of mindfulness can always transform, even transform the past,' because 'the past is still there in the present moment, and you can touch it.' Buddhist psychology treats remorse (kukkucca) as either wholesome (spurring genuine amends) or an unwholesome hindrance (repetitive self-punishment with no corrective value) — the tradition's own distinction between productive and corrosive guilt.",
+        "verified_quote": "the practice of mindfulness can always transform, even transform the past",
+        "practice_or_technique": "Mindfully touching the past in the present moment rather than suppressing it or being ruled by it.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "21-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Robert A. Johnson",
+        "source_work": "Owning Your Own Shadow",
+        "citation_urls": ["https://sobrief.com/books/owning-your-own-shadow"],
+        "teaching": "A counter-intuitive argument: guilt itself can be a shadow phenomenon. Johnson argues guilt is 'arrogant, because it means you have already taken a side and declared yourself right' — a premature, one-sided verdict on oneself that forecloses the harder, more honest work of holding competing truths (I did wrong / I am also more than that wrong) at once. Unintegrated guilt can function as a way of avoiding the shadow rather than facing it — punishing oneself substitutes for the slower work of integrating the disowned part of the self that produced the harmful action.",
+        "verified_quote": "arrogant, because it means you have already taken a side and declared yourself right",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "21-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Self-forgiveness research; self-compassion research",
+        "source_author": "Robert Enright; Kristin Neff",
+        "source_work": "Enright's process/REACH forgiveness model; \"Psychological interventions to promote self-forgiveness\" (BMC Psychology, 2024); MacBeth & Gumley meta-analysis (Clinical Psychology Review, 2012)",
+        "citation_urls": ["https://link.springer.com/article/10.1186/s40359-024-01671-3"],
+        "teaching": "Self-forgiveness is a process — acknowledgment of wrongdoing, empathy/perspective-taking, eventual self-acceptance — not a single decision. A mindfulness -> self-compassion -> self-forgiveness mediation pathway gives a concrete entry point. Neff's self-compassion (self-kindness, common humanity, mindfulness) is linked to lower psychopathology (r = -0.54 in a 20-sample meta-analysis) and targets self-kindness toward the person without first requiring resolution of the moral question about the act.",
+        "verified_quote": null,
+        "practice_or_technique": "Sequenced practice: mindfulness, then self-compassion, then self-forgiveness (acknowledgment, empathy, self-acceptance) — never skipping to self-acceptance without genuine acknowledgment.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "All three pillars converge on the same structural point: real self-forgiveness is a slow, honest process — acknowledging the wrong, holding compassion for oneself, and doing repair — never a shortcut that erases accountability. This content is not a substitute for crisis-resource redirection when guilt is moral-injury-adjacent."
+  },
+  {
+    "category_id": 22,
+    "category_name": "Impatience / waiting for something to change",
+    "existential_roots": ["Freedom", "Death"],
+    "safety_notes": [],
+    "entries": [
+      {
+        "entry_id": "22-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Taoism",
+        "source_author": "Laozi (attributed)",
+        "source_work": "Tao Te Ching, chapter 15, trans. Stephen Mitchell",
+        "citation_urls": ["https://terebess.hu/english/tao/mitchell.html"],
+        "teaching": "\"Do you have the patience to wait till your mud settles and the water is clear? Can you remain unmoving till the right action arises by itself?\" Directly names the discomfort of waiting for an unresolved situation to resolve, and offers wu wei (non-forcing action) as the response: not passivity, but ceasing to agitate the situation so its own resolution can become visible.",
+        "verified_quote": "Do you have the patience to wait till your mud settles and the water is clear? Can you remain unmoving till the right action arises by itself?",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "22-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Marie-Louise von Franz",
+        "source_work": "The Problem of the Puer Aeternus (1959-1960 lecture series, C.G. Jung Institute Zurich)",
+        "citation_urls": ["https://archive.org/details/problemofpueraet00mari"],
+        "teaching": "The puer aeternus (\"eternal youth\") archetype's defining traits include pronounced impatience: \"when the puer aeternus has to take something seriously, he makes a few poor attempts and then impatiently gives up,\" described as 'usually very impatient by disposition,' unwilling to 'bear the weight' of any situation and persistently keeping all options open rather than committing and waiting out a process. Chronic impatience can signal this pattern operating rather than a purely external problem with how slowly the world is moving.",
+        "verified_quote": "when the puer aeternus has to take something seriously, he makes a few poor attempts and then impatiently gives up",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": "No source ties this pattern to the Death root specifically — consistent with the taxonomy's own finding that the Death-root mapping for this category is a designed inference, not a sourced claim."
+      },
+      {
+        "entry_id": "22-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Acceptance and Commitment Therapy (ACT)",
+        "source_author": "Steven C. Hayes",
+        "source_work": "ACT's values clarification and committed action processes (Hexaflex model)",
+        "citation_urls": ["https://positivepsychology.com/act-acceptance-and-commitment-therapy/"],
+        "teaching": "Rather than targeting the waiting/uncertainty directly, ACT practice asks a person to clarify what they value about the outcome they're waiting for and identify committed actions available now, independent of the wait's resolution — shifting the locus of felt control from 'when will this end' to 'what can I do that matters, regardless of timeline.'",
+        "verified_quote": null,
+        "practice_or_technique": "Clarify a value connected to the awaited outcome; identify one committed action available now, independent of the wait's resolution.",
+        "confidence": "extrapolated",
+        "confidence_note": "A designed extrapolation from ACT's general mechanism applied to impatience specifically — no ACT trial was found targeting impatience as a named outcome."
+      }
+    ],
+    "synthesis_note": "The Tao Te Ching names the felt experience of agitated waiting and offers a stance (stop stirring the water); von Franz's puer aeternus diagnosis explains a common underlying pattern when impatience is chronic; ACT's values/committed-action work gives a concrete self-directed practice for regaining a sense of agency during a wait that cannot be hastened."
+  },
+  {
+    "category_id": 23,
+    "category_name": "Low mood / persistent sadness",
+    "existential_roots": ["Death", "Freedom", "Isolation", "Meaninglessness"],
+    "safety_notes": [
+      "\"All four roots\" is a designed synthesis of four separately-sourced literatures, not a single unified claim (Freedom/Isolation/Meaninglessness are each well-established individually; Death is real but comparatively secondary). This content should be positioned as a complement to, not a replacement for, clinical treatment when low mood is severe, prolonged, or functionally impairing — the taxonomy's crisis-redirect carve-outs (active suicidal ideation, self-harm) apply regardless of category."
+    ],
+    "entries": [
+      {
+        "entry_id": "23-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Tibetan Buddhism",
+        "source_author": "Pema Chödrön",
+        "source_work": "When Things Fall Apart: Heart Advice for Difficult Times (Shambhala)",
+        "citation_urls": ["https://www.themarginalian.org/2017/07/17/when-things-fall-apart-pema-chodron/"],
+        "teaching": "Rather than treating groundlessness and sorrow as problems to be fixed, the practice is to 'move toward painful situations with friendliness and curiosity, relaxing into the essential groundlessness of our entire situation.' Impermanence — 'things are always in transition' — is the reason lasting escape from sadness through control or avoidance isn't available; the difficulty itself is workable: 'the healing comes from letting there be room for all of this to happen: room for grief, for relief, for misery, for joy.'",
+        "verified_quote": "the healing comes from letting there be room for all of this to happen: room for grief, for relief, for misery, for joy",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "23-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "James Hollis",
+        "source_work": "Swamplands of the Soul: New Life in Dismal Places",
+        "citation_urls": ["https://www.psychceu.com/hollis/swamplands.asp"],
+        "teaching": "Reframes depression not as pure pathology but as material the psyche is presenting for a reason: 'it is precisely where we encounter the gravitas of life that we also uncover its purpose, its dignity and its deepest meaning,' and 'doubt and depression... provide us with disempowering messages, but under each is a summons to an action, especially when we don't feel like it.' The book's premise: the goal of a life is not happiness but meaning, and the 'swamplands' (grief, anxiety, depression, loneliness) are where genuine psychological growth actually happens.",
+        "verified_quote": "it is precisely where we encounter the gravitas of life that we also uncover its purpose, its dignity and its deepest meaning",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "23-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Robert Emmons and Michael McCullough",
+        "source_work": "\"Counting Blessings Versus Burdens\" (Journal of Personality and Social Psychology, 2003)",
+        "citation_urls": ["https://emmons.faculty.ucdavis.edu/wp-content/uploads/sites/90/2015/08/2003_2-Emmons_McCullough_2003_JPSP.pdf"],
+        "teaching": "Participants who kept weekly gratitude journals (listing 3-5 things they were grateful for) reported feeling better about their lives and more optimistic than comparison groups. A 2023 systematic review and meta-analysis confirms gratitude interventions produce better mental health outcomes and improved mood across a substantial evidence base.",
+        "verified_quote": null,
+        "practice_or_technique": "Weekly gratitude journaling — listing 3-5 things one is grateful for.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Chödrön's teaching offers a stance toward sadness itself (befriend it, don't flee it); Hollis's shadow-work framing supplies a meaning-oriented reason not to treat the mood purely as malfunction; gratitude-journaling research offers a small, concrete, evidence-based daily practice a person can start immediately."
+  },
+  {
+    "category_id": 24,
+    "category_name": "Can't feel joy / anhedonia",
+    "existential_roots": ["Death", "Freedom", "Isolation", "Meaninglessness"],
+    "safety_notes": [
+      "LOAD-BEARING SAFETY NOTE. State/recent-onset anhedonia is an independent predictor of suicidal ideation, separate from overall depression severity (Ducasse et al. meta-analysis). This category should NOT be treated as lower-stakes than category 23 — sudden/recent loss of pleasure or interest (\"I don't feel excited about anything anymore, not even things I used to look forward to, and it just started a couple weeks ago\") deserves at least equal, and per some literature greater, crisis-redirect sensitivity than sadness-coded language. This wisdom content is for the non-clinical majority of anhedonia presentations (chronic, stable, low-grade loss of interest) — it is emphatically not a substitute for crisis-resource redirection when onset is sudden or recent."
+    ],
+    "entries": [
+      {
+        "entry_id": "24-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Plum Village tradition)",
+        "source_author": "Thich Nhat Hanh",
+        "source_work": "Present Moment, Wonderful Moment: Mindfulness Verses for Daily Living (Parallax Press)",
+        "citation_urls": ["https://www.parallax.org/product/present-moment-wonderful-moment/"],
+        "teaching": "Built around gathas (short mindfulness verses) designed to reconnect attention with ordinary, already-available sources of joy rather than chase new or bigger pleasures — directly relevant to anhedonia's presentation as a disconnection from available pleasure rather than an absence of pleasurable things. Central verse: 'Breathing in, I calm my body. Breathing out, I smile. Dwelling in the present moment, I know this is a wonderful moment.' The practice is attention and presence, not acquisition.",
+        "verified_quote": "Breathing in, I calm my body. Breathing out, I smile. Dwelling in the present moment, I know this is a wonderful moment.",
+        "practice_or_technique": "Short mindfulness verses (gathas) practiced during ordinary moments to reconnect attention with already-available experience.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "24-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung",
+        "source_work": "Jung's concept of libido as general psychic energy",
+        "citation_urls": ["https://www.psychologytoday.com/us/blog/buddhist-psychology-east-meets-west/202409/energy-and-desire-the-jungian-libido"],
+        "teaching": "Libido, in Jungian theory, is general psychic/life-force energy, not narrowly sexual. Depression/anhedonia occurs when 'the unconscious has withdrawn libido from the conscious world,' so 'our vitality sinks downward into the unconscious, as if it has run away from us' — but 'libido is never lost... it just gets trapped somewhere in the unconscious.' Recovering interest/pleasure requires locating and integrating whatever the withdrawn energy is currently bound up in, not simply willing oneself to feel more.",
+        "verified_quote": "libido is never lost... it just gets trapped somewhere in the unconscious",
+        "practice_or_technique": null,
+        "confidence": "extrapolated",
+        "confidence_note": "Jung's libido-withdrawal account of depression broadly is well documented, but no source applies it to anhedonia by that specific clinical name — this application is a labeled extrapolation from Jung's general theory."
+      },
+      {
+        "entry_id": "24-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Fred Bryant and Joseph Veroff",
+        "source_work": "Savoring: A New Model of Positive Experience (2007)",
+        "citation_urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC8712667/"],
+        "teaching": "Savoring is intentionally attending to, appreciating, and prolonging positive experience as it happens, rather than letting it pass unnoticed. Savoring capacity is specifically linked to lower levels of anhedonia and depression; positive psychologists have adapted savoring techniques as self-directed tools for people experiencing emotional deficits associated with depression and hopelessness. Present-moment and experience-focused, distinct from gratitude journaling's retrospective/reflective approach.",
+        "verified_quote": null,
+        "practice_or_technique": "Deliberately noticing and prolonging a positive experience as it is happening, rather than letting it pass unattended.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Thich Nhat Hanh's presence-based gathas, Jungian libido-withdrawal theory, and savoring research converge on a shared insight: anhedonia is not best approached as 'find bigger things to be happy about' but as a disruption in the attentional/energetic connection to pleasure that is already present. Read the safety note above before using this category's content — sudden/recent onset changes the appropriate response entirely."
+  },
+  {
+    "category_id": 25,
+    "category_name": "Being mistreated / bullied / disrespected",
+    "existential_roots": ["Isolation", "Freedom"],
+    "safety_notes": [
+      "This category was not found to carry an independent suicide-risk-marker literature the way anhedonia does — the risk pathway runs through depression/PTSD as intermediate steps. For chronic, power-imbalanced bullying with signs of functional collapse or possible complex-PTSD features, pair this content with a signal that professional support may help alongside, not instead of, the philosophical material — severity-tiering, not a hard crisis-level flag."
+    ],
+    "entries": [
+      {
+        "entry_id": "25-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Pali Canon); Tibetan Buddhism (Dalai Lama)",
+        "source_author": "traditional (Eight Worldly Winds); the 14th Dalai Lama",
+        "source_work": "The Eight Worldly Winds (loka-dhamma), grounded in the Pali Canon",
+        "citation_urls": ["https://tricycle.org/magazine/eight-worldly-winds-praise-blame/"],
+        "teaching": "Praise and blame are named as one of four paired, unavoidable conditions of life (with gain/loss, pleasure/pain, fame/disrepute) that ceaselessly change and compound suffering specifically when a person becomes attached to either pole. Practical instruction: test the reaction — 'Is this true? Is it based on fact? Will it lead to liberation?' The Dalai Lama's teaching: 'when somebody says something unpleasant or hurtful to us, we need to learn to be patient and forbearing and remind ourselves that their words are just like the sounds of an echo, equally insubstantial and unreal.'",
+        "verified_quote": "when somebody says something unpleasant or hurtful to us, we need to learn to be patient and forbearing and remind ourselves that their words are just like the sounds of an echo, equally insubstantial and unreal",
+        "practice_or_technique": "Testing a hurtful reaction against three questions: is this true, is it based on fact, will it lead to liberation.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "25-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Sylvia Brinton Perera",
+        "source_work": "The Scapegoat Complex: Toward a Mythology of Shadow and Guilt (Studies in Jungian Psychology by Jungian Analysts)",
+        "citation_urls": ["https://www.goodreads.com/book/show/92235.The_Scapegoat_Complex"],
+        "teaching": "Scapegoating is 'a way of denying one's own dark side by projecting it onto others,' carried out by people who are 'themselves often wounded' and who 'have driven their own shadows underground from where such are projected onto the victim.' This reframe reduces a victim's tendency toward self-blame — mistreatment often functions as the mistreater's unprocessed shadow material being displaced onto a convenient target, not a verdict on the target's worth. Without this framing, the scapegoated person often internalizes 'felt unworthiness' and 'transpersonal guilt' that was never theirs to carry.",
+        "verified_quote": "a way of denying one's own dark side by projecting it onto others",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "25-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology / self-compassion research",
+        "source_author": "Kristin Neff",
+        "source_work": "Self-compassion research; MacBeth & Gumley meta-analysis (Clinical Psychology Review, 2012)",
+        "citation_urls": ["https://self-compassion.org/wp-content/uploads/publications/metaanalysis.pdf"],
+        "teaching": "MacBeth & Gumley's meta-analysis (r = -0.54 linking self-compassion to lower psychopathology) supports self-compassion practice as a buffer against the self-esteem erosion chronic mistreatment produces. Targets how a person relates to themselves after an incident of mistreatment, rather than how to prevent or respond to the incident itself — distinct from clinical interventions (cognitive rehearsal, assertiveness training).",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Eight Worldly Winds teaching addresses the moment of disrespect itself (don't hand your sense of worth over to another's words); Perera's scapegoat-complex shadow work addresses the after-the-fact meaning-making (this is often about the other person's unprocessed shadow, not a verdict on you); self-compassion research gives an ongoing, evidence-based practice for rebuilding self-regard eroded by repeated mistreatment."
+  }
+]

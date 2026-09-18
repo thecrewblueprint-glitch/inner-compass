@@ -1,0 +1,253 @@
+[
+  {
+    "category_id": 16,
+    "category_name": "Personal identity confusion",
+    "existential_roots": ["Meaninglessness", "Freedom"],
+    "safety_notes": [],
+    "entries": [
+      {
+        "entry_id": "16-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Theravada Buddhism",
+        "source_author": "traditional (Pali Canon)",
+        "source_work": "Anattalakkhaṇa Sutta (Saṃyutta Nikāya 22.59)",
+        "citation_urls": ["https://bswa.org/teaching/sn2259-anatta-lakkhana-sutta-with-ajahn-brahm/"],
+        "teaching": "The canonical source for anatta (\"not-self\"): the Buddha examines the five aggregates (form, feeling, perception, mental formations, consciousness) and shows none meets the criteria a genuine 'self' would require: complete control, permanence, reliable freedom from suffering. The Buddha never asserted flatly 'there is no self' — when asked point-blank, he declined to answer either way. This reframes 'who am I' as a process, not a possession to be located.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "16-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung; Robert A. Johnson",
+        "source_work": "Jungian persona/shadow theory; Owning Your Own Shadow (HarperOne)",
+        "citation_urls": ["https://www.thesap.org.uk/articles-on-jungian-psychology-2/about-analysis-and-therapy/the-shadow/"],
+        "teaching": "The persona — 'what we would like to be and how we wish to be seen by the world' — mediates between the true self and the environment; the shadow holds the disowned, hidden parts. Identity confusion often stems from over-identification with a persona built to be socially acceptable, at the cost of disowning real traits into the shadow. Individuation — reclaiming shadow material and loosening grip on a single persona — is the actual work of resolving 'who am I.'",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "16-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Acceptance and Commitment Therapy (ACT)",
+        "source_author": "Steven C. Hayes",
+        "source_work": "ACT's self-as-context process (part of the six-process psychological-flexibility model)",
+        "citation_urls": ["https://www.guilford.com/excerpts/hayes_ch3.pdf"],
+        "teaching": "Self-as-context: understanding one's identity as distinct from passing thoughts and feelings (\"self as the sky; thoughts and feelings as weather\"), supporting a stable sense of self amid changing internal experience. Paired with values clarification — identifying what actually matters across life domains as a compass for action rather than a fixed identity label.",
+        "verified_quote": null,
+        "practice_or_technique": "Observe thoughts/feelings as passing weather; act from values rather than from a fixed self-story.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Anatta destabilizes the premise that there is one fixed self to locate; Jungian shadow work explains why people cling to a persona instead of doing that harder work; ACT's self-as-context and values work gives a concrete, non-clinical daily practice — observe thoughts/feelings as passing, act from values, not from a fixed self-story."
+  },
+  {
+    "category_id": 17,
+    "category_name": "Cultural or group belonging confusion",
+    "existential_roots": ["Isolation"],
+    "safety_notes": [
+      "This category's Isolation-root grounding is strong via refugee/immigrant isolation research; content should stay sensitive to genuine displacement/immigration contexts, not just abstract identity framing."
+    ],
+    "entries": [
+      {
+        "entry_id": "17-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Mahayana; Plum Village tradition)",
+        "source_author": "Thich Nhat Hanh",
+        "source_work": "Interbeing teaching (tiếp hiện); Plum Village sangha practice",
+        "citation_urls": ["https://www.buddhistdoor.net/features/thich-nhat-hanhs-teaching-of-interbeing/"],
+        "teaching": "All things are inextricably interconnected — nothing exists independently, everything 'inter-is' through dependent origination. Community practice (sangha) is treated as inseparable from the teaching itself; Plum Village communities are explicitly organized to foster interconnectedness and belonging. This relocates belonging in relationship itself rather than asking the person to dissolve identity (unlike anatta for category 16) — useful for someone caught between two cultures rather than doubting whether they have a self at all.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "17-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Connie Zweig & Jeremiah Abrams (eds.); Jerome S. Bernstein",
+        "source_work": "Meeting the Shadow: The Hidden Power of the Dark Side of Human Nature (1991)",
+        "citation_urls": ["https://www.issep.org/books/zweig-abrams-meeting-the-shadow-the-hidden-power-of-the-dark-side-of-human-nature"],
+        "teaching": "The shadow concept extends beyond the individual to groups: families, organizations, nations, and cultures develop a collective shadow — shared traits and history a group refuses to acknowledge. Rather than face its own disowned material, a group projects it onto an outsider group, which can manifest as prejudice or scapegoating — reframing some of the friction a bicultural individual feels as a structural feature of how groups manage their own collective shadow, not a personal failure to 'pick a side.'",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "17-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Self-Determination Theory",
+        "source_author": "Edward Deci and Richard Ryan",
+        "source_work": "Self-Determination Theory — the relatedness need",
+        "citation_urls": ["https://pubmed.ncbi.nlm.nih.gov/11392867/"],
+        "teaching": "Relatedness is one of three innate psychological needs (with autonomy and competence) whose satisfaction predicts wellbeing; a 2024 meta-analysis of over 443,000 participants confirmed all three predict wellbeing and performance across contexts. Relatedness 'does not require intimacy in every relationship but does require a basic sense of being seen, valued, and understood' — useful for someone who feels they must fully belong to one bounded cultural group to have this need met.",
+        "verified_quote": "does not require intimacy in every relationship but does require a basic sense of being seen, valued, and understood",
+        "practice_or_technique": "Cultivate specific relationships where one is seen and valued, rather than resolving group membership in the abstract.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Interbeing offers belonging as relationship, not membership-card identity; the collective-shadow lens explains real friction bicultural/multi-group people encounter without pathologizing it; SDT's relatedness need gives a concrete, buildable practice — cultivate specific relationships where one is seen and valued."
+  },
+  {
+    "category_id": 18,
+    "category_name": "Illness or fear about health / mortality",
+    "existential_roots": ["Death"],
+    "safety_notes": [
+      "Compulsive health-checking or functional impairment (illness anxiety) needs professional-support framing alongside impermanence teachings, not instead of it."
+    ],
+    "entries": [
+      {
+        "entry_id": "18-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Plum Village tradition)",
+        "source_author": "Thich Nhat Hanh; Pema Chödrön",
+        "source_work": "Teaching on anicca (impermanence), the first of the Three Marks of Existence",
+        "citation_urls": ["https://www.lionsroar.com/buddhism/impermanence-anicca/"],
+        "teaching": "All phenomena, including the body and thoughts, arise from causes and conditions and are subject to change, decay, and death. Thich Nhat Hanh: a glass 'is already broken' the moment it exists, so 'I enjoy it, incredibly'; 'it is not impermanence that makes us suffer; what makes us suffer is wanting things to be permanent when they are not.' Chödrön: 'impermanence is a principle of harmony; when we don't struggle against it, we are in harmony with reality.'",
+        "verified_quote": "it is not impermanence that makes us suffer; what makes us suffer is wanting things to be permanent when they are not",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "18-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung; Marie-Louise von Franz",
+        "source_work": "\"The Soul and Death\" (in Jung on Death and Immortality, Princeton University Press); On Dreams and Death: A Jungian Interpretation (Shambhala, 1987)",
+        "citation_urls": ["https://press.princeton.edu/books/paperback/9780691006758/jung-on-death-and-immortality"],
+        "teaching": "Jung treated death not as something to deny but as a legitimate psychological goal: 'soon after the middle of our life the soul begins its secret work, getting ready for the departure' — explicitly linking confronting mortality to individuation, and arguing that living in denial of death leaves a person psychologically incomplete. Von Franz's clinical observation: dreams of dying and bereaved patients carry archetypal material offering insight into the dying process, to be met and integrated rather than kept unconscious and simply feared.",
+        "verified_quote": "soon after the middle of our life the soul begins its secret work, getting ready for the departure",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "18-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Richard Tedeschi and Lawrence Calhoun",
+        "source_work": "Post-traumatic growth (PTG), applied to confronting life-threatening illness",
+        "citation_urls": ["https://ptgi.uncc.edu/wp-content/uploads/sites/9/2013/01/PTG-Conceptual-Foundtns.pdf"],
+        "teaching": "Documents positive psychological change — in self-perception, relationships, philosophy of life — that some people experience specifically after confronting life-threatening illness or comparable adversity, distinct from mere coping or resilience.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Anicca and the impermanence teachings offer a philosophical reframe (non-resistance, valuing the present because it is transient); Jung and von Franz name the psychological task (meet and integrate mortality-awareness rather than repress it); PTG names what becomes possible on the other side of that confrontation for some people."
+  },
+  {
+    "category_id": 19,
+    "category_name": "Financial or security fear",
+    "existential_roots": ["Freedom", "Death"],
+    "safety_notes": [
+      "Acute financial crisis (job loss, imminent eviction) is a practical situation, not just anxiety — needs real resource pointers alongside philosophical content, not philosophy in place of them."
+    ],
+    "entries": [
+      {
+        "entry_id": "19-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Hindu/Vedantic (Bhagavad Gita); Taoism",
+        "source_author": "traditional (Bhagavad Gita; Tao Te Ching)",
+        "source_work": "Bhagavad Gita 2:47 (karma yoga); Tao Te Ching chapter 44 (contentment)",
+        "citation_urls": [
+          "https://www.holy-bhagavad-gita.org/chapter/2/verse/47/",
+          "https://egreenway.com/taoism/ttclz44.htm"
+        ],
+        "teaching": "The Gita's karma yoga teaches agency over effort and action but not over outcomes — practice is to act with full sincerity while releasing attachment to results, which the tradition holds reduces anxiety, directly targeting the gap between effort and control that drives financial fear. Chapter 44 of the Tao Te Ching (across multiple standard translations) holds that 'knowing contentment' protects against both disgrace and danger — security is found in recognizing sufficiency, not accumulation without limit.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": "The popular one-line 'he who knows he has enough is rich' quote could not be verified against a specific named scholarly translation; use the compiled/attributed multi-translation version of chapter 44's contentment teaching instead."
+      },
+      {
+        "entry_id": "19-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Connie Zweig & Steve Wolf",
+        "source_work": "Romancing the Shadow: A Guide to Soul Work for a Vital, Authentic Life (Ballantine, 1997), ch. \"Money Shadows: Inheritance, Self-Worth, and Greediness\"",
+        "citation_urls": ["https://www.goodreads.com/book/show/182167.Romancing_the_Shadow"],
+        "teaching": "Financial inheritance and self-worth are often psychologically entangled ('for many, to have financial worth is to have self-worth, regardless of the source of the money'); unconscious material around money frequently gets projected rather than examined. Money, like power and sex, readily 'carries the projection of the soul' — financial fear is rarely only about the numbers; it often carries disowned material about worth, safety, or inherited family scripts.",
+        "verified_quote": "for many, to have financial worth is to have self-worth, regardless of the source of the money",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "19-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Financial therapy",
+        "source_author": "Bradley Klontz, Sonya Britt, Jennifer Mentzer, Ted Klontz",
+        "source_work": "\"Money Beliefs and Financial Behaviors: Development of the Klontz Money Script Inventory\" (Journal of Financial Therapy, 2011, DOI: 10.4148/jft.v2i1.451)",
+        "citation_urls": ["https://newprairiepress.org/jft/vol2/iss1/1/"],
+        "teaching": "Identified distinct, largely unconscious 'money scripts' — Money Avoidance, Money Worship, Money Status, Money Vigilance — formed early in life (often before age 10) and correlated with income and net worth outcomes. A concrete, evidence-based starting practice: identifying which money script(s) are operating (e.g., a Money Vigilance script driving chronic financial anxiety even when objectively financially secure).",
+        "verified_quote": null,
+        "practice_or_technique": "Identify which money script (Avoidance, Worship, Status, Vigilance) may be operating beneath the felt fear.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Gita's karma yoga names the philosophical shape of the problem (effort vs. outcome); the Tao Te Ching addresses 'how much is enough' directly; money-shadow work names why financial fear so often exceeds what the objective numbers would predict; the Klontz inventory gives a concrete, research-backed tool for naming and examining that material."
+  },
+  {
+    "category_id": 20,
+    "category_name": "Envy / comparing myself to others",
+    "existential_roots": ["Isolation", "Meaninglessness"],
+    "safety_notes": [
+      "The Isolation-root mapping for this category was searched for directly and not found — no source connects envy to Yalom's existential isolation specifically (only to social comparison/Beck's cognitive model). Treat this root mapping as the taxonomy's own designed synthesis, not a literature-sourced claim."
+    ],
+    "entries": [
+      {
+        "entry_id": "20-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Theravada Buddhism",
+        "source_author": "Nyanaponika Thera",
+        "source_work": "Mudita: The Buddha's Teaching on Unselfish Joy (Buddhist Publication Society, Wheel Publication No. 170)",
+        "citation_urls": ["https://accesstoinsight.org/lib/authors/various/wheel170.html"],
+        "teaching": "Mudita (sympathetic/appreciative joy) is one of the four Brahmavihāras (\"sublime abodes\") taught by the Buddha, alongside loving-kindness, compassion, and equanimity. Its named 'far enemies' in the tradition are precisely jealousy/envy (irshya) and indifference (arati) — mudita is not a vague antidote but the tradition's own directly-named opposite practice to envy: deliberately cultivating joy at another's good fortune rather than the felt lack it exposes.",
+        "verified_quote": null,
+        "practice_or_technique": "Deliberately cultivating joy at another's good fortune as a direct practice, not a suppression of envy.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "20-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung; Robert A. Johnson",
+        "source_work": "Jungian shadow-projection theory, extended to positive/disowned qualities (\"inner gold\")",
+        "citation_urls": ["https://scottjeffrey.com/psychological-projection/"],
+        "teaching": "Intense envy can indicate a 'golden shadow' — disowned positive material (talents, ambitions, qualities) rather than only negative repressed traits. Jung expanded projection to include positive as well as negative disowned qualities; Johnson's 'inner gold' names this untapped potential as among 'the highest value in the human psyche,' with envy often marking exactly where that gold has been buried under conditioning that discouraged ambition, boldness, or sensitivity.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "20-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Qingqi Mao, Bin Han, et al.; Yun Xiang et al.",
+        "source_work": "\"How Gratitude Inhibits Envy: From the Perspective of Positive Psychology\" (PsyCh Journal, 2021); \"Effect of Gratitude on Benign and Malicious Envy: The Mediating Role of Social Support\" (2018)",
+        "citation_urls": ["https://onlinelibrary.wiley.com/doi/10.1002/pchj.413"],
+        "teaching": "Peer-reviewed studies specifically on gratitude's effect on envy (not just general wellbeing) find gratitude practice reduces envy by shifting focus to one's own and others' achievements, promoting peer support, and reducing competitive tension.",
+        "verified_quote": null,
+        "practice_or_technique": "Structured gratitude journaling.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Mudita is the tradition's own named antidote to envy, not an approximated fit; Jungian shadow work explains what the envy is actually pointing at (disowned potential, not just a character flaw); gratitude interventions give a concrete daily practice with direct peer-reviewed evidence of reducing envy specifically."
+  }
+]

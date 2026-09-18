@@ -18,9 +18,11 @@ Folded the case-study research back into the taxonomy: 5 categories split, 2 ren
 
 Originally scoped as "map Eastern philosophy per category." Expanded per direction to three sourced pillars: **Eastern philosophy/metaphysical teaching, Jungian/post-Jungian shadow work, and evidence-based non-clinical psychology methodology for building a better life** — each mapped onto the existential root(s) the category touches, complementing (not duplicating) `CLINICAL_KB_V1.0.md`'s clinical grounding. Every claim is source-verified, never LLM-generated; several unverifiable popular quotes (mostly misattributed to Jung) were caught and declined in favor of verified passages. See [`docs/WISDOM_MAPPING_V1.0.md`](docs/WISDOM_MAPPING_V1.0.md) (index, including safety carryovers and honestly-flagged gaps) and [`docs/wisdom-mapping/`](docs/wisdom-mapping/) (full detail).
 
-## Phase 5 — Build knowledge-base content
+## Phase 5 — Build knowledge-base content (done, v1.0)
 
-Turn the wisdom mapping (one representative source per pillar per category so far) into fuller production-ready knowledge-base entries: more passages/teachings per category where useful, formatted and tagged for actual retrieval matching. This is a content-production pass, not a research pass — not yet started.
+Turned the wisdom mapping into structured, retrieval-ready JSON: 25 categories × 3 entries (one per pillar) = 75 entries, each with source, citation, a teaching description, a verified quote where one exists, a practice/technique where applicable, a confidence flag (sourced vs. extrapolated), and category-level safety notes carried forward from `CLINICAL_KB_V1.0.md`. Pure restructuring of already-sourced content — no new claims. Schema validated (25/25 categories present, all entries schema-conformant, zero errors). See [`docs/KB_SCHEMA_V1.md`](docs/KB_SCHEMA_V1.md) (schema) and [`content/knowledge-base/`](content/knowledge-base/) (data: `index.json` + `kb-01-05.json` through `kb-21-25.json`).
+
+This is a first production pass — one entry per pillar per category. Expanding to multiple entries per pillar (more passages/teachings per category) is a reasonable future iteration, not required before Phase 6 can start against this data.
 
 ## Phase 6 — MVP app
 

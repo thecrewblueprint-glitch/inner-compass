@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "schema_doc": "docs/KB_SCHEMA_V1.md",
+  "generated_from": "docs/wisdom-mapping/mapping-*.md, docs/WISDOM_MAPPING_V1.0.md, docs/TAXONOMY_V1.0.md, docs/CLINICAL_KB_V1.0.md",
+  "category_count": 25,
+  "entries_per_category": 3,
+  "total_entries": 75,
+  "pillars": ["eastern_philosophy", "shadow_work", "psychology_methodology"],
+  "files": [
+    { "file": "kb-01-05.json", "category_ids": [1, 2, 3, 4, 5] },
+    { "file": "kb-06-10.json", "category_ids": [6, 7, 8, 9, 10] },
+    { "file": "kb-11-15.json", "category_ids": [11, 12, 13, 14, 15] },
+    { "file": "kb-16-20.json", "category_ids": [16, 17, 18, 19, 20] },
+    { "file": "kb-21-25.json", "category_ids": [21, 22, 23, 24, 25] }
+  ],
+  "hard_ceiling_categories": [10],
+  "escalation_candidate_categories": [21, 24],
+  "notes": "hard_ceiling_categories require crisis-resource redirection to take precedence over any wisdom-content match. escalation_candidate_categories carry a specific pattern (moral-injury-adjacent guilt for 21; sudden/recent-onset anhedonia for 24) that should route to crisis redirect rather than a philosophy match, distinct from the category's ordinary non-clinical majority use. See each category's safety_notes for full detail — this index only flags which category_ids need special routing logic, it doesn't implement it."
+}
