@@ -47,21 +47,34 @@ function providerAllowlist(): string[] | undefined {
   return values.length ? values : undefined;
 }
 
-function selectedClassification(
+function applySelectedCategory(
+  classification: ClassificationResult,
   categoryId: number,
   deterministicSignals: SignalCode[]
 ): ClassificationResult {
   const { index } = loadKnowledgeBase();
-  const signals = [...deterministicSignals];
+  const signals: SignalCode[] = Array.from(
+    new Set<SignalCode>([
+      ...deterministicSignals,
+      ...classification.signal_codes
+    ])
+  ).filter((signal) => signal !== "NONE");
 
   if (index.hard_ceiling_categories.includes(categoryId)) {
     signals.push("HARD_CEILING");
   }
 
+  const effectiveSignals: SignalCode[] = signals.length ? signals : ["NONE"];
+
   return {
-    route_candidate: "wisdom",
+    ...classification,
+    route_candidate:
+      classification.route_candidate === "safety_redirect" ||
+      classification.route_candidate === "support"
+        ? classification.route_candidate
+        : "wisdom",
     category_candidates: [{ category_id: categoryId, confidence: 1 }],
-    signal_codes: Array.from(new Set(signals.length ? signals : ["NONE"]))
+    signal_codes: Array.from(new Set<SignalCode>(effectiveSignals))
   };
 }
 
@@ -102,14 +115,20 @@ export const generateGuidance = onCall(
         : "missing";
 
     if (!request.auth?.uid) {
-      throw new HttpsError("unauthenticated", "Anonymous authentication is required.");
+      throw new HttpsError(
+        "unauthenticated",
+        "Anonymous authentication is required."
+      );
     }
 
     const text =
       typeof request.data?.text === "string" ? request.data.text.trim() : "";
 
     if (text.length < 3 || text.length > 4000) {
-      throw new HttpsError("invalid-argument", "Reflection text is outside the allowed length.");
+      throw new HttpsError(
+        "invalid-argument",
+        "Reflection text is outside the allowed length."
+      );
     }
 
     const selectedCategoryId =
@@ -174,27 +193,28 @@ export const generateGuidance = onCall(
       };
     }
 
-    let classification: ClassificationResult;
-
-    if (selectedCategoryId !== undefined) {
-      if (!getCategory(selectedCategoryId)) {
-        throw new HttpsError("invalid-argument", "Unknown selected category.");
-      }
-
-      classification = selectedClassification(
-        selectedCategoryId,
-        safety.signalCodes
-      );
-    } else {
-      classification = applyCategoryCeilings(
-        await classifyProblem({
-          text,
-          apiKey,
-          modelId,
-          providerAllowlist: providerAllowlist()
-        })
-      );
+    if (
+      selectedCategoryId !== undefined &&
+      !getCategory(selectedCategoryId)
+    ) {
+      throw new HttpsError("invalid-argument", "Unknown selected category.");
     }
+
+    const classified = await classifyProblem({
+      text,
+      apiKey,
+      modelId,
+      providerAllowlist: providerAllowlist()
+    });
+
+    const classification =
+      selectedCategoryId !== undefined
+        ? applySelectedCategory(
+            classified,
+            selectedCategoryId,
+            safety.signalCodes
+          )
+        : applyCategoryCeilings(classified);
 
     const route = decideRoute(
       classification,
@@ -235,7 +255,7 @@ export const generateGuidance = onCall(
     if (route.kind === "needs_clarification") {
       const choices = route.categoryIds
         .map((id) => getCategory(id))
-        .filter((category): category is NonNullable<typeof category> => Boolean(category))
+        .filter((category) => category !== null)
         .map((category) => ({
           category_id: category.category_id,
           category_name: category.category_name
@@ -245,7 +265,8 @@ export const generateGuidance = onCall(
         return {
           kind: "error",
           code: "REPHRASE_REQUIRED",
-          message: "The situation could not be matched confidently. Rephrase it with the main concern you want perspective on."
+          message:
+            "The situation could not be matched confidently. Rephrase it with the main concern you want perspective on."
         };
       }
 
@@ -275,7 +296,9 @@ export const generateGuidance = onCall(
     });
 
     let validation = validateDraft(draft, category);
-    let validatorStatus = validation.ok ? "valid_first_pass" : "repair_required";
+    let validatorStatus = validation.ok
+      ? "valid_first_pass"
+      : "repair_required";
 
     if (!validation.ok) {
       draft = await phraseGroundedGuidance({
@@ -287,7 +310,9 @@ export const generateGuidance = onCall(
       });
 
       validation = validateDraft(draft, category);
-      validatorStatus = validation.ok ? "valid_after_repair" : "canonical_fallback";
+      validatorStatus = validation.ok
+        ? "valid_after_repair"
+        : "canonical_fallback";
     }
 
     if (!validation.ok) {
