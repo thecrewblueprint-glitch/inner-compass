@@ -1,0 +1,256 @@
+[
+  {
+    "category_id": 6,
+    "category_name": "Shame / feeling fundamentally not okay",
+    "existential_roots": ["Meaninglessness", "Isolation"],
+    "safety_notes": [
+      "Cross-cultural research shows collectivist/Eastern shame is often externalized/face-based rather than the internalized-individual-flaw model this category's Western clinical grounding (Shame Resilience Theory) assumes. Eastern source material for this category should be selected for its address to the internal experience of 'not-okay-ness', not force-fit into a face/honor framing it wasn't built for."
+    ],
+    "entries": [
+      {
+        "entry_id": "6-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Tibetan Buddhism",
+        "source_author": "Pema Chödrön",
+        "source_work": "When Things Fall Apart: Heart Advice for Difficult Times (Shambhala, 1996)",
+        "citation_urls": ["https://tricycle.org/article/pema-chodron-maitri/"],
+        "teaching": "Maitri (loving-kindness, 'unconditional friendliness with oneself') is taught as the direct antidote to the self-aversion that makes shame feel unbearable — training in sitting with oneself 'as we are,' without the good/bad labeling shame runs on, for people who find it far easier to extend loving-kindness to others than to themselves.",
+        "verified_quote": null,
+        "practice_or_technique": "Maitri practice — meeting oneself without the good/bad labeling shame depends on.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "6-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung; Connie Zweig & Steve Wolf",
+        "source_work": "Psychology and Religion: West and East (Collected Works vol. 11, 1938/1958, p. 131); Romancing the Shadow: Illuminating the Dark Side of the Soul (Ballantine, 1997)",
+        "citation_urls": ["https://lewislafontaine.substack.com/p/carl-jung-on-shadow-quotations-4a8"],
+        "teaching": "Jung: 'Everyone carries a shadow, and the less it is embodied in the individual's conscious life, the blacker and denser it is.' Zweig and Wolf describe the shadow as the repository of what a person's family or culture found forbidden, shamed, or taboo in them growing up — shame is not incidental to shadow formation, it is the mechanism that exiles a trait into the shadow in the first place.",
+        "verified_quote": "Everyone carries a shadow, and the less it is embodied in the individual's conscious life, the blacker and denser it is.",
+        "practice_or_technique": "Locating which parts of the self were shamed into hiding, not just managing the resulting shame feeling.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "6-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology / self-compassion research",
+        "source_author": "Kristin Neff",
+        "source_work": "\"Self-Compassion: An Alternative Conceptualization of a Healthy Attitude Toward Oneself\" (Self and Identity, 2(2), 2003, 85-101)",
+        "citation_urls": ["https://www.tandfonline.com/doi/abs/10.1080/15298860309032"],
+        "teaching": "Self-compassion's three components — self-kindness vs. self-judgment, common humanity vs. isolation, and mindfulness vs. over-identification — map almost one-to-one onto shame's structure (harsh self-judgment, isolating 'I'm the only one,' being swallowed by the feeling). A validated, self-administrable framework (the Self-Compassion Scale).",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Maitri gives a contemplative practice for meeting shame without self-attack; Jung and Zweig/Wolf explain why the shamed material got buried in the first place; Neff's research operationalizes the same move (self-kindness, common humanity, mindfulness) into something measurable and practicable outside a clinical setting."
+  },
+  {
+    "category_id": 7,
+    "category_name": "Rejection / heartbreak",
+    "existential_roots": ["Isolation", "Meaninglessness"],
+    "safety_notes": [
+      "This category may be clinically under-weighted by default — a study (n=2,022) found breakup-related PTSD-checklist scores exceeded DSM-5 Criterion A trauma-event scores in 72.9% of cases. Content shouldn't assume mild distress; presentations with flashbacks, dissociation, or functional collapse should be flagged toward referral rather than philosophy-only content. Dividing line from Betrayal (category 12): relationship ended here, vs. trust violated with the relationship possibly continuing there."
+    ],
+    "entries": [
+      {
+        "entry_id": "7-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Theravada Buddhism",
+        "source_author": "traditional (Pali Canon)",
+        "source_work": "Sallatha Sutta (\"The Arrow\"), Saṃyutta Nikāya 36.6, trans. Thanissaro Bhikkhu",
+        "citation_urls": ["https://www.accesstoinsight.org/tipitaka/sn/sn36/sn36.006.than.html"],
+        "teaching": "The 'two arrows' teaching: the first arrow is the pain of the loss itself (unavoidable); the second arrow is the added mental suffering — sorrow, self-recrimination — an 'uninstructed' person shoots at themselves on top of it, which is avoidable. A well-trained practitioner 'feels one pain: physical, but not mental.' Applied to heartbreak, this distinguishes the reality of loss from the additional story ('I'm unlovable') that compounds it, without denying the loss is real.",
+        "verified_quote": "feels one pain: physical, but not mental",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "7-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "James Hollis",
+        "source_work": "The Eden Project: In Search of the Magical Other (Inner City Books, 1998)",
+        "citation_urls": ["https://innercitybooks.net/bookshop/author/james-hollis/the-eden-project/"],
+        "teaching": "Much of the devastation of romantic rejection comes from the collapse of the 'magical Other' fantasy — the unconscious hope that another person will complete us and relieve us of the work of finding our own wholeness. Heartbreak's intensity is partly grief for the relationship and partly a shadow confrontation: the loss forces the discovery that the magical Other does not, and cannot, exist, and that the search for wholeness has to include the parts of the self that were being outsourced to the partner.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "7-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology / self-compassion research",
+        "source_author": "David A. Sbarra, Hillary L. Smith, Matthias R. Mehl",
+        "source_work": "\"When Leaving Your Ex, Love Yourself: Observational Ratings of Self-Compassion Predict the Course of Emotional Recovery Following Marital Separation\" (Psychological Science, 23(3), 2012, 261-269)",
+        "citation_urls": ["https://www.psychologicalscience.org/news/releases/advice-to-divorcees-go-easy-on-yourself.html"],
+        "teaching": "In a study of 109 recently separated/divorced adults, independent raters' scores of participants' self-compassion in a brief recorded narrative predicted less intrusive distress at the outset and continued to predict better emotional recovery up to 9 months later — a breakup-specific evidence base for self-compassion practice.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The second-arrow teaching separates the unavoidable pain of loss from the avoidable self-story that compounds it; Hollis's magical-Other concept explains why breakups can feel existentially catastrophic, not merely sad; the Sbarra et al. findings give an evidence base for responding to that with self-compassion specifically after a breakup."
+  },
+  {
+    "category_id": 8,
+    "category_name": "Feeling stuck / can't decide",
+    "existential_roots": ["Freedom"],
+    "safety_notes": [],
+    "entries": [
+      {
+        "entry_id": "8-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Taoism",
+        "source_author": "Laozi (attributed)",
+        "source_work": "Tao Te Ching, chapter 15, trans. Stephen Mitchell (HarperPerennial, 1988)",
+        "citation_urls": ["https://terebess.hu/english/tao/mitchell.html"],
+        "teaching": "\"Do you have the patience to wait till your mud settles and the water is clear? Can you remain unmoving till the right action arises by itself?\" A teaching on wu wei (non-forcing, effortless right action) applied to indecision: reframing 'stuck' not as a failure to act but as a state that, tolerated with patience, resolves on its own.",
+        "verified_quote": "Do you have the patience to wait till your mud settles and the water is clear? Can you remain unmoving till the right action arises by itself?",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "8-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Marie-Louise von Franz",
+        "source_work": "The Problem of the Puer Aeternus (Inner City Books, 1970/2000)",
+        "citation_urls": ["https://www.jungian-confrerie.com/blog/puer-aeternus-and-the-provisional-life/"],
+        "teaching": "The 'provisional life': treating one's current job, relationship, or path as not-yet-real, a placeholder until 'real life' begins, and — because committing to one path means giving up the others — staying unable to choose while keeping every option notionally open and fully entering none. Von Franz frames this as a shadow issue: the avoided material isn't the decision itself but the deeper fear of the limitation and loss real commitment requires.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "8-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Acceptance and Commitment Therapy (ACT)",
+        "source_author": "Steven C. Hayes, Kirk D. Strosahl, Kelly G. Wilson",
+        "source_work": "Acceptance and Commitment Therapy: The Process and Practice of Mindful Change, 2nd ed. (Guilford Press, 2012)",
+        "citation_urls": ["https://books.google.com/books/about/Acceptance_and_Commitment_Therapy.html?id=5_xAm0VF4X8C"],
+        "teaching": "Values-clarification and committed-action processes: rather than waiting for certainty about which choice is 'right,' a person identifies what they value in the relevant life domain and takes a committed step in that direction, carrying the discomfort of not-knowing alongside the action rather than resolving it first.",
+        "verified_quote": null,
+        "practice_or_technique": "Identify a value in the relevant life domain; take one committed, values-aligned action without waiting for certainty.",
+        "confidence": "extrapolated",
+        "confidence_note": "\"ACT helps with chronic indecision\" is a reasonable extrapolation from ACT's general mechanism, not a targeted clinical-trial finding for indecision specifically — no ACT trial names indecisiveness as an outcome."
+      }
+    ],
+    "synthesis_note": "The Tao Te Ching teaching questions whether forcing a decision is even the right frame; von Franz's provisional-life concept names the shadow fear (of loss/limitation) that keeps someone stuck; ACT's values-and-committed-action process gives a concrete practice for acting without first resolving all uncertainty. This is the taxonomy's cleanest single-root match (Freedom only, well-established)."
+  },
+  {
+    "category_id": 9,
+    "category_name": "Fear of failure",
+    "existential_roots": ["Freedom", "Death"],
+    "safety_notes": [
+      "The Death-root connection for this category runs through Terror Management Theory/ego-threat, not literal mortality, and a well-powered 2023 replication attempt found TMT's core mortality-salience effect near zero. Death-root material for this category should lean on impermanence/non-attachment-to-outcome themes, not death imagery."
+    ],
+    "entries": [
+      {
+        "entry_id": "9-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Hindu / Vedantic (Bhagavad Gita)",
+        "source_author": "traditional (Bhagavad Gita)",
+        "source_work": "Bhagavad Gita, chapter 2, verse 47",
+        "citation_urls": [
+          "https://www.holy-bhagavad-gita.org/chapter/2/verse/47/",
+          "https://vedabase.io/en/library/bg/2/47/"
+        ],
+        "teaching": "Nishkama karma (action without attachment to outcome): \"You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, and never be attached to not doing your duty.\" Krishna's counsel to Arjuna is about acting fully while releasing the outcome — success or failure — from one's identity or self-worth.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "9-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Robert A. Johnson",
+        "source_work": "Owning Your Own Shadow: Understanding the Dark Side of the Psyche (HarperOne, 1991)",
+        "citation_urls": ["https://www.amazon.com/Owning-Your-Own-Shadow-Understanding/dp/0062507540"],
+        "teaching": "The 'golden shadow': disowned brilliance, competence, and potential that a person buries and then unconsciously projects onto admired others. Applied to fear of failure, this reframes the fear as sometimes protecting against the risk of discovering one's own capability and having to live up to it, not only against falling short.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "9-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Carol Dweck",
+        "source_work": "Mindset: The New Psychology of Success (Random House, 2006)",
+        "citation_urls": ["https://fs.blog/carol-dweck-mindset/"],
+        "teaching": "People holding a 'fixed mindset' (abilities are static) dread failure as a verdict on their basic worth and avoid challenge as a result; people holding a 'growth mindset' (abilities develop through effort) treat failure as information that supports learning rather than as identity-threatening.",
+        "verified_quote": null,
+        "practice_or_technique": "Reframing a failure as information/data for learning rather than a verdict on one's worth.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Gita's teaching separates right action from attachment to its result, directly loosening failure's grip on identity; Johnson's golden-shadow concept adds a psychologically specific reason fear of failure can persist even when someone is clearly capable; Dweck's research gives an evidence-based, practicable reframe of failure as data rather than verdict."
+  },
+  {
+    "category_id": 10,
+    "category_name": "Substance use",
+    "existential_roots": ["Death", "Meaninglessness"],
+    "safety_notes": [
+      "HARD CEILING. Real overdose/withdrawal mortality risk exists (alcohol and benzodiazepine withdrawal can be fatal), so this category cannot be philosophy-content-only. These entries are appropriate only for a person who is not in active withdrawal or crisis. Wisdom/philosophy content here must never substitute for the crisis-resource redirect or medical care whenever overdose or withdrawal risk is present."
+    ],
+    "entries": [
+      {
+        "entry_id": "10-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Theravada precepts; Plum Village tradition)",
+        "source_author": "traditional (Five Precepts); Thich Nhat Hanh",
+        "source_work": "The Fifth Precept (pañca-sīla); the Fifth Mindfulness Training, \"Nourishment and Healing\" (Plum Village)",
+        "citation_urls": [
+          "https://accesstoinsight.org/ptf/dhamma/sila/pancasila.html",
+          "https://plumvillage.org/mindfulness/the-5-mindfulness-trainings"
+        ],
+        "teaching": "The fifth of the Buddhist Five Precepts is to abstain from intoxicants that are 'the basis of heedlessness.' Thich Nhat Hanh's modern restatement broadens this from a prohibition into a practice of mindful consumption — attending with awareness to what one takes in, in service of not using consumption to avoid or numb present-moment experience.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "10-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung",
+        "source_work": "Letter to Bill Wilson (co-founder of Alcoholics Anonymous), January 30, 1961",
+        "citation_urls": ["https://www.saltlakeaa.org/2015/01/spiritus-contra-spiritum-carl-jungs-letter-to-bill-wilson-january-30-1961/"],
+        "teaching": "Jung's formulation spiritus contra spiritum (\"spirit against spirit\"): the alcoholic's craving is, at a low level, the same spiritual thirst for wholeness that mystical or religious experience answers at a high level — addiction as a compensatory reach for something real (wholeness, meaning) via the wrong means, not simple moral failure.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "10-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology (addiction-recovery adjunct)",
+        "source_author": "Amy R. Krentzman",
+        "source_work": "\"Review of the Application of Positive Psychology to Substance Use, Addiction, and Recovery Research\" (Psychology of Addictive Behaviors, 27(1), 2013, 151-165)",
+        "citation_urls": ["https://pubmed.ncbi.nlm.nih.gov/22985057/"],
+        "teaching": "Reviews the evidence base for positive-psychology interventions — gratitude practice, identification of personal strengths, savoring, acts of kindness — as adjuncts that increase positive affect and support recovery. Explicitly a complement to treatment, not a replacement.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Fifth Precept/Mindfulness Training frame substance use as an attention/consumption practice; Jung's letter to Wilson reframes the craving as a distorted reach for real meaning or wholeness (Meaninglessness root); Krentzman's review gives a non-clinical positive-psychology complement, consistent with the Death root's mortality/hopelessness angle rather than an impermanence-appreciation angle."
+  }
+]

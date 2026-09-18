@@ -1,0 +1,258 @@
+[
+  {
+    "category_id": 1,
+    "category_name": "Loneliness / feeling isolated even around people",
+    "existential_roots": ["Isolation"],
+    "safety_notes": [
+      "Existential isolation (vs. social loneliness) is empirically linked to depression, anxiety, and worse psychotherapy outcomes when mismatched to treatment type. This content is built for the common, non-clinical experience of existential loneliness; when loneliness co-occurs with depressive or anxious symptoms severe enough to warrant care, frame this as a complement, not a substitute."
+    ],
+    "entries": [
+      {
+        "entry_id": "1-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Zen/Mahayana, Plum Village tradition; Tibetan Buddhism)",
+        "source_author": "Thich Nhat Hanh; Pema Chödrön",
+        "source_work": "Interbeing teaching (Plum Village dharma talks); \"The Six Kinds of Loneliness\" (Lion's Roar)",
+        "citation_urls": [
+          "https://plumvillage.app/thich-nhat-hanh-on-the-art-of-embracing-loneliness/",
+          "https://www.lionsroar.com/six-kinds-of-loneliness/"
+        ],
+        "teaching": "Thich Nhat Hanh taught that loneliness arises from the illusion of a separate self, using the image of a sheet of paper made of 'non-paper elements' (cloud, rain, tree, sunshine) to show no self exists in isolation from what made it. Pema Chödrön teaches a complementary 'cool loneliness': rather than overcoming loneliness, building a non-threatening relationship with the fundamental groundlessness of being human, without grasping for company or resolution.",
+        "verified_quote": "to be without a reference point is the ultimate loneliness",
+        "practice_or_technique": "Sitting with the felt separateness directly (Chödrön's 'cool loneliness') rather than resolving it through more social contact or distraction.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "1-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung",
+        "source_work": "Aion: Researches into the Phenomenology of the Self (Collected Works vol. 9ii)",
+        "citation_urls": ["https://carljungdepthpsychologysite.blog/2020/10/14/carl-jung-cw-9ii-aion/"],
+        "teaching": "Loneliness that persists despite being surrounded by people often points to a disowned or unmet part of the self split off into the shadow. A person who has built an identity around self-sufficiency commonly exiles their own neediness and vulnerability, so they can be in company and still feel unseen because the part of them that most needs to be seen has been hidden even from themselves.",
+        "verified_quote": null,
+        "practice_or_technique": "Active imagination: consciously engaging the lonely, needy part of oneself as a separate inner figure, asking what it needs and has been unable to voice, then recording the dialogue.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "1-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology / self-compassion research",
+        "source_author": "Kristin Neff",
+        "source_work": "Self-Compassion Scale (2003); \"Self-Compassion: Theory, Method, Research, and Intervention\" (Annual Review of Psychology, 2023)",
+        "citation_urls": ["https://www.annualreviews.org/content/journals/10.1146/annurev-psych-032420-031047"],
+        "teaching": "Common humanity — recognizing that suffering and imperfection are part of the shared human condition rather than a uniquely isolating personal failing — is one of self-compassion's three empirically measured components (with self-kindness and mindfulness), directly linked to reduced loneliness in Neff's research.",
+        "verified_quote": null,
+        "practice_or_technique": "Reframing one's own struggle as part of what all people go through, rather than a uniquely isolating failing — an internal reframing practice, not a prescription to seek more social contact.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Interbeing dissolves the metaphysical premise of separateness; shadow work reclaims the disowned need for contact that keeps a person unseen even in company; self-compassion's common-humanity practice directly targets the isolating belief that this struggle is uniquely one's own."
+  },
+  {
+    "category_id": 2,
+    "category_name": "Grief / loss of a person, relationship, or way of life",
+    "existential_roots": ["Death", "Freedom", "Meaninglessness"],
+    "safety_notes": [
+      "Prolonged Grief Disorder (a real DSM-5-TR/ICD-11 diagnosis, affecting roughly 5-7% of the bereaved) involves grief so persistent and disabling it exceeds a 6-12 month threshold. This content is built for the large non-clinical majority of grievers; presentations of that severity/duration should be framed toward professional support alongside, not instead of, this material."
+    ],
+    "entries": [
+      {
+        "entry_id": "2-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Theravada Buddhism",
+        "source_author": "traditional (Buddhist canon)",
+        "source_work": "The parable of Kisa Gotami and the mustard seed",
+        "citation_urls": [
+          "https://en.wikipedia.org/wiki/Kisa_Gotami",
+          "https://www.buddhistdoor.net/features/the-mustard-seed-of-grief-and-rebirth/"
+        ],
+        "teaching": "Unable to accept her child's death, Kisa Gotami seeks medicine to revive him. The Buddha says he can help if she brings a mustard seed from a household that has never known death. She finds every household has lost someone, and returns with the direct realization that death is universal, not a personal exception — then buries her son and becomes a disciple. The parable situates loss within the shared, universal fact of impermanence rather than as an isolating exception.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "2-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Marie-Louise von Franz; James Hollis",
+        "source_work": "On Dreams and Death: A Jungian Interpretation (Shambhala, 1987); Living an Examined Life",
+        "citation_urls": ["https://carljungdepthpsychologysite.blog/2022/03/18/death-review/"],
+        "teaching": "Von Franz argues the unconscious psyche has its own way of processing and preparing for death and loss (shown through dreams) that the conscious, grieving ego often resists. Hollis describes how major loss surfaces disowned material with no earlier outlet — anger, guilt, or relief that grief 'clean sadness' scripts don't make room for.",
+        "verified_quote": null,
+        "practice_or_technique": "Shadow journaling: writing in the voice of the disowned feeling (anger, guilt, relief) that grief hasn't made room for, rather than only the sanctioned sadness.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "2-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Richard Tedeschi and Lawrence Calhoun",
+        "source_work": "Posttraumatic Growth Inventory (1996); \"Posttraumatic Growth: Conceptual Foundations and Empirical Evidence\" (Psychological Inquiry, 2004)",
+        "citation_urls": ["https://www.researchgate.net/publication/247504165_Tedeschi_RG_Calhoun_LGPosttraumatic_growth_conceptual_foundations_and_empirical_evidence_Psychol_Inq_151_1-18"],
+        "teaching": "Post-traumatic growth identifies five empirically derived domains of positive change that can emerge from major loss: improved relationships, new possibilities, greater appreciation for life, personal strength, and new spiritual/existential perspective. Growth and pain coexist rather than growth replacing pain — the most growth is often reported alongside elevated distress, not its absence.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Kisa Gotami parable normalizes loss as universal (Meaninglessness/Death); shadow work makes room for the disowned feelings grief carries that don't fit a clean-sadness script; post-traumatic growth gives a research-backed frame for what can be built afterward without requiring the pain to resolve first."
+  },
+  {
+    "category_id": 3,
+    "category_name": "General anxiety / dread about the future",
+    "existential_roots": ["Freedom", "Death"],
+    "safety_notes": [
+      "GAD-level presentations (persistent, functionally impairing worry) are a well-established clinical treatment area. This material is built for the common, sub-clinical experience of future-dread, with referral framing appropriate when worry becomes functionally disabling."
+    ],
+    "entries": [
+      {
+        "entry_id": "3-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Zen Buddhism and Taoism",
+        "source_author": "Alan Watts",
+        "source_work": "The Wisdom of Insecurity: A Message for an Age of Anxiety (1951)",
+        "citation_urls": ["https://archive.org/details/WattsWisdomInsecurity"],
+        "teaching": "Watts argues, drawing explicitly on Zen and Taoist sources, that anxious grasping for future security is itself the engine of anxiety: because the future can never actually be experienced, organizing peace of mind around control of it chases something that structurally cannot be caught. True security is found paradoxically by accepting impermanence and insecurity as the basic condition of existence.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "3-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung; Robert A. Johnson",
+        "source_work": "Owning Your Own Shadow: Understanding the Dark Side of the Psyche (HarperOne, 1991)",
+        "citation_urls": ["https://www.goodreads.com/book/show/9544.Owning_Your_Own_Shadow"],
+        "teaching": "Chronic dread about the future often masks a disowned need for control that feels shameful or 'too much' to consciously acknowledge wanting. A person whose identity is built around being easygoing may push the scale of their fear into the shadow, where it surfaces indirectly as free-floating dread rather than a nameable, ownable fear.",
+        "verified_quote": null,
+        "practice_or_technique": "Personifying the dread as a character and holding an imagined dialogue with it — asking what it is protecting against and what it needs to feel less urgent.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "3-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "C. R. Snyder",
+        "source_work": "Hope Theory; Adult Hope Scale (University of Kansas)",
+        "citation_urls": ["https://ppc.sas.upenn.edu/resources/questionnaires-researchers/adult-hope-scale"],
+        "teaching": "Hope Theory defines hope as a measurable, trainable cognitive pattern with two components: agency thinking ('I can do this') and pathways thinking (the belief that multiple routes to a goal exist, so a blocked path doesn't mean a blocked future). Meta-analytic research finds both are independently associated with lower anxiety and depression.",
+        "verified_quote": null,
+        "practice_or_technique": "Building the belief that multiple future paths remain open and actionable, rather than symptom-reducing the anxiety response itself.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Watts and Taoist teaching dismantle the premise that gripping the future tighter produces safety; shadow work names the disowned scale of the need for control that dread is protecting; Hope Theory offers a concrete, buildable alternative — believing multiple paths remain open."
+  },
+  {
+    "category_id": 4,
+    "category_name": "Anger",
+    "existential_roots": ["Freedom"],
+    "safety_notes": [
+      "Intermittent Explosive Disorder is a real, standalone diagnosis (ICD-11 code 6C73) with high comorbidity (93% mood disorders, 48% substance-use disorders in the foundational case series), and under 15% of people with serious anger problems ever seek professional help. This content is for the common, sub-clinical experience of anger; recurrent, severe, or violent-outburst presentations should be flagged toward professional care."
+    ],
+    "entries": [
+      {
+        "entry_id": "4-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Plum Village tradition)",
+        "source_author": "Thich Nhat Hanh",
+        "source_work": "Anger: Wisdom for Cooling the Flames (Riverhead, 2001)",
+        "citation_urls": ["https://plumvillage.shop/products/thich-nhat-hanh-books/anger-wisdom-for-cooling-the-flames/"],
+        "teaching": "A 'middle path' on anger that neither condemns nor endorses venting it: to be angry is itself a form of suffering, and the practitioner's task is to tend to that suffering with mindfulness rather than suppress or discharge it onto others, since venting 'feeds the fire' rather than addressing its roots. Anger is workable through deep looking at its roots — often unmet needs or suffering that hasn't been heard.",
+        "verified_quote": null,
+        "practice_or_technique": "Mindful breathing to interrupt the anger cycle in the moment; \"Beginning Anew,\" a structured practice for communicating hurt and anger to another person without attacking them.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "4-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung",
+        "source_work": "Jungian shadow theory, as summarized in secondary literature on anger and projection",
+        "citation_urls": ["https://www.angermanage.co.uk/understanding-carl-jungs-concept-of-the-shadow/"],
+        "teaching": "Anger and rage are among the emotions most commonly pushed into the shadow, particularly for people raised to believe anger is unacceptable to express. Suppressed anger doesn't disappear; it surfaces either as projection (perceiving hostility in others that actually originates in one's own unacknowledged anger) or as disproportionate outbursts disconnected from their real trigger — often connected to disowned power or agency the person hasn't felt permitted to claim directly.",
+        "verified_quote": null,
+        "practice_or_technique": "Active imagination applied to anger: visualizing and addressing it as an inner figure, asking what it is protecting and what need has gone unmet.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "4-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology / self-compassion research",
+        "source_author": "Kristin Neff",
+        "source_work": "\"Fierce self-compassion\" (Neff's public teaching and writing, following her core self-compassion research program)",
+        "citation_urls": ["https://www.mountsinai.org/about/newsroom/podcasts/road-resilience/archive/self-compassion"],
+        "teaching": "Rather than treating self-compassion as purely soothing, fierce self-compassion frames anger itself as information the self-compassionate response should include, not override. Neff's research links shaming oneself for feeling angry to worse emotional and psychological outcomes than a self-kind, non-judgmental stance.",
+        "verified_quote": null,
+        "practice_or_technique": "Making room for anger with non-judgmental awareness rather than either shame or unchecked expression.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Thich Nhat Hanh's middle path and the Jungian shadow reading (anger as exiled agency that resurfaces as projection or outburst) both point toward the same practical move Neff's fierce-self-compassion research makes concrete: relating to one's own anger with non-judgmental awareness rather than shame or unchecked expression."
+  },
+  {
+    "category_id": 5,
+    "category_name": "Ongoing conflict with someone",
+    "existential_roots": ["Freedom", "Isolation"],
+    "safety_notes": [
+      "This category excludes intimate partner violence at the taxonomy level (a hard, out-of-scope crisis-redirect). This content — particularly the lojong 'stay with the relationship' framing — must never be applied where the 'ongoing conflict' is actually abuse; that distinction sits upstream, in the taxonomy's routing logic."
+    ],
+    "entries": [
+      {
+        "entry_id": "5-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Tibetan Buddhism (lojong / mind-training tradition)",
+        "source_author": "Pema Chödrön",
+        "source_work": "Start Where You Are: A Guide to Compassionate Living (Shambhala, 1994)",
+        "citation_urls": ["https://www.shambhala.com/start-where-you-are-2006.html"],
+        "teaching": "The lojong tradition's slogans include the instruction to 'always meditate on whatever provokes resentment,' treating the person one is in conflict with as direct material for practice. This is framed not as passive tolerance of mistreatment but as a discipline of staying present with one's own reactivity toward a specific, named difficult relationship.",
+        "verified_quote": null,
+        "practice_or_technique": "Tonglen practice paired with the conflict: breathing in the difficulty of the conflict, breathing out spaciousness or goodwill, as a daily technique for a relationship in active conflict.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "5-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung; Connie Zweig & Steve Wolf",
+        "source_work": "Aion: Researches into the Phenomenology of the Self (CW 9ii, paragraphs 14 and 17); Romancing the Shadow: Illuminating the Dark Side of the Soul (Ballantine, 1997)",
+        "citation_urls": ["https://carljungdepthpsychologysite.blog/2020/10/14/carl-jung-cw-9ii-aion/"],
+        "teaching": "Jung writes that the shadow is 'a moral problem that challenges the whole ego-personality, for no one can become conscious of the shadow without considerable moral effort,' and that 'projections change the world into the replica of one's own unknown face' (CW 9ii, paragraphs 14 and 17) — what most provokes someone in ongoing conflict is frequently a disowned quality of their own, projected outward. Zweig and Wolf build a practical method from this, describing 'projective identification' and how to notice the early signs a projection has been triggered before responding.",
+        "verified_quote": "projections change the world into the replica of one's own unknown face",
+        "practice_or_technique": "Noticing the bodily/cognitive signs a projection has been triggered (a rush of disproportionate reaction, a repetitive accusatory thought about the other person) and consciously 'meeting' rather than acting on it — asking what disowned quality of one's own may be activated.",
+        "confidence": "sourced",
+        "confidence_note": "The widely circulated phrase 'everything that irritates us about others can lead us to an understanding of ourselves,' often attributed to Jung online, could not be verified against a primary source (flagged unsourced on Wikiquote) and was deliberately not used — the CW 9ii passages above are the directly verifiable version of this idea."
+      },
+      {
+        "entry_id": "5-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Relationship psychology (peer-reviewed, distinct from clinical couples therapy)",
+        "source_author": "C. Raymond Knee",
+        "source_work": "\"Implicit theories of relationships: Assessment and prediction of romantic relationship initiation, coping, and longevity\" (Journal of Personality and Social Psychology, 1998)",
+        "citation_urls": ["https://www.researchgate.net/profile/C-Knee/publication/232518767_Implicit_Theories_of_Relationships_Assessment_and_Prediction_of_Romantic_Relationship_Initiation_Coping_and_Longevity/links/02e7e5307b3fa4d9a3000000/Implicit-Theories-of-Relationships-Assessment-and-Prediction-of-Romantic-Relationship-Initiation-Coping-and-Longevity.pdf"],
+        "teaching": "Knee's research identifies two contrasting beliefs about relationships: destiny beliefs (partners are either fundamentally compatible or not) and growth beliefs (relationships are cultivated through effort). Destiny beliefs are associated with disengaging/avoidant coping during conflict; growth beliefs predict more constructive conflict-resolution behavior and staying engaged through difficulty rather than treating conflict as evidence the relationship was wrong from the start.",
+        "verified_quote": null,
+        "practice_or_technique": "Examining whether one is treating ongoing friction as evidence of incompatibility (destiny thinking) versus workable material (growth thinking).",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Chödrön's lojong practice turns the conflicted relationship itself into practice material; Jung's projection mechanism names how much of the charge in ongoing conflict may be self-originating; Knee's growth-vs-destiny research gives a concrete, evidence-based belief-shift that predicts more constructive engagement with recurring friction. Note: this category's Freedom-root mapping is the one genuine unresolved evidentiary gap in the taxonomy (inherited reasoning from Anger, not independently sourced) — that gap is about the taxonomy's root-mapping confidence, not about these wisdom sources, which stand on their own citations."
+  }
+]

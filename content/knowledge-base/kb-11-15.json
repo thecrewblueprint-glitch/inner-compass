@@ -1,0 +1,252 @@
+[
+  {
+    "category_id": 11,
+    "category_name": "Compulsive / behavioral coping",
+    "existential_roots": ["Death", "Meaninglessness"],
+    "safety_notes": [
+      "Hard ceiling: severe presentations carry real comorbidity (82.2%) and elevated suicide risk (gambling disorder specifically). Philosophy/shadow-work content should be offered as an affect-regulation/meaning companion for non-crisis presentations, with explicit crisis-resource redirection built in, not a substitute for care in severe cases."
+    ],
+    "entries": [
+      {
+        "entry_id": "11-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Buddhism (Theravada; Plum Village tradition)",
+        "source_author": "traditional (Second Noble Truth); Thich Nhat Hanh",
+        "source_work": "Taṇhā (craving), the Second Noble Truth; \"habit energy\" (tập khí) in The Heart of the Buddha's Teaching",
+        "citation_urls": ["https://www.accesstoinsight.org/ptf/dhamma/sacca/sacca2/tanha.html"],
+        "teaching": "The Second Noble Truth locates the origin of suffering in taṇhā — an insatiable thirst for sense pleasure, becoming, or escape — precisely the mechanism compulsive behaviors run on: relief-seeking that intensifies the craving it tries to satisfy. Thich Nhat Hanh's 'habit energy' teaching treats compulsive patterns not as moral failures to be willed away but as energies formed through repetition, to be met with mindful recognition ('hello, my habit energy') rather than indulgence or suppression.",
+        "verified_quote": null,
+        "practice_or_technique": "Mindfully greeting the habit energy when it arises (\"hello, my habit energy\") rather than indulging or suppressing it.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "11-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Carl Jung",
+        "source_work": "Letter to Bill Wilson, January 1961; Aion (1951, CW vol. 9ii, paragraph 14)",
+        "citation_urls": ["https://www.saltlakeaa.org/2015/01/spiritus-contra-spiritum-carl-jungs-letter-to-bill-wilson-january-30-1961/"],
+        "teaching": "Jung told Wilson a patient's 'craving for alcohol was the equivalent, on a low level, of the spiritual thirst of our being for wholeness... the union with God' — spiritus contra spiritum. Jung's formal shadow definition ('a moral problem that challenges the whole ego-personality, for no one can become conscious of the shadow without considerable moral effort') frames compulsive coping as a way of avoiding that effort rather than doing it.",
+        "verified_quote": "craving for alcohol was the equivalent, on a low level, of the spiritual thirst of our being for wholeness... the union with God",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "11-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology / self-compassion research",
+        "source_author": "Kristin Neff",
+        "source_work": "Self-Compassion: Theory, Method, Research, and Intervention (Annual Review of Psychology, 2023); Mindful Self-Compassion",
+        "citation_urls": ["https://self-compassion.org/wp-content/uploads/2023/01/Neff-2023.pdf"],
+        "teaching": "Shame's shift from 'I did something wrong' to 'I am something wrong' feeds hopelessness and is one of the biggest documented relapse triggers in addiction-recovery literature; self-compassion is empirically linked to lower shame. A self-directed, non-clinical framework distinct from CBT/relapse-prevention treatment.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Buddhist teaching names the mechanism (craving as self-perpetuating thirst); the Jungian material reframes that thirst as a distorted search for wholeness that shadow work, not more craving-satisfaction, actually answers; self-compassion practice offers a concrete, non-shaming daily practice for interrupting the shame-relapse cycle."
+  },
+  {
+    "category_id": 12,
+    "category_name": "Betrayal / broken trust",
+    "existential_roots": ["Isolation"],
+    "safety_notes": [
+      "The secondary Meaninglessness-root hook for this category remains an unconfirmed inference (not disproven, but not newly supported). Content stays anchored to the well-established Isolation root and should not overclaim a meaninglessness angle as settled."
+    ],
+    "entries": [
+      {
+        "entry_id": "12-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Tibetan Buddhism",
+        "source_author": "Pema Chödrön",
+        "source_work": "When Things Fall Apart (Shambhala, 1996)",
+        "citation_urls": ["https://www.themarginalian.org/2017/07/17/when-things-fall-apart-pema-chodron/"],
+        "teaching": "Groundlessness: the impulse to flee groundlessness (grasping for a new certainty, a story, or revenge) perpetuates suffering, while 'leaning in' — moving toward the raw, ungrounded feeling with friendliness and curiosity rather than running from it — is the path through betrayal's disorientation. This teaching is explicitly rooted in Chödrön's own experience of her husband's infidelity.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "12-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Robert A. Johnson; Connie Zweig & Steve Wolf",
+        "source_work": "Owning Your Own Shadow; Romancing the Shadow: Illuminating the Dark Side of the Soul (Ballantine, 1997)",
+        "citation_urls": ["https://www.spiritualityandpractice.com/book-reviews/view/1393/romancing-the-shadow"],
+        "teaching": "The 'golden shadow': in trusting someone, we project our own disowned brilliance and wholeness onto them, who then carries an impossible charge; when they act in a merely human, fallible, or betraying way, the projection collapses, and the pain is partly the shock of that collapse. Zweig and Wolf extend this: unintegrated shadow material is what 'causes us to betray our loved ones as well as ourselves,' and betrayal from another activates the wounded, distrustful parts of one's own shadow that projection had been keeping at bay.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "12-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Richard Tedeschi and Lawrence Calhoun",
+        "source_work": "Post-traumatic growth (PTG) research, applied specifically to relational betrayal/infidelity",
+        "citation_urls": ["https://encyclopedia.pub/entry/50412"],
+        "teaching": "PTG following relational betrayal shows up across the model's five domains — appreciation of life, relationships with others, new possibilities, personal strength, spiritual change — with growth often mediated by meaning-making, not by minimizing what happened.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Chödrön's groundlessness names what betrayal actually feels like from the inside and offers a stance toward it that doesn't require immediate resolution; the shadow-work literature explains why betrayal cuts so deep (a collapsed golden-shadow projection, and one's own disowned material getting activated); PTG research shows real, researched growth is possible without requiring premature forgiveness."
+  },
+  {
+    "category_id": 13,
+    "category_name": "General life meaninglessness",
+    "existential_roots": ["Meaninglessness"],
+    "safety_notes": [
+      "This category's distinctness from depression is now better evidenced. Content should stay in this lane (existential/meaning-focused) and not substitute for depression screening when low mood is also present."
+    ],
+    "entries": [
+      {
+        "entry_id": "13-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Hindu / Vedantic (Bhagavad Gita)",
+        "source_author": "traditional (Bhagavad Gita)",
+        "source_work": "Bhagavad Gita, chapter 2, verse 47 (karma yoga)",
+        "citation_urls": ["https://vedabase.io/en/library/bg/2/47/"],
+        "teaching": "\"You have a right to your actions, but never to the fruits of those actions\" — relocates meaning away from outcomes (never fully in one's control, and can always feel arbitrary or pointless) and into the quality of engaged action itself.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "13-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "James Hollis; Carl Jung",
+        "source_work": "Finding Meaning in the Second Half of Life; Modern Man in Search of a Soul (1933, ch. 11, \"Psychotherapists or the Clergy,\" p. 229)",
+        "citation_urls": ["https://www.spiritualityandpractice.com/book-reviews/view/21109/finding-meaning-in-the-second-half-of-life"],
+        "teaching": "Hollis argues the felt meaninglessness many people encounter at midlife is a structural transition, not a malfunction: the first half of life is organized around acquisition and adapting to others' expectations, and its scripts stop producing meaning once outgrown. Jung's own clinical observation: \"Among all my patients in the second half of life... there has not been one whose problem in the last resort was not that of finding a religious outlook on life... every one of them fell ill because he had lost what the living religions of every age have given their followers.\"",
+        "verified_quote": "Among all my patients in the second half of life... there has not been one whose problem in the last resort was not that of finding a religious outlook on life... every one of them fell ill because he had lost what the living religions of every age have given their followers.",
+        "practice_or_technique": "Individuation — consciously engaging one's own shadow material rather than continuing to perform an outgrown persona.",
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "13-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Positive psychology",
+        "source_author": "Martin Seligman",
+        "source_work": "PERMA model, Flourish (2011)",
+        "citation_urls": ["https://ppc.sas.upenn.edu/learn-more/perma-theory-well-being-and-perma-workshops"],
+        "teaching": "Meaning — 'belonging to and serving something larger than the self' — is one of five independently-measured, empirically-supported pillars of flourishing (alongside Positive emotion, Engagement, Relationships, Accomplishment), a self-assessable framework distinct from clinical Presence-of-Meaning measures.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Gita relocates meaning from outcome to action; Hollis/Jung explain why an old source of meaning stops working and frame felt emptiness as an invitation to individuate rather than a symptom to eliminate; PERMA gives a practical, multi-pillar way to actively build meaning back into daily life."
+  },
+  {
+    "category_id": 14,
+    "category_name": "Career / vocational purpose",
+    "existential_roots": ["Meaninglessness"],
+    "safety_notes": [
+      "Well-established as distinct from category 13, and sits in non-clinical, career-counseling territory — safe ground for content, though it can co-occur with clinical presentations (e.g., categories 10/11) without itself being one."
+    ],
+    "entries": [
+      {
+        "entry_id": "14-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Hindu / Vedantic (Bhagavad Gita)",
+        "source_author": "traditional (Bhagavad Gita)",
+        "source_work": "Bhagavad Gita, chapter 3, verse 35 (svadharma)",
+        "citation_urls": ["https://vedabase.io/en/library/bg/3/35/"],
+        "teaching": "\"It is far better to perform one's own duties imperfectly than to master the duties of another\" — svadharma frames vocational fit as alignment with one's own nature rather than competitive comparison against others' paths; even an imperfectly-executed authentic vocation is more sound than a well-executed borrowed one.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "14-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "James Hollis",
+        "source_work": "Finding Meaning in the Second Half of Life",
+        "citation_urls": ["https://www.spiritualityandpractice.com/book-reviews/view/21109/finding-meaning-in-the-second-half-of-life"],
+        "teaching": "A distinction between career (socially defined, adaptive, first-half-of-life) and vocation (the soul's own calling, requiring confronting the shadow material — fear, others' expectations, an outgrown persona — that a purely career-driven life was built to avoid): 'the soul carries a purpose distinct from career; aligning work with that calling transforms it into vocation.'",
+        "verified_quote": "the soul carries a purpose distinct from career; aligning work with that calling transforms it into vocation",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "14-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Vocational psychology",
+        "source_author": "Mark Savickas",
+        "source_work": "Career Construction Theory; Life Design counseling",
+        "citation_urls": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC11026660/"],
+        "teaching": "The dominant current paradigm in vocational psychology: vocational identity as three layers — vocational personality ('what'), career adaptability ('how'), and life theme ('why') — using self-directed narrative/autobiographical exercises to help a person construct, rather than simply discover, a sense of vocational purpose.",
+        "verified_quote": null,
+        "practice_or_technique": "Narrative/life-theme exercises constructing one's own account of vocational purpose.",
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "The Gita's svadharma teaching gives a philosophical reason to stop comparing one's path to others'; Hollis's career/vocation distinction explains what's missing when a career 'works' on paper but feels hollow; Savickas's Life Design gives a concrete, self-directed method for actually constructing that missing vocational layer."
+  },
+  {
+    "category_id": 15,
+    "category_name": "Overwhelm / too much to control",
+    "existential_roots": ["Freedom"],
+    "safety_notes": [
+      "ICD-11 classifies burnout strictly as an occupational phenomenon and explicitly says the term 'should not be applied to describe experiences in other areas of life'; the evidence base for this category is workplace/burnout-specific. The non-workplace, 'too much to control' framing (wu wei/ACT content) is reasonably extrapolated, not directly clinically validated for non-occupational presentations."
+    ],
+    "entries": [
+      {
+        "entry_id": "15-A",
+        "pillar": "eastern_philosophy",
+        "tradition_or_school": "Taoism",
+        "source_author": "Laozi (attributed); Edward Slingerland (scholarly treatment)",
+        "source_work": "Tao Te Ching, chapter 43; Trying Not to Try (Crown, 2015)",
+        "citation_urls": ["https://www.egreenway.com/taoism/ttclz43.htm"],
+        "teaching": "Wu wei (non-forcing/non-striving action): \"the softest thing in the world overcomes the hardest thing in the world... thus I know the value of non-action.\" Water, the text's recurring image, prevails not through effort but through yielding and working with what already is. Slingerland (University of British Columbia sinologist) connects classical wu wei to the contemporary psychology of effortless action and spontaneity.",
+        "verified_quote": "the softest thing in the world overcomes the hardest thing in the world... thus I know the value of non-action",
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      },
+      {
+        "entry_id": "15-B",
+        "pillar": "shadow_work",
+        "tradition_or_school": "Jungian depth psychology",
+        "source_author": "Marion Woodman",
+        "source_work": "Addiction to Perfection: The Still Unravished Bride (1982)",
+        "citation_urls": ["https://www.seba.health/library/recovery/woodman-addiction-to-perfection/"],
+        "teaching": "Woodman (a Jungian analyst trained at the C.G. Jung Institute Zürich) argues compulsive perfectionism and the drive to control everything is itself 'the master addiction from which all others derive' — an over-functioning persona built to manage an underlying, disowned sense of not being enough. Chronic overwhelm/over-control can be shadow material (compensatory over-functioning) rather than only a practical bandwidth problem.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "extrapolated",
+        "confidence_note": "Reading overwhelm through this lens applies Woodman's general perfectionism/control thesis to the category; the direct citation is to perfectionism specifically, extended here to overwhelm."
+      },
+      {
+        "entry_id": "15-C",
+        "pillar": "psychology_methodology",
+        "tradition_or_school": "Acceptance and Commitment Therapy (ACT)",
+        "source_author": "Steven C. Hayes",
+        "source_work": "ACT's values clarification and committed action processes (Hexaflex model)",
+        "citation_urls": ["https://positivepsychology.com/act-acceptance-and-commitment-therapy/"],
+        "teaching": "Accepting what genuinely cannot be controlled while identifying values and taking small, values-aligned committed actions within what remains controllable. Deliberately distinct from the workplace-burnout-specific CBT treatment already documented as the clinical standard for this category.",
+        "verified_quote": null,
+        "practice_or_technique": null,
+        "confidence": "sourced",
+        "confidence_note": null
+      }
+    ],
+    "synthesis_note": "Wu wei reframes control itself as often counterproductive; Woodman's shadow-work lens asks whether the compulsion to control everything is compensating for a deeper disowned fear; ACT's values/committed-action work gives a concrete practice for acting effectively on what's controllable while releasing what isn't."
+  }
+]
