@@ -3,23 +3,26 @@
 **Implementation branch:** `ai-studio/react-native-mvp`  
 **Clean baseline:** `f41b77f08d40ed2a336e39b5a4776f3e758d8b78`  
 **Rejected build preserved at:** `backup/ai-studio-web-build-d0d75a9`  
-**Implementation head immediately before this report commit:** `eda87d0592b0c16d5ff8a7a0a3630be7f3dd8109`
+**Validated implementation head before this report update:** `5a5b9298fd58cf61222e3993763e73086ae7545d`  
+**Validation workflow run:** `35396592293`
 
-> This report is intentionally evidence-based. A check is marked passed only when it was actually executed or directly verified by repository readback.
+> This report is evidence-based. A check is marked passed only when it was actually executed or directly verified by repository readback.
 
 ## 1. Architecture implemented
 
-The work branch now contains a genuine Expo / React Native mobile architecture rather than the rejected Vite/React-DOM web application.
+The work branch contains a genuine Expo / React Native mobile architecture rather than the rejected Vite/React-DOM web application.
 
 Client:
 
 - Expo SDK 57 stable line
 - React Native 0.86.3
+- React 19.2.3
 - Expo Router
 - native React Native primitives
 - Expo development-build workflow
 - Firebase Anonymous Authentication
 - Firebase App Check
+- limited-use App Check tokens for callable replay protection
 - callable Firebase Functions client
 - in-memory active-request state only
 - Home → Clarification → Guidance → Support flow
@@ -54,7 +57,7 @@ Data:
 
 Current-release research performed September 18, 2026 found Expo SDK 57 remains the stable release line while SDK 58 is beta.
 
-The implementation therefore stays on the packet's stable SDK 57 / React Native 0.86.3 baseline rather than silently moving to beta/RC software.
+The implementation stays on the packet's stable SDK 57 / React Native 0.86.3 baseline rather than silently moving to beta/RC software.
 
 Configured principal versions:
 
@@ -63,12 +66,17 @@ Configured principal versions:
 - `react 19.2.3`
 - `expo-router ~57.0.22`
 - `expo-dev-client ~57.0.19`
+- `typescript ~6.0.3`
+- `@types/react ~19.2.4`
 - `@react-native-firebase/app 26.4.0`
 - `@react-native-firebase/auth 26.4.0`
 - `@react-native-firebase/app-check 26.4.0`
 - `@react-native-firebase/functions 26.4.0`
 - Functions `firebase-functions 7.4.0`
 - Functions `firebase-admin 14.4.0`
+- emulator test `@firebase/rules-unit-testing 5.0.2`
+- emulator test `firebase 12.19.0`
+- Firebase CLI `15.30.2`
 
 ## 3. Canonical KB readback
 
@@ -84,11 +92,11 @@ Direct GitHub readback on the implementation branch verified:
 
 The branch diff against `main` contains no changes under `content/knowledge-base/`.
 
-**Status: VERIFIED by repository readback.**
+**Status: VERIFIED by repository readback and CI validator.**
 
 ## 4. Privacy and security state
 
-Implemented:
+Implemented and/or exercised:
 
 - OpenRouter API key is backend-only.
 - `openrouter/auto` is explicitly rejected.
@@ -100,8 +108,16 @@ Implemented:
 - client Firestore rules are deny-all;
 - quota state is server-owned and keyed from a SHA-256 hash of anonymous UID plus hourly bucket;
 - App Check enforcement is enabled on the callable function;
+- callable client requests limited-use App Check tokens to match replay-protection consumption;
 - anonymous authentication is required;
 - model-supplied author/work/citation/confidence metadata is not trusted or accepted.
+
+Firestore Emulator testing proved:
+
+- unauthenticated client reads/writes are denied;
+- authenticated client reads/writes are denied;
+- Admin SDK can write server-owned operational state;
+- pseudonymous hourly quota enforcement rejects requests after the configured limit.
 
 ## 5. Grounding contract
 
@@ -138,50 +154,44 @@ The deterministic router requires clarification when:
 - the top confidence is below threshold;
 - the top two candidates are too close.
 
+A clarification selection does not bypass safety/support signals; classification is re-run and safety gates remain authoritative.
+
 No unmatched request silently defaults to Category 1.
 
-A frozen ordinary-category benchmark now contains 125 synthetic cases (five/category) with a target of at least 96% top-choice accuracy.
+A frozen ordinary-category benchmark contains 125 synthetic cases (five/category) with a target of at least 96% top-choice accuracy.
 
 **Benchmark status: NOT RUN.** It requires an approved `OPENROUTER_API_KEY` and `OPENROUTER_MODEL_ID`.
 
-## 7. Tests/checks authored
+## 7. Executed CI verification
 
-Repository contains tests for:
+GitHub Actions workflow `.github/workflows/inner-compass-ci.yml` executed successfully on validation run `35396592293`.
 
-- KB 25/75 integrity;
-- route precedence;
-- ambiguity behavior;
-- ordinary safety preflight;
-- relationship-safety boundary;
-- canonical grounding fallback;
-- rejection of invented teaching;
-- rejection of altered quote;
-- rejection of invented practice;
-- rejection of `openrouter/auto`;
-- OpenRouter provider/privacy request fields.
+Passed gates:
 
-GitHub Actions workflow `.github/workflows/inner-compass-ci.yml` is configured to run on PRs to `main`:
+1. mobile dependency installation;
+2. Functions dependency installation;
+3. canonical KB validation — **25 categories / 75 entries**;
+4. mobile TypeScript compile — **PASS**;
+5. Firebase Functions TypeScript build — **PASS**;
+6. Functions unit tests — **13 passed / 0 failed**;
+7. Firestore Emulator security/quota tests — **4 passed / 0 failed**;
+8. Expo Doctor — **21/21 checks passed**.
 
-1. install mobile dependencies;
-2. install Functions dependencies;
-3. validate canonical KB;
-4. type-check mobile client;
-5. build Firebase Functions;
-6. run Functions unit tests;
-7. run Expo Doctor.
+The unit suite covers KB integrity, route precedence, ambiguity behavior, safety boundary behavior, canonical grounding, rejection of altered/invented grounded material, explicit-model enforcement, and OpenRouter privacy/provider request fields.
 
-**Execution status at report creation:** pending PR-triggered CI. No result is claimed yet.
+The emulator suite covers client-rule denial, server-owned operational writes, and quota enforcement.
 
 ## 8. Native build verification
 
 The project is configured for Expo development/native builds.
 
-**Android native development build:** NOT RUN in the connected GitHub environment.  
-**iOS native development build:** NOT RUN; requires macOS/signing environment.  
-**Firebase emulator integration:** NOT RUN yet.  
-**E2E/Maestro:** NOT RUN yet.
+**Android native development build:** NOT RUN; production Firebase app registration/native config is not available in this environment.  
+**iOS native development build:** NOT RUN; requires the owner Apple/macOS/signing environment.  
+**Firebase Firestore emulator/security integration:** PASS.  
+**Live callable/OpenRouter integration:** NOT RUN; requires owner-approved Firebase/OpenRouter configuration.  
+**E2E/Maestro:** NOT RUN; depends on a runnable configured development build.
 
-These remain verification gates rather than being represented as completed work.
+These remain explicit verification gates rather than being represented as completed work.
 
 ## 9. Major corrections from rejected AI Studio build
 
@@ -225,19 +235,23 @@ No production identifiers or credentials were invented.
 
 ## 11. Current HOLD gates
 
-The code is ready for repository/CI review, but production readiness remains on HOLD until:
+Repository-level implementation/CI verification is green.
 
-- PR CI executes successfully;
-- classifier benchmark meets target using an approved model;
-- Firebase emulator/security integration is exercised;
-- Android development build runs;
+Production readiness remains on HOLD until:
+
+- classifier benchmark meets the frozen target using an approved model;
+- live callable/OpenRouter integration is exercised;
+- Android development build runs with the owner Firebase Android app configuration;
 - iOS build is exercised when owner signing environment is available;
+- mobile E2E flows are exercised on a configured development build;
 - required production credentials/configuration are supplied.
 
 ## 12. Merge state
 
-This work is intended for a draft pull request:
+Draft PR:
 
 `ai-studio/react-native-mvp` → `main`
+
+PR #1 remains intentionally **draft**.
 
 Automatic merge is not authorized.
