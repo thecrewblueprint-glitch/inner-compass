@@ -14,7 +14,6 @@ export default ({ config }: ConfigContext): ExpoConfig => {
     orientation: "portrait",
     scheme: "innercompass",
     userInterfaceStyle: "automatic",
-    newArchEnabled: true,
     ios: {
       supportsTablet: true,
       ...(iosBundleIdentifier ? { bundleIdentifier: iosBundleIdentifier } : {}),
