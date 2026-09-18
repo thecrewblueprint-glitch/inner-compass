@@ -23,7 +23,9 @@ export async function generateGuidance(
   const callable = httpsCallable<
     GenerateGuidanceRequest,
     GenerateGuidanceResponse
-  >(functions, "generateGuidance");
+  >(functions, "generateGuidance", {
+    limitedUseAppCheckTokens: true
+  });
 
   const result = await callable({
     text,
