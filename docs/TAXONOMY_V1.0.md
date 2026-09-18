@@ -2,6 +2,8 @@
 
 **Status.** Refined from [`TAXONOMY_V0.1.md`](TAXONOMY_V0.1.md) after a scoped case-study research pass against real clinical/psychological literature — see [`docs/research/`](research/) for the full per-category writeups and sources (categories-01-05.md, categories-06-10.md, categories-11-15.md, categories-16-20.md). Every structural change below (split, merge, rename, root-mapping change) traces to a specific citable source in those files; nothing here was invented. This is the "refine taxonomy" step in the roadmap (v0.1 → v1.0), done ahead of mapping Eastern philosophy onto categories.
 
+**A second, deeper research pass** further hardened this taxonomy's clinical grounding — see [`docs/CLINICAL_KB_V1.0.md`](CLINICAL_KB_V1.0.md) for the synthesis (currency-checked against 2024–2026 literature, gap-fill on inferred claims, real-world practice and case grounding, and safety-relevant findings for the crisis-redirect design). No structural changes to this document resulted, but several root-mapping confidence levels changed and a few gaps remain honestly unresolved — check that document before treating any root mapping below as more certain than it is.
+
 ## What changed from v0.1
 
 - **20 surface categories → 25.** Five v0.1 categories split into two each, because the research literature treats them as genuinely distinct constructs with different mechanisms (and, in a working app, different retrieval targets):

@@ -12,6 +12,8 @@ Scoped research pass validating/refining each v0.1 category against real clinica
 
 Folded the case-study research back into the taxonomy: 5 categories split, 2 renamed, 1 root mapping broadened, 12 kept as-is. 20 categories → 25. See [`docs/TAXONOMY_V1.0.md`](docs/TAXONOMY_V1.0.md).
 
+**Deepened (done):** a second research pass hardened the clinical grounding behind all 25 categories — currency-checked against 2024–2026 literature, resolved as many "reasonable inference" flags as the evidence allows, added real-world clinical-practice and case grounding, and surfaced safety-relevant findings for the eventual crisis-redirect design. No taxonomy structure changes resulted; several root-mapping confidence levels were upgraded, a handful of gaps remain honestly flagged as unresolved. See [`docs/CLINICAL_KB_V1.0.md`](docs/CLINICAL_KB_V1.0.md) (index) and [`docs/research/kb-*.md`](docs/research/) (full detail).
+
 ## Phase 4 — Map Eastern philosophy per category
 
 For each of the 25 v1.0 categories, map real, sourced Eastern philosophical/metaphysical teachings (source-verified, not LLM-generated) onto the existential root(s) it touches.
