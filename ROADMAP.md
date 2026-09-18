@@ -4,17 +4,17 @@
 
 Draft problem taxonomy built from existing evidence-based frameworks (Yalom's four existential roots + Crisis Text Line / clinical intake / Plutchik presenting categories). See [`docs/TAXONOMY_V0.1.md`](docs/TAXONOMY_V0.1.md).
 
-## Phase 2 — Category case-study research
+## Phase 2 — Category case-study research (done)
 
-Run scoped research per category in the v0.1 taxonomy to validate or refine it against real case studies, before locking in the category structure.
+Scoped research pass validating/refining each v0.1 category against real clinical and psychological literature (Yalom, Frankl, DSM-5-TR, Gottman, Brené Brown, Freyd, Marcia/Erikson, Steger, and more). See [`docs/research/`](docs/research/) for the full sourced writeups.
 
-## Phase 3 — Refine taxonomy
+## Phase 3 — Refine taxonomy (done, v1.0)
 
-Fold the case-study research back into the taxonomy: split, merge, or rename categories as the evidence warrants. Produces v1.0.
+Folded the case-study research back into the taxonomy: 5 categories split, 2 renamed, 1 root mapping broadened, 12 kept as-is. 20 categories → 25. See [`docs/TAXONOMY_V1.0.md`](docs/TAXONOMY_V1.0.md).
 
 ## Phase 4 — Map Eastern philosophy per category
 
-For each refined category, map real, sourced Eastern philosophical/metaphysical teachings (source-verified, not LLM-generated) onto the existential root(s) it touches.
+For each of the 25 v1.0 categories, map real, sourced Eastern philosophical/metaphysical teachings (source-verified, not LLM-generated) onto the existential root(s) it touches.
 
 ## Phase 5 — Build knowledge-base content
 

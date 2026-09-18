@@ -4,7 +4,7 @@ A mobile app that helps someone break down a problem they're facing and responds
 
 ## Status
 
-Pre-MVP. The problem taxonomy is drafted (see [`docs/TAXONOMY_V0.1.md`](docs/TAXONOMY_V0.1.md)). Next step: scoped case-study research per category to validate and refine it.
+Pre-MVP. The problem taxonomy is refined to v1.0 (see [`docs/TAXONOMY_V1.0.md`](docs/TAXONOMY_V1.0.md)), validated against real clinical/psychological literature (see [`docs/research/`](docs/research/)). Next step: map Eastern philosophical teachings onto each category.
 
 See [`ROADMAP.md`](ROADMAP.md) for the full build plan.
 
