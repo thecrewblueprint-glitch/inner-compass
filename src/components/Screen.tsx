@@ -5,6 +5,7 @@ import {
   View,
   type ViewStyle
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "@/src/design/theme";
 
 type Props = PropsWithChildren<{
@@ -14,21 +15,31 @@ type Props = PropsWithChildren<{
 
 export function Screen({ children, contentStyle, scroll = true }: Props) {
   if (!scroll) {
-    return <View style={[styles.base, styles.content, contentStyle]}>{children}</View>;
+    return (
+      <SafeAreaView style={styles.safeArea} edges={["bottom", "left", "right"]}>
+        <View style={[styles.content, contentStyle]}>{children}</View>
+      </SafeAreaView>
+    );
   }
 
   return (
-    <ScrollView
-      style={styles.base}
-      contentContainerStyle={[styles.content, contentStyle]}
-      keyboardShouldPersistTaps="handled"
-    >
-      {children}
-    </ScrollView>
+    <SafeAreaView style={styles.safeArea} edges={["bottom", "left", "right"]}>
+      <ScrollView
+        style={styles.base}
+        contentContainerStyle={[styles.content, contentStyle]}
+        keyboardShouldPersistTaps="handled"
+      >
+        {children}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: theme.colors.background
+  },
   base: {
     flex: 1,
     backgroundColor: theme.colors.background
