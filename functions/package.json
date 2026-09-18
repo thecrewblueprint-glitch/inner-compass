@@ -9,6 +9,7 @@
     "build": "tsc",
     "prepare:kb": "node ../scripts/prepare-functions-kb.mjs",
     "test": "npm run prepare:kb && tsx --test test/*.test.ts",
+    "test:emulator": "tsx --test test/firestore.emulator.ts",
     "test:classifier": "npm run prepare:kb && tsx test/classifier.integration.ts"
   },
   "dependencies": {
@@ -16,7 +17,10 @@
     "firebase-functions": "7.4.0"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "5.0.2",
     "@types/node": "^22.15.0",
+    "firebase": "12.19.0",
+    "firebase-tools": "15.30.2",
     "tsx": "^4.20.0",
     "typescript": "^5.9.2"
   }
