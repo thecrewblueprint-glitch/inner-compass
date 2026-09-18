@@ -14,13 +14,13 @@ Folded the case-study research back into the taxonomy: 5 categories split, 2 ren
 
 **Deepened (done):** a second research pass hardened the clinical grounding behind all 25 categories — currency-checked against 2024–2026 literature, resolved as many "reasonable inference" flags as the evidence allows, added real-world clinical-practice and case grounding, and surfaced safety-relevant findings for the eventual crisis-redirect design. No taxonomy structure changes resulted; several root-mapping confidence levels were upgraded, a handful of gaps remain honestly flagged as unresolved. See [`docs/CLINICAL_KB_V1.0.md`](docs/CLINICAL_KB_V1.0.md) (index) and [`docs/research/kb-*.md`](docs/research/) (full detail).
 
-## Phase 4 — Map Eastern philosophy per category
+## Phase 4 — Map wisdom content per category (done, expanded scope)
 
-For each of the 25 v1.0 categories, map real, sourced Eastern philosophical/metaphysical teachings (source-verified, not LLM-generated) onto the existential root(s) it touches.
+Originally scoped as "map Eastern philosophy per category." Expanded per direction to three sourced pillars: **Eastern philosophy/metaphysical teaching, Jungian/post-Jungian shadow work, and evidence-based non-clinical psychology methodology for building a better life** — each mapped onto the existential root(s) the category touches, complementing (not duplicating) `CLINICAL_KB_V1.0.md`'s clinical grounding. Every claim is source-verified, never LLM-generated; several unverifiable popular quotes (mostly misattributed to Jung) were caught and declined in favor of verified passages. See [`docs/WISDOM_MAPPING_V1.0.md`](docs/WISDOM_MAPPING_V1.0.md) (index, including safety carryovers and honestly-flagged gaps) and [`docs/wisdom-mapping/`](docs/wisdom-mapping/) (full detail).
 
 ## Phase 5 — Build knowledge-base content
 
-Turn the philosophy mapping into a structured, curated knowledge base: real teachings, tagged by category, ready for retrieval.
+Turn the wisdom mapping (one representative source per pillar per category so far) into fuller production-ready knowledge-base entries: more passages/teachings per category where useful, formatted and tagged for actual retrieval matching. This is a content-production pass, not a research pass — not yet started.
 
 ## Phase 6 — MVP app
 
