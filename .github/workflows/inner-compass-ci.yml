@@ -1,0 +1,47 @@
+name: Inner Compass CI
+
+on:
+  push:
+    branches:
+      - ai-studio/react-native-mvp
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install mobile dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Install Functions dependencies
+        run: npm --prefix functions install --no-audit --no-fund
+
+      - name: Validate canonical knowledge base
+        run: npm run validate:kb
+
+      - name: Type-check mobile client
+        run: npm run typecheck
+
+      - name: Build Firebase Functions
+        run: npm --prefix functions run build
+
+      - name: Run Functions unit tests
+        run: npm --prefix functions test
+
+      - name: Expo Doctor
+        run: npx expo-doctor
