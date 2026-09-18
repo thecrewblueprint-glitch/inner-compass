@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Inner Compass",
+    "slug": "inner-compass",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#FAF9F6"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.innercompass.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#FAF9F6"
+      },
+      "package": "com.innercompass.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/firestore"
+    ],
+    "scheme": "innercompass",
+    "extra": {
+      "eas": {
+        "projectId": "inner-compass-phase6-mvp"
+      }
+    }
+  }
+}

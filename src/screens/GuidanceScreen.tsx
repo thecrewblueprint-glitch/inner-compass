@@ -1,0 +1,523 @@
+import React from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
+import { Category, GuidanceResult, KBEntry } from '../types';
+import { useTheme } from '../theme';
+
+interface GuidanceScreenProps {
+  result: GuidanceResult;
+  onBack: () => void;
+  onOpenPractice: (category: Category, entry: KBEntry) => void;
+  onSaveReflection: (category: Category, affirmation: string) => void;
+  isSaved: boolean;
+  onOpenCrisis: () => void;
+}
+
+const PILLAR_LABELS: Record<string, { title: string; color: string; bg: string }> = {
+  eastern_philosophy: {
+    title: 'PILLAR I: EASTERN PHILOSOPHY & METAPHYSICS',
+    color: '#8A5826',
+    bg: '#EFE7D8',
+  },
+  shadow_work: {
+    title: 'PILLAR II: JUNGIAN DEPTH PSYCHOLOGY & SHADOW WORK',
+    color: '#654F7A',
+    bg: '#EAE2F0',
+  },
+  psychology_methodology: {
+    title: 'PILLAR III: EVIDENCE-BASED PSYCHOLOGY METHODOLOGY',
+    color: '#285845',
+    bg: '#DFEAE3',
+  },
+};
+
+export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
+  result,
+  onBack,
+  onOpenPractice,
+  onSaveReflection,
+  isSaved,
+  onOpenCrisis,
+}) => {
+  const { theme } = useTheme();
+  const { category, safety, affirmation, synthesis, isFallback } = result;
+  const isSubstanceHardCeiling = safety?.status === 'SUBSTANCE_HARD_CEILING' || category.category_id === 10;
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      {/* Top Bar Navigation */}
+      <View style={styles.navBar}>
+        <TouchableOpacity
+          style={[styles.backButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+          onPress={onBack}
+        >
+          <Text style={[styles.backButtonText, { color: theme.textPrimary }]}>← Back to Input</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={[
+            styles.saveButton,
+            { backgroundColor: theme.card, borderColor: theme.cardBorder },
+            isSaved && { backgroundColor: theme.accentPrimary, borderColor: theme.accentPrimary },
+          ]}
+          onPress={() => onSaveReflection(category, affirmation)}
+        >
+          <Text
+            style={[
+              styles.saveButtonText,
+              { color: isSaved ? theme.accentText : theme.textPrimary },
+            ]}
+          >
+            {isSaved ? '✓ Saved in Journal' : 'Bookmark Reflection'}
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Category Header Card */}
+      <View
+        style={[
+          styles.categoryCard,
+          {
+            backgroundColor: theme.card,
+            borderColor: theme.cardBorder,
+            shadowColor: theme.cardShadow,
+          },
+        ]}
+      >
+        <View style={styles.categoryBadgeRow}>
+          <View style={[styles.catIdBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+            <Text style={[styles.catIdBadgeText, { color: theme.badgeText }]}>CATEGORY #{category.category_id}</Text>
+          </View>
+          <View style={styles.rootsContainer}>
+            {category.existential_roots.map((root) => (
+              <View
+                key={root}
+                style={[styles.rootBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
+              >
+                <Text style={[styles.rootBadgeText, { color: theme.textSecondary }]}>{root}</Text>
+              </View>
+            ))}
+          </View>
+        </View>
+
+        <Text style={[styles.categoryTitle, { color: theme.textPrimary }]}>{category.category_name}</Text>
+
+        {isFallback ? (
+          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING (SCHEMA V1.0)</Text>
+          </View>
+        ) : (
+          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>STRUCTURED LLM SYNTHESIS (GROUNDED & VALIDATED)</Text>
+          </View>
+        )}
+      </View>
+
+      {/* Category 10 Substance Hard Ceiling Banner */}
+      {isSubstanceHardCeiling && (
+        <View
+          style={[
+            styles.hardCeilingCard,
+            { backgroundColor: theme.crisisBg, borderColor: theme.crisisBorder },
+          ]}
+        >
+          <Text style={[styles.hardCeilingTitle, { color: theme.crisisText }]}>⚠️ HARD SAFETY CEILING: SUBSTANCE USE</Text>
+          <Text style={[styles.hardCeilingText, { color: theme.crisisText }]}>
+            Substance withdrawal and overdose carry physiological and mortality risks. Philosophy/wisdom content is an adjunct for meaning and recovery, never a substitute for medical care or crisis lifelines.
+          </Text>
+          <TouchableOpacity style={styles.lifelinesLink} onPress={onOpenCrisis}>
+            <Text style={[styles.lifelinesLinkText, { color: theme.crisisAccent }]}>Connect with SAMHSA & Crisis Lifelines →</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {/* Grounded Affirmation Card */}
+      <View
+        style={[
+          styles.affirmationCard,
+          {
+            backgroundColor: theme.affirmationBg,
+            borderColor: theme.affirmationBorder,
+          },
+        ]}
+      >
+        <Text style={[styles.affirmationLabel, { color: theme.affirmationLabel }]}>GROUNDED AFFIRMATION</Text>
+        <Text style={[styles.affirmationText, { color: theme.affirmationText }]}>"{affirmation}"</Text>
+      </View>
+
+      {/* Grounded Synthesis Note */}
+      <View
+        style={[
+          styles.synthesisCard,
+          {
+            backgroundColor: theme.card,
+            borderColor: theme.cardBorder,
+            shadowColor: theme.cardShadow,
+          },
+        ]}
+      >
+        <Text style={[styles.synthesisLabel, { color: theme.textMuted }]}>SYNTHESIS OF THE THREE PILLARS</Text>
+        <Text style={[styles.synthesisText, { color: theme.textPrimary }]}>"{synthesis}"</Text>
+      </View>
+
+      {/* Three Pillars Breakdown */}
+      <View style={styles.pillarsContainer}>
+        <Text style={[styles.pillarsHeader, { color: theme.textMuted }]}>SOURCED THREE-PILLAR TEACHINGS</Text>
+
+        {category.entries.map((entry) => {
+          const meta = PILLAR_LABELS[entry.pillar] || {
+            title: entry.pillar.toUpperCase(),
+            color: theme.textPrimary,
+            bg: theme.badgeBg,
+          };
+
+          return (
+            <View
+              key={entry.entry_id}
+              style={[
+                styles.pillarCard,
+                {
+                  backgroundColor: theme.card,
+                  borderColor: theme.cardBorder,
+                  shadowColor: theme.cardShadow,
+                },
+              ]}
+            >
+              {/* Pillar Header */}
+              <View style={[styles.pillarBadge, { backgroundColor: meta.bg, borderColor: theme.badgeBorder }]}>
+                <Text style={[styles.pillarBadgeText, { color: meta.color }]}>{meta.title}</Text>
+              </View>
+
+              {/* Author and Work */}
+              <View style={styles.authorRow}>
+                <Text style={[styles.authorName, { color: theme.textPrimary }]}>{entry.source_author}</Text>
+                <Text style={[styles.traditionText, { color: theme.textSecondary }]}>({entry.tradition_or_school})</Text>
+              </View>
+              <Text style={[styles.sourceWork, { color: theme.textMuted }]}>Text: {entry.source_work}</Text>
+
+              {/* Verified Quote (if present) */}
+              {entry.verified_quote && (
+                <View
+                  style={[
+                    styles.quoteBox,
+                    {
+                      backgroundColor: theme.quoteBg,
+                      borderColor: theme.quoteBorder,
+                      borderLeftColor: theme.affirmationLabel,
+                    },
+                  ]}
+                >
+                  <Text style={[styles.quoteLabel, { color: theme.quoteLabel }]}>VERIFIED PRIMARY SOURCE QUOTE:</Text>
+                  <Text style={[styles.quoteText, { color: theme.quoteText }]}>"{entry.verified_quote}"</Text>
+                </View>
+              )}
+
+              {/* Teaching description */}
+              <Text style={[styles.teachingLabel, { color: theme.textSecondary }]}>Teaching:</Text>
+              <Text style={[styles.teachingText, { color: theme.textPrimary }]}>{entry.teaching}</Text>
+
+              {/* Concrete Practice (if present) */}
+              {entry.practice_or_technique && (
+                <View
+                  style={[
+                    styles.practiceSection,
+                    {
+                      backgroundColor: theme.practiceBg,
+                      borderColor: theme.practiceBorder,
+                    },
+                  ]}
+                >
+                  <Text style={[styles.practiceLabel, { color: theme.textSecondary }]}>Contemplative Technique:</Text>
+                  <Text style={[styles.practiceText, { color: theme.textPrimary }]}>{entry.practice_or_technique}</Text>
+
+                  <TouchableOpacity
+                    style={[styles.practiceButton, { backgroundColor: theme.accentPrimary }]}
+                    onPress={() => onOpenPractice(category, entry)}
+                  >
+                    <Text style={[styles.practiceButtonText, { color: theme.accentText }]}>
+                      Start Guided Practice Session →
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          );
+        })}
+      </View>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    paddingBottom: 60,
+    maxWidth: 720,
+    width: '100%',
+    alignSelf: 'center',
+  },
+  navBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 18,
+  },
+  backButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 14,
+    borderRadius: 10,
+    borderWidth: 1,
+  },
+  backButtonText: {
+    fontSize: 13,
+    fontWeight: '600',
+  },
+  saveButton: {
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 10,
+    borderWidth: 1,
+  },
+  saveButtonText: {
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  categoryCard: {
+    borderRadius: 16,
+    padding: 22,
+    borderWidth: 1,
+    marginBottom: 18,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.03,
+    shadowRadius: 8,
+  },
+  categoryBadgeRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  catIdBadge: {
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 6,
+  },
+  catIdBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.5,
+  },
+  rootsContainer: {
+    flexDirection: 'row',
+    gap: 6,
+  },
+  rootBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    borderRadius: 12,
+    borderWidth: 1,
+  },
+  rootBadgeText: {
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  categoryTitle: {
+    fontSize: 24,
+    fontWeight: '600',
+    fontFamily: 'serif',
+    marginBottom: 10,
+    letterSpacing: -0.3,
+  },
+  groundedTag: {
+    alignSelf: 'flex-start',
+    borderWidth: 1,
+    paddingHorizontal: 9,
+    paddingVertical: 4,
+    borderRadius: 6,
+  },
+  groundedTagText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.5,
+  },
+  hardCeilingCard: {
+    borderWidth: 1,
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 18,
+  },
+  hardCeilingTitle: {
+    fontSize: 11,
+    fontWeight: '800',
+    marginBottom: 5,
+    letterSpacing: 0.5,
+  },
+  hardCeilingText: {
+    fontSize: 13,
+    lineHeight: 19,
+    marginBottom: 10,
+  },
+  lifelinesLink: {
+    alignSelf: 'flex-start',
+  },
+  lifelinesLinkText: {
+    fontSize: 12,
+    fontWeight: '700',
+    textDecorationLine: 'underline',
+  },
+  affirmationCard: {
+    borderRadius: 16,
+    borderWidth: 1,
+    padding: 22,
+    marginBottom: 18,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+  },
+  affirmationLabel: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.8,
+    marginBottom: 8,
+  },
+  affirmationText: {
+    fontSize: 18,
+    fontStyle: 'italic',
+    lineHeight: 28,
+    fontFamily: 'serif',
+  },
+  synthesisCard: {
+    borderWidth: 1,
+    borderRadius: 16,
+    padding: 18,
+    marginBottom: 24,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.02,
+    shadowRadius: 4,
+  },
+  synthesisLabel: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.7,
+    marginBottom: 8,
+  },
+  synthesisText: {
+    fontSize: 14,
+    lineHeight: 22,
+    fontStyle: 'italic',
+  },
+  pillarsContainer: {
+    gap: 16,
+  },
+  pillarsHeader: {
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 0.7,
+    marginBottom: 4,
+  },
+  pillarCard: {
+    borderWidth: 1,
+    borderRadius: 16,
+    padding: 18,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.02,
+    shadowRadius: 6,
+  },
+  pillarBadge: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 8,
+    borderWidth: 1,
+    marginBottom: 12,
+  },
+  pillarBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    letterSpacing: 0.6,
+  },
+  authorRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: 6,
+    marginBottom: 2,
+  },
+  authorName: {
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  traditionText: {
+    fontSize: 13,
+  },
+  sourceWork: {
+    fontSize: 12,
+    fontStyle: 'italic',
+    marginBottom: 12,
+  },
+  quoteBox: {
+    borderLeftWidth: 3,
+    borderWidth: 1,
+    padding: 12,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  quoteLabel: {
+    fontSize: 9,
+    fontWeight: '700',
+    letterSpacing: 0.5,
+    marginBottom: 4,
+  },
+  quoteText: {
+    fontSize: 13,
+    fontStyle: 'italic',
+    lineHeight: 20,
+  },
+  teachingLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    marginBottom: 4,
+  },
+  teachingText: {
+    fontSize: 14,
+    lineHeight: 21,
+    marginBottom: 14,
+  },
+  practiceSection: {
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1,
+    marginTop: 4,
+  },
+  practiceLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 0.4,
+    marginBottom: 6,
+  },
+  practiceText: {
+    fontSize: 13,
+    lineHeight: 19,
+    fontStyle: 'italic',
+    marginBottom: 12,
+  },
+  practiceButton: {
+    alignSelf: 'flex-start',
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 8,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+  },
+  practiceButtonText: {
+    fontSize: 12,
+    fontWeight: '700',
+    letterSpacing: 0.2,
+  },
+});
