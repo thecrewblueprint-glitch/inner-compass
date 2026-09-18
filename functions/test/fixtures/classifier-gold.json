@@ -1,0 +1,633 @@
+{
+  "version": "1.0",
+  "purpose": "Frozen ordinary-category classifier benchmark. Contains non-graphic synthetic descriptions only.",
+  "target_top1_accuracy": 0.96,
+  "fixture_count": 125,
+  "fixtures": [
+    {
+      "id": "c01-1",
+      "expected_category_id": 1,
+      "text": "I feel disconnected even when I am with people."
+    },
+    {
+      "id": "c01-2",
+      "expected_category_id": 1,
+      "text": "I have friends around me but still feel deeply alone."
+    },
+    {
+      "id": "c01-3",
+      "expected_category_id": 1,
+      "text": "I feel unseen in groups and social settings."
+    },
+    {
+      "id": "c01-4",
+      "expected_category_id": 1,
+      "text": "Being around others does not make me feel connected."
+    },
+    {
+      "id": "c01-5",
+      "expected_category_id": 1,
+      "text": "I feel isolated despite having people in my life."
+    },
+    {
+      "id": "c02-1",
+      "expected_category_id": 2,
+      "text": "I am grieving someone I lost."
+    },
+    {
+      "id": "c02-2",
+      "expected_category_id": 2,
+      "text": "A relationship ended and I am struggling with the loss."
+    },
+    {
+      "id": "c02-3",
+      "expected_category_id": 2,
+      "text": "My old way of life is gone and I miss it."
+    },
+    {
+      "id": "c02-4",
+      "expected_category_id": 2,
+      "text": "I am trying to live with a major loss."
+    },
+    {
+      "id": "c02-5",
+      "expected_category_id": 2,
+      "text": "I keep feeling the absence of someone important."
+    },
+    {
+      "id": "c03-1",
+      "expected_category_id": 3,
+      "text": "I keep worrying about what might happen in the future."
+    },
+    {
+      "id": "c03-2",
+      "expected_category_id": 3,
+      "text": "I feel anxious about things I cannot predict."
+    },
+    {
+      "id": "c03-3",
+      "expected_category_id": 3,
+      "text": "I have a lot of dread about what comes next."
+    },
+    {
+      "id": "c03-4",
+      "expected_category_id": 3,
+      "text": "Uncertainty about the future keeps weighing on me."
+    },
+    {
+      "id": "c03-5",
+      "expected_category_id": 3,
+      "text": "I keep imagining future problems and cannot settle."
+    },
+    {
+      "id": "c04-1",
+      "expected_category_id": 4,
+      "text": "I am carrying a lot of anger about what happened."
+    },
+    {
+      "id": "c04-2",
+      "expected_category_id": 4,
+      "text": "I keep replaying something that made me angry."
+    },
+    {
+      "id": "c04-3",
+      "expected_category_id": 4,
+      "text": "My resentment toward someone is hard to release."
+    },
+    {
+      "id": "c04-4",
+      "expected_category_id": 4,
+      "text": "I feel irritated and angry much of the time."
+    },
+    {
+      "id": "c04-5",
+      "expected_category_id": 4,
+      "text": "I want perspective on anger that keeps returning."
+    },
+    {
+      "id": "c05-1",
+      "expected_category_id": 5,
+      "text": "I keep having arguments with someone close to me."
+    },
+    {
+      "id": "c05-2",
+      "expected_category_id": 5,
+      "text": "There is ongoing tension in an otherwise safe relationship."
+    },
+    {
+      "id": "c05-3",
+      "expected_category_id": 5,
+      "text": "I want to handle repeated disagreements better."
+    },
+    {
+      "id": "c05-4",
+      "expected_category_id": 5,
+      "text": "A coworker and I keep clashing over the same issue."
+    },
+    {
+      "id": "c05-5",
+      "expected_category_id": 5,
+      "text": "I need perspective on an ordinary interpersonal conflict."
+    },
+    {
+      "id": "c06-1",
+      "expected_category_id": 6,
+      "text": "I feel ashamed of who I am."
+    },
+    {
+      "id": "c06-2",
+      "expected_category_id": 6,
+      "text": "I keep thinking there is something fundamentally wrong with me."
+    },
+    {
+      "id": "c06-3",
+      "expected_category_id": 6,
+      "text": "I feel unworthy because of my imperfections."
+    },
+    {
+      "id": "c06-4",
+      "expected_category_id": 6,
+      "text": "I am embarrassed by myself and judge my whole identity."
+    },
+    {
+      "id": "c06-5",
+      "expected_category_id": 6,
+      "text": "I cannot separate a mistake from feeling like a bad person."
+    },
+    {
+      "id": "c07-1",
+      "expected_category_id": 7,
+      "text": "I am hurting after being rejected by someone I cared about."
+    },
+    {
+      "id": "c07-2",
+      "expected_category_id": 7,
+      "text": "A breakup left me feeling unwanted."
+    },
+    {
+      "id": "c07-3",
+      "expected_category_id": 7,
+      "text": "I am struggling with heartbreak after someone left."
+    },
+    {
+      "id": "c07-4",
+      "expected_category_id": 7,
+      "text": "I was turned down and it is affecting my sense of worth."
+    },
+    {
+      "id": "c07-5",
+      "expected_category_id": 7,
+      "text": "I feel abandoned after a relationship ended."
+    },
+    {
+      "id": "c08-1",
+      "expected_category_id": 8,
+      "text": "I feel stuck between two choices."
+    },
+    {
+      "id": "c08-2",
+      "expected_category_id": 8,
+      "text": "I cannot decide which direction to take."
+    },
+    {
+      "id": "c08-3",
+      "expected_category_id": 8,
+      "text": "I am frozen at a crossroads and keep overthinking."
+    },
+    {
+      "id": "c08-4",
+      "expected_category_id": 8,
+      "text": "I have options but I cannot commit to one."
+    },
+    {
+      "id": "c08-5",
+      "expected_category_id": 8,
+      "text": "I feel trapped in indecision."
+    },
+    {
+      "id": "c09-1",
+      "expected_category_id": 9,
+      "text": "I am afraid I will fail at something important."
+    },
+    {
+      "id": "c09-2",
+      "expected_category_id": 9,
+      "text": "Fear of making a mistake is stopping me from trying."
+    },
+    {
+      "id": "c09-3",
+      "expected_category_id": 9,
+      "text": "I worry that failure will prove I am incompetent."
+    },
+    {
+      "id": "c09-4",
+      "expected_category_id": 9,
+      "text": "Perfectionism makes it hard for me to start."
+    },
+    {
+      "id": "c09-5",
+      "expected_category_id": 9,
+      "text": "I am scared of falling short of expectations."
+    },
+    {
+      "id": "c10-1",
+      "expected_category_id": 10,
+      "text": "I am concerned that I rely on alcohol to cope."
+    },
+    {
+      "id": "c10-2",
+      "expected_category_id": 10,
+      "text": "Substance use has become part of how I handle stress."
+    },
+    {
+      "id": "c10-3",
+      "expected_category_id": 10,
+      "text": "I am worried about my relationship with drugs or alcohol."
+    },
+    {
+      "id": "c10-4",
+      "expected_category_id": 10,
+      "text": "I want help recognizing that substance use is affecting my life."
+    },
+    {
+      "id": "c10-5",
+      "expected_category_id": 10,
+      "text": "I am concerned about repeated substance use as a coping pattern."
+    },
+    {
+      "id": "c11-1",
+      "expected_category_id": 11,
+      "text": "I keep falling into a compulsive habit when stressed."
+    },
+    {
+      "id": "c11-2",
+      "expected_category_id": 11,
+      "text": "I use scrolling and distractions to avoid uncomfortable feelings."
+    },
+    {
+      "id": "c11-3",
+      "expected_category_id": 11,
+      "text": "I repeat a behavior even when I want to stop."
+    },
+    {
+      "id": "c11-4",
+      "expected_category_id": 11,
+      "text": "I get caught in a compulsive coping loop."
+    },
+    {
+      "id": "c11-5",
+      "expected_category_id": 11,
+      "text": "I want perspective on a behavioral habit I use to numb out."
+    },
+    {
+      "id": "c12-1",
+      "expected_category_id": 12,
+      "text": "Someone I trusted lied to me and I feel betrayed."
+    },
+    {
+      "id": "c12-2",
+      "expected_category_id": 12,
+      "text": "My trust was broken and I cannot stop thinking about it."
+    },
+    {
+      "id": "c12-3",
+      "expected_category_id": 12,
+      "text": "I am struggling after learning someone deceived me."
+    },
+    {
+      "id": "c12-4",
+      "expected_category_id": 12,
+      "text": "A betrayal changed how I see an important relationship."
+    },
+    {
+      "id": "c12-5",
+      "expected_category_id": 12,
+      "text": "I am having trouble trusting after being let down."
+    },
+    {
+      "id": "c13-1",
+      "expected_category_id": 13,
+      "text": "Life feels pointless even though nothing specific is wrong."
+    },
+    {
+      "id": "c13-2",
+      "expected_category_id": 13,
+      "text": "I keep asking what the point of my life is."
+    },
+    {
+      "id": "c13-3",
+      "expected_category_id": 13,
+      "text": "I feel a broad lack of meaning and purpose."
+    },
+    {
+      "id": "c13-4",
+      "expected_category_id": 13,
+      "text": "My life feels empty and directionless in a general way."
+    },
+    {
+      "id": "c13-5",
+      "expected_category_id": 13,
+      "text": "I am struggling with existential meaninglessness."
+    },
+    {
+      "id": "c14-1",
+      "expected_category_id": 14,
+      "text": "I do not know what kind of work would feel meaningful."
+    },
+    {
+      "id": "c14-2",
+      "expected_category_id": 14,
+      "text": "My career feels disconnected from my sense of purpose."
+    },
+    {
+      "id": "c14-3",
+      "expected_category_id": 14,
+      "text": "I am unsure what vocation fits the life I want."
+    },
+    {
+      "id": "c14-4",
+      "expected_category_id": 14,
+      "text": "I feel unfulfilled by my job and question my career direction."
+    },
+    {
+      "id": "c14-5",
+      "expected_category_id": 14,
+      "text": "I want perspective on finding meaning through work."
+    },
+    {
+      "id": "c15-1",
+      "expected_category_id": 15,
+      "text": "I feel overwhelmed by too many responsibilities."
+    },
+    {
+      "id": "c15-2",
+      "expected_category_id": 15,
+      "text": "Everything feels like too much to manage at once."
+    },
+    {
+      "id": "c15-3",
+      "expected_category_id": 15,
+      "text": "I am carrying more tasks than I can mentally hold."
+    },
+    {
+      "id": "c15-4",
+      "expected_category_id": 15,
+      "text": "I feel swamped and cannot see what to prioritize."
+    },
+    {
+      "id": "c15-5",
+      "expected_category_id": 15,
+      "text": "Too many demands are making me feel overwhelmed."
+    },
+    {
+      "id": "c16-1",
+      "expected_category_id": 16,
+      "text": "I do not know who I am apart from other people's expectations."
+    },
+    {
+      "id": "c16-2",
+      "expected_category_id": 16,
+      "text": "I feel like I wear different masks for different people."
+    },
+    {
+      "id": "c16-3",
+      "expected_category_id": 16,
+      "text": "I have lost touch with my own identity."
+    },
+    {
+      "id": "c16-4",
+      "expected_category_id": 16,
+      "text": "I keep shaping myself around what others want."
+    },
+    {
+      "id": "c16-5",
+      "expected_category_id": 16,
+      "text": "I am confused about who I actually am."
+    },
+    {
+      "id": "c17-1",
+      "expected_category_id": 17,
+      "text": "I feel caught between cultures and unsure where I belong."
+    },
+    {
+      "id": "c17-2",
+      "expected_category_id": 17,
+      "text": "I do not feel fully accepted by any of my communities."
+    },
+    {
+      "id": "c17-3",
+      "expected_category_id": 17,
+      "text": "My group identity and sense of belonging feel uncertain."
+    },
+    {
+      "id": "c17-4",
+      "expected_category_id": 17,
+      "text": "I feel like an outsider in the communities connected to my background."
+    },
+    {
+      "id": "c17-5",
+      "expected_category_id": 17,
+      "text": "I am struggling with cultural belonging."
+    },
+    {
+      "id": "c18-1",
+      "expected_category_id": 18,
+      "text": "I am afraid of illness and my body's vulnerability."
+    },
+    {
+      "id": "c18-2",
+      "expected_category_id": 18,
+      "text": "Thinking about mortality makes me anxious about my health."
+    },
+    {
+      "id": "c18-3",
+      "expected_category_id": 18,
+      "text": "I keep worrying about aging and getting sick."
+    },
+    {
+      "id": "c18-4",
+      "expected_category_id": 18,
+      "text": "A health concern has made me think about mortality."
+    },
+    {
+      "id": "c18-5",
+      "expected_category_id": 18,
+      "text": "I want perspective on fear related to illness and death."
+    },
+    {
+      "id": "c19-1",
+      "expected_category_id": 19,
+      "text": "Money problems are making me feel unsafe about the future."
+    },
+    {
+      "id": "c19-2",
+      "expected_category_id": 19,
+      "text": "I keep worrying about bills and financial stability."
+    },
+    {
+      "id": "c19-3",
+      "expected_category_id": 19,
+      "text": "Financial uncertainty is consuming a lot of my attention."
+    },
+    {
+      "id": "c19-4",
+      "expected_category_id": 19,
+      "text": "I am afraid I will not have enough money to stay secure."
+    },
+    {
+      "id": "c19-5",
+      "expected_category_id": 19,
+      "text": "I want perspective on fear about finances and basic security."
+    },
+    {
+      "id": "c20-1",
+      "expected_category_id": 20,
+      "text": "I keep comparing myself with people who seem more successful."
+    },
+    {
+      "id": "c20-2",
+      "expected_category_id": 20,
+      "text": "I feel envious when I see peers doing better than me."
+    },
+    {
+      "id": "c20-3",
+      "expected_category_id": 20,
+      "text": "Other people's achievements make me feel behind."
+    },
+    {
+      "id": "c20-4",
+      "expected_category_id": 20,
+      "text": "Social comparison is making me dissatisfied with my own progress."
+    },
+    {
+      "id": "c20-5",
+      "expected_category_id": 20,
+      "text": "I want perspective on envy and comparison."
+    },
+    {
+      "id": "c21-1",
+      "expected_category_id": 21,
+      "text": "I feel guilty about something I did and want to make it right."
+    },
+    {
+      "id": "c21-2",
+      "expected_category_id": 21,
+      "text": "I regret how I treated someone."
+    },
+    {
+      "id": "c21-3",
+      "expected_category_id": 21,
+      "text": "I keep thinking about a mistake that harmed another person."
+    },
+    {
+      "id": "c21-4",
+      "expected_category_id": 21,
+      "text": "I want to take responsibility without being consumed by guilt."
+    },
+    {
+      "id": "c21-5",
+      "expected_category_id": 21,
+      "text": "I am struggling with remorse over my actions."
+    },
+    {
+      "id": "c22-1",
+      "expected_category_id": 22,
+      "text": "I am impatient because something important is taking a long time."
+    },
+    {
+      "id": "c22-2",
+      "expected_category_id": 22,
+      "text": "Waiting for change is making me restless."
+    },
+    {
+      "id": "c22-3",
+      "expected_category_id": 22,
+      "text": "I feel stuck in a period of waiting and delay."
+    },
+    {
+      "id": "c22-4",
+      "expected_category_id": 22,
+      "text": "I keep wanting results sooner than they can happen."
+    },
+    {
+      "id": "c22-5",
+      "expected_category_id": 22,
+      "text": "I am struggling with impatience while life feels stalled."
+    },
+    {
+      "id": "c23-1",
+      "expected_category_id": 23,
+      "text": "I have been feeling sad and heavy lately."
+    },
+    {
+      "id": "c23-2",
+      "expected_category_id": 23,
+      "text": "My mood has been low and I keep feeling down."
+    },
+    {
+      "id": "c23-3",
+      "expected_category_id": 23,
+      "text": "I am carrying persistent sadness."
+    },
+    {
+      "id": "c23-4",
+      "expected_category_id": 23,
+      "text": "I feel melancholy and emotionally heavy."
+    },
+    {
+      "id": "c23-5",
+      "expected_category_id": 23,
+      "text": "I want perspective on a period of low mood."
+    },
+    {
+      "id": "c24-1",
+      "expected_category_id": 24,
+      "text": "Things I normally enjoy do not feel rewarding right now."
+    },
+    {
+      "id": "c24-2",
+      "expected_category_id": 24,
+      "text": "I have noticed a loss of interest in activities I used to like."
+    },
+    {
+      "id": "c24-3",
+      "expected_category_id": 24,
+      "text": "Pleasure feels muted and I feel emotionally flat."
+    },
+    {
+      "id": "c24-4",
+      "expected_category_id": 24,
+      "text": "I am going through a period where hobbies feel less enjoyable."
+    },
+    {
+      "id": "c24-5",
+      "expected_category_id": 24,
+      "text": "I want perspective on feeling numb and losing interest."
+    },
+    {
+      "id": "c25-1",
+      "expected_category_id": 25,
+      "text": "Someone keeps treating me disrespectfully."
+    },
+    {
+      "id": "c25-2",
+      "expected_category_id": 25,
+      "text": "I am being bullied and need perspective on protecting my dignity."
+    },
+    {
+      "id": "c25-3",
+      "expected_category_id": 25,
+      "text": "A person repeatedly belittles me."
+    },
+    {
+      "id": "c25-4",
+      "expected_category_id": 25,
+      "text": "I feel undermined and mistreated by someone."
+    },
+    {
+      "id": "c25-5",
+      "expected_category_id": 25,
+      "text": "I want perspective on dealing with repeated disrespect."
+    }
+  ]
+}
