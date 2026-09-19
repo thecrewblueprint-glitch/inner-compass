@@ -112,6 +112,12 @@ const CATEGORY_LEXICONS: Record<number, { keywords: string[]; phrases: string[] 
   },
 };
 
+const TITLE_STOPWORDS = new Set([
+  'the', 'and', 'of', 'or', 'in', 'even', 'with', 'by', 'a', 'an', 'for', 'to',
+  'from', 'about', 'when', 'around', 'others', 'something', 'someone', 'person',
+  'people', 'way', 'life', 'general', 'ongoing', 'feeling', 'feel', 'being', 'too',
+  'much', 'my', 'your', 'change'
+]);
 
 /**
  * Semantic discriminator boosts for close-neighbor categories.
@@ -143,11 +149,11 @@ function getSemanticDiscriminatorBoost(
         return { boost: 75, reason: 'Internal-anger discriminator' };
       break;
     case 5:
-      if (hit(/\b(circular\s+fight|shouting\s+match|property\s+dispute|we\s+keep\s+(fighting|arguing)|always\s+arguing|ongoing\s+conflict)\b/))
-        return { boost: 85, reason: 'Reciprocal-conflict discriminator' };
+      if (hit(/\b(circular\b.*\bfight|shouting\s+match|property\s+disputes?|we\s+keep\s+(fighting|arguing)|constant\s+arguments?|always\s+arguing|ongoing\s+conflict)\b/))
+        return { boost: 95, reason: 'Reciprocal-conflict discriminator' };
       break;
     case 6:
-      if (hit(/\b(defective|repulsive|disgusting|disgusted\s+with\s+who\s+i\s+am|unworthy|worthless|flawed|inherently\s+rotten|fundamentally\s+(bad|wrong|broken|flawed)|hate\s+who\s+i\s+am)\b/))
+      if (hit(/\b(defective|repulsive|disgusting|self[- ]disgust|disgusted\s+with\s+who\s+i\s+am|unworthy|worthless|flawed|ruined|inherently\s+rotten|fundamentally\s+(bad|wrong|broken|flawed|ruined)|hate\s+who\s+i\s+am)\b/))
         return { boost: 175, reason: 'Core-shame discriminator' };
       break;
     case 7:
@@ -171,8 +177,8 @@ function getSemanticDiscriminatorBoost(
         return { boost: 150, reason: 'Behavioral-compulsion discriminator' };
       break;
     case 12:
-      if (hit(/\b(betray\w*|broken\s+trust|decept\w*|lied\s+to|secret\s+account|stab\w*\s+.*back|infidelity|shattered\s+trust)\b/))
-        return { boost: 90, reason: 'Betrayal-trust discriminator' };
+      if (hit(/\b(betray\w*|broken\s+trust|breaking\s+my\s+trust|decept\w*|lied\s+to|secret\s+account|stole\s+funds|stolen\s+funds|stab\w*\s+.*back|infidelity|shattered\s+trust)\b/))
+        return { boost: 110, reason: 'Betrayal-trust discriminator' };
       break;
     case 13: {
       const workSpecificMeaning = hit(/\b(corporate\s+job|career|job|workplace|vocation|profession)\b.*\b(meaning\w*|purpose|pointless|calling|hollow|unfulfilled)\b/);
@@ -192,8 +198,8 @@ function getSemanticDiscriminatorBoost(
       break;
     }
     case 15:
-      if (hit(/\b(overwhelm\w*|burnout|overload|juggling|responsibilities|obligations|too\s+much|drowning\s+under|swamped|overextended)\b/))
-        return { boost: 85, reason: 'Overload discriminator' };
+      if (hit(/\b(overwhelm\w*|burnout|burning\s+out|overload|juggling|responsibilities|obligations|too\s+many\s+moving\s+pieces|too\s+much|under\s+the\s+load|drowning\s+under|suffocating\s+under|swamped|overextended|spinning\s+out)\b/))
+        return { boost: 105, reason: 'Overload discriminator' };
       break;
     case 16:
       if (hit(/\b(who\s+am\s+i|who\s+i\s+am|no\s+idea\s+who\s+i\s+am|identity\s+crisis|authentic\s+values|social\s+masks?|true\s+self|lost\s+myself|empty\s+vessel|sense\s+of\s+self|fragmented\s+self)\b/))
@@ -216,12 +222,12 @@ function getSemanticDiscriminatorBoost(
         return { boost: 85, reason: 'Social-comparison discriminator' };
       break;
     case 21:
-      if (hit(/\b(guilt|guilty|remorse|self[- ]condemnation|cannot\s+forgive\s+myself|harm\s+i\s+caused|broke\s+a\s+promise|what\s+i\s+did|regret)\b/))
-        return { boost: 95, reason: 'Act-focused-guilt discriminator' };
+      if (hit(/\b(guilt|guilty|remorse|self[- ]condemnation|cannot\s+forgive\s+myself|can't\s+forgive\s+myself|cant\s+forgive\s+myself|harm\s+i\s+caused|hurt\s+someone|did\s+something\s+terrible|broke\s+a\s+promise|what\s+i\s+did|regret)\b/))
+        return { boost: 120, reason: 'Act-focused-guilt discriminator' };
       break;
     case 22:
-      if (hit(/\b(impatient|impatience|waiting|taking\s+too\s+long|sluggish\s+pace|tired\s+of\s+waiting|restless\w*\s+.*progress)\b/))
-        return { boost: 85, reason: 'Waiting-impatience discriminator' };
+      if (hit(/\b(impatient|impatience|waiting|taking\s+too\s+long|taking\s+forever|moving\s+so\s+slowly|moving\s+slowly|sluggish\s+pace|tired\s+of\s+waiting|restless\w*\s+.*progress)\b/))
+        return { boost: 100, reason: 'Waiting-impatience discriminator' };
       break;
     case 23:
       if (hit(/\b(sadness|sad|sorrow|melanchol\w*|gloom|gloomy|tearful|crying|low\s+mood|downcast|heavy\s+sorrow|feel\s+heavy|heavy\s+and\s+unable\s+to\s+move\s+forward)\b/))
@@ -381,6 +387,7 @@ export function retrieveGroundedGuidance(
           reasons.push(`Matched keyword "${kw}"`);
         } else if (normalized.includes(kw)) {
           score += 8;
+          reasons.push(`Matched keyword phrase "${kw}"`);
         }
       }
     }
@@ -395,7 +402,7 @@ export function retrieveGroundedGuidance(
     // 3. Category Title words (12 pts)
     const titleWords: string[] = cat.category_name.toLowerCase().match(/[a-z0-9'-]+/g) ?? [];
     for (const tw of titleWords) {
-      if (words.includes(tw) && !['the', 'and', 'of', 'or', 'in', 'even', 'with', 'by'].includes(tw)) {
+      if (tw.length >= 3 && words.includes(tw) && !TITLE_STOPWORDS.has(tw)) {
         score += 12;
       }
     }
