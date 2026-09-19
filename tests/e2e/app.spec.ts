@@ -18,15 +18,14 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('PREVIEW MODE ACTIVE')).toBeVisible();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
 
-    const input = page.getByTestId('problem-input');
+    const input = page.getByRole('textbox', { name: 'Problem Input' });
     await expect(input).toBeVisible();
     await input.fill(SAFE_REFLECTION);
-    await page.getByTestId('submit-guidance-button').click();
+    await page.getByLabel('Submit Reflection').click();
 
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
-    await expect(page.getByTestId('category-badge')).toContainText('CATEGORY #1');
-    await expect(page.getByTestId('grounded-affirmation-card')).toBeVisible();
-    await expect(page.getByTestId('grounded-synthesis-card')).toBeVisible();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+    await expect(page.getByText('GROUNDED AFFIRMATION')).toBeVisible();
+    await expect(page.getByText('SYNTHESIS OF THE THREE PILLARS')).toBeVisible();
 
     await page.getByText('Bookmark Reflection').click();
     await expect(page.getByText('✓ Saved in Journal')).toBeVisible();
@@ -48,14 +47,14 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('All 25 Categories')).toBeVisible();
 
     await page.getByText('Lifelines 24/7').click();
-    await expect(page.getByTestId('crisis-alert-banner')).toBeVisible();
-    await expect(page.getByTestId('crisis-title')).toContainText('24/7 Immediate Human Lifelines');
+    await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
+    await expect(page.getByText('24/7 Immediate Human Lifelines')).toBeVisible();
 
     await page.getByText('Return to Safe Reflection').click();
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
 
     await page.getByText('← Back to Input').click();
-    await expect(page.getByTestId('problem-input')).toBeVisible();
+    await expect(page.getByRole('textbox', { name: 'Problem Input' })).toBeVisible();
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
