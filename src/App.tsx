@@ -21,7 +21,7 @@ import { Category, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } f
 import { ThemeProvider, useTheme, ThemeMode } from './theme';
 
 const STORAGE_KEY = 'inner_compass_saved_reflections_v1';
-const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true' || true;
+const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
 
 const AppContent: React.FC = () => {
   const { theme, themeMode, setThemeMode } = useTheme();
@@ -75,7 +75,7 @@ const AppContent: React.FC = () => {
       const safety = evaluateSafetyUpstream(problemText);
 
       // Handle Crisis / Abuse / Substance hard ceilings
-      if (safety.status === 'CRISIS_REDIRECT' || safety.status === 'ABUSE_REDIRECT' || safety.status === 'ESCALATION_REDIRECT') {
+      if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
         setCrisisAlert({
           reason: safety.reason,
           safetyNotes: safety.safetyNotes,
@@ -138,20 +138,29 @@ const AppContent: React.FC = () => {
         setCrisisAlert(null);
       }
     } catch (err) {
-      // Deterministic local client fallback
+      // Deterministic local client fallback. Safety remains authoritative even if the server is unavailable.
       const fallbackSafety = evaluateSafetyUpstream(problemText);
-      const retrieval = retrieveGroundedGuidance(problemText, preferredRoot, fallbackSafety.suggestedCategoryId);
-      const grounding = validateGrounding(null, retrieval.category);
-      const localResult: GuidanceResult = {
-        category: retrieval.category,
-        safety: fallbackSafety,
-        grounding,
-        affirmation: `I meet this moment with presence, honesty, and grounded courage.`,
-        synthesis: grounding.groundedSynthesis,
-        isFallback: true,
-      };
-      setGuidanceResult(localResult);
-      setCrisisAlert(null);
+      if (fallbackSafety.blockedFromWisdomMatching || fallbackSafety.status === 'SUBSTANCE_HARD_CEILING') {
+        setCrisisAlert({
+          reason: fallbackSafety.reason,
+          safetyNotes: fallbackSafety.safetyNotes,
+        });
+        setCurrentTab('crisis');
+        setGuidanceResult(null);
+      } else {
+        const retrieval = retrieveGroundedGuidance(problemText, preferredRoot, fallbackSafety.suggestedCategoryId);
+        const grounding = validateGrounding(null, retrieval.category);
+        const localResult: GuidanceResult = {
+          category: retrieval.category,
+          safety: fallbackSafety,
+          grounding,
+          affirmation: `I meet this moment with presence, honesty, and grounded courage.`,
+          synthesis: grounding.groundedSynthesis,
+          isFallback: true,
+        };
+        setGuidanceResult(localResult);
+        setCrisisAlert(null);
+      }
     } finally {
       setIsLoading(false);
     }
