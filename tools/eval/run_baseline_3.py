@@ -74,7 +74,7 @@ def run_validator_tests():
                 "matched_category_id": 2,
                 "existential_roots": [],
                 "phrased_reflection": "A grounded reflection can remain anchored to the retrieved canonical material.",
-                "selected_entry_ids": ["2-A", "2-B"],
+                "selected_entry_ids": ["2-A", "2-B", "2-C"],
                 "confidence": 90,
             },
         },
