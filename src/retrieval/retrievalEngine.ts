@@ -243,6 +243,90 @@ function getSemanticDiscriminatorBoost(
   return { boost: 0 };
 }
 
+
+type AmbiguitySignal = {
+  candidateIds: [number, number];
+  question: string;
+  reason: string;
+};
+
+function detectSemanticAmbiguity(normalized: string): AmbiguitySignal | null {
+  const hit = (pattern: RegExp) => pattern.test(normalized);
+
+  // Loss vs future anxiety: vague change/slipping-away language without a concrete bereavement cue.
+  if (
+    hit(/\b(everything\s+is\s+changing|things?\s+are\s+changing|slipping\s+away|losing\s+my\s+grip\s+on\s+things)\b/) &&
+    !hit(/\b(died|death|passed\s+away|grief|grieving|mourning|bereavement)\b/)
+  ) {
+    return {
+      candidateIds: [2, 3],
+      question: 'Is this mainly about grieving something you have already lost, or fear and uncertainty about what may happen next?',
+      reason: 'Vague change/loss language overlaps grief and future anxiety.',
+    };
+  }
+
+  // Isolation vs interpersonal conflict: relationship distress without a clear loneliness or active-conflict cue.
+  if (
+    hit(/\brelationships?\b/) &&
+    hit(/\b(difficult|hard|empty|strained|off|painful)\b/) &&
+    !hit(/\b(lonely|alone|isolat\w*|unseen|argu\w*|fight\w*|conflict|dispute|bicker\w*)\b/)
+  ) {
+    return {
+      candidateIds: [1, 5],
+      question: 'Is the harder part feeling emotionally alone or disconnected, or an active conflict or tension with someone?',
+      reason: 'Relationship distress is underspecified between isolation and conflict.',
+    };
+  }
+
+  // Meaning/purpose vs identity: broad life-direction language without a clear self-identity or work-specific cue.
+  if (
+    hit(/\b(what\s+i\s+am\s+doing\s+with\s+my\s+life|where\s+i\s+am\s+going|direction\s+in\s+life|what\s+am\s+i\s+doing\s+with\s+my\s+life)\b/) &&
+    !hit(/\b(career|job|workplace|profession|who\s+am\s+i|identity|true\s+self)\b/)
+  ) {
+    return {
+      candidateIds: [13, 16],
+      question: 'Is this more about life feeling without meaning or direction, or uncertainty about who you are and what fits you?',
+      reason: 'Life-direction language overlaps meaning and identity.',
+    };
+  }
+
+  // Low mood vs feeling stuck/indecisive.
+  if (
+    hit(/\b(heavy|weighed\s+down)\b/) &&
+    hit(/\b(unable|can'?t|cannot)\b.*\b(move\s+forward|move|progress)\b/) &&
+    !hit(/\b(sad|sadness|crying|melanchol\w*|choose|decide|decision|crossroads)\b/)
+  ) {
+    return {
+      candidateIds: [23, 8],
+      question: 'Is this mainly a heavy low mood, or more a sense of being stuck because you cannot decide or act?',
+      reason: 'Heavy/stuck language overlaps low mood and decision paralysis.',
+    };
+  }
+
+  // Social comparison vs performance insecurity.
+  if (
+    hit(/\b(others|other\s+people|everyone\s+else)\b/) &&
+    hit(/\b(inadequate|inferior|behind|not\s+good\s+enough|uncomfortable)\b/) &&
+    !hit(/\b(fail\w*|mistake|performance|project|exam|presentation|deadline)\b/)
+  ) {
+    return {
+      candidateIds: [20, 9],
+      question: 'Is the main issue comparing yourself with other people, or fear that you personally will fail or fall short?',
+      reason: 'Inadequacy language overlaps comparison and fear of failure.',
+    };
+  }
+
+  return null;
+}
+
+function buildGenericClarificationQuestion(primary: Category, secondary?: Category): string {
+  if (!secondary) {
+    return 'Could you add one concrete detail about what feels most difficult right now—what happened, what you fear, or what you feel stuck on?';
+  }
+
+  return `I can see two plausible directions. Is this closer to "${primary.category_name}" or "${secondary.category_name}"? A concrete example would help me choose accurately.`;
+}
+
 export function retrieveGroundedGuidance(
   problemText: string,
   preferredRoot?: ExistentialRoot | null,
@@ -255,8 +339,11 @@ export function retrieveGroundedGuidance(
       return {
         category: targetCat,
         score: 95,
+        rawScore: 95,
         explanation: `Direct deterministic match for ${targetCat.category_name} (Category #${targetCat.category_id})`,
         matchedPillars: targetCat.entries,
+        scoreMargin: 95,
+        needsClarification: false,
       };
     }
   }
@@ -327,18 +414,48 @@ export function retrieveGroundedGuidance(
   scores.sort((a, b) => b.score - a.score);
 
   const bestMatch = scores[0];
+  const runnerUpMatch = scores[1];
 
-  // Default to Category 13 (General life meaninglessness) if no keywords matched
+  // Default category is retained internally for deterministic compatibility, but
+  // low-evidence inputs are now marked for clarification before guidance is shown.
   const fallbackCat = getCategoryById(13) || CANONICAL_CATEGORIES[0];
   const finalCategory = bestMatch && bestMatch.score > 0 ? bestMatch.category : fallbackCat;
-  const finalScore = bestMatch && bestMatch.score > 0 ? Math.min(100, bestMatch.score) : 40;
+  const rawScore = bestMatch && bestMatch.score > 0 ? bestMatch.score : 0;
+  const finalScore = rawScore > 0 ? Math.min(100, rawScore) : 40;
+  const runnerUpScore = runnerUpMatch?.score ?? 0;
+  const scoreMargin = Math.max(0, rawScore - runnerUpScore);
+
+  const semanticAmbiguity = detectSemanticAmbiguity(normalized);
+  const lowEvidence = rawScore < 25;
+  const closeTie = rawScore > 0 && runnerUpScore > 0 && scoreMargin <= 12 && rawScore < 140;
+  const needsClarification = Boolean(semanticAmbiguity || lowEvidence || closeTie);
+
+  let clarificationQuestion: string | undefined;
+  if (semanticAmbiguity) {
+    clarificationQuestion = semanticAmbiguity.question;
+  } else if (lowEvidence) {
+    clarificationQuestion = buildGenericClarificationQuestion(finalCategory);
+  } else if (closeTie) {
+    clarificationQuestion = buildGenericClarificationQuestion(finalCategory, runnerUpMatch?.category);
+  }
 
   return {
     category: finalCategory,
     score: finalScore,
+    rawScore,
     explanation: bestMatch && bestMatch.matchReasons.length > 0
       ? bestMatch.matchReasons.slice(0, 3).join('; ')
       : `Categorized under ${finalCategory.category_name}`,
     matchedPillars: finalCategory.entries,
+    runnerUp: runnerUpMatch
+      ? {
+          category_id: runnerUpMatch.category.category_id,
+          category_name: runnerUpMatch.category.category_name,
+          score: runnerUpMatch.score,
+        }
+      : undefined,
+    scoreMargin,
+    needsClarification,
+    clarificationQuestion,
   };
 }
