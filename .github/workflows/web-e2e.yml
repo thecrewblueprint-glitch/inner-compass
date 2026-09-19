@@ -1,0 +1,67 @@
+name: Inner Compass Web E2E
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "server.ts"
+      - "package.json"
+      - "playwright.config.ts"
+      - "tests/e2e/**"
+      - ".github/workflows/web-e2e.yml"
+  workflow_dispatch:
+
+jobs:
+  browser-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      VITE_INNER_COMPASS_PREVIEW: "true"
+      NODE_ENV: "development"
+      INNER_COMPASS_BASE_URL: "http://127.0.0.1:3000"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: TypeScript check
+        run: npm run lint
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start web app
+        run: |
+          npm run dev > server.log 2>&1 &
+          echo $! > server.pid
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/api/health >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat server.log
+          exit 1
+
+      - name: Run browser end-to-end tests
+        run: npm run test:e2e
+
+      - name: Upload browser artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inner-compass-web-e2e
+          path: |
+            playwright-report/
+            test-results/
+            server.log
+          if-no-files-found: warn
