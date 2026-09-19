@@ -102,7 +102,21 @@ export function validateGrounding(
     }
   }
 
-  // Bind only to canonical category entries after ID validation succeeds.
+  const uniqueSelectedIds = new Set(llmOutput.selected_entry_ids);
+  if (
+    uniqueSelectedIds.size !== validEntryIds.size ||
+    [...validEntryIds].some((id) => !uniqueSelectedIds.has(id))
+  ) {
+    return {
+      isValid: false,
+      rejectionReason: 'LLM output did not preserve the complete canonical three-pillar entry set.',
+      verifiedEntries: expectedCategory.entries,
+      groundedSynthesis: expectedCategory.synthesis_note,
+      warnings: ['Incomplete canonical entry set; reverted to deterministic canonical synthesis.'],
+    };
+  }
+
+  // Bind only to the complete canonical category entry set after validation succeeds.
   verifiedEntries.push(...expectedCategory.entries);
 
   // 3. Inspect phrased reflection for invented quotes or unauthorized authors
