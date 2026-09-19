@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Inner Compass Wisdom Source",
+  "type": "object",
+  "required": [
+    "source_id",
+    "tradition",
+    "author_or_attributed_figure",
+    "work",
+    "source_type",
+    "rights_status",
+    "review_status"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC-[A-Z0-9-]+$"
+    },
+    "tradition": {
+      "type": "string"
+    },
+    "school_or_lineage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "author_or_attributed_figure": {
+      "type": "string"
+    },
+    "work": {
+      "type": "string"
+    },
+    "source_type": {
+      "enum": [
+        "PRIMARY_TEXT",
+        "SCHOLARLY_EDITION",
+        "SECONDARY_SCHOLARSHIP",
+        "TRANSLATION",
+        "COMMENTARY"
+      ]
+    },
+    "original_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "translator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "edition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publication_year": {
+      "type": [
+        "integer",
+        "string",
+        "null"
+      ]
+    },
+    "publisher": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_urls": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bibliographic_citation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "PUBLIC_DOMAIN",
+        "OPEN_LICENSE",
+        "LICENSED_OR_PERMISSIONED",
+        "CITATION_ONLY",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "rights_notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "review_status": {
+      "enum": [
+        "UNRESEARCHED",
+        "RESEARCHED",
+        "SOURCE_VERIFIED",
+        "RIGHTS_VERIFIED",
+        "APPROVED",
+        "REJECTED"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
