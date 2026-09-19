@@ -65,19 +65,19 @@ export const EMERGENCY_RESOURCES: Record<string, EmergencyResource> = {
 };
 
 // Immediate suicide, self-harm, or active life-threatening crisis patterns
-const IMMEDIATE_CRISIS_REGEX = /\b(suicid(e|al)|kill\s+(my\s*self|me)|end\s+(my\s*life|it\s*all)|want\s+to\s+die|wish\s+I\s+were\s+dead|better\s+off\s+dead|no\s+reason\s+to\s+live|cutting\s+my\s*self|self[- ]harm|overdose\s+on\s+pills|hang\s+my\s*self|shoot\s+my\s*self|take\s+all\s+my\s+pills)\b/i;
+const IMMEDIATE_CRISIS_REGEX = /\b(suicid(e|al)|kill\s+(my\s*self|me)|end(?:ing)?\s+(my\s*life|it\s*all)|want\s+to\s+die|wish\s+I\s+were\s+dead|better\s+off\s+dead|no\s+reason\s+to\s+live|cutting\s+my\s*self|self[- ]harm|overdose\s+on\s+pills|hang\s+my\s*self|shoot\s+my\s*self|take\s+all\s+my\s+pills)\b/i;
 
 // Intimate partner violence and relationship abuse patterns (Category 5 Abuse Boundary)
-const IPV_ABUSE_REGEX = /\b(domestic\s+violence|intimate\s+partner\s+violence|hits?\s+me|hit\s+me|beat\s+me|beats?\s+me|choked\s+me|chokes?\s+me|punched\s+me|threatened\s+to\s+hurt\s+me|physical\s+abuse|abusive\s+partner|abusive\s+husband|abusive\s+wife|abusive\s+boyfriend|abusive\s+girlfriend|scared\s+he\s+will\s+kill\s+me|scared\s+she\s+will\s+kill\s+me|sexual\s+assault|coercive\s+control|battered)\b/i;
+const IPV_ABUSE_REGEX = /\b(domestic\s+violence|intimate\s+partner\s+violence|hits?\s+me|beat(s)?\s+me|chok(e|ed|es)\s+me|punch(ed|es)?\s+me|threaten(ed|s)?\s+to\s+hurt\s+me|physical\s+(abuse|violence)|abusive\s+(relationship|partner|spouse|husband|wife|boyfriend|girlfriend)|violent\s+(partner|spouse|husband|wife|boyfriend|girlfriend)|scared\s+(he|she|they)\s+will\s+kill\s+me|sexual\s+assault|coercive\s+control|battered)\b/i;
 
 // Substance use patterns (Category 10 Hard Ceiling)
 const SUBSTANCE_USE_REGEX = /\b(substance\s+use|alcohol(ic|ism)?|drinking\s+too\s+much|blackout|detox|withdrawal|relapse(d)?|addict(ed|ion)?|cocaine|heroin|fentanyl|meth|opioid(s)?|benzos?|binge\s+drinking|sober|sobriety)\b/i;
 
 // Category 21: Moral-injury-adjacent guilt patterns (suicide risk link)
-const MORAL_INJURY_GUILT_REGEX = /\b((patient|child|someone|somebody|person)\s+died\s+because\s+of\s+me|my\s+mistake\s+killed|I\s+killed\s+someone|caused\s+(someone's\s+death|fatal)|don't\s+deserve\s+to\s+(live|survive|be\s+alive)|blood\s+on\s+my\s+hands|cannot\s+be\s+forgiven\s+for\s+taking\s+a\s+life)\b/i;
+const MORAL_INJURY_GUILT_REGEX = /\b((patient|child|someone|somebody|person)\s+died\s+because\s+of\s+me|my\s+mistake\s+killed|I\s+killed\s+someone|caused\s+(someone's\s+death|fatal|catastrophic\s+harm)|don't\s+deserve\s+to\s+(live|survive|be\s+alive)|blood\s+on\s+my\s+hands|cannot\s+be\s+forgiven\s+for\s+taking\s+a\s+life|grave\s+transgression\s+in\s+combat|moral\s+injury.*(killed|catastrophic\s+harm|lives?\s+destroyed|cannot\s+live\s+with)|(?:killed|catastrophic\s+harm|lives?\s+destroyed).*moral\s+injury)\b/i;
 
 // Category 24: Sudden / recent-onset anhedonia patterns
-const SUDDEN_ANHEDONIA_REGEX = /\b((sudden(ly)?|recent(ly)?|just\s+started)\s+.*(no\s+joy|lost\s+all\s+pleasure|can't\s+feel\s+anything|completely\s+numb|empty\s+inside|anhedonia)|(no\s+joy|lost\s+all\s+pleasure|can't\s+feel\s+anything)\s+.*(sudden(ly)?|recent(ly)?|just\s+started|two\s+weeks\s+ago))\b/i;
+const SUDDEN_ANHEDONIA_REGEX = /\b((sudden(ly)?|recent(ly)?|just\s+started|this\s+week|over\s+the\s+last\s+few\s+days|out\s+of\s+nowhere)\s+.*(no\s+joy|loss\s+of\s+joy|lost\s+all\s+pleasure|all\s+pleasure\s+(vanished|disappeared)|can't\s+feel\s+anything|completely\s+numb|everything\s+went\s+blank|anhedonia)|(no\s+joy|loss\s+of\s+joy|lost\s+all\s+pleasure|all\s+pleasure\s+(vanished|disappeared)|can't\s+feel\s+anything|everything\s+went\s+blank)\s+.*(sudden(ly)?|recent(ly)?|just\s+started|this\s+week|over\s+the\s+last\s+few\s+days|out\s+of\s+nowhere|two\s+weeks\s+ago))\b/i;
 
 export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult {
   if (!problemText || !problemText.trim()) {
@@ -189,7 +189,7 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
         EMERGENCY_RESOURCES.suicideLifeline,
         EMERGENCY_RESOURCES.community211,
       ],
-      blockedFromWisdomMatching: false, // May produce guidance, but MUST display prominent medical/SAMHSA lifeline!
+      blockedFromWisdomMatching: true,
       suggestedCategoryId: 10,
     };
   }
