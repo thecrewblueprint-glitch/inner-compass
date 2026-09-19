@@ -117,6 +117,33 @@ async function startServer() {
       const retrieval = retrieveGroundedGuidance(problem, preferredRoot, safetyResult.suggestedCategoryId);
       const category = retrieval.category;
 
+      // UNCERTAINTY GATE: Do not force guidance when deterministic evidence is weak
+      // or semantically ambiguous. This happens before any external model call.
+      if (retrieval.needsClarification) {
+        return res.json({
+          safety: safetyResult,
+          needsClarification: true,
+          clarification: {
+            question: retrieval.clarificationQuestion,
+            primaryCandidate: {
+              categoryId: category.category_id,
+              categoryName: category.category_name,
+              score: retrieval.rawScore ?? retrieval.score,
+            },
+            secondaryCandidate: retrieval.runnerUp
+              ? {
+                  categoryId: retrieval.runnerUp.category_id,
+                  categoryName: retrieval.runnerUp.category_name,
+                  score: retrieval.runnerUp.score,
+                }
+              : null,
+            scoreMargin: retrieval.scoreMargin ?? null,
+          },
+          blockedFromWisdom: false,
+          category: null,
+        });
+      }
+
       // STEP 3: Optional production phrasing.
       // Deterministic safety and category selection remain authoritative.
       // Production AI is opt-in and restricted to OpenRouter's free router only.
@@ -392,8 +419,12 @@ Rules:
           expectedCategoryId,
           categoryMatch: expectedCategoryId !== null ? predictedCatId === expectedCategoryId : null,
           retrievalScore: retrieval.score,
-          clarificationRequested,
-          clarificationQuestion,
+          retrievalRawScore: retrieval.rawScore ?? retrieval.score,
+          retrievalScoreMargin: retrieval.scoreMargin ?? null,
+          retrievalNeedsClarification: Boolean(retrieval.needsClarification),
+          retrievalClarificationQuestion: retrieval.clarificationQuestion || null,
+          clarificationRequested: clarificationRequested || Boolean(retrieval.needsClarification),
+          clarificationQuestion: clarificationQuestion || retrieval.clarificationQuestion || null,
           safety: safetyResult,
           validatorResult: {
             isValid: groundingResult.isValid,
