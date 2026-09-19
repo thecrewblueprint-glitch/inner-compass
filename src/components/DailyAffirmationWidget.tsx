@@ -103,7 +103,10 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
 
   const handleCopy = () => {
     try {
-      const textToCopy = `"${item.quoteText}"\n— ${item.author}, ${item.sourceWork}\n\nToday's Affirmation:\n${item.dailyAffirmation}`;
+      const sourceBlock = item.isVerifiedQuote
+        ? `"${item.quoteText}"\n— ${item.author}, ${item.sourceWork}`
+        : `Teaching summary (not a direct quote):\n${item.quoteText}\nSource context: ${item.author}, ${item.sourceWork}`;
+      const textToCopy = `${sourceBlock}\n\nToday's Canonical Reflection:\n${item.dailyAffirmation}`;
       if (typeof navigator !== 'undefined' && navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy);
         setCopied(true);
@@ -147,7 +150,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
             </Text>
           </View>
           <Text style={[styles.widgetHeading, { color: theme.textPrimary }]}>
-            Daily Wisdom & Affirmation
+            Daily Wisdom & Reflection
           </Text>
         </View>
 
@@ -206,27 +209,25 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
             <Text style={[styles.pillarPillText, { color: pillarColor }]}>{pillarMeta.label}</Text>
           </View>
 
-          {item.isVerifiedQuote && (
-            <View
-              style={[
-                styles.verifiedPill,
-                { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder },
-              ]}
-            >
-              <Text style={[styles.verifiedPillText, { color: theme.textSecondary }]}>
-                ✓ Verified Source Quote
-              </Text>
-            </View>
-          )}
+          <View
+            style={[
+              styles.verifiedPill,
+              { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder },
+            ]}
+          >
+            <Text style={[styles.verifiedPillText, { color: theme.textSecondary }]}>
+              {item.isVerifiedQuote ? '✓ Verified Source Quote' : 'Teaching Summary · Not a Direct Quote'}
+            </Text>
+          </View>
         </View>
 
         <Text style={[styles.quoteText, { color: theme.quoteText }]}>
-          "{item.quoteText}"
+          {item.isVerifiedQuote ? `"${item.quoteText}"` : item.quoteText}
         </Text>
 
         <View style={styles.attributionRow}>
           <Text style={[styles.authorName, { color: theme.textPrimary }]}>
-            — {item.author}
+            {item.isVerifiedQuote ? `— ${item.author}` : `Source context: ${item.author}`}
           </Text>
           <Text style={[styles.sourceWork, { color: theme.textSecondary }]}>
             {item.sourceWork}
@@ -251,10 +252,10 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
         ]}
       >
         <Text style={[styles.affirmationLabel, { color: theme.affirmationLabel }]}>
-          TODAY'S GROUNDED AFFIRMATION
+          TODAY'S CANONICAL REFLECTION
         </Text>
         <Text style={[styles.affirmationText, { color: theme.affirmationText }]}>
-          “{item.dailyAffirmation}”
+          {item.dailyAffirmation}
         </Text>
       </View>
 
@@ -311,7 +312,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
                 pressed && { opacity: 0.75 },
               ]}
               onPress={handlePromptClick}
-              accessibilityLabel="Reflect on this quote"
+              accessibilityLabel="Reflect on this daily guidance"
             >
               <Text style={[styles.actionButtonText, { color: theme.textSecondary }]}>
                 ✍️ Reflect
