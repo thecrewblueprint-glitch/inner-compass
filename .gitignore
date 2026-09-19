@@ -3,3 +3,6 @@ dist/
 .dev.pid
 .dev.env.json
 bun.lock
+.env
+.env.*
+!.env.example
