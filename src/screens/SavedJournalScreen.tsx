@@ -90,7 +90,8 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
                       {
                         backgroundColor: theme.affirmationBg,
                         borderColor: theme.affirmationBorder,
-                        borderLeftColor: theme.affirmationLabel,
+                        borderLeftColor: theme.accentPrimary,
+                        borderLeftWidth: 4,
                       },
                     ]}
                   >

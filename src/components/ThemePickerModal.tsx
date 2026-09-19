@@ -7,7 +7,7 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import { useTheme, THEME_LIST, ThemePalette } from '../theme';
+import { useTheme, THEME_LIST, ThemePalette, ThemeFamily } from '../theme';
 
 interface ThemePickerModalProps {
   visible: boolean;
@@ -17,19 +17,31 @@ interface ThemePickerModalProps {
 export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onClose }) => {
   const { theme, themeMode, setThemeMode } = useTheme();
   const [filterVariant, setFilterVariant] = useState<'all' | 'light' | 'dark'>('all');
+  const [selectedFamily, setSelectedFamily] = useState<string>('all');
+
+  const families: { key: ThemeFamily; name: string; icon: string; shortName: string }[] = [
+    { key: 'red', name: 'Red & Crimson', icon: '🔴', shortName: 'Red' },
+    { key: 'orange', name: 'Orange & Terracotta', icon: '🏺', shortName: 'Orange' },
+    { key: 'yellow', name: 'Gold & Amber', icon: '🌾', shortName: 'Gold' },
+    { key: 'green', name: 'Sage & Emerald', icon: '🌿', shortName: 'Green' },
+    { key: 'teal', name: 'Teal & Seafoam', icon: '🌊', shortName: 'Teal' },
+    { key: 'blue', name: 'Ocean & Sky', icon: '🔷', shortName: 'Blue' },
+    { key: 'indigo', name: 'Indigo & Twilight', icon: '🌌', shortName: 'Indigo' },
+    { key: 'purple', name: 'Lavender & Violet', icon: '🪻', shortName: 'Purple' },
+    { key: 'rose', name: 'Rose & Blush', icon: '🌸', shortName: 'Rose' },
+    { key: 'earth', name: 'Earth & Sand', icon: '🪵', shortName: 'Earth' },
+    { key: 'neutral', name: 'Slate & Charcoal', icon: '🪨', shortName: 'Slate' },
+  ];
 
   const filteredThemes = THEME_LIST.filter((item) => {
-    if (filterVariant === 'light') return item.variant === 'light';
-    if (filterVariant === 'dark') return item.variant === 'dark';
+    if (filterVariant === 'light' && item.variant !== 'light') return false;
+    if (filterVariant === 'dark' && item.variant !== 'dark') return false;
+    if (selectedFamily !== 'all' && item.family !== selectedFamily) return false;
     return true;
   });
 
-  const families: { key: string; name: string; icon: string }[] = [
-    { key: 'blue', name: 'Ocean & Sky', icon: '🌊' },
-    { key: 'rose', name: 'Rose & Blush', icon: '🌹' },
-    { key: 'purple', name: 'Lavender & Violet', icon: '🪻' },
-    { key: 'neutral', name: 'Sea Linen & Dusk', icon: '⛵' },
-  ];
+  const lightCount = THEME_LIST.filter((t) => t.variant === 'light').length;
+  const darkCount = THEME_LIST.filter((t) => t.variant === 'dark').length;
 
   return (
     <Modal visible={visible} animationType="fade" transparent onRequestClose={onClose}>
@@ -55,7 +67,7 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
                 <Text style={[styles.title, { color: theme.textPrimary }]}>Color & Atmosphere</Text>
               </View>
               <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-                Curated RGB spectrum with paired light & dark variations
+                Full base color spectrum with balanced light & matte dark editions
               </Text>
             </View>
             <Pressable
@@ -71,15 +83,15 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
             </Pressable>
           </View>
 
-          {/* Quick Filter: All / Light / Dark */}
+          {/* Quick Filter Bar: Tone (All / Light / Dark) */}
           <View style={[styles.filterBar, { borderBottomColor: theme.cardBorder }]}>
             <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Tone:</Text>
             <View style={styles.filterPills}>
               {(
                 [
-                  { id: 'all', label: 'All (8)' },
-                  { id: 'light', label: '☀️ Light' },
-                  { id: 'dark', label: '🌙 Dark' },
+                  { id: 'all', label: `All (${THEME_LIST.length})` },
+                  { id: 'light', label: `☀️ Light (${lightCount})` },
+                  { id: 'dark', label: `🌙 Dark (${darkCount})` },
                 ] as const
               ).map((tab) => {
                 const isActive = filterVariant === tab.id;
@@ -107,6 +119,62 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
                 );
               })}
             </View>
+          </View>
+
+          {/* Color Spectrum Filter Row */}
+          <View style={[styles.colorBar, { borderBottomColor: theme.cardBorder }]}>
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Color:</Text>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.colorPillsScroll}
+            >
+              <Pressable
+                style={[
+                  styles.colorChip,
+                  {
+                    backgroundColor: selectedFamily === 'all' ? theme.accentPrimary : theme.inputBg,
+                    borderColor: selectedFamily === 'all' ? theme.accentPrimary : theme.cardBorder,
+                  },
+                ]}
+                onPress={() => setSelectedFamily('all')}
+              >
+                <Text
+                  style={[
+                    styles.colorChipText,
+                    { color: selectedFamily === 'all' ? theme.accentText : theme.textSecondary },
+                  ]}
+                >
+                  🌈 All
+                </Text>
+              </Pressable>
+
+              {families.map((fam) => {
+                const isFamilyActive = selectedFamily === fam.key;
+                return (
+                  <Pressable
+                    key={fam.key}
+                    style={[
+                      styles.colorChip,
+                      {
+                        backgroundColor: isFamilyActive ? theme.accentPrimary : theme.inputBg,
+                        borderColor: isFamilyActive ? theme.accentPrimary : theme.cardBorder,
+                      },
+                    ]}
+                    onPress={() => setSelectedFamily(isFamilyActive ? 'all' : fam.key)}
+                  >
+                    <Text
+                      style={[
+                        styles.colorChipText,
+                        { color: isFamilyActive ? theme.accentText : theme.textSecondary },
+                      ]}
+                    >
+                      {fam.icon} {fam.shortName}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
           </View>
 
           {/* Theme List / Grid */}
@@ -147,21 +215,21 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
                               <View
                                 style={[
                                   styles.swatchDot,
-                                  { backgroundColor: item.swatchCanvas, borderColor: '#00000022' },
+                                  { backgroundColor: item.swatchCanvas, borderColor: 'rgba(0,0,0,0.15)' },
                                 ]}
                               />
                               <View
                                 style={[
                                   styles.swatchDot,
                                   styles.swatchOverlap,
-                                  { backgroundColor: item.swatchCard, borderColor: '#00000022' },
+                                  { backgroundColor: item.swatchCard, borderColor: 'rgba(0,0,0,0.15)' },
                                 ]}
                               />
                               <View
                                 style={[
                                   styles.swatchDot,
                                   styles.swatchOverlap,
-                                  { backgroundColor: item.swatchAccent, borderColor: '#00000022' },
+                                  { backgroundColor: item.swatchAccent, borderColor: 'rgba(0,0,0,0.15)' },
                                 ]}
                               />
                             </View>
@@ -170,15 +238,15 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
                               style={[
                                 styles.variantBadge,
                                 {
-                                  backgroundColor: item.variant === 'light' ? '#FFFBEB' : '#1E293B',
-                                  borderColor: item.variant === 'light' ? '#FDE68A' : '#334155',
+                                  backgroundColor: item.variant === 'light' ? theme.badgeBg : theme.topBar,
+                                  borderColor: theme.cardBorder,
                                 },
                               ]}
                             >
                               <Text
                                 style={[
                                   styles.variantBadgeText,
-                                  { color: item.variant === 'light' ? '#92400E' : '#94A3B8' },
+                                  { color: theme.textSecondary },
                                 ]}
                               >
                                 {item.variant === 'light' ? '☀️ Light' : '🌙 Dark'}
@@ -218,7 +286,7 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
           {/* Footer */}
           <View style={[styles.footer, { borderTopColor: theme.cardBorder }]}>
             <Text style={[styles.footerHint, { color: theme.textMuted }]}>
-              Changes apply instantly across all screens and persist in your browser.
+              {filteredThemes.length} {filteredThemes.length === 1 ? 'theme' : 'themes'} available · Applies instantly
             </Text>
             <Pressable
               style={({ pressed }) => [
@@ -250,8 +318,8 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     width: '100%',
-    maxWidth: 680,
-    maxHeight: '88%',
+    maxWidth: 720,
+    maxHeight: '90%',
     borderRadius: 16,
     borderWidth: 1,
     overflow: 'hidden',
@@ -304,9 +372,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 22,
-    paddingVertical: 10,
+    paddingVertical: 9,
     borderBottomWidth: 1,
     gap: 12,
+  },
+  colorBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 22,
+    paddingVertical: 9,
+    borderBottomWidth: 1,
+    gap: 10,
+  },
+  colorPillsScroll: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  colorChip: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 16,
+    borderWidth: 1,
+  },
+  colorChipText: {
+    fontSize: 11,
+    fontWeight: '600',
   },
   filterLabel: {
     fontSize: 12,

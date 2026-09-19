@@ -18,21 +18,33 @@ interface GuidanceScreenProps {
   onOpenCrisis: () => void;
 }
 
-const PILLAR_LABELS: Record<string, { title: string; color: string; bg: string }> = {
+const PILLAR_LABELS: Record<string, { title: string; color: string; bg: string; border: string; darkColor: string; darkBg: string; darkBorder: string }> = {
   eastern_philosophy: {
     title: 'PILLAR I: EASTERN PHILOSOPHY & METAPHYSICS',
-    color: '#8A5826',
-    bg: '#EFE7D8',
+    color: '#B45309',
+    bg: '#FEF3C7',
+    border: '#FCD34D',
+    darkColor: '#FCD34D',
+    darkBg: '#3B290C',
+    darkBorder: '#614412',
   },
   shadow_work: {
     title: 'PILLAR II: JUNGIAN DEPTH PSYCHOLOGY & SHADOW WORK',
-    color: '#654F7A',
-    bg: '#EAE2F0',
+    color: '#7C3AED',
+    bg: '#F3E8FF',
+    border: '#D8B4FE',
+    darkColor: '#D8B4FE',
+    darkBg: '#321657',
+    darkBorder: '#5624A2',
   },
   psychology_methodology: {
     title: 'PILLAR III: EVIDENCE-BASED PSYCHOLOGY METHODOLOGY',
-    color: '#285845',
-    bg: '#DFEAE3',
+    color: '#0D9488',
+    bg: '#CCFBF1',
+    border: '#5EEAD4',
+    darkColor: '#5EEAD4',
+    darkBg: '#0D383D',
+    darkBorder: '#1A616A',
   },
 };
 
@@ -161,6 +173,8 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           {
             backgroundColor: theme.affirmationBg,
             borderColor: theme.affirmationBorder,
+            borderLeftWidth: 4,
+            borderLeftColor: theme.accentPrimary,
           },
         ]}
         {...({ 'data-testid': 'grounded-affirmation-card' } as any)}
@@ -200,11 +214,21 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         <Text style={[styles.pillarsHeader, { color: theme.textMuted }]}>SOURCED THREE-PILLAR TEACHINGS</Text>
 
         {category.entries.map((entry) => {
-          const meta = PILLAR_LABELS[entry.pillar] || {
-            title: entry.pillar.toUpperCase(),
-            color: theme.textPrimary,
-            bg: theme.badgeBg,
-          };
+          const rawMeta = PILLAR_LABELS[entry.pillar];
+          const isDark = theme.variant === 'dark';
+          const meta = rawMeta
+            ? {
+                title: rawMeta.title,
+                color: isDark ? rawMeta.darkColor : rawMeta.color,
+                bg: isDark ? rawMeta.darkBg : rawMeta.bg,
+                border: isDark ? rawMeta.darkBorder : rawMeta.border,
+              }
+            : {
+                title: entry.pillar.toUpperCase(),
+                color: theme.textPrimary,
+                bg: theme.badgeBg,
+                border: theme.badgeBorder,
+              };
 
           return (
             <View
@@ -219,7 +243,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
               ]}
             >
               {/* Pillar Header */}
-              <View style={[styles.pillarBadge, { backgroundColor: meta.bg, borderColor: theme.badgeBorder }]}>
+              <View style={[styles.pillarBadge, { backgroundColor: meta.bg, borderColor: meta.border }]}>
                 <Text style={[styles.pillarBadgeText, { color: meta.color }]}>{meta.title}</Text>
               </View>
 
@@ -238,7 +262,8 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
                     {
                       backgroundColor: theme.quoteBg,
                       borderColor: theme.quoteBorder,
-                      borderLeftColor: theme.affirmationLabel,
+                      borderLeftColor: theme.accentPrimary,
+                      borderLeftWidth: 3,
                     },
                   ]}
                 >

@@ -43,7 +43,7 @@ export const PracticeModalRN: React.FC<PracticeModalProps> = ({
 
   return (
     <Modal visible={visible} animationType="fade" transparent onRequestClose={onClose}>
-      <View style={styles.modalOverlay}>
+      <View style={[styles.modalOverlay, { backgroundColor: theme.modalOverlay }]}>
         <View
           style={[
             styles.modalContainer,
