@@ -59,4 +59,27 @@ test.describe('Inner Compass web app core flow', () => {
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
   });
+  test('asks for clarification before showing guidance on ambiguous input', async ({ page }) => {
+    await page.goto('/');
+
+    const input = page.getByRole('textbox', { name: 'Problem Input' });
+    await input.fill('I feel like everything is changing and slipping away from my hands.');
+    await page.getByLabel('Submit Reflection').click();
+
+    await expect(page.getByText('ONE DETAIL WOULD HELP')).toBeVisible();
+    await expect(
+      page.getByText('Is this mainly about grieving something you have already lost, or fear and uncertainty about what may happen next?')
+    ).toBeVisible();
+
+    await expect(page.getByText('GROUNDED AFFIRMATION')).toHaveCount(0);
+
+    await input.fill(
+      'I feel like everything is changing and slipping away from my hands. I am grieving because someone close to me passed away.'
+    );
+    await page.getByLabel('Submit Reflection').click();
+
+    await expect(page.getByText('CATEGORY #2')).toBeVisible();
+    await expect(page.getByText('GROUNDED AFFIRMATION')).toBeVisible();
+  });
+
 });
