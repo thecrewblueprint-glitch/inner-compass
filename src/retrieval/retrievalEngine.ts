@@ -112,6 +112,126 @@ const CATEGORY_LEXICONS: Record<number, { keywords: string[]; phrases: string[] 
   },
 };
 
+
+/**
+ * Semantic discriminator boosts for close-neighbor categories.
+ * These are intentionally narrow, deterministic tie-breakers derived from
+ * taxonomy boundaries and Baseline 2 confusion patterns. They supplement
+ * (rather than replace) the canonical lexicons.
+ */
+function getSemanticDiscriminatorBoost(
+  categoryId: number,
+  normalized: string
+): { boost: number; reason?: string } {
+  const hit = (pattern: RegExp) => pattern.test(normalized);
+
+  switch (categoryId) {
+    case 1:
+      if (
+        hit(/\b(acquaintances?|crowd|everyone\s+else|relationships?)\b.*\b(alone|isolat\w*|distance|empty|unseen|disconnected)\b/) ||
+        hit(/\b(alone|isolat\w*|distance|unseen|disconnected)\b.*\b(acquaintances?|crowd|everyone\s+else|relationships?)\b/)
+      ) return { boost: 65, reason: 'Social-isolation discriminator' };
+      break;
+    case 4:
+      if (hit(/\b(boiling|rage|furious|fury|explode|exploding|seething)\b/))
+        return { boost: 75, reason: 'Internal-anger discriminator' };
+      break;
+    case 5:
+      if (hit(/\b(circular\s+fight|shouting\s+match|property\s+dispute|we\s+keep\s+(fighting|arguing)|always\s+arguing|ongoing\s+conflict)\b/))
+        return { boost: 85, reason: 'Reciprocal-conflict discriminator' };
+      break;
+    case 6:
+      if (hit(/\b(defective|repulsive|disgusting|unworthy|worthless|fundamentally\s+(bad|wrong|broken)|hate\s+who\s+i\s+am)\b/))
+        return { boost: 80, reason: 'Core-shame discriminator' };
+      break;
+    case 7:
+      if (hit(/\b(dumped|breakup|heartbreak|broken\s+heart|partner\s+(left|ended)|relationship\s+(ended|over)|fianc\w*.*(left|wedding)|call(ed)?\s+off\s+the\s+wedding)\b/))
+        return { boost: 90, reason: 'Relationship-ending discriminator' };
+      break;
+    case 8:
+      if (hit(/\b(cannot|can't|unable)\b.*\b(choose|decide)\b|\b(stalemate|crossroads|either\s+direction|two\s+.*(options|offers))\b/))
+        return { boost: 80, reason: 'Decision-paralysis discriminator' };
+      break;
+    case 9:
+      if (hit(/\b(fail|fails|failed|failing|failure|falling\s+short|imposter|perfection\w*|single\s+error|making\s+a\s+mistake|disappointing\s+everyone)\b/))
+        return { boost: 90, reason: 'Performance-failure discriminator' };
+      break;
+    case 10:
+      if (hit(/\b(chemical\s+dependency|alcohol|opioids?|drugs?|relaps\w*|detox|withdrawal|cravings?|urges?\s+to\s+drink|sobriety)\b/))
+        return { boost: 100, reason: 'Substance-use discriminator' };
+      break;
+    case 11:
+      if (hit(/\b(compuls\w*|gambling|shopping|doom[- ]?scroll\w*|pornography|binge\s+eat\w*|behavioral\s+addiction)\b/))
+        return { boost: 90, reason: 'Behavioral-compulsion discriminator' };
+      break;
+    case 12:
+      if (hit(/\b(betray\w*|broken\s+trust|decept\w*|lied\s+to|secret\s+account|stab\w*\s+.*back|infidelity|shattered\s+trust)\b/))
+        return { boost: 90, reason: 'Betrayal-trust discriminator' };
+      break;
+    case 13:
+      if (
+        hit(/\b(world|existence|nothing|anything|life)\b.*\b(meaning\w*|purpose|significance|pointless|value|void)\b/) ||
+        hit(/\b(meaning\w*|purpose|significance|pointless|void)\b.*\b(world|existence|nothing|anything|life)\b/)
+      ) return { boost: 80, reason: 'Global-meaning discriminator' };
+      break;
+    case 14:
+      if (
+        hit(/\b(career|job|work|workplace|corporate|vocation|profession)\b.*\b(meaning\w*|purpose|calling|hollow|unfulfilled|dead[- ]end|potential)\b/) ||
+        hit(/\b(meaning\w*|purpose|calling|unfulfilled)\b.*\b(career|job|work|corporate|vocation|profession)\b/)
+      ) return { boost: 105, reason: 'Work-specific-purpose discriminator' };
+      break;
+    case 15:
+      if (hit(/\b(overwhelm\w*|burnout|overload|juggling|responsibilities|obligations|too\s+much|drowning\s+under|swamped|overextended)\b/))
+        return { boost: 85, reason: 'Overload discriminator' };
+      break;
+    case 16:
+      if (hit(/\b(who\s+am\s+i|identity\s+crisis|authentic\s+values|social\s+masks?|true\s+self|lost\s+myself|empty\s+vessel|sense\s+of\s+self|fragmented\s+self)\b/))
+        return { boost: 95, reason: 'Personal-identity discriminator' };
+      break;
+    case 17:
+      if (hit(/\b(cultur\w*|ethnic\w*|heritage|immigrant|ancestral|assimilat\w*|social\s+group|community\s+i\s+was\s+raised\s+in)\b/))
+        return { boost: 90, reason: 'Cultural-belonging discriminator' };
+      break;
+    case 18:
+      if (hit(/\b(mortality|medical\s+diagnosis|health\s+anxiety|physical\s+body|chronic\s+illness|body\s+.*(failing|fragility)|fear\s+of\s+dying)\b/))
+        return { boost: 90, reason: 'Health-mortality discriminator' };
+      break;
+    case 19:
+      if (hit(/\b(financial|finances|savings|rent|income|poverty|debt|bills|money|financial\s+ruin|household\s+income|roof\s+over)\b/))
+        return { boost: 100, reason: 'Financial-security discriminator' };
+      break;
+    case 20:
+      if (hit(/\b(envy|jealous\w*|compar\w*)\b|\blooking\s+at\s+others\b.*\b(inadequate|inferior|behind)\b/))
+        return { boost: 85, reason: 'Social-comparison discriminator' };
+      break;
+    case 21:
+      if (hit(/\b(guilt|guilty|remorse|self[- ]condemnation|cannot\s+forgive\s+myself|harm\s+i\s+caused|broke\s+a\s+promise|what\s+i\s+did|regret)\b/))
+        return { boost: 95, reason: 'Act-focused-guilt discriminator' };
+      break;
+    case 22:
+      if (hit(/\b(impatient|impatience|waiting|taking\s+too\s+long|sluggish\s+pace|tired\s+of\s+waiting|restless\w*\s+.*progress)\b/))
+        return { boost: 85, reason: 'Waiting-impatience discriminator' };
+      break;
+    case 23:
+      if (hit(/\b(sadness|sad|sorrow|melanchol\w*|gloom|gloomy|tearful|crying|low\s+mood|downcast|heavy\s+sorrow)\b/))
+        return { boost: 90, reason: 'Low-mood discriminator' };
+      break;
+    case 24:
+      if (hit(/\b(anhedonia|pleasure|joy|joyless|no\s+spark|lost\s+.*spark|emotional\s+numbness|positive\s+feeling|delight|enthusiasm|favorite\s+hobbies?.*flat)\b/))
+        return { boost: 95, reason: 'Anhedonia discriminator' };
+      break;
+    case 25: {
+      const mistreatment = hit(/\b(bully\w*|mistreat\w*|disrespect\w*|belittl\w*|humiliat\w*|demean\w*|condescen\w*|harass\w*|hostility|exclusion)\b/);
+      const externalAgent = hit(/\b(supervisor|boss|manager|colleague|coworker|peer|people|authority|someone|group|team)\b/);
+      if (mistreatment && externalAgent)
+        return { boost: 120, reason: 'External-mistreatment discriminator' };
+      break;
+    }
+  }
+
+  return { boost: 0 };
+}
+
 export function retrieveGroundedGuidance(
   problemText: string,
   preferredRoot?: ExistentialRoot | null,
@@ -156,6 +276,13 @@ export function retrieveGroundedGuidance(
           score += 8;
         }
       }
+    }
+
+    // 2b. Narrow semantic discriminator boosts for known close-neighbor boundaries.
+    const discriminator = getSemanticDiscriminatorBoost(cat.category_id, normalized);
+    if (discriminator.boost > 0) {
+      score += discriminator.boost;
+      if (discriminator.reason) reasons.push(discriminator.reason);
     }
 
     // 3. Category Title words (12 pts)
