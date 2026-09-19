@@ -34,6 +34,10 @@ function getGeminiClient(): GoogleGenAI | null {
   return aiClient;
 }
 
+function getProductionAiMode(): 'off' | 'openrouter_free' {
+  return process.env.INNER_COMPASS_AI_MODE === 'openrouter_free' ? 'openrouter_free' : 'off';
+}
+
 async function startServer() {
   const app = express();
   const PORT = 3000;
@@ -48,7 +52,10 @@ async function startServer() {
       runtime: 'React Native / Expo Architecture with Backend API',
       categoriesLoaded: CANONICAL_CATEGORIES.length,
       openRouterConfigured: Boolean(process.env.OPENROUTER_API_KEY),
-      geminiConfigured: Boolean(process.env.GEMINI_API_KEY),
+      productionAiMode: getProductionAiMode(),
+      productionAiModel: getProductionAiMode() === 'openrouter_free' ? 'openrouter/free' : null,
+      productionAiReady: getProductionAiMode() === 'openrouter_free' && Boolean(process.env.OPENROUTER_API_KEY),
+      geminiEvalConfigured: Boolean(process.env.GEMINI_API_KEY),
       privacyEnforced: true,
     });
   });
@@ -110,54 +117,26 @@ async function startServer() {
       const retrieval = retrieveGroundedGuidance(problem, preferredRoot, safetyResult.suggestedCategoryId);
       const category = retrieval.category;
 
-      // STEP 3: Structured LLM Phrasing via OpenRouter (or Gemini fallback)
-      // Preview Mode enforcement: Never make live Firebase, Gemini, or OpenRouter calls in preview mode
+      // STEP 3: Optional production phrasing.
+      // Deterministic safety and category selection remain authoritative.
+      // Production AI is opt-in and restricted to OpenRouter's free router only.
       const isPreviewMode = process.env.VITE_INNER_COMPASS_PREVIEW === 'true' || Boolean(req.body.isPreview);
+      const productionAiMode = getProductionAiMode();
+      const openRouterFreeReady =
+        productionAiMode === 'openrouter_free' &&
+        Boolean(process.env.OPENROUTER_API_KEY);
+
       let structuredOutput: StructuredLLMOutput | null = null;
       let isFallback = true;
 
-      if (isPreviewMode) {
-        console.log('[Preview Mode] Deterministic canonical retrieval active - zero external calls to OpenRouter/Gemini/Firebase.');
+      if (isPreviewMode || productionAiMode === 'off') {
+        console.log('[Deterministic Mode] Canonical retrieval active; zero production LLM calls.');
+      } else if (openRouterFreeReady) {
+        // Only openrouter/free may be called by the production guidance path.
+        // The OpenRouter module never receives raw reflection text.
+        structuredOutput = await callStructuredPhrasing(category, preferredRoot);
       } else {
-        // Try OpenRouter first (Rule 10)
-        if (process.env.OPENROUTER_API_KEY) {
-          structuredOutput = await callStructuredPhrasing(category, preferredRoot);
-        }
-
-        // If OpenRouter unavailable, try Gemini client with strict structured JSON formatting
-        if (!structuredOutput && getGeminiClient()) {
-          try {
-            const client = getGeminiClient()!;
-            const prompt = `You are Inner Compass's clinical-wisdom phrasing engine.
-Strict Rule: You classify and phrase only. Never invent quotes, teachers, or claims outside the provided entries.
-Category #${category.category_id}: ${category.category_name}
-Synthesis Note: ${category.synthesis_note}
-Entries: ${JSON.stringify(category.entries.map(e => ({ id: e.entry_id, pillar: e.pillar, author: e.source_author, teaching: e.teaching, quote: e.verified_quote })))}
-
-Respond with a JSON object strictly matching this schema:
-{
-  "matched_category_id": ${category.category_id},
-  "existential_roots": ${JSON.stringify(category.existential_roots)},
-  "phrased_reflection": "compassionate 2-3 sentence reflection grounded purely in these 3 teachings",
-  "selected_entry_ids": ["${category.entries.map(e => e.entry_id).join('", "')}"],
-  "confidence": 95
-}`;
-
-            const result = await client.models.generateContent({
-              model: 'gemini-3.8-flash',
-              contents: prompt,
-              config: {
-                responseMimeType: 'application/json',
-              },
-            });
-
-            if (result && result.text) {
-              structuredOutput = JSON.parse(result.text);
-            }
-          } catch (geminiErr) {
-            console.warn('[Gemini fallback warning] using deterministic synthesis:', geminiErr);
-          }
-        }
+        console.warn('[AI Mode] openrouter_free requested but no server-side API key is configured; using deterministic synthesis.');
       }
 
       // STEP 4: Deterministic Grounding Validator
