@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "rules": {
+    "must_be_original_inner_compass_wording": true,
+    "must_link_to_audited_source_record_ids": true,
+    "may_not_be_presented_as_direct_quote": true,
+    "may_not_make_clinical_or_universal_promises": true,
+    "safety_router_remains_authoritative": true
+  },
+  "candidates": []
+}
