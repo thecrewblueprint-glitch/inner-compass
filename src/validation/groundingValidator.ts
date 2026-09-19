@@ -62,34 +62,47 @@ export function validateGrounding(
     };
   }
 
-  // 1. Verify matched category ID
+  // 1. Verify matched category ID. Any category mismatch fails closed.
   if (llmOutput.matched_category_id !== expectedCategory.category_id) {
-    // Check if the LLM's chosen category is at least a valid category in the KB
     const altCategory = getCategoryById(llmOutput.matched_category_id);
-    if (!altCategory) {
-      return {
-        isValid: false,
-        rejectionReason: `LLM returned invalid category ID: ${llmOutput.matched_category_id}`,
-        verifiedEntries: expectedCategory.entries,
-        groundedSynthesis: expectedCategory.synthesis_note,
-        warnings: ['Category ID out of range; reverted to deterministic match.'],
-      };
-    }
+    return {
+      isValid: false,
+      rejectionReason: altCategory
+        ? `LLM category mismatch: expected #${expectedCategory.category_id}, received #${llmOutput.matched_category_id}`
+        : `LLM returned invalid category ID: ${llmOutput.matched_category_id}`,
+      verifiedEntries: expectedCategory.entries,
+      groundedSynthesis: expectedCategory.synthesis_note,
+      warnings: ['Category mismatch; reverted to deterministic canonical synthesis.'],
+    };
   }
 
   // 2. Verify selected entry IDs
   const validEntryIds = new Set(expectedCategory.entries.map((e) => e.entry_id));
   const verifiedEntries: KBEntry[] = [];
 
-  if (Array.isArray(llmOutput.selected_entry_ids)) {
-    for (const id of llmOutput.selected_entry_ids) {
-      if (!validEntryIds.has(id)) {
-        warnings.push(`LLM selected entry ID ${id} which is not part of Category #${expectedCategory.category_id}`);
-      }
+  if (!Array.isArray(llmOutput.selected_entry_ids) || llmOutput.selected_entry_ids.length === 0) {
+    return {
+      isValid: false,
+      rejectionReason: 'LLM output omitted required canonical entry IDs.',
+      verifiedEntries: expectedCategory.entries,
+      groundedSynthesis: expectedCategory.synthesis_note,
+      warnings: ['Missing selected_entry_ids; reverted to deterministic canonical synthesis.'],
+    };
+  }
+
+  for (const id of llmOutput.selected_entry_ids) {
+    if (!validEntryIds.has(id)) {
+      return {
+        isValid: false,
+        rejectionReason: `LLM selected noncanonical entry ID ${id} for Category #${expectedCategory.category_id}`,
+        verifiedEntries: expectedCategory.entries,
+        groundedSynthesis: expectedCategory.synthesis_note,
+        warnings: [`Rejected noncanonical entry ID: ${id}`],
+      };
     }
   }
 
-  // Always bind to the category's canonical entries
+  // Bind only to canonical category entries after ID validation succeeds.
   verifiedEntries.push(...expectedCategory.entries);
 
   // 3. Inspect phrased reflection for invented quotes or unauthorized authors
@@ -127,8 +140,13 @@ export function validateGrounding(
 
     const isVerified = verifiedQuotes.some((vq) => cleanQuote.includes(vq) || vq.includes(cleanQuote));
     if (!isVerified) {
-      // The LLM put quotation marks around unverified text!
-      warnings.push(`LLM used quotation marks around unverified quote: ${q}. Demoted to paraphrase.`);
+      return {
+        isValid: false,
+        rejectionReason: 'LLM presented text as a quotation that is not a verified canonical quote.',
+        verifiedEntries: expectedCategory.entries,
+        groundedSynthesis: expectedCategory.synthesis_note,
+        warnings: ['Unverified quoted material rejected; reverted to deterministic canonical synthesis.'],
+      };
     }
   }
 
