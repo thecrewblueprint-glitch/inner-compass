@@ -8,13 +8,16 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from 'react-native';
-import { ExistentialRoot } from '../types';
+import { Category, ExistentialRoot } from '../types';
 import { useTheme } from '../theme';
+import { DailyAffirmationWidget } from '../components/DailyAffirmationWidget';
 
 interface HomeScreenProps {
   onSubmit: (problemText: string, preferredRoot?: ExistentialRoot | null) => void;
+  onSelectDailyCategory?: (category: Category) => void;
   isLoading: boolean;
   clarificationPrompt?: string | null;
+  dailyInteractionTimestamp?: number;
 }
 
 const SAMPLE_SCENARIOS = [
@@ -47,7 +50,13 @@ const ROOTS: { key: ExistentialRoot; label: string; desc: string }[] = [
   { key: 'Meaninglessness', label: 'Meaning', desc: 'Purpose & sense-making' },
 ];
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({ onSubmit, isLoading, clarificationPrompt }) => {
+export const HomeScreen: React.FC<HomeScreenProps> = ({
+  onSubmit,
+  onSelectDailyCategory,
+  isLoading,
+  clarificationPrompt,
+  dailyInteractionTimestamp,
+}) => {
   const { theme } = useTheme();
   const [problemInput, setProblemInput] = useState('');
   const [selectedRoot, setSelectedRoot] = useState<ExistentialRoot | null>(null);
@@ -69,6 +78,15 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onSubmit, isLoading, cla
           Share an honest reflection. Your input is matched deterministically to 25 verified clinical-wisdom categories grounded in Eastern philosophy, Jungian shadow work, and evidence-based psychology.
         </Text>
       </View>
+
+      <DailyAffirmationWidget
+        onSelectCategory={onSelectDailyCategory}
+        onUseAsPrompt={(promptText) => {
+          setProblemInput(promptText);
+          setSelectedRoot(null);
+        }}
+        lastInteractionTimestamp={dailyInteractionTimestamp}
+      />
 
       {/* Main Input Box */}
       <View
