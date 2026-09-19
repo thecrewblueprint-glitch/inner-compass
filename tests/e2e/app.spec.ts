@@ -43,10 +43,10 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
     await expect(page.getByText('CATEGORY #1')).toBeVisible();
 
-    await page.getByRole('button', { name: 'Taxonomy' }).click();
+    await page.getByText('Taxonomy', { exact: true }).click();
     await expect(page.getByText('All 25 Categories')).toBeVisible();
 
-    await page.getByRole('button', { name: 'Lifelines 24/7' }).click();
+    await page.getByText('Lifelines 24/7', { exact: true }).click();
     await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
     await expect(page.getByText('24/7 Immediate Human Lifelines')).toBeVisible();
 
