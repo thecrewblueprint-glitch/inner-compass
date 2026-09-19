@@ -153,16 +153,16 @@ function getSemanticDiscriminatorBoost(
         return { boost: 80, reason: 'Decision-paralysis discriminator' };
       break;
     case 9:
-      if (hit(/\b(fail|fails|failed|failing|failure|falling\s+short|imposter|perfection\w*|single\s+error|making\s+a\s+mistake|disappointing\s+everyone)\b/))
-        return { boost: 90, reason: 'Performance-failure discriminator' };
+      if (hit(/\b(fail|fails|failed|failing|failure|falling\s+short|fall\s+flat\s+on\s+my\s+face|imposter|perfection\w*|single\s+error|making\s+a\s+mistake|disappointing\s+everyone)\b/))
+        return { boost: 120, reason: 'Performance-failure discriminator' };
       break;
     case 10:
       if (hit(/\b(chemical\s+dependency|alcohol|opioids?|drugs?|relaps\w*|detox|withdrawal|cravings?|urges?\s+to\s+drink|sobriety)\b/))
         return { boost: 100, reason: 'Substance-use discriminator' };
       break;
     case 11:
-      if (hit(/\b(compuls\w*|gambling|shopping|doom[- ]?scroll\w*|pornography|binge\s+eat\w*|behavioral\s+addiction)\b/))
-        return { boost: 90, reason: 'Behavioral-compulsion discriminator' };
+      if (hit(/\b(compuls\w*|gambling|shopping|doom[- ]?scroll\w*|pornography|binge\s+eat\w*|behavioral\s+addiction|dopamine\s+hit|impulsive\s+online\s+shopping)\b/))
+        return { boost: 150, reason: 'Behavioral-compulsion discriminator' };
       break;
     case 12:
       if (hit(/\b(betray\w*|broken\s+trust|decept\w*|lied\s+to|secret\s+account|stab\w*\s+.*back|infidelity|shattered\s+trust)\b/))
@@ -171,22 +171,25 @@ function getSemanticDiscriminatorBoost(
     case 13:
       if (
         hit(/\b(world|existence|nothing|anything|life)\b.*\b(meaning\w*|purpose|significance|pointless|value|void)\b/) ||
-        hit(/\b(meaning\w*|purpose|significance|pointless|void)\b.*\b(world|existence|nothing|anything|life)\b/)
-      ) return { boost: 80, reason: 'Global-meaning discriminator' };
+        hit(/\b(meaning\w*|purpose|significance|pointless|void)\b.*\b(world|existence|nothing|anything|life)\b/) ||
+        hit(/\b(work\s+or\s+otherwise|why\s+do\s+anything\s+at\s+all|what\s+i\s+am\s+doing\s+with\s+my\s+life|where\s+i\s+am\s+going)\b/)
+      ) return { boost: 150, reason: 'Global-meaning discriminator' };
       break;
-    case 14:
-      if (
+    case 14: {
+      const globalMeaning = hit(/\b(work\s+or\s+otherwise|nothing\s+in\s+existence|existence\s+has|why\s+do\s+anything\s+at\s+all)\b/);
+      if (!globalMeaning && (
         hit(/\b(career|job|work|workplace|corporate|vocation|profession)\b.*\b(meaning\w*|purpose|calling|hollow|unfulfilled|dead[- ]end|potential)\b/) ||
         hit(/\b(meaning\w*|purpose|calling|unfulfilled)\b.*\b(career|job|work|corporate|vocation|profession)\b/)
-      ) return { boost: 105, reason: 'Work-specific-purpose discriminator' };
+      )) return { boost: 105, reason: 'Work-specific-purpose discriminator' };
       break;
+    }
     case 15:
       if (hit(/\b(overwhelm\w*|burnout|overload|juggling|responsibilities|obligations|too\s+much|drowning\s+under|swamped|overextended)\b/))
         return { boost: 85, reason: 'Overload discriminator' };
       break;
     case 16:
-      if (hit(/\b(who\s+am\s+i|identity\s+crisis|authentic\s+values|social\s+masks?|true\s+self|lost\s+myself|empty\s+vessel|sense\s+of\s+self|fragmented\s+self)\b/))
-        return { boost: 95, reason: 'Personal-identity discriminator' };
+      if (hit(/\b(who\s+am\s+i|who\s+i\s+am|no\s+idea\s+who\s+i\s+am|identity\s+crisis|authentic\s+values|social\s+masks?|true\s+self|lost\s+myself|empty\s+vessel|sense\s+of\s+self|fragmented\s+self)\b/))
+        return { boost: 125, reason: 'Personal-identity discriminator' };
       break;
     case 17:
       if (hit(/\b(cultur\w*|ethnic\w*|heritage|immigrant|ancestral|assimilat\w*|social\s+group|community\s+i\s+was\s+raised\s+in)\b/))
@@ -213,16 +216,16 @@ function getSemanticDiscriminatorBoost(
         return { boost: 85, reason: 'Waiting-impatience discriminator' };
       break;
     case 23:
-      if (hit(/\b(sadness|sad|sorrow|melanchol\w*|gloom|gloomy|tearful|crying|low\s+mood|downcast|heavy\s+sorrow)\b/))
-        return { boost: 90, reason: 'Low-mood discriminator' };
+      if (hit(/\b(sadness|sad|sorrow|melanchol\w*|gloom|gloomy|tearful|crying|low\s+mood|downcast|heavy\s+sorrow|feel\s+heavy|heavy\s+and\s+unable\s+to\s+move\s+forward)\b/))
+        return { boost: 110, reason: 'Low-mood discriminator' };
       break;
     case 24:
-      if (hit(/\b(anhedonia|pleasure|joy|joyless|no\s+spark|lost\s+.*spark|emotional\s+numbness|positive\s+feeling|delight|enthusiasm|favorite\s+hobbies?.*flat)\b/))
-        return { boost: 95, reason: 'Anhedonia discriminator' };
+      if (hit(/\b(anhedonia|pleasure|joy|joyless|no\s+spark|lost\s+.*spark|loss\s+of\s+.*spark|all\s+spark|emotional\s+numbness|positive\s+feeling|delight|enthusiasm|mechanically\s+dull|tastes\s+bland|favorite\s+hobbies?.*flat)\b/))
+        return { boost: 125, reason: 'Anhedonia discriminator' };
       break;
     case 25: {
       const mistreatment = hit(/\b(bully\w*|mistreat\w*|disrespect\w*|belittl\w*|humiliat\w*|demean\w*|condescen\w*|harass\w*|hostility|exclusion)\b/);
-      const externalAgent = hit(/\b(supervisor|boss|manager|colleague|coworker|peer|people|authority|someone|group|team)\b/);
+      const externalAgent = hit(/\b(supervisors?|boss(es)?|managers?|colleagues?|coworkers?|peers?|people|authorit(y|ies)|someone|groups?|teams?|workplace)\b/);
       if (mistreatment && externalAgent)
         return { boost: 120, reason: 'External-mistreatment discriminator' };
       break;
