@@ -144,7 +144,7 @@ Respond with a JSON object strictly matching this schema:
 }`;
 
             const result = await client.models.generateContent({
-              model: 'gemini-2.5-flash',
+              model: 'gemini-3.8-flash',
               contents: prompt,
               config: {
                 responseMimeType: 'application/json',
@@ -270,7 +270,7 @@ Respond with a JSON object strictly matching this schema:
 
       if (gemini) {
         try {
-          modelUsed = 'gemini-2.5-flash';
+          modelUsed = 'gemini-3.8-flash';
           // Gemini evaluation prompt with classification, phrasing, clarification check, and entry mapping
           const categoriesBrief = CANONICAL_CATEGORIES.map(c => `#${c.category_id}: ${c.category_name}`).join(', ');
 
@@ -311,7 +311,7 @@ Rules:
 - phrased_reflection must be grounded strictly in the candidate category's canonical teachings. Do not invent authors or external quotes.`;
 
           const result = await gemini.models.generateContent({
-            model: 'gemini-2.5-flash',
+            model: 'gemini-3.8-flash',
             contents: evalPrompt,
             config: {
               responseMimeType: 'application/json',
