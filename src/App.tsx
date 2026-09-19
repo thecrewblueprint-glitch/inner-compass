@@ -30,6 +30,7 @@ const AppContent: React.FC = () => {
   const [guidanceResult, setGuidanceResult] = useState<GuidanceResult | null>(null);
   const [crisisAlert, setCrisisAlert] = useState<{ reason?: string; safetyNotes?: string[] } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
 
   // Saved reflections (Rule 7: Never stores raw problem text)
@@ -69,6 +70,7 @@ const AppContent: React.FC = () => {
 
   const handleSubmitProblem = async (problemText: string, preferredRoot?: ExistentialRoot | null) => {
     setIsLoading(true);
+    setClarificationPrompt(null);
 
     try {
       // 1. Upstream Deterministic Safety Evaluation
@@ -100,6 +102,19 @@ const AppContent: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
+
+        if (data.needsClarification) {
+          setClarificationPrompt(
+            data.clarification?.question ||
+            'Could you add one concrete detail about what feels most difficult right now?'
+          );
+          setGuidanceResult(null);
+          setCrisisAlert(null);
+          setCurrentTab('reflect');
+          setIsLoading(false);
+          return;
+        }
+
         if (data.blockedFromWisdom) {
           setCrisisAlert({
             reason: data.safety?.reason,
@@ -125,6 +140,17 @@ const AppContent: React.FC = () => {
       } else {
         // Deterministic local client fallback
         const retrieval = retrieveGroundedGuidance(problemText, preferredRoot, safety.suggestedCategoryId);
+        if (retrieval.needsClarification) {
+          setClarificationPrompt(
+            retrieval.clarificationQuestion ||
+            'Could you add one concrete detail about what feels most difficult right now?'
+          );
+          setGuidanceResult(null);
+          setCrisisAlert(null);
+          setCurrentTab('reflect');
+          return;
+        }
+
         const grounding = validateGrounding(null, retrieval.category);
         const localResult: GuidanceResult = {
           category: retrieval.category,
@@ -149,6 +175,17 @@ const AppContent: React.FC = () => {
         setGuidanceResult(null);
       } else {
         const retrieval = retrieveGroundedGuidance(problemText, preferredRoot, fallbackSafety.suggestedCategoryId);
+        if (retrieval.needsClarification) {
+          setClarificationPrompt(
+            retrieval.clarificationQuestion ||
+            'Could you add one concrete detail about what feels most difficult right now?'
+          );
+          setGuidanceResult(null);
+          setCrisisAlert(null);
+          setCurrentTab('reflect');
+          return;
+        }
+
         const grounding = validateGrounding(null, retrieval.category);
         const localResult: GuidanceResult = {
           category: retrieval.category,
@@ -374,6 +411,7 @@ const AppContent: React.FC = () => {
             <HomeScreen
               onSubmit={handleSubmitProblem}
               isLoading={isLoading}
+              clarificationPrompt={clarificationPrompt}
             />
           )
         )}
