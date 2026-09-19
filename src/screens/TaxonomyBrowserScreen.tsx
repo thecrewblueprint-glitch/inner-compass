@@ -9,7 +9,6 @@ import {
 import { getAllCategories } from '../knowledgeBase/kbLoader';
 import { Category, ExistentialRoot } from '../types';
 import { useTheme } from '../theme';
-import { recordCategoryInteraction } from '../services/dailyAffirmationService';
 
 interface TaxonomyBrowserScreenProps {
   onSelectCategory: (category: Category) => void;
@@ -107,7 +106,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
                 style={({ pressed }) => [styles.cardHeader, pressed && { opacity: 0.85 }]}
                 onPress={() => {
                   if (!isExpanded) {
-                    recordCategoryInteraction(cat.category_id, 'taxonomy_view');
+
                   }
                   setExpandedCatId(isExpanded ? null : cat.category_id);
                 }}
