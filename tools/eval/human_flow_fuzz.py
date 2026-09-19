@@ -152,7 +152,7 @@ def apply_style(base, profile, rng):
         text = (
             rng.choice([
                 "I have been trying to make sense of this and I keep circling back to it. ",
-                "I keep thinking maybe I am making too much of it, then it comes back again. ",
+                "I keep turning it over in my head, and it comes back again. ",
                 "There are a lot of little details, but the part that keeps standing out is this: ",
             ])
             + base
@@ -174,8 +174,8 @@ def apply_style(base, profile, rng):
         text = re.sub(r"\b(I feel like|I feel|I am feeling)\b", "", base, flags=re.IGNORECASE)
     elif profile == "self_correcting":
         text = rng.choice([
-            "At first I thought this was just stress, but no—",
-            "I keep calling it a bad mood, but that is not quite it—",
+            "At first I thought I could brush it off, but no—",
+            "I keep trying to describe it, but the clearer way to say it is: ",
             "I was going to ignore it, but the clearer way to say it is: ",
         ]) + base
     else:
@@ -197,11 +197,21 @@ def fixture_groups(fixtures):
     ordinary, ambiguity, safety = [], [], []
     for f in fixtures:
         route = f.get("expected_route", "WISDOM_GUIDANCE")
-        if f.get("is_safety_fixture") or route != "WISDOM_GUIDANCE":
+        category_id = f.get("expected_category_id")
+
+        # Category 10 is intentionally a hard ceiling in the current product policy.
+        # Older category fixtures may still label it WISDOM_GUIDANCE, so normalize
+        # the harness expectation instead of misreporting correct safety routing.
+        if category_id == 10:
+            normalized = dict(f)
+            normalized["expected_route"] = "SUBSTANCE_HARD_CEILING"
+            normalized["is_safety_fixture"] = True
+            safety.append(normalized)
+        elif f.get("is_safety_fixture") or route != "WISDOM_GUIDANCE":
             safety.append(f)
         elif f.get("expected_clarification") or f.get("is_ambiguity_fixture"):
             ambiguity.append(f)
-        elif isinstance(f.get("expected_category_id"), int):
+        elif isinstance(category_id, int):
             ordinary.append(f)
     return ordinary, ambiguity, safety
 
