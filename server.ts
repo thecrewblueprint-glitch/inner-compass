@@ -204,6 +204,8 @@ Respond with a JSON object strictly matching this schema:
 
       const preferredRoot = req.body.preferredRoot || null;
       const fixtureId = req.body.fixtureId || req.body.id || null;
+      const evalMode = (req.body.mode === 'deterministic' || req.body.skipGemini === true) ? 'deterministic' : (req.body.mode || 'gemini');
+      const mockOutput = req.body.mockStructuredOutput || null;
       const expectedCategoryId = typeof req.body.expectedCategoryId === 'number'
         ? req.body.expectedCategoryId
         : typeof req.body.expected_category_id === 'number'
@@ -232,10 +234,17 @@ Respond with a JSON object strictly matching this schema:
           eval: {
             fixtureId,
             route,
+            source: 'upstream_safety',
+            geminiSuccess: false,
+            validStructuredOutput: false,
+            geminiStatusCode: null,
+            geminiRetryAfterSeconds: null,
+            groundingAccepted: true,
             predictedCategoryId: safetyResult.suggestedCategoryId || null,
             predictedCategoryName: safetyResult.suggestedCategoryId ? getCategoryById(safetyResult.suggestedCategoryId)?.category_name : null,
             expectedCategoryId,
             categoryMatch: expectedCategoryId !== null ? safetyResult.suggestedCategoryId === expectedCategoryId : null,
+            retrievalScore: 100,
             clarificationRequested: false,
             clarificationQuestion: null,
             safety: safetyResult,
@@ -246,9 +255,11 @@ Respond with a JSON object strictly matching this schema:
               verifiedEntriesCount: 0,
             },
             selectedKbEntries: [],
-            llmModelUsed: 'deterministic_safety_bypass',
+            llmModelUsed: 'upstream_safety_router',
+            confidence: 100,
             latencyMs,
             errors: [],
+            consistencyHash: `${safetyResult.suggestedCategoryId || 0}:${route}:1`,
           },
           safety: safetyResult,
           category: safetyResult.suggestedCategoryId ? getCategoryById(safetyResult.suggestedCategoryId) : null,
@@ -260,21 +271,32 @@ Respond with a JSON object strictly matching this schema:
       const retrieval = retrieveGroundedGuidance(problem, preferredRoot, safetyResult.suggestedCategoryId);
       const category = retrieval.category;
 
-      // STEP 3: Gemini Inference using AI Studio's server-side credentials
-      const gemini = getGeminiClient();
+      // STEP 3: Layer Separation (Deterministic vs Controlled Gemini)
       let structuredOutput: StructuredLLMOutput | null = null;
-      let modelUsed = 'none';
+      let modelUsed = 'deterministic_retrieval';
+      let evalSource = 'deterministic_retrieval';
+      let geminiSuccess = false;
+      let validStructuredOutput = false;
+      let geminiStatusCode: number | null = null;
+      let geminiRetryAfterSeconds: number | null = null;
       const evalErrors: string[] = [];
       let clarificationRequested = false;
       let clarificationQuestion: string | null = null;
 
-      if (gemini) {
-        try {
+      if (evalMode === 'deterministic') {
+        // Pure deterministic evaluation - zero LLM calls
+        if (mockOutput) {
+          structuredOutput = mockOutput;
+          evalSource = 'deterministic_mock_validator';
+        }
+      } else {
+        // Gemini evaluation
+        const gemini = getGeminiClient();
+        if (gemini) {
           modelUsed = 'gemini-3.8-flash';
-          // Gemini evaluation prompt with classification, phrasing, clarification check, and entry mapping
-          const categoriesBrief = CANONICAL_CATEGORIES.map(c => `#${c.category_id}: ${c.category_name}`).join(', ');
-
-          const evalPrompt = `You are evaluating problem classification and wisdom phrasing for Inner Compass.
+          try {
+            const categoriesBrief = CANONICAL_CATEGORIES.map(c => `#${c.category_id}: ${c.category_name}`).join(', ');
+            const evalPrompt = `You are evaluating problem classification and wisdom phrasing for Inner Compass.
 All 25 Canonical Categories: ${categoriesBrief}
 
 User Problem Statement:
@@ -310,42 +332,67 @@ Rules:
 - needs_clarification is true only if the dilemma is genuinely ambiguous between multiple distinct categories.
 - phrased_reflection must be grounded strictly in the candidate category's canonical teachings. Do not invent authors or external quotes.`;
 
-          const result = await gemini.models.generateContent({
-            model: 'gemini-3.8-flash',
-            contents: evalPrompt,
-            config: {
-              responseMimeType: 'application/json',
-              temperature: 0.1,
-            },
-          });
+            const result = await gemini.models.generateContent({
+              model: 'gemini-3.8-flash',
+              contents: evalPrompt,
+              config: {
+                responseMimeType: 'application/json',
+                temperature: 0.1,
+              },
+            });
 
-          if (result && result.text) {
-            const parsed = JSON.parse(result.text);
-            structuredOutput = {
-              matched_category_id: typeof parsed.matched_category_id === 'number' ? parsed.matched_category_id : category.category_id,
-              existential_roots: Array.isArray(parsed.existential_roots) ? parsed.existential_roots : category.existential_roots,
-              phrased_reflection: typeof parsed.phrased_reflection === 'string' ? parsed.phrased_reflection : category.synthesis_note,
-              selected_entry_ids: Array.isArray(parsed.selected_entry_ids) ? parsed.selected_entry_ids : category.entries.map(e => e.entry_id),
-              confidence: typeof parsed.confidence === 'number' ? parsed.confidence : retrieval.score,
-            };
-            if (parsed.needs_clarification === true) {
-              clarificationRequested = true;
-              clarificationQuestion = parsed.clarification_prompt || 'Could you elaborate on whether this dilemma centers more on loss, control, or isolation?';
+            if (result && result.text) {
+              const parsed = JSON.parse(result.text);
+              structuredOutput = {
+                matched_category_id: typeof parsed.matched_category_id === 'number' ? parsed.matched_category_id : category.category_id,
+                existential_roots: Array.isArray(parsed.existential_roots) ? parsed.existential_roots : category.existential_roots,
+                phrased_reflection: typeof parsed.phrased_reflection === 'string' ? parsed.phrased_reflection : category.synthesis_note,
+                selected_entry_ids: Array.isArray(parsed.selected_entry_ids) ? parsed.selected_entry_ids : category.entries.map(e => e.entry_id),
+                confidence: typeof parsed.confidence === 'number' ? parsed.confidence : retrieval.score,
+              };
+              validStructuredOutput = true;
+              geminiSuccess = true;
+              evalSource = 'gemini';
+              geminiStatusCode = 200;
+
+              if (parsed.needs_clarification === true) {
+                clarificationRequested = true;
+                clarificationQuestion = parsed.clarification_prompt || 'Could you elaborate on whether this dilemma centers more on loss, control, or isolation?';
+              }
             }
+          } catch (geminiError: any) {
+            evalSource = 'deterministic_fallback';
+            geminiSuccess = false;
+            validStructuredOutput = false;
+            const errMsg = geminiError.message || String(geminiError);
+            evalErrors.push(`Gemini inference error: ${errMsg}`);
+
+            if (errMsg.includes('429') || errMsg.includes('RESOURCE_EXHAUSTED')) {
+              geminiStatusCode = 429;
+              const retryMatch = errMsg.match(/retry in\s+([0-9.]+)\s*s/i) || errMsg.match(/retryDelay['":\s]+([0-9]+)/i);
+              if (retryMatch) {
+                geminiRetryAfterSeconds = Math.ceil(parseFloat(retryMatch[1]));
+              }
+            } else if (errMsg.includes('503') || errMsg.includes('UNAVAILABLE')) {
+              geminiStatusCode = 503;
+            } else {
+              geminiStatusCode = 500;
+            }
+            console.warn(`[Eval Gemini Error ${geminiStatusCode}]:`, errMsg.slice(0, 160));
           }
-        } catch (geminiError: any) {
-          evalErrors.push(`Gemini inference error: ${geminiError.message || String(geminiError)}`);
-          console.warn('[Eval Gemini Error]:', geminiError);
+        } else {
+          evalSource = 'deterministic_fallback';
+          evalErrors.push('Gemini client not configured (GEMINI_API_KEY missing from server environment)');
         }
-      } else {
-        evalErrors.push('Gemini client not configured (GEMINI_API_KEY missing from server environment)');
       }
 
       // STEP 4: Grounding Validation
       const groundingResult = validateGrounding(structuredOutput, category);
       const isFallback = !groundingResult.isValid || !structuredOutput;
 
-      const predictedCatId = structuredOutput?.matched_category_id || category.category_id;
+      const predictedCatId = (evalSource === 'gemini' && structuredOutput)
+        ? structuredOutput.matched_category_id
+        : category.category_id;
       const predictedCat = getCategoryById(predictedCatId) || category;
 
       const latencyMs = Date.now() - startTime;
@@ -355,6 +402,12 @@ Rules:
         eval: {
           fixtureId,
           route,
+          source: evalSource,
+          geminiSuccess,
+          validStructuredOutput,
+          geminiStatusCode,
+          geminiRetryAfterSeconds,
+          groundingAccepted: groundingResult.isValid && !isFallback,
           predictedCategoryId: predictedCatId,
           predictedCategoryName: predictedCat.category_name,
           expectedCategoryId,
@@ -370,7 +423,7 @@ Rules:
             verifiedEntriesCount: groundingResult.verifiedEntries.length,
           },
           selectedKbEntries: structuredOutput?.selected_entry_ids || category.entries.map(e => e.entry_id),
-          llmModelUsed: modelUsed,
+          llmModelUsed: evalSource === 'gemini' ? modelUsed : evalSource,
           confidence: structuredOutput?.confidence || retrieval.score,
           latencyMs,
           errors: evalErrors,

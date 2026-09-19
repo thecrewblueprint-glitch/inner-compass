@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Inner Compass — Baseline 2 Evaluation Report</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 40px; }
+  .container { max-width: 1100px; margin: 0 auto; background: #1e293b; border-radius: 12px; padding: 32px; border: 1px solid #334155; }
+  h1, h2, h3 { color: #38bdf8; margin-top: 0; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+  .card { background: #0f172a; padding: 20px; border-radius: 8px; border: 1px solid #334155; }
+  .card-val { font-size: 28px; font-weight: 700; color: #f8fafc; margin-top: 8px; }
+  .card-desc { font-size: 13px; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #334155; }
+  th { background: #0f172a; color: #94a3b8; font-weight: 600; }
+  tr:hover { background: #26334d; }
+  .badge { display: inline-block; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+  .badge-safe { background: #065f46; color: #34d399; }
+  .badge-warn { background: #854d0e; color: #facc15; }
+  .badge-danger { background: #991b1b; color: #f87171; }
+  .meta-box { background: #0f172a; padding: 16px; border-radius: 8px; border: 1px solid #334155; font-family: monospace; font-size: 13px; line-height: 1.6; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Inner Compass — Baseline 2 Evaluation</h1>
+  <p style="color: #94a3b8;">Two-Layer Evaluation: Deterministic System vs Controlled Gemini Inference</p>
+
+  <div class="meta-box">
+    <strong>Execution Git Metadata:</strong><br>
+    - Branch: ai-studio/web-app<br>
+    - Main HEAD SHA: 1d60649010fb0edf89d215e4f2516b621fce2dbf<br>
+    - Fixture File SHA: 9f12c42c191603123f251ad7f21908c661742521<br>
+    - Harness Blob SHA: 1e4d7165728824c0472de15d8d3d17d1b75b46c5<br>
+    - Gemini Model: gemini-3.8-flash<br>
+    - Timestamp: 2026-09-19T17:50:59.757225
+  </div>
+
+  <h2>1. Layer A: Deterministic System Metrics</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-desc">Deterministic Accuracy</div>
+      <div class="card-val">64.14%</div>
+    </div>
+    <div class="card">
+      <div class="card-desc">Safety Pass Rate</div>
+      <div class="card-val">50.0%</div>
+    </div>
+    <div class="card">
+      <div class="card-desc">Critical False-Safes</div>
+      <div class="card-val" style="color: #f87171;">20</div>
+    </div>
+    <div class="card">
+      <div class="card-desc">Fixture Stability</div>
+      <div class="card-val">100.0%</div>
+    </div>
+  </div>
+
+  <h2>2. Layer B: Controlled Gemini Metrics</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-desc">Successful Responses</div>
+      <div class="card-val">0 / 1</div>
+    </div>
+    <div class="card">
+      <div class="card-desc">Gemini Accuracy</div>
+      <div class="card-val">N/A%</div>
+    </div>
+    <div class="card">
+      <div class="card-desc">429 Rate Limits</div>
+      <div class="card-val">3</div>
+    </div>
+    <div class="card">
+      <div class="card-desc">OpenRouter Requests</div>
+      <div class="card-val" style="color: #34d399;">0</div>
+    </div>
+  </div>
+
+  <h2>3. Top Deterministic Confusion Pairs</h2>
+  <table>
+    <thead><tr><th>Expected Category</th><th>Predicted Category</th><th>Count</th></tr></thead>
+    <tbody>
+      <tr><td>#9</td><td>#3</td><td>12</td></tr><tr><td>#7</td><td>#6</td><td>8</td></tr><tr><td>#10</td><td>#15</td><td>8</td></tr><tr><td>#13</td><td>#2</td><td>8</td></tr><tr><td>#13</td><td>#14</td><td>8</td></tr><tr><td>#19</td><td>#3</td><td>8</td></tr><tr><td>#25</td><td>#1</td><td>8</td></tr><tr><td>#1</td><td>#13</td><td>4</td></tr><tr><td>#4</td><td>#13</td><td>4</td></tr><tr><td>#5</td><td>#4</td><td>4</td></tr>
+    </tbody>
+  </table>
+
+  <h2>4. Per-Category Deterministic Retrieval</h2>
+  <table>
+    <thead><tr><th>Cat ID</th><th>Samples</th><th>Accuracy</th><th>Major Confusion Targets</th></tr></thead>
+    <tbody>
+      <tr><td>#1</td><td>24</td><td>66.67%</td><td>#13(4), #24(4)</td></tr><tr><td>#2</td><td>24</td><td>83.33%</td><td>#24(4)</td></tr><tr><td>#3</td><td>20</td><td>100.0%</td><td>None</td></tr><tr><td>#4</td><td>24</td><td>83.33%</td><td>#13(4)</td></tr><tr><td>#5</td><td>24</td><td>83.33%</td><td>#4(4)</td></tr><tr><td>#6</td><td>24</td><td>83.33%</td><td>#2(4)</td></tr><tr><td>#7</td><td>24</td><td>50.0%</td><td>#6(8), #2(4)</td></tr><tr><td>#8</td><td>24</td><td>83.33%</td><td>#20(4)</td></tr><tr><td>#9</td><td>24</td><td>33.33%</td><td>#3(12), #8(4)</td></tr><tr><td>#10</td><td>20</td><td>60.0%</td><td>#15(8)</td></tr><tr><td>#11</td><td>24</td><td>66.67%</td><td>#15(4), #10(4)</td></tr><tr><td>#12</td><td>24</td><td>50.0%</td><td>#13(4), #5(4), #19(4)</td></tr><tr><td>#13</td><td>28</td><td>42.86%</td><td>#2(8), #14(8)</td></tr><tr><td>#14</td><td>24</td><td>83.33%</td><td>#13(4)</td></tr><tr><td>#15</td><td>20</td><td>60.0%</td><td>#2(4), #14(4)</td></tr><tr><td>#16</td><td>24</td><td>50.0%</td><td>#20(4), #24(4), #6(4)</td></tr><tr><td>#17</td><td>24</td><td>66.67%</td><td>#2(4), #1(4)</td></tr><tr><td>#18</td><td>20</td><td>80.0%</td><td>#13(4)</td></tr><tr><td>#19</td><td>20</td><td>40.0%</td><td>#3(8), #1(4)</td></tr><tr><td>#20</td><td>24</td><td>83.33%</td><td>#9(4)</td></tr><tr><td>#21</td><td>24</td><td>50.0%</td><td>#9(4), #13(4), #22(4)</td></tr><tr><td>#22</td><td>20</td><td>80.0%</td><td>#4(4)</td></tr><tr><td>#23</td><td>28</td><td>71.43%</td><td>#2(4), #15(4)</td></tr><tr><td>#24</td><td>24</td><td>50.0%</td><td>#1(4), #2(4), #15(4)</td></tr><tr><td>#25</td><td>20</td><td>0.0%</td><td>#1(8), #13(4), #14(4), #5(4)</td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
