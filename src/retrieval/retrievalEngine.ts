@@ -202,7 +202,7 @@ function getSemanticDiscriminatorBoost(
         return { boost: 105, reason: 'Overload discriminator' };
       break;
     case 16:
-      if (hit(/\b(who\s+am\s+i|who\s+i\s+am|no\s+idea\s+who\s+i\s+am|identity\s+crisis|authentic\s+values|social\s+masks?|true\s+self|lost\s+myself|empty\s+vessel|sense\s+of\s+self|fragmented\s+self)\b/))
+      if (hit(/\b(who\s+am\s+i|who\s+i\s+am|who\s+im|no\s+idea\s+who\s+i\s+am|no\s+idea\s+who\s+im|identity\s+crisis|authentic\s+values|social\s+masks?|true\s+self|lost\s+myself|empty\s+vessel|sense\s+of\s+self|fragmented\s+self)\b/))
         return { boost: 125, reason: 'Personal-identity discriminator' };
       break;
     case 17:
@@ -234,6 +234,10 @@ function getSemanticDiscriminatorBoost(
         return { boost: 110, reason: 'Low-mood discriminator' };
       break;
     case 24:
+      if (
+        hit(/\b(not\s+sad|not\s+depressed|not\s+down)\b.*\b(cannot\s+feel|can't\s+feel|cant\s+feel|no)\b.*\b(pleasure|joy|spark|delight|enthusiasm)\b/) ||
+        hit(/\b(cannot\s+feel|can't\s+feel|cant\s+feel|no)\b.*\b(pleasure|joy|spark|delight|enthusiasm)\b.*\b(not\s+sad|not\s+depressed|not\s+down)\b/)
+      ) return { boost: 190, reason: 'Anhedonia-with-negated-low-mood discriminator' };
       if (hit(/\b(anhedonia|pleasure|joy|joyless|no\s+spark|lost\s+.*spark|loss\s+of\s+.*spark|all\s+spark|emotional\s+numbness|positive\s+feeling|delight|enthusiasm|mechanically\s+dull|tastes\s+bland|favorite\s+hobbies?.*flat)\b/))
         return { boost: 125, reason: 'Anhedonia discriminator' };
       break;
