@@ -77,11 +77,22 @@ export interface GroundingValidationResult {
   warnings: string[];
 }
 
+export interface RetrievalAlternative {
+  category_id: number;
+  category_name: string;
+  score: number;
+}
+
 export interface RetrievalMatch {
   category: Category;
   score: number;
+  rawScore?: number;
   explanation: string;
   matchedPillars: KBEntry[];
+  runnerUp?: RetrievalAlternative;
+  scoreMargin?: number;
+  needsClarification?: boolean;
+  clarificationQuestion?: string;
 }
 
 export interface GuidanceResult {
