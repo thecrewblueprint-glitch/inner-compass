@@ -175,7 +175,7 @@ function getSemanticDiscriminatorBoost(
         return { boost: 90, reason: 'Betrayal-trust discriminator' };
       break;
     case 13: {
-      const workSpecificMeaning = hit(/\b(corporate\s+job|career|job|workplace|vocation|profession)\b.*\b(meaning\w*|purpose|hollow|unfulfilled)\b/);
+      const workSpecificMeaning = hit(/\b(corporate\s+job|career|job|workplace|vocation|profession)\b.*\b(meaning\w*|purpose|pointless|calling|hollow|unfulfilled)\b/);
       if (!workSpecificMeaning && (
         hit(/\b(world|existence|nothing|anything|life)\b.*\b(meaning\w*|purpose|significance|pointless|value|void)\b/) ||
         hit(/\b(meaning\w*|purpose|significance|pointless|void)\b.*\b(world|existence|nothing|anything|life)\b/) ||
@@ -186,7 +186,7 @@ function getSemanticDiscriminatorBoost(
     case 14: {
       const globalMeaning = hit(/\b(work\s+or\s+otherwise|nothing\s+in\s+existence|existence\s+has|why\s+do\s+anything\s+at\s+all)\b/);
       if (!globalMeaning && (
-        hit(/\b(career|job|work|workplace|corporate|vocation|profession)\b.*\b(meaning\w*|purpose|calling|hollow|unfulfilled|dead[- ]end|potential)\b/) ||
+        hit(/\b(career|job|work|workplace|corporate|vocation|profession)\b.*\b(meaning\w*|purpose|pointless|calling|hollow|unfulfilled|dead[- ]end|potential)\b/) ||
         hit(/\b(meaning\w*|purpose|calling|unfulfilled)\b.*\b(career|job|work|corporate|vocation|profession)\b/)
       )) return { boost: 105, reason: 'Work-specific-purpose discriminator' };
       break;
