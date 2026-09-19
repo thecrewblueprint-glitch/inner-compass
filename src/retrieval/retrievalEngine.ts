@@ -269,7 +269,7 @@ function detectSemanticAmbiguity(normalized: string): AmbiguitySignal | null {
   if (
     hit(/\brelationships?\b/) &&
     hit(/\b(difficult|hard|empty|strained|off|painful)\b/) &&
-    !hit(/\b(lonely|alone|isolat\w*|unseen|argu\w*|fight\w*|conflict|dispute|bicker\w*)\b/)
+    !hit(/\b(lonely|alone|isolat\w*|unseen|argu\w*|fight\w*|conflict|dispute|bicker\w*|breakup|heartbreak|rejected|rejection|dumped|partner\s+left|relationship\s+ended|walked\s+away)\b/)
   ) {
     return {
       candidateIds: [1, 5],
@@ -307,6 +307,7 @@ function detectSemanticAmbiguity(normalized: string): AmbiguitySignal | null {
   if (
     hit(/\b(others|other\s+people|everyone\s+else)\b/) &&
     hit(/\b(inadequate|inferior|behind|not\s+good\s+enough|uncomfortable)\b/) &&
+    !hit(/\b(comparing|comparison|envy|envious|jealous|jealousy)\b/) &&
     !hit(/\b(fail\w*|mistake|performance|project|exam|presentation|deadline)\b/)
   ) {
     return {
@@ -317,6 +318,14 @@ function detectSemanticAmbiguity(normalized: string): AmbiguitySignal | null {
   }
 
   return null;
+}
+
+function detectVagueLowEvidence(normalized: string): boolean {
+  return /\b(something\s+feels\s+(wrong|off)|cannot\s+name\s+the\s+(main\s+)?issue|can't\s+name\s+the\s+(main\s+)?issue|cannot\s+tell\s+why|can't\s+tell\s+why|not\s+sure\s+what\s+i\s+am\s+feeling|not\s+sure\s+what\s+i'm\s+feeling|a\s+lot\s+feels\s+mixed\s+together|do\s+not\s+know\s+what\s+the\s+real\s+problem\s+is|don't\s+know\s+what\s+the\s+real\s+problem\s+is)\b/i.test(normalized);
+}
+
+function hasExplicitMultiIssueStructure(normalized: string): boolean {
+  return /\b(also|at\s+the\s+same\s+time|on\s+top\s+of\s+that|another\s+part\s+of\s+it\s+is\s+that|something\s+else\s+too|separately|besides\s+that)\b/i.test(normalized);
 }
 
 function buildGenericClarificationQuestion(primary: Category, secondary?: Category): string {
@@ -426,12 +435,41 @@ export function retrieveGroundedGuidance(
   const scoreMargin = Math.max(0, rawScore - runnerUpScore);
 
   const semanticAmbiguity = detectSemanticAmbiguity(normalized);
-  const lowEvidence = rawScore < 25;
-  const closeTie = rawScore > 0 && runnerUpScore > 0 && scoreMargin <= 12 && rawScore < 140;
-  const needsClarification = Boolean(semanticAmbiguity || lowEvidence || closeTie);
+  const primaryHasSubstantiveEvidence = Boolean(bestMatch?.matchReasons.length);
+  const runnerUpHasSubstantiveEvidence = Boolean(runnerUpMatch?.matchReasons.length);
+
+  // A low numerical score alone is not uncertainty if the score came from an
+  // explicit category-specific keyword/phrase/discriminator. This avoids asking
+  // for clarification on clear but concise human wording.
+  const lowEvidence =
+    detectVagueLowEvidence(normalized) ||
+    (rawScore < 25 && !primaryHasSubstantiveEvidence);
+
+  // A close score only matters when both candidate categories have substantive
+  // evidence. Title-word collisions and generic overlap should not force a clarification.
+  const closeTie =
+    primaryHasSubstantiveEvidence &&
+    runnerUpHasSubstantiveEvidence &&
+    rawScore > 0 &&
+    runnerUpScore > 0 &&
+    scoreMargin <= 12 &&
+    rawScore < 140;
+
+  // If the user explicitly introduces an additional issue and the classifier
+  // has non-trivial evidence for a second category, ask which issue they want
+  // to focus on instead of silently choosing one.
+  const multiIssue =
+    hasExplicitMultiIssueStructure(normalized) &&
+    rawScore > 0 &&
+    runnerUpScore >= 12 &&
+    finalCategory.category_id !== runnerUpMatch?.category.category_id;
+
+  const needsClarification = Boolean(semanticAmbiguity || lowEvidence || closeTie || multiIssue);
 
   let clarificationQuestion: string | undefined;
-  if (semanticAmbiguity) {
+  if (multiIssue) {
+    clarificationQuestion = buildGenericClarificationQuestion(finalCategory, runnerUpMatch?.category);
+  } else if (semanticAmbiguity) {
     clarificationQuestion = semanticAmbiguity.question;
   } else if (lowEvidence) {
     clarificationQuestion = buildGenericClarificationQuestion(finalCategory);
