@@ -19,6 +19,7 @@ import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
 import { Category, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
 import { ThemeProvider, useTheme, ThemeMode } from './theme';
+import { recordCategoryInteraction } from './services/dailyAffirmationService';
 
 const STORAGE_KEY = 'inner_compass_saved_reflections_v1';
 const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
@@ -32,6 +33,7 @@ const AppContent: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
+  const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
 
   // Saved reflections (Rule 7: Never stores raw problem text)
   const [savedReflections, setSavedReflections] = useState<SavedReflection[]>(() => {
@@ -67,6 +69,14 @@ const AppContent: React.FC = () => {
       console.warn('LocalStorage unavailable:', e);
     }
   }, [savedReflections]);
+
+  const trackCategoryInteraction = (
+    categoryId: number,
+    source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample'
+  ) => {
+    recordCategoryInteraction(categoryId, source);
+    setDailyInteractionTimestamp(Date.now());
+  };
 
   const handleSubmitProblem = async (problemText: string, preferredRoot?: ExistentialRoot | null) => {
     setIsLoading(true);
@@ -136,6 +146,7 @@ const AppContent: React.FC = () => {
         };
 
         setGuidanceResult(result);
+        trackCategoryInteraction(category.category_id, 'reflection');
         setCrisisAlert(null);
       } else {
         // Deterministic local client fallback
@@ -161,6 +172,7 @@ const AppContent: React.FC = () => {
           isFallback: true,
         };
         setGuidanceResult(localResult);
+        trackCategoryInteraction(retrieval.category.category_id, 'reflection');
         setCrisisAlert(null);
       }
     } catch (err) {
@@ -196,6 +208,7 @@ const AppContent: React.FC = () => {
           isFallback: true,
         };
         setGuidanceResult(localResult);
+        trackCategoryInteraction(retrieval.category.category_id, 'reflection');
         setCrisisAlert(null);
       }
     } finally {
@@ -203,17 +216,21 @@ const AppContent: React.FC = () => {
     }
   };
 
-  const handleSelectCategoryFromTaxonomy = (category: Category) => {
+  const handleSelectCategory = (
+    category: Category,
+    source: 'saved' | 'taxonomy_view' | 'sample'
+  ) => {
     const safety = evaluateSafetyUpstream(category.category_name);
     const grounding = validateGrounding(null, category);
     const result: GuidanceResult = {
       category,
       safety,
       grounding,
-      affirmation: `I anchor in ${category.category_name} with mindful clarity and practical steps.`,
+      affirmation: category.synthesis_note,
       synthesis: category.synthesis_note,
       isFallback: true,
     };
+    trackCategoryInteraction(category.category_id, source);
     setGuidanceResult(result);
     setCurrentTab('reflect');
   };
@@ -237,6 +254,7 @@ const AppContent: React.FC = () => {
     };
 
     setSavedReflections((prev) => [newRef, ...prev]);
+    trackCategoryInteraction(category.category_id, 'saved');
   };
 
   const isCurrentCategorySaved = Boolean(
@@ -410,8 +428,10 @@ const AppContent: React.FC = () => {
           ) : (
             <HomeScreen
               onSubmit={handleSubmitProblem}
+              onSelectDailyCategory={(cat) => handleSelectCategory(cat, 'sample')}
               isLoading={isLoading}
               clarificationPrompt={clarificationPrompt}
+              dailyInteractionTimestamp={dailyInteractionTimestamp}
             />
           )
         )}
@@ -419,7 +439,7 @@ const AppContent: React.FC = () => {
         {currentTab === 'taxonomy' && (
           <TaxonomyBrowserScreen
             onSelectCategory={(cat) => {
-              handleSelectCategoryFromTaxonomy(cat);
+              handleSelectCategory(cat, 'taxonomy_view');
             }}
           />
         )}
@@ -428,7 +448,7 @@ const AppContent: React.FC = () => {
           <SavedJournalScreen
             savedList={savedReflections}
             onSelectCategory={(cat) => {
-              handleSelectCategoryFromTaxonomy(cat);
+              handleSelectCategory(cat, 'saved');
             }}
             onRemove={(id) => {
               setSavedReflections((prev) => prev.filter((r) => r.id !== id));
