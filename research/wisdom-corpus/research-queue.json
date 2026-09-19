@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "issue": 3,
+  "status": "scaffold_ready",
+  "phases": [
+    {
+      "phase": 1,
+      "tradition": "Stoicism",
+      "classification": "Western Hellenistic philosophy",
+      "priority": "highest",
+      "sources": [
+        {
+          "author": "Marcus Aurelius",
+          "work": "Meditations"
+        },
+        {
+          "author": "Epictetus",
+          "work": "Discourses"
+        },
+        {
+          "author": "Epictetus",
+          "work": "Enchiridion / Handbook"
+        },
+        {
+          "author": "Seneca",
+          "work": "Moral Letters to Lucilius"
+        },
+        {
+          "author": "Seneca",
+          "work": "On Anger"
+        },
+        {
+          "author": "Seneca",
+          "work": "On the Shortness of Life"
+        },
+        {
+          "author": "Seneca",
+          "work": "On Tranquility of Mind"
+        },
+        {
+          "author": "Musonius Rufus",
+          "work": "Lectures / surviving fragments"
+        }
+      ]
+    },
+    {
+      "phase": 2,
+      "tradition": "Early Buddhist and Buddhist sources",
+      "priority": "highest",
+      "sources": [
+        {
+          "author": "traditional / canonical",
+          "work": "Dhammapada"
+        },
+        {
+          "author": "traditional / canonical",
+          "work": "Sutta Nipāta"
+        },
+        {
+          "author": "traditional / canonical",
+          "work": "Majjhima Nikāya"
+        },
+        {
+          "author": "traditional / canonical",
+          "work": "Saṃyutta Nikāya"
+        },
+        {
+          "author": "traditional / canonical",
+          "work": "Udāna"
+        },
+        {
+          "author": "traditional / canonical",
+          "work": "Itivuttaka"
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "tradition": "Daoism / Taoism",
+      "priority": "high",
+      "sources": [
+        {
+          "author": "Laozi (attributed)",
+          "work": "Daodejing / Tao Te Ching"
+        },
+        {
+          "author": "Zhuang Zhou / Zhuangzi tradition",
+          "work": "Zhuangzi"
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "tradition": "Indian philosophical traditions",
+      "priority": "high",
+      "sources": [
+        {
+          "author": "traditional",
+          "work": "Bhagavad Gita"
+        },
+        {
+          "author": "traditional",
+          "work": "Principal Upanishads"
+        },
+        {
+          "author": "Patañjali (attributed)",
+          "work": "Yoga Sutras"
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "tradition": "Confucian / classical Chinese",
+      "priority": "medium",
+      "sources": [
+        {
+          "author": "Confucius / disciples tradition",
+          "work": "Analects"
+        },
+        {
+          "author": "Mencius",
+          "work": "Mencius"
+        }
+      ]
+    },
+    {
+      "phase": 6,
+      "tradition": "Later review candidates",
+      "priority": "later",
+      "sources": [
+        {
+          "author": "various",
+          "work": "Zen / Chan texts"
+        },
+        {
+          "author": "various",
+          "work": "Jain philosophical texts"
+        },
+        {
+          "author": "Epicurus and Epicurean tradition",
+          "work": "Letters / Principal Doctrines"
+        },
+        {
+          "author": "various",
+          "work": "Classical Greek ethics beyond Stoicism"
+        },
+        {
+          "author": "various",
+          "work": "Existential philosophy"
+        }
+      ]
+    }
+  ],
+  "research_rules": {
+    "minimum_target_records_per_category": 5,
+    "minimum_target_affirmations_per_category": 3,
+    "direct_quote_requires_named_translation_or_edition": true,
+    "direct_quote_requires_locator": true,
+    "direct_quote_requires_rights_status": true,
+    "force_cross_tradition_quota": false,
+    "production_kb_mutation_allowed": false
+  }
+}
