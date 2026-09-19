@@ -132,6 +132,12 @@ function getSemanticDiscriminatorBoost(
         hit(/\b(alone|isolat\w*|distance|unseen|disconnected)\b.*\b(acquaintances?|crowd|everyone\s+else|relationships?)\b/)
       ) return { boost: 65, reason: 'Social-isolation discriminator' };
       break;
+    case 2:
+      if (
+        hit(/\b(mourn\w*|griev\w*|bereavement|passed\s+away|death\s+of|losing\s+someone|lost\s+someone|miss\s+them|heartache\s+and\s+sorrow)\b/) ||
+        hit(/\bslipping\s+away\b/)
+      ) return { boost: 160, reason: 'Concrete-loss/grief discriminator' };
+      break;
     case 4:
       if (hit(/\b(boiling|rage|furious|fury|explode|exploding|seething)\b/))
         return { boost: 75, reason: 'Internal-anger discriminator' };
@@ -141,8 +147,8 @@ function getSemanticDiscriminatorBoost(
         return { boost: 85, reason: 'Reciprocal-conflict discriminator' };
       break;
     case 6:
-      if (hit(/\b(defective|repulsive|disgusting|unworthy|worthless|fundamentally\s+(bad|wrong|broken)|hate\s+who\s+i\s+am)\b/))
-        return { boost: 80, reason: 'Core-shame discriminator' };
+      if (hit(/\b(defective|repulsive|disgusting|disgusted\s+with\s+who\s+i\s+am|unworthy|worthless|flawed|inherently\s+rotten|fundamentally\s+(bad|wrong|broken|flawed)|hate\s+who\s+i\s+am)\b/))
+        return { boost: 175, reason: 'Core-shame discriminator' };
       break;
     case 7:
       if (hit(/\b(dumped|breakup|heartbreak|broken\s+heart|partner\s+(left|ended)|relationship\s+(ended|over)|fianc\w*.*(left|wedding)|call(ed)?\s+off\s+the\s+wedding)\b/))
@@ -168,13 +174,15 @@ function getSemanticDiscriminatorBoost(
       if (hit(/\b(betray\w*|broken\s+trust|decept\w*|lied\s+to|secret\s+account|stab\w*\s+.*back|infidelity|shattered\s+trust)\b/))
         return { boost: 90, reason: 'Betrayal-trust discriminator' };
       break;
-    case 13:
-      if (
+    case 13: {
+      const workSpecificMeaning = hit(/\b(corporate\s+job|career|job|workplace|vocation|profession)\b.*\b(meaning\w*|purpose|hollow|unfulfilled)\b/);
+      if (!workSpecificMeaning && (
         hit(/\b(world|existence|nothing|anything|life)\b.*\b(meaning\w*|purpose|significance|pointless|value|void)\b/) ||
         hit(/\b(meaning\w*|purpose|significance|pointless|void)\b.*\b(world|existence|nothing|anything|life)\b/) ||
         hit(/\b(work\s+or\s+otherwise|why\s+do\s+anything\s+at\s+all|what\s+i\s+am\s+doing\s+with\s+my\s+life|where\s+i\s+am\s+going)\b/)
-      ) return { boost: 150, reason: 'Global-meaning discriminator' };
+      )) return { boost: 150, reason: 'Global-meaning discriminator' };
       break;
+    }
     case 14: {
       const globalMeaning = hit(/\b(work\s+or\s+otherwise|nothing\s+in\s+existence|existence\s+has|why\s+do\s+anything\s+at\s+all)\b/);
       if (!globalMeaning && (
