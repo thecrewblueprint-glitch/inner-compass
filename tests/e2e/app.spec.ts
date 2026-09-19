@@ -17,6 +17,8 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('INNER COMPASS')).toBeVisible();
     await expect(page.getByText('PREVIEW MODE ACTIVE')).toBeVisible();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
+    await expect(page.getByText('Daily Wisdom & Reflection')).toBeVisible();
+    await expect(page.getByText("TODAY'S CANONICAL REFLECTION")).toBeVisible();
 
     const input = page.getByRole('textbox', { name: 'Problem Input' });
     await expect(input).toBeVisible();
@@ -55,6 +57,14 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.getByText('← Back to Input').click();
     await expect(page.getByRole('textbox', { name: 'Problem Input' })).toBeVisible();
+    await expect(page.getByText(/Personalized \(1 Theme\)/)).toBeVisible();
+
+    const interactions = await page.evaluate(
+      () => localStorage.getItem('inner_compass_category_interactions_v1') || ''
+    );
+    expect(interactions).toContain('"1"');
+    expect(interactions).toContain('reflection');
+    expect(interactions).toContain('saved');
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
