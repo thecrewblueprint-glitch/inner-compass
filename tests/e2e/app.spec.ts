@@ -39,7 +39,7 @@ test.describe('Inner Compass web app core flow', () => {
     );
     expect(persisted).not.toContain(SAFE_REFLECTION);
 
-    await page.getByRole('button', { name: /^Journal/ }).click();
+    await page.getByText(/^Journal(?: \(\d+\))?$/).click();
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
     await expect(page.getByText('CATEGORY #1')).toBeVisible();
 
