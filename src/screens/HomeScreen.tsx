@@ -14,6 +14,7 @@ import { useTheme } from '../theme';
 interface HomeScreenProps {
   onSubmit: (problemText: string, preferredRoot?: ExistentialRoot | null) => void;
   isLoading: boolean;
+  clarificationPrompt?: string | null;
 }
 
 const SAMPLE_SCENARIOS = [
@@ -46,7 +47,7 @@ const ROOTS: { key: ExistentialRoot; label: string; desc: string }[] = [
   { key: 'Meaninglessness', label: 'Meaning', desc: 'Purpose & sense-making' },
 ];
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({ onSubmit, isLoading }) => {
+export const HomeScreen: React.FC<HomeScreenProps> = ({ onSubmit, isLoading, clarificationPrompt }) => {
   const { theme } = useTheme();
   const [problemInput, setProblemInput] = useState('');
   const [selectedRoot, setSelectedRoot] = useState<ExistentialRoot | null>(null);
@@ -81,6 +82,26 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ onSubmit, isLoading }) =
         ]}
       >
         <Text style={[styles.inputLabel, { color: theme.textMuted }]}>YOUR INNER DILEMMA</Text>
+
+        {clarificationPrompt && (
+          <View
+            style={[
+              styles.clarificationCard,
+              { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder },
+            ]}
+          >
+            <Text style={[styles.clarificationLabel, { color: theme.accentPrimary }]}>
+              ONE DETAIL WOULD HELP
+            </Text>
+            <Text style={[styles.clarificationQuestion, { color: theme.textPrimary }]}>
+              {clarificationPrompt}
+            </Text>
+            <Text style={[styles.clarificationHint, { color: theme.textSecondary }]}>
+              Add a sentence answering that question to your reflection, then submit again.
+            </Text>
+          </View>
+        )}
+
         <TextInput
           style={[
             styles.textInput,
@@ -256,6 +277,28 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     letterSpacing: 0.7,
     marginBottom: 10,
+  },
+  clarificationCard: {
+    borderWidth: 1,
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 12,
+  },
+  clarificationLabel: {
+    fontSize: 10,
+    fontWeight: '800',
+    letterSpacing: 0.7,
+    marginBottom: 6,
+  },
+  clarificationQuestion: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '600',
+    marginBottom: 6,
+  },
+  clarificationHint: {
+    fontSize: 12,
+    lineHeight: 18,
   },
   textInput: {
     borderWidth: 1,
