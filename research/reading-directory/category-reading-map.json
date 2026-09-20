@@ -7,7 +7,7 @@
       "READ-ANALECTS",
       "READ-MENCIUS",
       "READ-EPICURUS",
-      "READ-SEP-CONFUCIUS"
+      "READ-CONFUCIUS-SCHUMAN"
     ],
     "2": [
       "READ-SENECA-LETTERS",
@@ -25,7 +25,7 @@
       "READ-DAO-DE-JING",
       "READ-GREAT-LEARNING-MEAN",
       "READ-EPICURUS",
-      "READ-SEP-ZEN"
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "4": [
       "READ-MARCUS-MEDITATIONS",
@@ -34,7 +34,7 @@
       "READ-YOGA-SUTRAS",
       "READ-ZHUANGZI",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-JAIN-SEP"
+      "READ-JAINS-DUNDAS"
     ],
     "5": [
       "READ-DHAMMAPADA",
@@ -43,14 +43,14 @@
       "READ-ZHUANGZI",
       "READ-ANALECTS",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-JAIN-SEP",
-      "READ-SEP-CONFUCIUS"
+      "READ-JAINS-DUNDAS",
+      "READ-CONFUCIUS-SCHUMAN"
     ],
     "6": [
       "READ-UPANISHADS",
       "READ-ANALECTS",
       "READ-MENCIUS",
-      "READ-SEP-CONFUCIUS"
+      "READ-CONFUCIUS-SCHUMAN"
     ],
     "7": [
       "READ-GITA",
@@ -65,8 +65,8 @@
       "READ-DAO-DE-JING",
       "READ-ZHUANGZI",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-JAIN-SEP",
-      "READ-SEP-ZEN"
+      "READ-JAINS-DUNDAS",
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "9": [
       "READ-MARCUS-MEDITATIONS",
@@ -77,33 +77,33 @@
     ],
     "10": [
       "READ-YOGA-SUTRAS",
-      "READ-JAIN-SEP",
+      "READ-JAINS-DUNDAS",
       "READ-EPICURUS"
     ],
     "11": [
       "READ-YOGA-SUTRAS",
-      "READ-JAIN-SEP",
+      "READ-JAINS-DUNDAS",
       "READ-EPICURUS"
     ],
     "12": [
       "READ-SENECA-LETTERS",
       "READ-ANALECTS",
       "READ-MENCIUS",
-      "READ-JAIN-SEP"
+      "READ-JAINS-DUNDAS"
     ],
     "13": [
       "READ-MUMONKAN",
       "READ-UPANISHADS",
       "READ-ZHUANGZI",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-SEP-ZEN"
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "14": [
       "READ-GITA",
       "READ-ZHUANGZI",
       "READ-ANALECTS",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-SEP-CONFUCIUS"
+      "READ-CONFUCIUS-SCHUMAN"
     ],
     "15": [
       "READ-MARCUS-MEDITATIONS",
@@ -112,23 +112,23 @@
       "READ-YOGA-SUTRAS",
       "READ-DAO-DE-JING",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-SEP-ZEN"
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "16": [
       "READ-MUMONKAN",
       "READ-UPANISHADS",
       "READ-ZHUANGZI",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-JAIN-SEP",
-      "READ-SEP-ZEN"
+      "READ-JAINS-DUNDAS",
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "17": [
       "READ-SUTTA-NIPATA",
       "READ-ANALECTS",
       "READ-MENCIUS",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-JAIN-SEP",
-      "READ-SEP-CONFUCIUS"
+      "READ-JAINS-DUNDAS",
+      "READ-CONFUCIUS-SCHUMAN"
     ],
     "18": [
       "READ-MARCUS-MEDITATIONS",
@@ -142,7 +142,7 @@
       "READ-SENECA-LETTERS",
       "READ-DAO-DE-JING",
       "READ-MENCIUS",
-      "READ-JAIN-SEP",
+      "READ-JAINS-DUNDAS",
       "READ-EPICURUS"
     ],
     "20": [
@@ -151,7 +151,7 @@
       "READ-DAO-DE-JING",
       "READ-ZHUANGZI",
       "READ-MENCIUS",
-      "READ-JAIN-SEP",
+      "READ-JAINS-DUNDAS",
       "READ-EPICURUS"
     ],
     "21": [
@@ -159,7 +159,7 @@
       "READ-YOGA-SUTRAS",
       "READ-ANALECTS",
       "READ-MENCIUS",
-      "READ-SEP-CONFUCIUS"
+      "READ-CONFUCIUS-SCHUMAN"
     ],
     "22": [
       "READ-MARCUS-MEDITATIONS",
@@ -169,19 +169,19 @@
       "READ-DAO-DE-JING",
       "READ-ZHUANGZI",
       "READ-GREAT-LEARNING-MEAN",
-      "READ-JAIN-SEP",
-      "READ-SEP-ZEN"
+      "READ-JAINS-DUNDAS",
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "23": [
       "READ-SENECA-LETTERS",
       "READ-UPANISHADS",
       "READ-EPICURUS",
-      "READ-SEP-ZEN"
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "24": [
       "READ-UPANISHADS",
       "READ-EPICURUS",
-      "READ-SEP-ZEN"
+      "READ-ZEN-BEGINNERS-MIND"
     ],
     "25": [
       "READ-MARCUS-MEDITATIONS",
@@ -189,7 +189,7 @@
       "READ-SUTTA-NIPATA",
       "READ-ANALECTS",
       "READ-MENCIUS",
-      "READ-JAIN-SEP"
+      "READ-JAINS-DUNDAS"
     ]
   }
 }
