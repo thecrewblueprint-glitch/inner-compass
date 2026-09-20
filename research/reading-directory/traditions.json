@@ -1,0 +1,98 @@
+{
+  "schema_version": "1.0",
+  "traditions": [
+    {
+      "id": "stoicism",
+      "region": "Mediterranean / Roman world",
+      "name": "Stoicism",
+      "kind": "philosophy",
+      "branches": [
+        "Greek Stoicism",
+        "Roman Stoicism"
+      ],
+      "note": "Western Hellenistic philosophy; included for comparison, not classified as Eastern."
+    },
+    {
+      "id": "early-buddhism",
+      "region": "South Asia",
+      "name": "Early Buddhist / Nikaya traditions",
+      "kind": "religious-philosophical",
+      "branches": [
+        "Pali Canon",
+        "Theravada textual tradition"
+      ],
+      "note": "Keep early canonical material distinct from later Buddhist schools."
+    },
+    {
+      "id": "mahayana-zen",
+      "region": "East Asia",
+      "name": "Mahayana / Chan / Zen",
+      "kind": "religious-philosophical",
+      "branches": [
+        "Chan",
+        "Zen",
+        "Seon"
+      ],
+      "note": "Zen is one Buddhist tradition, not a synonym for all Japanese or Buddhist philosophy."
+    },
+    {
+      "id": "hindu-philosophy",
+      "region": "South Asia",
+      "name": "Hindu / Indian philosophical traditions",
+      "kind": "religious-philosophical",
+      "branches": [
+        "Upanishadic traditions",
+        "Vedanta",
+        "Classical Yoga",
+        "Bhagavad Gita traditions"
+      ],
+      "note": "Do not collapse Vedanta, Yoga, Samkhya, and other schools into one generic metaphysics."
+    },
+    {
+      "id": "daoism",
+      "region": "China",
+      "name": "Classical Daoism",
+      "kind": "philosophy-and-religious-tradition",
+      "branches": [
+        "Daodejing tradition",
+        "Zhuangzi tradition",
+        "later religious Daoism"
+      ],
+      "note": "Classical texts and later religious Daoism are related but not identical."
+    },
+    {
+      "id": "confucianism",
+      "region": "China / East Asia",
+      "name": "Confucian traditions",
+      "kind": "ethical-political-philosophy",
+      "branches": [
+        "Classical Confucianism",
+        "Mencian tradition",
+        "later Neo-Confucian traditions"
+      ],
+      "note": "Do not reduce Confucian self-cultivation to generic productivity."
+    },
+    {
+      "id": "jainism",
+      "region": "South Asia",
+      "name": "Jaina philosophy",
+      "kind": "religious-philosophical",
+      "branches": [
+        "Digambara",
+        "Svetambara",
+        "cross-sectarian philosophical scholarship"
+      ],
+      "note": "Core themes include nonviolence, non-attachment, and many-sidedness."
+    },
+    {
+      "id": "epicureanism",
+      "region": "Mediterranean",
+      "name": "Epicureanism",
+      "kind": "philosophy",
+      "branches": [
+        "Epicurus and later Epicurean tradition"
+      ],
+      "note": "Western Hellenistic philosophy included for comparative reading."
+    }
+  ]
+}
