@@ -456,7 +456,7 @@ const AppContent: React.FC = () => {
 
   const tabs: { id: AppTab; label: string }[] = [
     { id: 'reflect', label: 'Reflect' },
-    { id: 'taxonomy', label: 'Taxonomy' },
+    { id: 'taxonomy', label: 'Categories' },
     { id: 'wisdom', label: 'Wisdom' },
     { id: 'reads', label: 'Suggested Reads' },
     { id: 'journal', label: `Journal${savedReflections.length ? ` (${savedReflections.length})` : ''}` },
@@ -475,7 +475,7 @@ const AppContent: React.FC = () => {
           <Pressable
             onPress={() => setThemePickerVisible(true)}
             accessibilityRole="button"
-            accessibilityLabel="Open Theme Palette Selector"
+            accessibilityLabel="Open Colors"
             style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
           >
             <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>🎨 Colors</Text>
