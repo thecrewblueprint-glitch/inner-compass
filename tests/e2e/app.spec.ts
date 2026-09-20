@@ -45,7 +45,7 @@ test.describe('Inner Compass web app core flow', () => {
 
     await expect(page.getByText('CATEGORY #1')).toBeVisible();
     await expect(page.getByText('GROUNDED AFFIRMATION')).toBeVisible();
-    await expect(page.getByText('VERIFIED CANONICAL GROUNDING · DETERMINISTIC')).toBeVisible();
+    await expect(page.getByText('SOURCE-LINKED REFLECTION')).toBeVisible();
     expect(guidanceRequests).toEqual([]);
 
     await page.getByText('Bookmark Reflection').click();
@@ -60,7 +60,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByText(/^Journal(?: \(\d+\))?$/).click();
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
     await page.getByLabel('Open wisdom for category 1').click();
-    await expect(page.getByText('AUDITED RESEARCH LIBRARY')).toBeVisible();
+    await expect(page.getByText('SOURCE-LINKED WISDOM LIBRARY')).toBeVisible();
     await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
     await expect(page.getByText(/Exact quotation intentionally withheld/).first()).toBeVisible();
 

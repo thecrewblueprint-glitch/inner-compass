@@ -31,7 +31,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Your reflection stays on this device</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Inner Compass processes reflection text in the browser. Raw reflection text is not saved to the journal, analytics, or a remote AI provider.
+          Inner Compass processes reflection text on this device. Raw reflection text is not saved to your journal or sent to analytics, advertising, or AI services.
         </Text>
       </View>
 
@@ -40,7 +40,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Bookmarked category summaries and affirmations: {savedCount}</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Privacy-safe category interaction counts used for optional personalization</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Theme preference and adult/U.S. launch attestation</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Privacy-safe local diagnostics when generated (no raw reflection text)</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• A small local reliability log when generated (never raw reflection text)</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Raw reflection text: not persisted</Text>
       </View>
 
@@ -73,7 +73,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
       <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Launch scope</Text>
         <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-          This product is research-informed reflective guidance, not therapy, diagnosis, medical care, legal advice, or emergency response. The current release is for adults 18+ in the United States and supports English only.
+          Inner Compass is research-informed reflective guidance, not therapy, diagnosis, medical care, legal advice, or emergency response. It is currently available to adults 18+ in the United States and supports English only.
         </Text>
         {onOpenLegal && (
           <Pressable

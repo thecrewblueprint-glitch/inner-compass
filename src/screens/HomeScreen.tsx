@@ -77,11 +77,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Header Banner */}
       <View style={styles.header}>
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.badgeText }]}>RESEARCH-INFORMED REFLECTION TAXONOMY V1.0</Text>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>RESEARCH-INFORMED REFLECTION</Text>
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>What is weighing on your heart?</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Share an honest reflection. Your input is matched deterministically to 25 research-informed reflection categories grounded in philosophy, depth-psychology traditions, and evidence-informed psychological methods.
+          Share an honest reflection. Your input is matched to 25 research-informed reflection categories grounded in philosophy, depth-psychology traditions, and evidence-informed psychological methods.
         </Text>
       </View>
 

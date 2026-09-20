@@ -138,7 +138,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         </Text>
 
         <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING · DETERMINISTIC</Text>
+          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>SOURCE-LINKED REFLECTION</Text>
         </View>
       </View>
 
@@ -273,7 +273,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
               {entry.verified_quote && (
                 <View style={[styles.quoteBox, { backgroundColor: theme.quoteBg, borderColor: theme.quoteBorder }]}>
                   <Text style={[styles.quoteText, { color: theme.quoteText }]}>
-                    Verified source passage available. Exact quotation is withheld pending product-display rights approval.
+                    Source passage identified. Teaching summaries and source details are available without reproducing the full passage here.
                   </Text>
                   <Text style={[styles.quoteAttribution, { color: theme.textMuted }]}>
                     Source: {entry.source_author} · {entry.source_work}

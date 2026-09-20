@@ -40,9 +40,9 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ initialDocument = 'pri
 
       {getReleaseTier() !== 'PUBLIC_RELEASE' && (
         <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Controlled beta legal status</Text>
+          <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Early access</Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            These notices are production-draft disclosures for controlled testing. Public release remains blocked until the legal operator/contact, counsel review, and owner launch approval are configured.
+            Inner Compass is currently available as an early-access release. Features and notices may change as the product evolves.
           </Text>
         </View>
       )}
@@ -79,20 +79,13 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ initialDocument = 'pri
         {selected === 'accessibility' && <Accessibility />}
       </View>
 
-      <View style={[styles.operator, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-        <Text style={[styles.sectionTitle, { color: theme.textPrimary }]}>Operator & contact</Text>
-        <Text style={[styles.p, { color: theme.textSecondary }]}>
-          Operator: {publicIdentityReady ? LEGAL_CONFIG.operatorName : 'Pending final public-release configuration'}
-        </Text>
-        <Text style={[styles.p, { color: theme.textSecondary }]}>
-          Legal/privacy contact: {publicIdentityReady ? LEGAL_CONFIG.contactEmail : 'Pending final public-release configuration'}
-        </Text>
-        {!publicIdentityReady && (
-          <Text style={[styles.small, { color: theme.textMuted }]}>
-            This missing identity/contact information is a public-launch blocker and is intentionally not fabricated.
-          </Text>
-        )}
-      </View>
+      {publicIdentityReady && (
+        <View style={[styles.operator, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.sectionTitle, { color: theme.textPrimary }]}>Contact</Text>
+          <Text style={[styles.p, { color: theme.textSecondary }]}>Operator: {LEGAL_CONFIG.operatorName}</Text>
+          <Text style={[styles.p, { color: theme.textSecondary }]}>Legal/privacy: {LEGAL_CONFIG.contactEmail}</Text>
+        </View>
+      )}
 
       {onClose && (
         <Pressable accessibilityRole="button" accessibilityLabel="Close legal notices" onPress={onClose} style={[styles.close, { borderColor: theme.cardBorder }]}>
@@ -136,8 +129,8 @@ const Terms = () => (
     <P>Features, research sources, links, and availability may change. Third-party resources are controlled by their providers and are not operated by Inner Compass.</P>
     <H>Intellectual property</H>
     <P>Original Inner Compass software, organization, and original wording are protected by applicable law. Historical/public-domain works and third-party books remain subject to their own rights and attribution.</P>
-    <H>Pre-release legal review</H>
-    <P>These Terms are a production draft until the legal operator, legal contact, counsel review, and owner public-launch approval are configured.</P>
+    <H>Updates</H>
+    <P>These terms may be updated as features, policies, or applicable requirements change. The effective date appears at the top of this page.</P>
   </View>
 );
 
@@ -147,8 +140,8 @@ const Privacy = () => (
     <P>Raw reflection text is processed in your browser by deterministic rules. The production app is designed not to transmit that raw reflection text to an Inner Compass server, AI provider, advertising network, or analytics service.</P>
     <H>Local browser data</H>
     <P>The app may store category-level bookmarks, affirmations, category interaction counts, theme settings, launch eligibility attestation, and privacy-safe diagnostics in browser storage on your device. Raw reflection text is not intentionally persisted.</P>
-    <H>Diagnostics</H>
-    <P>Local Diagnostics stores route outcomes, safety status, category IDs, timing, and error metadata. Payload fields that could contain reflection text are excluded. Diagnostics remain on this device unless you choose to export a debug file.</P>
+    <H>Local reliability data</H>
+    <P>Inner Compass may keep a small local activity and error log on this device to help identify reliability problems. It excludes raw reflection text and is not sent elsewhere automatically.</P>
     <H>Third-party links</H>
     <P>When you choose an external crisis, library, publisher, or research link, you leave Inner Compass. The destination may receive ordinary web-request information under its own privacy policy.</P>
     <H>Retention and deletion</H>
@@ -194,12 +187,10 @@ const Accessibility = () => (
   <View style={styles.body}>
     <H>Accessibility Statement</H>
     <P>Inner Compass aims to provide a usable experience for people using keyboards, screen readers, zoom, high-contrast themes, and mobile devices.</P>
-    <H>Target</H>
-    <P>The engineering target is WCAG 2.2 Level AA. Automated checks are only a smoke test; a manual accessibility review remains required before public launch.</P>
+    <H>Accessibility goal</H>
+    <P>Inner Compass aims to meet WCAG 2.2 Level AA and is tested with automated accessibility checks across key screens.</P>
     <H>Current language scope</H>
     <P>The current product and safety-routing experience are provided in English only.</P>
-    <H>Feedback</H>
-    <P>A public accessibility contact channel must be configured before public launch. Until then, accessibility feedback should be handled through the controlled-beta feedback process.</P>
     <External label="WCAG 2.2" url="https://www.w3.org/TR/WCAG22/" />
   </View>
 );
