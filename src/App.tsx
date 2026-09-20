@@ -463,7 +463,7 @@ const AppContent: React.FC = () => {
     { id: 'privacy', label: 'Privacy' },
     { id: 'legal', label: 'Legal & Safety' },
     { id: 'crisis', label: 'Lifelines 24/7' },
-    ...(IS_DIAGNOSTICS_ENABLED ? [{ id: 'diagnostics' as AppTab, label: 'App Info' }] : []),
+    ...(IS_DIAGNOSTICS_ENABLED ? [{ id: 'diagnostics' as AppTab, label: 'Local Diagnostics' }] : []),
   ];
 
   return (
