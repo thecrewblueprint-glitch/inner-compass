@@ -75,7 +75,7 @@ jobs:
           SCENARIO_COUNT: ${{ github.event.inputs.scenario_count || '12000' }}
           WORKERS: ${{ github.event.inputs.workers || '20' }}
         run: |
-          python3 tools/eval/human_flow_fuzz.py --target-scenarios "$SCENARIO_COUNT" --workers "$WORKERS" --results-dir tools/eval/results/human-flow-ci --no-fail-quality
+          python3 tools/eval/human_flow_fuzz.py --target-scenarios "$SCENARIO_COUNT" --workers "$WORKERS" --results-dir tools/eval/results/human-flow-ci
 
       - name: Upload flow correction map
         if: always()
