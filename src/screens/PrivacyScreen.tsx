@@ -31,23 +31,23 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Your reflection stays on this device</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Inner Compass processes reflection text on this device. Raw reflection text is not saved to your journal or sent to analytics, advertising, or AI services.
+          Inner Compass processes your reflection on this device. Your original reflection text is not saved to your journal or sent to analytics, advertising, or AI services.
         </Text>
       </View>
 
       <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
         <Text style={[styles.cardTitle, { color: theme.textPrimary }]}>What is stored locally</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Bookmarked category summaries and affirmations: {savedCount}</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Privacy-safe category interaction counts used for optional personalization</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Theme preference and adult/U.S. launch attestation</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• A small local reliability log when generated (never raw reflection text)</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Raw reflection text: not persisted</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Saved reflection themes, summaries, and affirmations: {savedCount}</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• A count of reflection themes you explored, used only for optional personalization</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Color preference and your adult/U.S. eligibility confirmation</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Basic information about whether the app is working properly, stored on this device when needed</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Your original reflection text is not saved</Text>
       </View>
 
       <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
         <Text style={[styles.cardTitle, { color: theme.textPrimary }]}>Personalization</Text>
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          Daily wisdom can use categories you previously explored. This uses category IDs only, never your original reflection text.
+          Daily wisdom can use reflection themes you previously explored. It never uses or stores your original reflection text.
         </Text>
         <Pressable
           onPress={onTogglePersonalization}
@@ -71,7 +71,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
       </View>
 
       <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-        <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Launch scope</Text>
+        <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Beta availability</Text>
         <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
           Inner Compass is research-informed reflective guidance, not therapy, diagnosis, medical care, legal advice, or emergency response. It is currently available to adults 18+ in the United States and supports English only.
         </Text>

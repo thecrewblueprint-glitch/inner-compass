@@ -41,9 +41,9 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
     return (
       <View style={[styles.center, { backgroundColor: theme.canvas }]}>
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
-          <Text style={[styles.title, { color: theme.textPrimary }]}>This release is not available to you.</Text>
+          <Text style={[styles.title, { color: theme.textPrimary }]}>This Beta is not available to you.</Text>
           <Text style={[styles.body, { color: theme.textSecondary }]}>
-            The current Inner Compass Beta is limited to adults age 18 or older who are located in the United States.
+            Inner Compass Beta is limited to adults age 18 or older who are located in the United States.
           </Text>
           <Text style={[styles.body, { color: theme.textSecondary }]}>
             Inner Compass is a general-wellness reflection tool, not medical care, therapy, diagnosis, or an emergency service.
@@ -78,15 +78,15 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Privacy by design</Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            Your reflection text is processed on this device. Inner Compass does not send raw reflection text to its servers, AI services, advertising networks, or analytics services.
+            What you type is processed on this device. Inner Compass does not send your reflection text to its servers, AI services, advertising networks, or analytics services.
           </Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            Optional saved reflections store only category-level information locally in this browser. You can clear that local data from About & Privacy.
+            Optional saved reflections keep only the selected reflection theme and saved content in this browser. You can clear that data from Privacy.
           </Text>
         </View>
 
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          The current release supports English only. By continuing, you attest that you are at least 18 years old and are located in the United States. You also request local processing of the reflection text you choose to enter solely to provide the reflection features you request; that raw text is not sent off-device by the production app.
+          This Beta supports English only. By continuing, you confirm that you are at least 18 years old and located in the United States. The reflection text you enter is processed on this device to provide the experience and is not sent off-device by Inner Compass.
         </Text>
 
         <Pressable
@@ -110,7 +110,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
             pressed && { opacity: 0.85 },
           ]}
           onPress={accept}
-          accessibilityLabel="Confirm adult United States launch eligibility"
+          accessibilityLabel="Confirm age and United States location"
         >
           <Text style={[styles.primaryText, { color: theme.accentText }]}>
             I am 18+ and in the United States · Continue

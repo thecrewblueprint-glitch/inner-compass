@@ -81,7 +81,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>What is weighing on your heart?</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Share an honest reflection. Your input is matched to 25 research-informed reflection categories grounded in philosophy, depth-psychology traditions, and evidence-informed psychological methods.
+          Share what is on your mind. Inner Compass connects your reflection with relevant ideas from philosophy, depth psychology, and evidence-informed psychological methods.
         </Text>
       </View>
 
@@ -148,7 +148,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         {/* Existential Root Filter */}
         <View style={styles.rootsSection}>
           <Text style={[styles.rootsLabel, { color: theme.textMuted }]}>
-            OPTIONAL EXISTENTIAL ROOT FOCUS (YALOM'S ULTIMATE CONCERNS)
+            OPTIONAL FOCUS
           </Text>
           <View style={styles.rootsRow}>
             {ROOTS.map((root) => {
@@ -201,7 +201,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           {isLoading ? (
             <ActivityIndicator color={theme.accentText} size="small" />
           ) : (
-            <Text style={[styles.submitButtonText, { color: theme.accentText }]}>Receive Grounded Guidance</Text>
+            <Text style={[styles.submitButtonText, { color: theme.accentText }]}>Explore This Reflection</Text>
           )}
         </Pressable>
       </View>
@@ -238,7 +238,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Persistent release / safety notice */}
       <View style={[styles.privacyNote, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.privacyNoteText, { color: theme.textMuted }]}>
-          Beta · 18+ · United States · English only. Inner Compass is a general-wellness reflection tool, not therapy, diagnosis, medical care, or emergency response. Raw reflection text is processed locally and is not intentionally persisted.
+          Beta · 18+ · United States · English only. Inner Compass is a general-wellness reflection tool, not therapy, diagnosis, medical care, or emergency response. Your reflection text stays on this device and is not saved with your journal.
         </Text>
         <View style={styles.noticeLinks}>
           {onOpenLegal && (

@@ -51,7 +51,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
         {...({ 'data-testid': 'crisis-alert-banner' } as any)}
       >
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.crisisBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.crisisText }]}>DEDICATED SAFETY & CRISIS ROUTING</Text>
+          <Text style={[styles.badgeText, { color: theme.crisisText }]}>SAFETY & SUPPORT</Text>
         </View>
         <Text
           style={[styles.title, { color: theme.crisisText }]}
@@ -60,7 +60,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
           24/7 Immediate Human Lifelines
         </Text>
         <Text style={[styles.subtitle, { color: theme.crisisText }]}>
-          United States resources · English-only app routing. Availability, eligibility, and service terms are controlled by each provider.
+          United States resources · English only. Availability, eligibility, and service terms vary by service.
         </Text>
 
         {reason && (
@@ -68,7 +68,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
             style={[styles.reasonBox, { backgroundColor: theme.card, borderColor: theme.crisisBorder }]}
             {...({ 'data-testid': 'crisis-reason-box' } as any)}
           >
-            <Text style={[styles.reasonLabel, { color: theme.crisisText }]}>UPSTREAM SAFETY ROUTING NOTICE:</Text>
+            <Text style={[styles.reasonLabel, { color: theme.crisisText }]}>WHY YOU'RE SEEING THIS:</Text>
             <Text
               style={[styles.reasonText, { color: theme.textPrimary }]}
               {...({ 'data-testid': 'crisis-reason-text' } as any)}
@@ -92,7 +92,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
       {/* Rationale description */}
       <View style={[styles.rationaleBox, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.rationaleText, { color: theme.textSecondary }]}>
-          Inner Compass is not an emergency service. Its deterministic English-language safety routing is designed to interrupt ordinary reflection when supported safety signals are detected, but automated text matching cannot recognize every possible wording or context. Lifelines remain available directly at all times.
+          Inner Compass is not an emergency service. It may pause ordinary reflection when safety-related language appears, but automated matching can miss context or wording. You can open Lifelines directly at any time.
         </Text>
       </View>
 

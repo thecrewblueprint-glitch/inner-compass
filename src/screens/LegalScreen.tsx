@@ -42,15 +42,13 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ initialDocument = 'pri
         <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Early access</Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            Inner Compass is currently available as an early-access release. Features and notices may change as the product evolves.
+            Inner Compass is currently in Beta. Features and notices may change as the product evolves.
           </Text>
         </View>
       )}
 
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.tabs}
+      <View
+        style={styles.tabs}
         {...({ role: 'tablist', 'aria-label': 'Legal notice sections' } as any)}
       >
         {DOCS.map((doc) => (
@@ -69,7 +67,7 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ initialDocument = 'pri
             </Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <View style={[styles.doc, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
         {selected === 'terms' && <Terms />}
@@ -118,13 +116,13 @@ const P = ({ children }: { children: React.ReactNode }) => {
 const Terms = () => (
   <View style={styles.body}>
     <H>Terms of Use</H>
-    <P>Inner Compass is an English-only, United States general-wellness reflection product for adults age 18 or older. It provides deterministic, research-informed educational and reflective content.</P>
+    <P>Inner Compass is an English-only, United States general-wellness reflection product for adults age 18 or older. It provides research-informed educational and reflective content.</P>
     <H>Not professional care</H>
     <P>Inner Compass is not therapy, psychotherapy, diagnosis, medical treatment, legal advice, financial advice, or an emergency-response service. It does not determine the correct life decision for you.</P>
     <H>Your use</H>
     <P>You remain responsible for your choices and for seeking qualified professional or emergency help when appropriate. Do not use Inner Compass to delay urgent human help.</P>
     <H>Safety limitations</H>
-    <P>The app contains deterministic safety routing designed to block ordinary wisdom when supported safety signals are detected. No automated language system can guarantee recognition of every possible phrase or context.</P>
+    <P>The app uses automated safety checks to pause ordinary reflection when safety-related language is detected. Automated checks cannot recognize every possible phrase or context.</P>
     <H>Availability and changes</H>
     <P>Features, research sources, links, and availability may change. Third-party resources are controlled by their providers and are not operated by Inner Compass.</P>
     <H>Intellectual property</H>
@@ -137,17 +135,17 @@ const Terms = () => (
 const Privacy = () => (
   <View style={styles.body}>
     <H>Privacy Notice</H>
-    <P>Raw reflection text is processed in your browser by deterministic rules. The production app is designed not to transmit that raw reflection text to an Inner Compass server, AI provider, advertising network, or analytics service.</P>
+    <P>Your reflection text is processed in your browser on this device. Inner Compass is designed not to send that text to its servers, AI services, advertising networks, or analytics services.</P>
     <H>Local browser data</H>
-    <P>The app may store category-level bookmarks, affirmations, category interaction counts, theme settings, launch eligibility attestation, and privacy-safe diagnostics in browser storage on your device. Raw reflection text is not intentionally persisted.</P>
-    <H>Local reliability data</H>
-    <P>Inner Compass may keep a small local activity and error log on this device to help identify reliability problems. It excludes raw reflection text and is not sent elsewhere automatically.</P>
+    <P>The app may store saved reflection themes, affirmations, personalization counts, color settings, eligibility confirmation, and basic reliability information in your browser. Your original reflection text is not intentionally saved.</P>
+    <H>On-device app information</H>
+    <P>Inner Compass may keep a small amount of information on this device about whether the app is working properly. It does not include what you typed in a reflection and is not sent elsewhere automatically.</P>
     <H>Third-party links</H>
     <P>When you choose an external crisis, library, publisher, or research link, you leave Inner Compass. The destination may receive ordinary web-request information under its own privacy policy.</P>
     <H>Retention and deletion</H>
-    <P>Local data remains until you or your browser removes it. The Privacy screen provides controls to clear journal, personalization, diagnostics, or all Inner Compass local data.</P>
+    <P>Data stored in your browser remains until you or your browser removes it. The Privacy screen provides controls to clear saved reflections, personalization history, or all Inner Compass data on this device.</P>
     <H>No sale or targeted advertising</H>
-    <P>The current release does not sell personal data, use reflection data for targeted advertising, or include third-party advertising/behavioral analytics SDKs.</P>
+    <P>This Beta does not sell personal data, use reflection data for targeted advertising, or include third-party advertising or behavioral analytics.</P>
   </View>
 );
 
@@ -158,13 +156,13 @@ const HealthData = () => (
     <H>Categories and sources</H>
     <P>You may choose to type information about mood, stress, relationships, habits, health fears, substance-related concerns, or other sensitive experiences. That raw text is supplied directly by you and is processed transiently on your device to provide the reflection feature you requested.</P>
     <H>Collection by the operator</H>
-    <P>The current production architecture is designed so raw reflection text is not received or retained by the Inner Compass operator. Category-level data and diagnostics described in the Privacy Notice remain in local browser storage unless you export them yourself.</P>
+    <P>Inner Compass is designed so your original reflection text is not received or retained by the operator. The local data described in the Privacy Notice remains in your browser unless you choose to export it.</P>
     <H>Sharing and sale</H>
-    <P>The current release does not sell consumer health data and does not intentionally share raw reflection text with third parties. User-initiated external links are separate interactions with those providers.</P>
+    <P>This Beta does not sell consumer health data and does not intentionally share your original reflection text with third parties. User-initiated external links are separate interactions with those providers.</P>
     <H>Purpose</H>
-    <P>On-device processing is used only to provide the reflection, safety-routing, clarification, and deterministic content features requested by the user.</P>
+    <P>On-device processing is used only to provide the reflection, safety, clarification, and related content features you request.</P>
     <H>Your controls</H>
-    <P>You can stop using the input at any time and clear local Inner Compass data from the Privacy screen. If a future release adds accounts, cloud sync, analytics, advertising, or remote reflection processing, this policy and the consent/data-flow design must be reviewed before that feature is released.</P>
+    <P>You can stop using the input at any time and clear local Inner Compass data from the Privacy screen. If these data practices change, this policy will be updated before those changes take effect.</P>
     <External label="Washington My Health My Data information" url="https://www.atg.wa.gov/protecting-washingtonians-personal-health-data-and-privacy" />
   </View>
 );
@@ -172,11 +170,11 @@ const HealthData = () => (
 const Safety = () => (
   <View style={styles.body}>
     <H>Safety & Crisis Notice</H>
-    <P>Inner Compass is not an emergency service. Safety routing runs before ordinary reflection guidance and is designed to suspend ordinary wisdom when supported crisis, abuse, substance-use, or other escalation signals are detected.</P>
+    <P>Inner Compass is not an emergency service. Automated safety checks run before ordinary reflection guidance and may pause the normal experience when safety-related language is detected.</P>
     <H>Detection limits</H>
-    <P>The current release supports English only. Deterministic safety rules are extensively tested, but language is variable and no automated text matcher can promise perfect detection of every phrase, spelling, context, or meaning.</P>
-    <H>Fail-closed behavior</H>
-    <P>When safety-related language is detected with unclear context, the app should prefer a safety review route rather than ordinary wisdom. A triggered safety route must block ordinary category guidance.</P>
+    <P>This Beta supports English only. Automated safety checks are tested, but no text-matching system can recognize every phrase, spelling, context, or meaning.</P>
+    <H>When context is unclear</H>
+    <P>When safety-related language is unclear, Inner Compass may show support options instead of ordinary reflection content.</P>
     <H>Immediate human help</H>
     <P>The Lifelines section is always available without entering a reflection. If there is immediate danger, use emergency services or an appropriate crisis service directly rather than relying on this app to detect the situation.</P>
     <External label="988 Suicide & Crisis Lifeline" url="https://988lifeline.org" />
@@ -188,9 +186,9 @@ const Accessibility = () => (
     <H>Accessibility Statement</H>
     <P>Inner Compass aims to provide a usable experience for people using keyboards, screen readers, zoom, high-contrast themes, and mobile devices.</P>
     <H>Accessibility goal</H>
-    <P>Inner Compass aims to meet WCAG 2.2 Level AA and is tested with automated accessibility checks across key screens.</P>
+    <P>Inner Compass aims to meet WCAG 2.2 Level AA across key screens.</P>
     <H>Current language scope</H>
-    <P>The current product and safety-routing experience are provided in English only.</P>
+    <P>The current product and its safety features are provided in English only.</P>
     <External label="WCAG 2.2" url="https://www.w3.org/TR/WCAG22/" />
   </View>
 );
@@ -204,7 +202,7 @@ const styles = StyleSheet.create({
   notice: { borderWidth: 1, borderRadius: 12, padding: 14, marginBottom: 12 },
   noticeTitle: { fontSize: 13, fontWeight: '800', marginBottom: 4 },
   noticeText: { fontSize: 12, lineHeight: 18 },
-  tabs: { gap: 7, paddingVertical: 6, paddingRight: 20, marginBottom: 10 },
+  tabs: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, paddingVertical: 6, marginBottom: 10 },
   tab: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 11, paddingVertical: 7 },
   doc: { borderWidth: 1, borderRadius: 16, padding: 18, marginBottom: 14 },
   body: { gap: 9 },

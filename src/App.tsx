@@ -326,7 +326,7 @@ const AppContent: React.FC = () => {
     if (category.category_id === 10) {
       const safety = evaluateSafetyUpstream('substance use');
       routeSafety(
-        safety.reason || 'Substance-use guidance has a hard safety ceiling.',
+        safety.reason || 'Inner Compass paused ordinary reflection because this situation may require human or medical support.',
         safety.safetyNotes,
         safety.emergencyResources
       );
@@ -456,7 +456,7 @@ const AppContent: React.FC = () => {
 
   const tabs: { id: AppTab; label: string }[] = [
     { id: 'reflect', label: 'Reflect' },
-    { id: 'taxonomy', label: 'Taxonomy' },
+    { id: 'taxonomy', label: 'Categories' },
     { id: 'wisdom', label: 'Wisdom' },
     { id: 'reads', label: 'Suggested Reads' },
     { id: 'journal', label: `Journal${savedReflections.length ? ` (${savedReflections.length})` : ''}` },
@@ -475,7 +475,7 @@ const AppContent: React.FC = () => {
           <Pressable
             onPress={() => setThemePickerVisible(true)}
             accessibilityRole="button"
-            accessibilityLabel="Open Theme Palette Selector"
+            accessibilityLabel="Open Colors"
             style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
           >
             <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>🎨 Colors</Text>
@@ -601,9 +601,9 @@ const AppContent: React.FC = () => {
 
       {IS_PREVIEW_MODE && (
         <View style={[styles.previewBanner, { backgroundColor: theme.card, borderBottomColor: theme.cardBorder }]}>
-          <Text style={[styles.previewText, { color: theme.accentPrimary }]}>● PREVIEW MODE ACTIVE</Text>
+          <Text style={[styles.previewText, { color: theme.accentPrimary }]}>● BETA PREVIEW</Text>
           <Text style={[styles.previewDetail, { color: theme.textSecondary }]}>
-            Local deterministic guidance · 25-category taxonomy · Wisdom Library · Suggested Reads · zero runtime AI providers
+            Reflection · Wisdom Library · Suggested Reads
           </Text>
         </View>
       )}

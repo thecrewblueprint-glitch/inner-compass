@@ -174,8 +174,8 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'SAFETY_REVIEW_REDIRECT',
       isTriggered: true,
-      reason: 'Safety-related language was detected, but the context appears indirect, historical, negated, or unclear. Ordinary reflection is paused as a precaution.',
-      safetyNotes: ['The current release uses deterministic English-language safety rules.', 'If the safety resources are not relevant, return and rephrase without ambiguous safety language.'],
+      reason: 'Some safety-related language was unclear, so Inner Compass paused the ordinary reflection experience as a precaution.',
+      safetyNotes: ['Inner Compass uses automated English-language safety checks.', 'If these resources are not relevant, you can return and rephrase your reflection more clearly.'],
       emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,
       matchedRule: 'precautionary_context_signal',
@@ -187,7 +187,7 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'CRISIS_REDIRECT',
       isTriggered: true,
-      reason: 'Immediate safety language was detected. Ordinary reflection is paused so human crisis support is easier to reach.',
+      reason: 'Inner Compass paused the ordinary reflection experience so immediate human support is easier to reach.',
       safetyNotes: ['Inner Compass is not an emergency service.', 'Use immediate human support when safety may be at risk.'],
       emergencyResources: [EMERGENCY_RESOURCES.emergencyServices, EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine],
       blockedFromWisdomMatching: true,
@@ -200,8 +200,8 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'SAFETY_REVIEW_REDIRECT',
       isTriggered: true,
-      reason: 'Safety-related language was detected, but the context is not clear enough for ordinary reflection. Ordinary wisdom is paused as a precaution.',
-      safetyNotes: ['The current release uses deterministic English-language safety rules.', 'If the safety resources are not relevant, return and rephrase without ambiguous safety language.'],
+      reason: 'Some safety-related language was unclear, so Inner Compass paused the ordinary reflection experience as a precaution.',
+      safetyNotes: ['Inner Compass uses automated English-language safety checks.', 'If these resources are not relevant, you can return and rephrase your reflection more clearly.'],
       emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,
       matchedRule: 'precautionary_safety_signal',
@@ -213,8 +213,8 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'ABUSE_REDIRECT',
       isTriggered: true,
-      reason: 'Relationship-abuse or violence language was detected. Ordinary conflict guidance is blocked in favor of specialized human support.',
-      safetyNotes: ['Inner Compass does not apply ordinary relationship-patience guidance to abusive or threatening situations.'],
+      reason: 'Inner Compass paused ordinary relationship guidance and is showing specialized support options instead.',
+      safetyNotes: ['Ordinary relationship advice is not appropriate when safety may be at risk.'],
       emergencyResources: [EMERGENCY_RESOURCES.domesticViolenceHotline, EMERGENCY_RESOURCES.rainnHotline, EMERGENCY_RESOURCES.emergencyServices],
       blockedFromWisdomMatching: true,
       matchedRule: 'relationship_abuse_boundary',
@@ -226,8 +226,8 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'ESCALATION_REDIRECT',
       isTriggered: true,
-      reason: 'Severe guilt or moral-injury language was detected. Ordinary self-forgiveness content is paused in favor of human support.',
-      safetyNotes: ['This presentation is outside the ordinary reflection route.'],
+      reason: 'Inner Compass paused ordinary reflection and is showing human support options instead.',
+      safetyNotes: ['This situation may be better supported by a person rather than ordinary reflection content.'],
       emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.samhsaHelpline],
       blockedFromWisdomMatching: true,
       suggestedCategoryId: 21,
@@ -240,8 +240,8 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'ESCALATION_REDIRECT',
       isTriggered: true,
-      reason: 'A sudden or recent severe loss-of-pleasure pattern was detected. Ordinary philosophical reflection is paused in favor of prompt human evaluation.',
-      safetyNotes: ['Acute changes in functioning are outside the ordinary reflection route.'],
+      reason: 'Inner Compass paused ordinary reflection because the situation may benefit from prompt human support.',
+      safetyNotes: ['Some significant changes are better handled with human support rather than ordinary reflection content.'],
       emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.samhsaHelpline, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,
       suggestedCategoryId: 24,
@@ -254,7 +254,7 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     return {
       status: 'SUBSTANCE_HARD_CEILING',
       isTriggered: true,
-      reason: 'Substance-use language was detected. Category 10 has a hard ceiling: ordinary wisdom cannot be presented as stand-alone guidance.',
+      reason: 'Inner Compass paused ordinary reflection because some substance-related situations may require human or medical support.',
       safetyNotes: ['Use appropriate human or medical support for substance-related risk.'],
       emergencyResources: [EMERGENCY_RESOURCES.samhsaHelpline, EMERGENCY_RESOURCES.emergencyServices, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,

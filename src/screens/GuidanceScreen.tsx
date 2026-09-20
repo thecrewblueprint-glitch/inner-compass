@@ -115,7 +115,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
             style={[styles.catIdBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
             {...({ 'data-testid': 'category-badge' } as any)}
           >
-            <Text style={[styles.catIdBadgeText, { color: theme.badgeText }]}>CATEGORY #{category.category_id}</Text>
+            <Text style={[styles.catIdBadgeText, { color: theme.badgeText }]}>REFLECTION THEME</Text>
           </View>
           <View style={styles.rootsContainer}>
             {category.existential_roots.map((root) => (
@@ -137,7 +137,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         </Text>
 
         <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>SOURCE-LINKED REFLECTION</Text>
+          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>RESEARCH-INFORMED REFLECTION</Text>
         </View>
       </View>
 
@@ -150,9 +150,9 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           ]}
           {...({ 'data-testid': 'substance-hard-ceiling-banner' } as any)}
         >
-          <Text style={[styles.hardCeilingTitle, { color: theme.crisisText }]}>⚠️ HARD SAFETY CEILING: SUBSTANCE USE</Text>
+          <Text style={[styles.hardCeilingTitle, { color: theme.crisisText }]}>⚠️ IMPORTANT SAFETY NOTE</Text>
           <Text style={[styles.hardCeilingText, { color: theme.crisisText }]}>
-            Substance withdrawal and overdose carry physiological and mortality risks. Philosophy/wisdom content is an adjunct for meaning and recovery, never a substitute for medical care or crisis lifelines.
+            Some substance-related situations can require medical or crisis support. Reflection content is not a substitute for professional care or immediate human help.
           </Text>
           <Pressable
             style={({ pressed }) => [styles.lifelinesLink, pressed && { opacity: 0.75 }]}
@@ -176,7 +176,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         ]}
         {...({ 'data-testid': 'grounded-affirmation-card' } as any)}
       >
-        <Text style={[styles.affirmationLabel, { color: theme.affirmationLabel }]}>GROUNDED AFFIRMATION</Text>
+        <Text style={[styles.affirmationLabel, { color: theme.affirmationLabel }]}>REFLECTION</Text>
         <Text
           style={[styles.affirmationText, { color: theme.affirmationText }]}
           {...({ 'data-testid': 'grounded-affirmation-text' } as any)}
@@ -196,7 +196,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         ]}
         {...({ 'data-testid': 'grounded-synthesis-card' } as any)}
       >
-        <Text style={[styles.synthesisLabel, { color: theme.textMuted }]}>SYNTHESIS OF THE THREE PILLARS</Text>
+        <Text style={[styles.synthesisLabel, { color: theme.textMuted }]}>HOW THESE IDEAS CONNECT</Text>
         <Text
           style={[styles.synthesisText, { color: theme.textPrimary }]}
           {...({ 'data-testid': 'grounded-synthesis-text' } as any)}
@@ -224,7 +224,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
 
       {/* Three Pillars Breakdown */}
       <View style={styles.pillarsContainer}>
-        <Text style={[styles.pillarsHeader, { color: theme.textMuted }]}>SOURCED THREE-PILLAR TEACHINGS</Text>
+        <Text style={[styles.pillarsHeader, { color: theme.textMuted }]}>THREE PERSPECTIVES</Text>
 
         {category.entries.map((entry) => {
           const rawMeta = PILLAR_LABELS[entry.pillar];
@@ -293,7 +293,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
                     },
                   ]}
                 >
-                  <Text style={[styles.practiceLabel, { color: theme.textSecondary }]}>Contemplative Technique:</Text>
+                  <Text style={[styles.practiceLabel, { color: theme.textSecondary }]}>Practice:</Text>
                   <Text style={[styles.practiceText, { color: theme.textPrimary }]}>{entry.practice_or_technique}</Text>
 
                   <Pressable
@@ -305,7 +305,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
                     onPress={() => onOpenPractice(category, entry)}
                   >
                     <Text style={[styles.practiceButtonText, { color: theme.accentText }]}>
-                      Start Guided Practice Session →
+                      Try This Practice →
                     </Text>
                   </Pressable>
                 </View>
