@@ -64,15 +64,15 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('PREVIEW MODE ACTIVE')).toBeVisible();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
     await expect(page.getByText('Daily Wisdom & Reflection')).toBeVisible();
-    await expect(page.getByText("TODAY'S CANONICAL REFLECTION")).toBeVisible();
+    await expect(page.getByText("TODAY'S REFLECTION")).toBeVisible();
 
     const input = page.getByRole('textbox', { name: 'Problem Input' });
     await input.fill(SAFE_REFLECTION);
     await page.getByLabel('Submit Reflection').click();
 
-    await expect(page.getByText('CATEGORY #1')).toBeVisible();
-    await expect(page.getByText('GROUNDED AFFIRMATION')).toBeVisible();
-    await expect(page.getByText('SOURCE-LINKED REFLECTION')).toBeVisible();
+    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByTestId('grounded-affirmation-card')).toBeVisible();
+    await expect(page.getByText('RESEARCH-INFORMED REFLECTION')).toBeVisible();
     expect(guidanceRequests).toEqual([]);
 
     await page.getByText('Bookmark Reflection').click();
@@ -87,12 +87,12 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Journal (1)');
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
     await page.getByLabel('Open wisdom for category 1').click();
-    await expect(page.getByText('SOURCE-LINKED WISDOM LIBRARY')).toBeVisible();
-    await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
-    await expect(page.getByText(/Exact quotation intentionally withheld/).first()).toBeVisible();
+    await expect(page.getByText('WISDOM ACROSS TRADITIONS')).toBeVisible();
+    await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
+    await expect(page.getByText(/summarizes the source instead of reproducing the full passage/).first()).toBeVisible();
 
     await navigateFromHeader(page, 'Wisdom');
-    await expect(page.getByText(/71 records/)).toBeVisible();
+    await expect(page.getByText(/71 entries/)).toBeVisible();
 
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
@@ -106,7 +106,7 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('All 25 Categories')).toBeVisible();
 
     await navigateFromHeader(page, 'Lifelines 24/7');
-    await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
+    await expect(page.getByText('SAFETY & SUPPORT')).toBeVisible();
     await expect(page.getByText(/United States resources/)).toBeVisible();
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
@@ -181,6 +181,10 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('Public-domain / open access', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
 
+    await navigateFromHeader(page, 'Legal & Safety');
+    await expect(page.getByText('LEGAL & SAFETY CENTER')).toBeVisible();
+    await assertNoHorizontalScroller(page);
+
     await page.getByLabel('Open Theme Palette Selector').click();
     await expect(page.getByText('Color:', { exact: true })).toBeVisible();
     await expect(page.getByText('🌈 All', { exact: true })).toBeVisible();
@@ -193,25 +197,59 @@ test.describe('Inner Compass web app core flow', () => {
     const input = page.getByRole('textbox', { name: 'Problem Input' });
     await input.fill(SAFE_REFLECTION);
     await page.getByLabel('Submit Reflection').click();
-    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
 
     await page.getByLabel('Open wisdom for category 1').click();
-    await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
+    await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
 
     await navigateFromHeader(page, 'Reflect');
     await page.getByLabel('Open suggested reads for category 1').click();
-    await expect(page.getByText('Showing reads linked to Category #1.')).toBeVisible();
+    await expect(page.getByText('Showing reads connected to your current selection.')).toBeVisible();
 
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
 
     await page.getByText('View details').first().click();
-    await page.getByLabel('Open wisdom WIS-STOIC-MA-6-6').click();
-    await expect(page.getByText('Showing wisdom linked to WIS-STOIC-MA-6-6.')).toBeVisible();
+    await page.getByLabel(/Open wisdom:/).first().click();
+    await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
 
-    await page.getByLabel('Suggested reads for WIS-STOIC-MA-6-6').click();
-    await expect(page.getByText('Showing reads linked to wisdom record WIS-STOIC-MA-6-6.')).toBeVisible();
+    await page.getByLabel(/Suggested reads related to/).first().click();
+    await expect(page.getByText('Showing reads connected to your current selection.')).toBeVisible();
     await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
+  });
+
+  test('public screens avoid internal implementation labels', async ({ page }) => {
+    await page.goto('/');
+
+    const bannedVisiblePhrases = [
+      'CATEGORY #',
+      'GROUNDED AFFIRMATION',
+      "TODAY'S CANONICAL REFLECTION",
+      'SOURCE-LINKED REFLECTION',
+      'Quote-display rights gate',
+      'HARD SAFETY CEILING',
+      'UPSTREAM SAFETY ROUTING NOTICE',
+      'Edition recorded in research corpus',
+    ];
+
+    const assertCleanCopy = async () => {
+      const text = await page.locator('body').innerText();
+      for (const phrase of bannedVisiblePhrases) {
+        expect(text).not.toContain(phrase);
+      }
+      expect(text).not.toMatch(/Fit\s+\d+%/);
+      expect(text).not.toMatch(/wisdom record\s+WIS-/i);
+    };
+
+    await assertCleanCopy();
+    await navigateFromHeader(page, 'Wisdom');
+    await assertCleanCopy();
+    await navigateFromHeader(page, 'Suggested Reads');
+    await assertCleanCopy();
+    await navigateFromHeader(page, 'Legal & Safety');
+    await assertCleanCopy();
+    await navigateFromHeader(page, 'Lifelines 24/7');
+    await assertCleanCopy();
   });
 
   test('asks for clarification before showing guidance on ambiguous input', async ({ page }) => {
@@ -228,15 +266,15 @@ test.describe('Inner Compass web app core flow', () => {
       )
     ).toBeVisible();
 
-    await expect(page.getByText('GROUNDED AFFIRMATION')).toHaveCount(0);
+    await expect(page.getByTestId('grounded-affirmation-card')).toHaveCount(0);
 
     await input.fill(
       'I feel like everything is changing and slipping away from my hands. I am grieving because someone close to me passed away.'
     );
     await page.getByLabel('Submit Reflection').click();
 
-    await expect(page.getByText('CATEGORY #2')).toBeVisible();
-    await expect(page.getByText('GROUNDED AFFIRMATION')).toBeVisible();
+    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByTestId('grounded-affirmation-card')).toBeVisible();
   });
 
   test('direct taxonomy navigation cannot bypass Category 10 hard ceiling', async ({ page }) => {
@@ -244,7 +282,7 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Taxonomy');
     await page.getByText('Substance use', { exact: true }).click();
     await page.getByText('Reflect on this Category →').click();
-    await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
+    await expect(page.getByText('SAFETY & SUPPORT')).toBeVisible();
   });
 
   test('privacy controls clear local journal and personalization metadata', async ({ page }) => {
@@ -267,12 +305,12 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Taxonomy');
     await page.getByText('Loneliness / feeling isolated even around people', { exact: true }).click();
     await page.getByText('Reflect on this Category →', { exact: true }).click();
-    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
     await page.getByLabel('Open wisdom for category 1').click();
-    await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
+    await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
 
     await page.getByLabel('Go back one page').click();
-    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
 
     await page.getByLabel('Go back one page').click();
     await expect(page.getByText('All 25 Categories')).toBeVisible();
@@ -282,7 +320,7 @@ test.describe('Inner Compass web app core flow', () => {
   });
 
 
-  test('Suggested Reads exposes branch-complete deterministic browsing', async ({ page }) => {
+  test('Suggested Reads exposes branch-complete browsing', async ({ page }) => {
     await page.goto('/');
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
@@ -328,7 +366,7 @@ test.describe('Inner Compass web app core flow', () => {
     const input = page.getByRole('textbox', { name: 'Problem Input' });
     await input.fill(SAFE_REFLECTION);
     await page.getByLabel('Submit Reflection').click();
-    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
 
     await navigateFromHeader(page, 'Local Diagnostics');
     await expect(page.getByText('Debug & Release Data Hub')).toBeVisible();
