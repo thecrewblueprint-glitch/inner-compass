@@ -171,6 +171,10 @@ Public launch remains blocked on:
 7. explicit owner U.S. public-launch approval;
 8. any counsel sign-off required by the owner's risk plan.
 
+## Evidence boundary
+
+This document is the pre-merge engineering audit. Exact CI and merge evidence is recorded durably in PR #14 and in the Roadmapdev post-remediation review after integration; this file is not rewritten to erase pre-remediation uncertainty.
+
 ## Exact-PR validation still required
 
 Before merge:
@@ -187,4 +191,4 @@ Before merge:
 - production dependency audit;
 - 12k human-flow fuzz.
 
-This document must be updated with the exact CI result and merged commit before the remediation is called complete.
+Completion requires exact-PR CI plus the post-remediation Roadmapdev review; neither is inferred from this pre-merge document.
