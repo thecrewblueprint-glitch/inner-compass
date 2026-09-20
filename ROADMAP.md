@@ -27,7 +27,7 @@ Current architecture:
 - local clarification gate
 - local journal/bookmarks
 - daily canonical reflection
-- no runtime AI provider
+- no model/provider runtime path
 - no account/cloud-sync dependency
 - no raw reflection network request
 
@@ -54,7 +54,7 @@ Product exposes rights-safe teaching summaries and source metadata. Exact quote 
 - legal/open reading links
 - original fallback cover designs when approved cover art is unavailable
 
-Future expansion can add more traditions and approved visual assets without runtime AI.
+Future expansion can add more traditions and approved visual assets without external generation.
 
 ## Phase 9 — Launch compliance
 **Engineering controls implemented; external approvals remain launch blockers.**
@@ -63,7 +63,7 @@ Implemented:
 - 18+ production gate
 - U.S.-only launch scope
 - local-only raw reflection processing
-- no runtime AI provider
+- no model/provider runtime path
 - no ads/third-party analytics
 - no accounts/cloud sync
 - local-data controls

@@ -24,7 +24,7 @@ source-linked deterministic affirmation
 display
 ```
 
-**No runtime AI provider is required or configured.** Raw reflection text is processed in the browser and is not sent to a model/provider or persisted in the local journal.
+**The runtime is deterministic-only.** There is no model/provider path, fallback generator, or external decision service. Raw reflection text is processed in the browser and is not sent to a model/provider or persisted in the local journal.
 
 ## Web product
 
@@ -50,6 +50,7 @@ The original production KB remains structurally stable:
 - 75 canonical entries
 
 See:
+- `docs/DETERMINISTIC_IMPLEMENTATION_CONTRACT.md`
 - `docs/TAXONOMY_V1.0.md`
 - `docs/KB_SCHEMA_V1.md`
 - `content/knowledge-base/`
@@ -103,6 +104,7 @@ Engineering controls do not substitute for owner/counsel launch approval.
 ```bash
 npm install
 npm run lint
+npm run audit:deterministic
 npm run audit:wisdom
 npm run dev
 npm run test:e2e
@@ -124,7 +126,7 @@ Regression layers include:
 - grounding-validator adversarial tests
 - 12,000-scenario human-style fuzz harness
 - Playwright web E2E
-- zero-runtime-AI production-policy guard
+- deterministic-only architecture guard
 - wisdom-corpus referential/coverage audit
 
 ## Mobile track
