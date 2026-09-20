@@ -326,7 +326,7 @@ const AppContent: React.FC = () => {
     if (category.category_id === 10) {
       const safety = evaluateSafetyUpstream('substance use');
       routeSafety(
-        safety.reason || 'Substance-use guidance has a hard safety ceiling.',
+        safety.reason || 'Inner Compass paused ordinary reflection because this situation may require human or medical support.',
         safety.safetyNotes,
         safety.emergencyResources
       );
@@ -601,9 +601,9 @@ const AppContent: React.FC = () => {
 
       {IS_PREVIEW_MODE && (
         <View style={[styles.previewBanner, { backgroundColor: theme.card, borderBottomColor: theme.cardBorder }]}>
-          <Text style={[styles.previewText, { color: theme.accentPrimary }]}>● PREVIEW MODE ACTIVE</Text>
+          <Text style={[styles.previewText, { color: theme.accentPrimary }]}>● BETA PREVIEW</Text>
           <Text style={[styles.previewDetail, { color: theme.textSecondary }]}>
-            Local deterministic guidance · 25-category taxonomy · Wisdom Library · Suggested Reads · zero runtime AI providers
+            Reflection · Wisdom Library · Suggested Reads
           </Text>
         </View>
       )}
