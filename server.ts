@@ -5,7 +5,7 @@ import { CANONICAL_CATEGORIES, KB_METADATA, getCategoryById } from './src/knowle
 import { evaluateSafetyUpstream } from './src/safety/safetyRouter';
 import { retrieveGroundedGuidance } from './src/retrieval/retrievalEngine';
 import { validateGrounding } from './src/validation/groundingValidator';
-import { StructuredLLMOutput } from './src/types';
+import { StructuredGroundingProbe } from './src/types';
 
 /**
  * Inner Compass web server.
@@ -15,7 +15,7 @@ import { StructuredLLMOutput } from './src/types';
  * - expose a non-sensitive health endpoint.
  *
  * Reflection classification, safety routing, retrieval, and guidance all run in
- * the browser. Production has no AI provider path and receives no reflection text.
+ * the browser. Production has no external decision or generation provider path and receives no reflection text.
  *
  * Development/test mode additionally exposes /api/eval/guidance so the local
  * deterministic regression harness can exercise the same classifier and safety code.
@@ -33,7 +33,7 @@ async function startServer() {
       app: 'Inner Compass Web',
       runtime: 'local-deterministic',
       categoriesLoaded: CANONICAL_CATEGORIES.length,
-      runtimeAiProviders: 0,
+      externalDecisionProviders: 0,
       rawReflectionProductionTransport: false,
       privacyEnforced: true,
       preview: process.env.VITE_INNER_COMPASS_PREVIEW === 'true',
@@ -73,10 +73,10 @@ async function startServer() {
             : typeof req.body.expected_category_id === 'number'
               ? req.body.expected_category_id
               : null;
-        const mockOutput =
-          req.body.mockStructuredOutput &&
-          typeof req.body.mockStructuredOutput === 'object'
-            ? (req.body.mockStructuredOutput as StructuredLLMOutput)
+        const probeOutput =
+          req.body.groundingProbe &&
+          typeof req.body.groundingProbe === 'object'
+            ? (req.body.groundingProbe as StructuredGroundingProbe)
             : null;
 
         if (!problem) {
@@ -102,10 +102,6 @@ async function startServer() {
               fixtureId,
               route,
               source: 'upstream_safety',
-              geminiSuccess: false,
-              validStructuredOutput: false,
-              geminiStatusCode: null,
-              geminiRetryAfterSeconds: null,
               groundingAccepted: true,
               predictedCategoryId: safety.suggestedCategoryId || null,
               predictedCategoryName: category?.category_name || null,
@@ -129,7 +125,6 @@ async function startServer() {
                 verifiedEntriesCount: 0,
               },
               selectedKbEntries: [],
-              llmModelUsed: 'none',
               confidence: 100,
               latencyMs: Date.now() - startedAt,
               errors: [],
@@ -147,19 +142,15 @@ async function startServer() {
           safety.suggestedCategoryId
         );
         const category = retrieval.category;
-        const grounding = validateGrounding(mockOutput, category);
+        const grounding = validateGrounding(probeOutput, category);
         const selectedKbEntries =
-          mockOutput?.selected_entry_ids || category.entries.map((entry) => entry.entry_id);
+          probeOutput?.selected_entry_ids || category.entries.map((entry) => entry.entry_id);
 
         return res.json({
           eval: {
             fixtureId,
             route,
-            source: mockOutput ? 'deterministic_mock_validator' : 'deterministic_retrieval',
-            geminiSuccess: false,
-            validStructuredOutput: Boolean(mockOutput),
-            geminiStatusCode: null,
-            geminiRetryAfterSeconds: null,
+            source: probeOutput ? 'deterministic_grounding_probe' : 'deterministic_retrieval',
             groundingAccepted: grounding.isValid,
             predictedCategoryId: category.category_id,
             predictedCategoryName: category.category_name,
@@ -183,7 +174,6 @@ async function startServer() {
               verifiedEntriesCount: grounding.verifiedEntries.length,
             },
             selectedKbEntries,
-            llmModelUsed: 'none',
             confidence: retrieval.score,
             latencyMs: Date.now() - startedAt,
             errors: [],
