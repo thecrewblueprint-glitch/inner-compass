@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 import { useTheme } from '../theme';
 import { READING_PATHWAYS, READING_RECORDS } from '../data/readingDirectory';
+import { WISDOM_LIBRARY_RECORDS } from '../data/wisdomLibrary';
+import { getCategoryById } from '../knowledgeBase/kbLoader';
 
 interface SuggestedReadsScreenProps {
   initialCategoryId?: number | null;
@@ -28,6 +30,12 @@ const openExternalUrl = async (url: string) => {
     await Linking.openURL(url);
   }
 };
+
+const humanizeLabel = (value: string) =>
+  value
+    .toLowerCase()
+    .replaceAll('_', ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
 
 const COVER_MARKS: Record<string, string> = {
   Stoicism: 'Σ',
@@ -125,14 +133,14 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Suggested Reads</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Explore primary texts and scholarship by tradition, branch, theme, and reading level. No generated recommendations are required.
+          Explore primary texts and scholarship by tradition, branch, theme, and reading level.
         </Text>
       </View>
 
       {(linkedCategoryId || linkedWisdomRecordId) && (
         <View style={[styles.linkContext, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.linkContextText, { color: theme.textSecondary }]}>
-            Showing reads linked to {linkedWisdomRecordId ? `wisdom record ${linkedWisdomRecordId}` : `Category #${linkedCategoryId}`}.
+            Showing reads connected to your current selection.
           </Text>
           <Pressable
             onPress={() => {
@@ -151,7 +159,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
           style={[styles.pathwayCard, { backgroundColor: pathway === null ? theme.accentPrimary : theme.card, borderColor: pathway === null ? theme.accentPrimary : theme.cardBorder }]}
         >
           <Text style={[styles.pathwayTitle, { color: pathway === null ? theme.accentText : theme.textPrimary }]}>Browse all</Text>
-          <Text style={[styles.pathwayDesc, { color: pathway === null ? theme.accentText : theme.textSecondary }]}>Entire starter collection</Text>
+          <Text style={[styles.pathwayDesc, { color: pathway === null ? theme.accentText : theme.textSecondary }]}>All available reading selections</Text>
         </Pressable>
         {READING_PATHWAYS.map((item) => (
           <Pressable
@@ -290,10 +298,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
                 <View style={styles.cardInfo}>
                   <View style={styles.badgeRow}>
                     <View style={[styles.miniBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-                      <Text style={[styles.miniBadgeText, { color: theme.badgeText }]}>{record.record_type.replaceAll('_', ' ')}</Text>
+                      <Text style={[styles.miniBadgeText, { color: theme.badgeText }]}>{humanizeLabel(record.record_type)}</Text>
                     </View>
                     <View style={[styles.miniBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-                      <Text style={[styles.miniBadgeText, { color: theme.badgeText }]}>{record.difficulty}</Text>
+                      <Text style={[styles.miniBadgeText, { color: theme.badgeText }]}>{humanizeLabel(record.difficulty)}</Text>
                     </View>
                   </View>
 
@@ -319,23 +327,25 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
               {isExpanded && (
                 <View style={[styles.detail, { borderTopColor: theme.cardBorder }]}>
                   <Detail label="Tradition / branch" value={[record.tradition, record.school, record.lineage_or_branch].filter(Boolean).join(' · ')} color={theme.textPrimary} muted={theme.textMuted} />
-                  <Detail label="Branch coverage" value={record.branch_coverage.join(' · ')} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="Schools / branches" value={record.branch_coverage.join(' · ')} color={theme.textSecondary} muted={theme.textMuted} />
                   <Detail label="Historical context" value={record.historical_context} color={theme.textSecondary} muted={theme.textMuted} />
-                  <Detail label="What it is not" value={record.what_it_is_not} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="Helpful context" value={record.what_it_is_not} color={theme.textSecondary} muted={theme.textMuted} />
                   {record.translation_notes && <Detail label="Translation / edition" value={record.translation_notes} color={theme.textSecondary} muted={theme.textMuted} />}
-                  <Detail label="Interpretive cautions" value={record.interpretive_cautions.join(' • ')} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="Reading notes" value={record.interpretive_cautions.join(' • ')} color={theme.textSecondary} muted={theme.textMuted} />
                   <View style={styles.detailRow}>
-                    <Text style={[styles.detailLabel, { color: theme.textMuted }]}>Related categories</Text>
+                    <Text style={[styles.detailLabel, { color: theme.textMuted }]}>Related reflection themes</Text>
                     <View style={styles.relatedLinksRow}>
                       {record.related_inner_compass_categories.map((id) => (
                         <Pressable
                           key={id}
                           disabled={!onSelectCategoryId}
                           onPress={() => onSelectCategoryId?.(id)}
-                          accessibilityLabel={`Open category ${id}`}
+                          accessibilityLabel={`Open reflection theme ${getCategoryById(id)?.category_name || ''}`}
                           style={[styles.relatedLink, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
                         >
-                          <Text style={[styles.relatedLinkText, { color: theme.accentPrimary }]}>Category #{id}</Text>
+                          <Text style={[styles.relatedLinkText, { color: theme.accentPrimary }]}>
+                            {getCategoryById(id)?.category_name || 'Related reflection'}
+                          </Text>
                         </Pressable>
                       ))}
                     </View>
@@ -344,21 +354,30 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
                     <View style={styles.detailRow}>
                       <Text style={[styles.detailLabel, { color: theme.textMuted }]}>Related wisdom</Text>
                       <View style={styles.relatedLinksRow}>
-                        {record.related_wisdom_record_ids.map((id) => (
-                          <Pressable
-                            key={id}
-                            disabled={!onOpenWisdomRecord}
-                            onPress={() => onOpenWisdomRecord?.(id)}
-                            accessibilityLabel={`Open wisdom ${id}`}
-                            style={[styles.relatedLink, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
-                          >
-                            <Text style={[styles.relatedLinkText, { color: theme.accentPrimary }]}>{id}</Text>
-                          </Pressable>
-                        ))}
+                        {record.related_wisdom_record_ids.map((id) => {
+                          const wisdomEntry = WISDOM_LIBRARY_RECORDS.find((item) => item.record_id === id);
+                          const label = wisdomEntry?.work || 'Related wisdom';
+                          return (
+                            <Pressable
+                              key={id}
+                              disabled={!onOpenWisdomRecord}
+                              onPress={() => onOpenWisdomRecord?.(id)}
+                              accessibilityLabel={`Open wisdom: ${label}`}
+                              style={[styles.relatedLink, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
+                            >
+                              <Text style={[styles.relatedLinkText, { color: theme.accentPrimary }]}>{label}</Text>
+                            </Pressable>
+                          );
+                        })}
                       </View>
                     </View>
                   )}
-                  <Detail label="Access / rights" value={record.public_domain_available || record.open_access_url ? 'Public-domain/open-access option recorded' : record.rights_status} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail
+                    label="Availability"
+                    value={record.public_domain_available || record.open_access_url ? 'Public-domain or open-access option available' : 'Check publisher or library availability'}
+                    color={theme.textSecondary}
+                    muted={theme.textMuted}
+                  />
                 </View>
               )}
             </View>
