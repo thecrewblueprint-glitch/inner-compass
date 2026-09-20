@@ -18,20 +18,21 @@ export interface DailyAffirmationItem {
   totalInteractedCategories: number;
 }
 
-const INTERACTIONS_STORAGE_KEY = 'inner_compass_category_interactions_v1';
+const INTERACTIONS_STORAGE_KEY = 'inner_compass_session_category_interactions_v1';
 const SAVED_REFLECTIONS_STORAGE_KEY = 'inner_compass_saved_reflections_v1';
 
 /**
- * Record privacy-safe category interaction metadata.
- * Raw reflection text is never stored here.
+ * Record category interaction metadata for the current browser session only.
+ * Raw reflection text is never stored here, and ordinary interaction history
+ * is not persisted across browser sessions.
  */
 export function recordCategoryInteraction(
   categoryId: number,
   source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample' = 'reflection'
 ): void {
   try {
-    if (typeof localStorage === 'undefined') return;
-    const raw = localStorage.getItem(INTERACTIONS_STORAGE_KEY);
+    if (typeof sessionStorage === 'undefined') return;
+    const raw = sessionStorage.getItem(INTERACTIONS_STORAGE_KEY);
     const map: Record<number, { count: number; lastAt: number; sources: string[] }> = raw
       ? JSON.parse(raw)
       : {};
@@ -46,22 +47,25 @@ export function recordCategoryInteraction(
       sources: Array.from(sourcesSet),
     };
 
-    localStorage.setItem(INTERACTIONS_STORAGE_KEY, JSON.stringify(map));
+    sessionStorage.setItem(INTERACTIONS_STORAGE_KEY, JSON.stringify(map));
   } catch (err) {
     console.warn('Unable to record category interaction:', err);
   }
 }
 
 /**
- * Retrieve category IDs the user has interacted with, using privacy-safe
- * category metadata and the app's real saved-reflection key.
+ * Retrieve category IDs from this browser session plus categories the user
+ * explicitly chose to bookmark locally.
  */
 export function getInteractedCategoryIds(): number[] {
   const idsSet = new Set<number>();
 
   try {
     if (typeof localStorage !== 'undefined') {
-      const rawInteractions = localStorage.getItem(INTERACTIONS_STORAGE_KEY);
+      const rawInteractions =
+        typeof sessionStorage !== 'undefined'
+          ? sessionStorage.getItem(INTERACTIONS_STORAGE_KEY)
+          : null;
       if (rawInteractions) {
         const map = JSON.parse(rawInteractions);
         Object.keys(map).forEach((k) => {
