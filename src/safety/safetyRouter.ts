@@ -86,8 +86,10 @@ export const normalizeSafetyText = (input: string): string =>
     .trim();
 
 const DIRECT_CRISIS_PATTERNS = [
-  /\b(suicid(?:e|al)|self harm|hurt myself|end my life|want to die|wish i were dead|no reason to live)\b/,
-  /\b(i|im|i'm)\s+(going to|gonna|might)\s+(hurt|kill)\s+myself\b/,
+  /\b(i am|im|i'm|feeling)\s+suicidal\b/,
+  /\b(end|ending)\s+my\s+life\b/,
+  /\b(kill|hurt)\s+myself\b/,
+  /\b(want to die|wish i were dead|no reason to live)\b/,
   /\b(i|im|i'm)\s+(not safe|unsafe)\s+(with myself|alone)\b/,
 ];
 
@@ -119,8 +121,8 @@ const MORAL_INJURY_PATTERNS = [
 ];
 
 const SUDDEN_ANHEDONIA_PATTERNS = [
-  /\b(sudden|suddenly|recent|recently|just started|out of nowhere)\b.*\b(no joy|loss of joy|lost all pleasure|completely numb|anhedonia)\b/,
-  /\b(no joy|loss of joy|lost all pleasure|completely numb|anhedonia)\b.*\b(sudden|suddenly|recent|recently|just started|out of nowhere)\b/,
+  /\b(sudden|suddenly|recent|recently|just started|this week|over the last few days|two weeks ago|out of nowhere)\b.*\b(no joy|loss of joy|lost all pleasure|all pleasure vanished|completely numb|everything went blank|anhedonia)\b/,
+  /\b(no joy|loss of joy|lost all pleasure|all pleasure vanished|completely numb|everything went blank|anhedonia)\b.*\b(sudden|suddenly|recent|recently|just started|this week|over the last few days|two weeks ago|out of nowhere)\b/,
 ];
 
 const testAny = (text: string, patterns: RegExp[]) => patterns.some((pattern) => pattern.test(text));
@@ -166,6 +168,19 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
 
   const text = normalizeSafetyText(problemText);
 
+  if (testAny(text, SAFETY_NEGATION_OR_CONTEXT)) {
+    return {
+      status: 'SAFETY_REVIEW_REDIRECT',
+      isTriggered: true,
+      reason: 'Safety-related language was detected, but the context appears indirect, historical, negated, or unclear. Ordinary reflection is paused as a precaution.',
+      safetyNotes: ['The current release uses deterministic English-language safety rules.', 'If the safety resources are not relevant, return and rephrase without ambiguous safety language.'],
+      emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.community211],
+      blockedFromWisdomMatching: true,
+      matchedRule: 'precautionary_context_signal',
+      confidence: 'precautionary',
+    };
+  }
+
   if (testAny(text, DIRECT_CRISIS_PATTERNS)) {
     return {
       status: 'CRISIS_REDIRECT',
@@ -179,15 +194,11 @@ export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult
     };
   }
 
-  if (
-    fuzzyCriticalToken(text) ||
-    testAny(text, PRECAUTIONARY_SAFETY_PATTERNS) ||
-    testAny(text, SAFETY_NEGATION_OR_CONTEXT)
-  ) {
+  if (fuzzyCriticalToken(text) || testAny(text, PRECAUTIONARY_SAFETY_PATTERNS)) {
     return {
       status: 'SAFETY_REVIEW_REDIRECT',
       isTriggered: true,
-      reason: 'Safety-related language was detected, but the context may be indirect, historical, negated, or unclear. Ordinary reflection is paused as a precaution.',
+      reason: 'Safety-related language was detected, but the context is not clear enough for ordinary reflection. Ordinary wisdom is paused as a precaution.',
       safetyNotes: ['The current release uses deterministic English-language safety rules.', 'If the safety resources are not relevant, return and rephrase without ambiguous safety language.'],
       emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,
