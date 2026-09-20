@@ -45,7 +45,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
       {/* Header */}
       <View style={styles.header}>
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.badgeText }]}>CANONICAL TAXONOMY V1.0</Text>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>25 REFLECTION CATEGORIES</Text>
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>The 25 Reflection Categories</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
