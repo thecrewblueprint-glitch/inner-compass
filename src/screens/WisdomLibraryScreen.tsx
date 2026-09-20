@@ -11,6 +11,7 @@ import {
 import { useTheme } from '../theme';
 import { WISDOM_LIBRARY_RECORDS, WISDOM_TRADITIONS } from '../data/wisdomLibrary';
 import { READING_RECORDS } from '../data/readingDirectory';
+import { getCategoryById } from '../knowledgeBase/kbLoader';
 
 interface WisdomLibraryScreenProps {
   initialCategoryId?: number | null;
@@ -73,16 +74,16 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.badgeText }]}>SOURCE-LINKED WISDOM LIBRARY</Text>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>WISDOM ACROSS TRADITIONS</Text>
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Wisdom Library</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Browse source-linked teachings across traditions. Safety routing remains active throughout the experience.
+          Explore teachings, summaries, and source details across philosophical traditions.
         </Text>
       </View>
 
       <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-        <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Quote-display rights gate</Text>
+        <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>About source passages</Text>
         <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
           Some source passages are listed without reproducing the full quotation text. Teaching summaries and source details remain available.
         </Text>
@@ -91,7 +92,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
       {(linkedCategoryId || linkedRecordId) && (
         <View style={[styles.linkContext, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.linkContextText, { color: theme.textSecondary }]}>
-            Showing wisdom linked to {linkedRecordId ? linkedRecordId : `Category #${linkedCategoryId}`}.
+            Showing wisdom connected to your current selection.
           </Text>
           <Pressable
             onPress={() => {
@@ -157,11 +158,11 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
         accessibilityState={{ checked: verifiedOnly }}
       >
         <Text style={[styles.toggleText, { color: theme.textPrimary }]}>
-          {verifiedOnly ? '✓ ' : '○ '}Source-passage records only
+          {verifiedOnly ? '✓ ' : '○ '}Show entries with source passages
         </Text>
       </Pressable>
 
-      <Text style={[styles.resultCount, { color: theme.textMuted }]}>{filtered.length} records</Text>
+      <Text style={[styles.resultCount, { color: theme.textMuted }]}>{filtered.length} entries</Text>
 
       <View style={styles.list}>
         {filtered.map((record) => (
@@ -188,12 +189,9 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
                 <Text style={[styles.typeText, { color: theme.textPrimary }]}>
                   {record.record_type === 'VERIFIED_DIRECT_QUOTE'
                     ? 'SOURCE PASSAGE'
-                    : 'SOURCE PARAPHRASE'}
+                    : 'SOURCE SUMMARY'}
                 </Text>
               </View>
-              <Text style={[styles.confidence, { color: theme.textMuted }]}>
-                Fit {Math.round(record.category_fit_score)}%
-              </Text>
             </View>
 
             <Text style={[styles.work, { color: theme.textPrimary }]}>{record.work}</Text>
@@ -207,7 +205,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
             {record.direct_quote_available && !record.direct_quote_text_display_enabled && (
               <View style={[styles.lockedBox, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
                 <Text style={[styles.lockedText, { color: theme.textMuted }]}>
-                  Exact quotation intentionally withheld pending product-display rights approval.
+                  This entry summarizes the source instead of reproducing the full passage.
                 </Text>
               </View>
             )}
@@ -220,27 +218,32 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
                   onPress={() => onSelectCategoryId?.(id)}
                   style={[styles.categoryTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
                 >
-                  <Text style={[styles.categoryTagText, { color: theme.badgeText }]}>Category #{id}</Text>
+                  <Text style={[styles.categoryTagText, { color: theme.badgeText }]}>
+                    {getCategoryById(id)?.category_name || 'Related reflection'}
+                  </Text>
                 </Pressable>
               ))}
             </View>
 
-            <Text style={[styles.meta, { color: theme.textMuted }]}>
-              {record.translator ? `Translator: ${record.translator} · ` : ''}
-              {record.edition || 'Edition recorded in research corpus'}
-            </Text>
+            {(record.translator || record.edition) && (
+              <Text style={[styles.meta, { color: theme.textMuted }]}>
+                {[record.translator ? `Translator: ${record.translator}` : '', record.edition || '']
+                  .filter(Boolean)
+                  .join(' · ')}
+              </Text>
+            )}
 
             <View style={styles.linkActions}>
               {record.source_urls[0] && (
                 <Pressable onPress={() => openExternalUrl(record.source_urls[0])} style={styles.sourceLink}>
-                  <Text style={[styles.sourceLinkText, { color: theme.accentPrimary }]}>Open source record ↗</Text>
+                  <Text style={[styles.sourceLinkText, { color: theme.accentPrimary }]}>View source ↗</Text>
                 </Pressable>
               )}
               {onOpenSuggestedReads &&
                 READING_RECORDS.some((reading) => reading.related_wisdom_record_ids.includes(record.record_id)) && (
                   <Pressable
                     onPress={() => onOpenSuggestedReads(record.record_id)}
-                    accessibilityLabel={`Suggested reads for ${record.record_id}`}
+                    accessibilityLabel={`Suggested reads related to ${record.work}`}
                     style={styles.sourceLink}
                   >
                     <Text style={[styles.sourceLinkText, { color: theme.accentPrimary }]}>Suggested Reads →</Text>
