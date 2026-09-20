@@ -240,7 +240,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Persistent release / safety notice */}
       <View style={[styles.privacyNote, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.privacyNoteText, { color: theme.textMuted }]}>
-          18+ · United States · English only. Inner Compass is a general-wellness reflection tool, not therapy, diagnosis, medical care, or emergency response. Raw reflection text is processed locally and is not intentionally persisted.
+          Beta · 18+ · United States · English only. Inner Compass is a general-wellness reflection tool, not therapy, diagnosis, medical care, or emergency response. Raw reflection text is processed locally and is not intentionally persisted.
         </Text>
         <View style={styles.noticeLinks}>
           {onOpenLegal && (

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { LegalScreen } from '../screens/LegalScreen';
-import { getReleaseTier } from '../legal/legalConfig';
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { useTheme } from '../theme';
 
@@ -44,7 +43,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
           <Text style={[styles.title, { color: theme.textPrimary }]}>This release is not available to you.</Text>
           <Text style={[styles.body, { color: theme.textSecondary }]}>
-            The current Inner Compass release is limited to adults age 18 or older who are located in the United States.
+            The current Inner Compass Beta is limited to adults age 18 or older who are located in the United States.
           </Text>
           <Text style={[styles.body, { color: theme.textSecondary }]}>
             Inner Compass is a general-wellness reflection tool, not medical care, therapy, diagnosis, or an emergency service.
@@ -68,7 +67,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
     <ScrollView contentContainerStyle={[styles.center, { backgroundColor: theme.canvas }]}>
       <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
         <Text style={[styles.eyebrow, { color: theme.accentPrimary }]}>
-          INNER COMPASS · {getReleaseTier() === 'PUBLIC_RELEASE' ? 'U.S. RELEASE' : 'U.S. EARLY ACCESS'}
+          INNER COMPASS · U.S. BETA
         </Text>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Before you continue</Text>
 
