@@ -10,24 +10,45 @@ import {
 } from 'react-native';
 import { useTheme } from '../theme';
 import { WISDOM_LIBRARY_RECORDS, WISDOM_TRADITIONS } from '../data/wisdomLibrary';
+import { READING_RECORDS } from '../data/readingDirectory';
 
 interface WisdomLibraryScreenProps {
+  initialCategoryId?: number | null;
+  initialRecordId?: string | null;
   onSelectCategoryId?: (categoryId: number) => void;
+  onOpenSuggestedReads?: (recordId: string) => void;
 }
 
+const openExternalUrl = async (url: string) => {
+  if (typeof window !== 'undefined' && typeof window.open === 'function') {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    return;
+  }
+  if (await Linking.canOpenURL(url)) {
+    await Linking.openURL(url);
+  }
+};
+
 export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
+  initialCategoryId = null,
+  initialRecordId = null,
   onSelectCategoryId,
+  onOpenSuggestedReads,
 }) => {
   const { theme } = useTheme();
   const [query, setQuery] = useState('');
   const [tradition, setTradition] = useState('ALL');
   const [verifiedOnly, setVerifiedOnly] = useState(false);
+  const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
+  const [linkedRecordId, setLinkedRecordId] = useState<string | null>(initialRecordId);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return WISDOM_LIBRARY_RECORDS.filter((record) => {
       if (tradition !== 'ALL' && record.tradition !== tradition) return false;
       if (verifiedOnly && record.record_type !== 'VERIFIED_DIRECT_QUOTE') return false;
+      if (linkedCategoryId && !record.category_ids.includes(linkedCategoryId)) return false;
+      if (linkedRecordId && record.record_id !== linkedRecordId) return false;
       if (!q) return true;
       const haystack = [
         record.author_or_attributed_figure,
@@ -41,7 +62,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
       ].join(' ').toLowerCase();
       return haystack.includes(q);
     });
-  }, [query, tradition, verifiedOnly]);
+  }, [query, tradition, verifiedOnly, linkedCategoryId, linkedRecordId]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -61,6 +82,22 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
           Verified direct-quote records are identified here, but exact quote text remains hidden until product-display rights review is cleared. Teaching summaries and source metadata are available now.
         </Text>
       </View>
+
+      {(linkedCategoryId || linkedRecordId) && (
+        <View style={[styles.linkContext, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.linkContextText, { color: theme.textSecondary }]}>
+            Showing wisdom linked to {linkedRecordId ? linkedRecordId : `Category #${linkedCategoryId}`}.
+          </Text>
+          <Pressable
+            onPress={() => {
+              setLinkedCategoryId(null);
+              setLinkedRecordId(null);
+            }}
+          >
+            <Text style={[styles.clearLink, { color: theme.accentPrimary }]}>Show all wisdom</Text>
+          </Pressable>
+        </View>
+      )}
 
       <TextInput
         value={query}
@@ -189,11 +226,23 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
               {record.edition || 'Edition recorded in research corpus'}
             </Text>
 
-            {record.source_urls[0] && (
-              <Pressable onPress={() => Linking.openURL(record.source_urls[0])} style={styles.sourceLink}>
-                <Text style={[styles.sourceLinkText, { color: theme.accentPrimary }]}>Open source record ↗</Text>
-              </Pressable>
-            )}
+            <View style={styles.linkActions}>
+              {record.source_urls[0] && (
+                <Pressable onPress={() => openExternalUrl(record.source_urls[0])} style={styles.sourceLink}>
+                  <Text style={[styles.sourceLinkText, { color: theme.accentPrimary }]}>Open source record ↗</Text>
+                </Pressable>
+              )}
+              {onOpenSuggestedReads &&
+                READING_RECORDS.some((reading) => reading.related_wisdom_record_ids.includes(record.record_id)) && (
+                  <Pressable
+                    onPress={() => onOpenSuggestedReads(record.record_id)}
+                    accessibilityLabel={`Suggested reads for ${record.record_id}`}
+                    style={styles.sourceLink}
+                  >
+                    <Text style={[styles.sourceLinkText, { color: theme.accentPrimary }]}>Suggested Reads →</Text>
+                  </Pressable>
+                )}
+            </View>
           </View>
         ))}
       </View>
@@ -211,6 +260,9 @@ const styles = StyleSheet.create({
   notice: { borderWidth: 1, borderRadius: 14, padding: 14, marginBottom: 14 },
   noticeTitle: { fontSize: 13, fontWeight: '800', marginBottom: 4 },
   noticeText: { fontSize: 12, lineHeight: 18 },
+  linkContext: { borderWidth: 1, borderRadius: 12, padding: 12, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
+  linkContextText: { fontSize: 11, fontWeight: '600', flex: 1 },
+  clearLink: { fontSize: 11, fontWeight: '800' },
   search: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 14, marginBottom: 10 },
   filters: { gap: 8, paddingVertical: 4, paddingRight: 20 },
   chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 7 },
@@ -233,6 +285,7 @@ const styles = StyleSheet.create({
   categoryTag: { borderWidth: 1, borderRadius: 14, paddingHorizontal: 8, paddingVertical: 4 },
   categoryTagText: { fontSize: 10, fontWeight: '700' },
   meta: { fontSize: 10, marginTop: 10, lineHeight: 15 },
-  sourceLink: { alignSelf: 'flex-start', marginTop: 10, paddingVertical: 4 },
+  linkActions: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginTop: 6 },
+  sourceLink: { alignSelf: 'flex-start', marginTop: 4, paddingVertical: 4 },
   sourceLinkText: { fontSize: 12, fontWeight: '800' },
 });
