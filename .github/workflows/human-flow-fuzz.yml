@@ -52,6 +52,12 @@ jobs:
       - name: Enforce deterministic-only architecture
         run: npm run audit:deterministic
 
+      - name: Audit safety and contextual routing
+        run: npm run audit:safety
+
+      - name: Audit production release contract
+        run: npm run audit:release
+
       - name: TypeScript check
         run: npm run lint
 
