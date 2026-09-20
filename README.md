@@ -38,7 +38,7 @@ Current surfaces:
 - **Privacy** — personalization toggle and clear-local-data controls
 - **Lifelines** — U.S.-scoped launch resources and safety routing
 
-Preview builds remain viewable for development/AI Studio. The initial public-launch configuration is 18+ and U.S.-only.
+The current shared release is 18+ and U.S.-only. Public static deployment is supported through GitHub Pages with preview and debug UI disabled.
 
 ## Canonical production knowledge base
 
@@ -132,3 +132,20 @@ Regression layers include:
 ## Mobile track
 
 A native React Native / Expo implementation remains a **separate future track**. The current authoritative product is the web app.
+
+
+## GitHub Pages
+
+A static Pages deployment workflow is included at `.github/workflows/pages.yml`.
+
+For the public site build:
+- preview UI is disabled;
+- developer diagnostics UI is disabled;
+- assets use a Pages-safe relative base path;
+- deterministic, wisdom, reading, safety, release, and TypeScript audits run before deployment.
+
+The default project-site URL will be:
+
+`https://thecrewblueprint-glitch.github.io/inner-compass/`
+
+A custom domain can later replace that URL without changing the application architecture.
