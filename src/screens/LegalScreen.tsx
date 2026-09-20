@@ -29,6 +29,16 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ onResetLaunchGate }) =
         }
         keysToRemove.forEach((key) => localStorage.removeItem(key));
       }
+      if (typeof sessionStorage !== 'undefined') {
+        const sessionKeysToRemove: string[] = [];
+        for (let i = 0; i < sessionStorage.length; i += 1) {
+          const key = sessionStorage.key(i);
+          if (key && key.startsWith('inner_compass_')) {
+            sessionKeysToRemove.push(key);
+          }
+        }
+        sessionKeysToRemove.forEach((key) => sessionStorage.removeItem(key));
+      }
       setCleared(true);
       onResetLaunchGate?.();
     } catch {
@@ -61,7 +71,7 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ onResetLaunchGate }) =
           Production reflection processing is local to this device. Raw reflection text is not intentionally sent to an Inner Compass server, AI provider, advertising platform, or analytics provider.
         </Text>
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          If you bookmark a reflection, the app stores only category-level information and generated canonical text in this browser's local storage. Raw reflection text is not saved in the journal.
+          Ordinary exploration history is session-only. If you explicitly bookmark a reflection, the app stores only category-level information and generated canonical text in this browser's local storage. Raw reflection text is not saved in the journal. Browser storage is not encrypted by Inner Compass, so use bookmarks only on a device/profile you trust.
         </Text>
         <Text style={[styles.body, { color: theme.textSecondary }]}>
           The web-hosting provider may receive ordinary request metadata needed to deliver this static site, such as an IP address, timestamp, browser headers, and requested asset paths. Reflection text is not placed in those requests by the production app.
@@ -101,7 +111,7 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ onResetLaunchGate }) =
       <View style={[styles.dangerCard, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
         <Text style={[styles.sectionTitle, { color: theme.textPrimary }]}>Local data control</Text>
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          Clear saved categories, local personalization metadata, and the launch attestation from this browser.
+          Clear saved categories, session personalization metadata, and the launch attestation from this browser.
         </Text>
         <Pressable
           style={({ pressed }) => [
