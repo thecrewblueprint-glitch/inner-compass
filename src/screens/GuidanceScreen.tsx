@@ -106,7 +106,6 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           {
             backgroundColor: theme.card,
             borderColor: theme.cardBorder,
-            shadowColor: theme.cardShadow,
           },
         ]}
         {...({ 'data-testid': 'guidance-category-card' } as any)}
@@ -193,7 +192,6 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           {
             backgroundColor: theme.card,
             borderColor: theme.cardBorder,
-            shadowColor: theme.cardShadow,
           },
         ]}
         {...({ 'data-testid': 'grounded-synthesis-card' } as any)}
@@ -253,8 +251,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
                 {
                   backgroundColor: theme.card,
                   borderColor: theme.cardBorder,
-                  shadowColor: theme.cardShadow,
-                },
+                      },
               ]}
             >
               {/* Pillar Header */}
@@ -360,9 +357,6 @@ const styles = StyleSheet.create({
     padding: 22,
     borderWidth: 1,
     marginBottom: 18,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.03,
-    shadowRadius: 8,
   },
   categoryBadgeRow: {
     flexDirection: 'row',
@@ -444,9 +438,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 22,
     marginBottom: 18,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
   },
   affirmationLabel: {
     fontSize: 10,
@@ -465,9 +456,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 18,
     marginBottom: 24,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 4,
   },
   synthesisLabel: {
     fontSize: 10,
@@ -509,9 +497,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 16,
     padding: 18,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 6,
   },
   pillarBadge: {
     alignSelf: 'flex-start',
