@@ -37,8 +37,6 @@ def run_fixtures(fixtures):
                 "problem": fixture["problem_text"],
                 "expectedCategoryId": fixture.get("expected_category_id"),
                 "fixtureId": fixture["id"],
-                "mode": "deterministic",
-                "skipGemini": True,
             })
             expected_route = fixture.get("expected_route", "WISDOM_GUIDANCE")
             actual_route = eval_data.get("route", "WISDOM_GUIDANCE")
@@ -139,7 +137,7 @@ def run_validator_tests():
             "expectedCategoryId": case["category"],
             "fixtureId": case["id"],
             "mode": "deterministic",
-            "mockStructuredOutput": case["mock"],
+            "groundingProbe": case["mock"],
         })
         validator = eval_data.get("validatorResult", {})
         actual = bool(validator.get("isValid"))
@@ -195,8 +193,7 @@ def aggregate(rows, validator_results):
             for (a, b), n in confusion.most_common(10)
         ],
         "categoryMetrics": per_category,
-        "openRouterRequests": 0,
-        "geminiRequests": 0,
+        "executionMode": "deterministic-only",
     }
 
 def write_outputs(rows, validator_results, summary):
