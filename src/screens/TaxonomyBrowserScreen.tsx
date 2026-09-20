@@ -198,7 +198,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
                           pressed && { opacity: 0.8 },
                         ]}
                         onPress={() => onOpenWisdomForCategory(cat.category_id)}
-                        accessibilityLabel={`Open wisdom for taxonomy category ${cat.category_id}`}
+                        accessibilityLabel={`Open wisdom for reflection theme ${cat.category_id}`}
                       >
                         <Text style={[styles.libraryButtonText, { color: theme.accentPrimary }]}>Wisdom Library →</Text>
                       </Pressable>
@@ -212,7 +212,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
                           pressed && { opacity: 0.8 },
                         ]}
                         onPress={() => onOpenReadsForCategory(cat.category_id)}
-                        accessibilityLabel={`Open reads for taxonomy category ${cat.category_id}`}
+                        accessibilityLabel={`Open suggested reads for reflection theme ${cat.category_id}`}
                       >
                         <Text style={[styles.libraryButtonText, { color: theme.accentPrimary }]}>Suggested Reads →</Text>
                       </Pressable>
