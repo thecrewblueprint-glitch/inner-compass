@@ -1,0 +1,3256 @@
+{
+  "schema_version": "1.0",
+  "quote_display_policy": "Direct quote text is intentionally omitted from this app-facing file until product-display rights review is complete.",
+  "records": [
+    {
+      "record_id": "WIS-STOIC-MA-2-1",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        1,
+        5,
+        17
+      ],
+      "related_category_ids": [
+        4,
+        25
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Marcus Aurelius",
+      "work": "Meditations",
+      "book_chapter_section": "Book II, §1",
+      "translator": "George Long",
+      "edition": "Long translation (1862)",
+      "publication_year": 1862,
+      "source_urls": [
+        "https://classics.mit.edu/Antoninus/meditations.2.two.html"
+      ],
+      "bibliographic_citation": "Marcus Aurelius, Meditations II.1, trans. George Long (1862).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Marcus frames difficult encounters within a Stoic claim that human beings are naturally social and should resist hatred even when others behave badly.",
+      "philosophical_themes": [
+        "social nature",
+        "cooperation",
+        "shared humanity"
+      ],
+      "retrieval_keywords": [
+        "cooperation",
+        "shared humanity",
+        "social nature",
+        "belonging",
+        "conflict"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 89,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-MA-6-6",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        4,
+        12,
+        25
+      ],
+      "related_category_ids": [
+        5,
+        21
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Marcus Aurelius",
+      "work": "Meditations",
+      "book_chapter_section": "Book VI, §6",
+      "translator": "George Long",
+      "edition": "Long translation (1862)",
+      "publication_year": 1862,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/The_Thoughts_of_the_Emperor_Marcus_Aurelius_Antoninus/Book_VI"
+      ],
+      "bibliographic_citation": "Marcus Aurelius, Meditations VI.6, trans. George Long (1862).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "A compact Stoic instruction to preserve one's own character rather than imitate wrongdoing in retaliation.",
+      "philosophical_themes": [
+        "character",
+        "non-retaliation",
+        "response choice"
+      ],
+      "retrieval_keywords": [
+        "revenge",
+        "retaliation",
+        "anger",
+        "mistreatment",
+        "betrayal",
+        "disrespect"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 94,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-MA-8-47",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        3,
+        15
+      ],
+      "related_category_ids": [
+        9,
+        22
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Marcus Aurelius",
+      "work": "Meditations",
+      "book_chapter_section": "Book VIII, §47",
+      "translator": "George Long",
+      "edition": "Long translation (1862)",
+      "publication_year": 1862,
+      "source_urls": [
+        "https://www.gutenberg.org/files/15877/15877-h/15877-h.htm"
+      ],
+      "bibliographic_citation": "Marcus Aurelius, Meditations VIII.47, trans. George Long (1862).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Marcus distinguishes an external event from the evaluative judgment that can intensify distress, while emphasizing that judgments can be reconsidered.",
+      "philosophical_themes": [
+        "judgment",
+        "interpretation",
+        "agency over response"
+      ],
+      "retrieval_keywords": [
+        "anxiety",
+        "overwhelm",
+        "judgment",
+        "interpretation",
+        "external events"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 91,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-EPI-ENCH-1",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        3,
+        8,
+        9,
+        15,
+        19,
+        22
+      ],
+      "related_category_ids": [
+        18
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Epictetus; recorded by Arrian",
+      "work": "Enchiridion",
+      "book_chapter_section": "Chapter 1",
+      "translator": "George Long",
+      "edition": "George Bell and Sons, 1890",
+      "publication_year": 1890,
+      "source_urls": [
+        "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0236%3Atext%3Denc",
+        "https://www.gutenberg.org/files/10661/10661-h/10661-h.htm"
+      ],
+      "bibliographic_citation": "Epictetus, Enchiridion 1, trans. George Long, in The Discourses of Epictetus, with the Encheiridion and Fragments (London: George Bell and Sons, 1890).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Epictetus opens the Enchiridion by separating one's own judgments, impulses, desires, and aversions from externals such as property, reputation, office, and the body.",
+      "philosophical_themes": [
+        "dichotomy of control",
+        "agency",
+        "external outcomes"
+      ],
+      "retrieval_keywords": [
+        "control",
+        "uncertainty",
+        "choice",
+        "outcome",
+        "reputation",
+        "property",
+        "waiting"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 97,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-EPI-ENCH-5",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        3,
+        4,
+        9
+      ],
+      "related_category_ids": [
+        15
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Epictetus; recorded by Arrian",
+      "work": "Enchiridion",
+      "book_chapter_section": "Chapter 5",
+      "translator": "George Long",
+      "edition": "George Bell and Sons, 1890",
+      "publication_year": 1890,
+      "source_urls": [
+        "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0236%3Atext%3Denc%3Achapter%3D5"
+      ],
+      "bibliographic_citation": "Epictetus, Enchiridion 5, trans. George Long (1890).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Epictetus argues that evaluative opinions shape distress and urges examination of those opinions rather than automatic blame.",
+      "philosophical_themes": [
+        "appraisal",
+        "judgment",
+        "emotional response"
+      ],
+      "retrieval_keywords": [
+        "opinion",
+        "judgment",
+        "appraisal",
+        "anxiety",
+        "anger",
+        "fear"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 90,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-EPI-ENCH-8",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        15,
+        22
+      ],
+      "related_category_ids": [
+        3,
+        8
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Epictetus; recorded by Arrian",
+      "work": "Enchiridion",
+      "book_chapter_section": "Chapter 8",
+      "translator": "George Long",
+      "edition": "George Bell and Sons, 1890",
+      "publication_year": 1890,
+      "source_urls": [
+        "https://www.gutenberg.org/files/10661/10661-h/10661-h.htm"
+      ],
+      "bibliographic_citation": "Epictetus, Enchiridion 8, trans. George Long (1890).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Epictetus counsels reducing distress created by demanding that reality conform to preference.",
+      "philosophical_themes": [
+        "acceptance",
+        "non-resistance",
+        "alignment with reality"
+      ],
+      "retrieval_keywords": [
+        "impatience",
+        "acceptance",
+        "waiting",
+        "reality",
+        "resistance"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 96,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-13-4",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        3,
+        9
+      ],
+      "related_category_ids": [
+        15
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Moral Letters to Lucilius",
+      "book_chapter_section": "Letter 13, §4",
+      "translator": "Richard M. Gummere",
+      "edition": "Loeb Classical Library, Vol. I",
+      "publication_year": 1917,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius"
+      ],
+      "bibliographic_citation": "Seneca, Moral Letters to Lucilius 13.4, trans. Richard M. Gummere (Loeb Classical Library, 1917).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "In Letter 13 Seneca distinguishes actual adversity from fear generated in advance by imagining what may happen.",
+      "philosophical_themes": [
+        "anticipatory anxiety",
+        "imagination",
+        "fear"
+      ],
+      "retrieval_keywords": [
+        "future fear",
+        "catastrophizing",
+        "imagination",
+        "failure",
+        "dread"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 98,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-63-4",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        2
+      ],
+      "related_category_ids": [
+        7,
+        23
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Moral Letters to Lucilius",
+      "book_chapter_section": "Letter 63, §4",
+      "translator": "Richard M. Gummere",
+      "edition": "Loeb Classical Library, Vol. I",
+      "publication_year": 1917,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_63"
+      ],
+      "bibliographic_citation": "Seneca, Moral Letters to Lucilius 63.4, trans. Richard M. Gummere (Loeb Classical Library, 1917).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Seneca allows grief and tears while encouraging remembrance to become capable of containing affection as well as pain.",
+      "philosophical_themes": [
+        "grief",
+        "memory",
+        "continuing bond"
+      ],
+      "retrieval_keywords": [
+        "grief",
+        "loss",
+        "memory",
+        "mourning",
+        "bereavement"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 99,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-47-11",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        5,
+        17,
+        25
+      ],
+      "related_category_ids": [
+        1
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Moral Letters to Lucilius",
+      "book_chapter_section": "Letter 47, §11",
+      "translator": "Richard M. Gummere",
+      "edition": "Loeb Classical Library, Vol. I",
+      "publication_year": 1917,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_47"
+      ],
+      "bibliographic_citation": "Seneca, Moral Letters to Lucilius 47.11, trans. Richard M. Gummere (Loeb Classical Library, 1917).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "In a letter criticizing Roman treatment of enslaved people, Seneca argues for reciprocal humane treatment across social rank.",
+      "philosophical_themes": [
+        "reciprocity",
+        "human dignity",
+        "social equality"
+      ],
+      "retrieval_keywords": [
+        "respect",
+        "dignity",
+        "hierarchy",
+        "conflict",
+        "mistreatment",
+        "belonging"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-78-20",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        18
+      ],
+      "related_category_ids": [
+        15
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Moral Letters to Lucilius",
+      "book_chapter_section": "Letter 78, §20",
+      "translator": "Richard M. Gummere",
+      "edition": "Loeb Classical Library, Vol. II",
+      "publication_year": 1920,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_78"
+      ],
+      "bibliographic_citation": "Seneca, Moral Letters to Lucilius 78.20, trans. Richard M. Gummere (Loeb Classical Library, 1920).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Seneca addresses illness by distinguishing bodily limitation from remaining possibilities for reflection, learning, and character.",
+      "philosophical_themes": [
+        "illness",
+        "remaining agency",
+        "practice under limitation"
+      ],
+      "retrieval_keywords": [
+        "illness",
+        "health fear",
+        "mortality",
+        "limitation",
+        "agency"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 95,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-ANGER-2-29",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        4,
+        5
+      ],
+      "related_category_ids": [
+        25
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Of Anger (De Ira)",
+      "book_chapter_section": "Book II, Chapter 29",
+      "translator": "Aubrey Stewart",
+      "edition": "George Bell and Sons public-domain translation",
+      "publication_year": null,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Of_Anger"
+      ],
+      "bibliographic_citation": "Seneca, De Ira II.29, trans. Aubrey Stewart, public-domain George Bell and Sons edition.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Seneca recommends delaying angry action so judgment can recover before response.",
+      "philosophical_themes": [
+        "delay",
+        "anger regulation",
+        "judgment"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "rage",
+        "delay",
+        "impulse",
+        "conflict"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 99,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-SHORT-1",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        13,
+        14,
+        18,
+        22
+      ],
+      "related_category_ids": [
+        15
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "On the Shortness of Life",
+      "book_chapter_section": "Chapter I",
+      "translator": "John W. Basore",
+      "edition": "Moral Essays, Loeb Classical Library",
+      "publication_year": 1932,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/On_the_shortness_of_life"
+      ],
+      "bibliographic_citation": "Seneca, On the Shortness of Life 1, trans. John W. Basore, Moral Essays, Loeb Classical Library (1932).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Seneca argues that the felt shortness of life is often connected to how attention and time are spent rather than duration alone.",
+      "philosophical_themes": [
+        "mortality",
+        "time",
+        "purpose",
+        "attention"
+      ],
+      "retrieval_keywords": [
+        "meaning",
+        "purpose",
+        "time",
+        "mortality",
+        "waiting",
+        "vocation"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 91,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-SEN-28-1",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        16,
+        23
+      ],
+      "related_category_ids": [
+        13,
+        15
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Moral Letters to Lucilius",
+      "book_chapter_section": "Letter 28, §1",
+      "translator": "Richard M. Gummere",
+      "edition": "Loeb Classical Library, Vol. I",
+      "publication_year": 1917,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Page:Ad_Lucilium_epistulae_morales,_volume_1.djvu/223"
+      ],
+      "bibliographic_citation": "Seneca, Moral Letters to Lucilius 28.1, trans. Richard M. Gummere (Loeb Classical Library, 1917).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Seneca argues that travel alone cannot resolve distress that one carries internally.",
+      "philosophical_themes": [
+        "self-examination",
+        "inner change",
+        "escape"
+      ],
+      "retrieval_keywords": [
+        "identity",
+        "escape",
+        "gloom",
+        "travel",
+        "change",
+        "self-examination"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 82,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-STOIC-MUSONIUS-PRACTICE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        14,
+        16
+      ],
+      "related_category_ids": [
+        13
+      ],
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Musonius Rufus",
+      "work": "Lectures and Fragments",
+      "book_chapter_section": "General teaching represented in surviving lectures; exact passage to be independently checked before promotion",
+      "translator": "Cora E. Lutz",
+      "edition": "Yale Classical Studies 10 (1947)",
+      "publication_year": 1947,
+      "source_urls": [
+        "https://books.google.com/books/about/Musonius_Rufus_The_Roman_Socrates.html?id=akmxAAAAIAAJ",
+        "https://yalebooks.yale.edu/book/9780300252286/that-one-should-disdain-hardships/"
+      ],
+      "bibliographic_citation": "Musonius Rufus. 'Musonius Rufus, the Roman Socrates.' Translated and edited by Cora E. Lutz. Yale Classical Studies 10 (1947): 3-147.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Musonius repeatedly treats philosophy as something that must be practiced in conduct, not merely learned as doctrine.",
+      "philosophical_themes": [
+        "practice",
+        "reason",
+        "embodied ethics",
+        "action"
+      ],
+      "retrieval_keywords": [
+        "practice",
+        "action",
+        "philosophy",
+        "purpose",
+        "identity"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 83,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-DHP-5",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        4,
+        5
+      ],
+      "related_category_ids": [
+        12,
+        25
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Dhammapada",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Dhammapada",
+      "book_chapter_section": "Chapter I, verse 5",
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vol. X, Part I (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://nanda.online-dhamma.net/tipitaka/sutta/khuddaka/dhammapada/dhp-contrast-reading/dhp-contrast-reading-en-full/",
+        "https://en.wikisource.org/wiki/Dhammapada_(Muller)"
+      ],
+      "bibliographic_citation": "Dhammapada 5, trans. F. Max Müller, Sacred Books of the East 10.1 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The verse presents non-hatred as the way hostility is brought to an end rather than answered in kind.",
+      "philosophical_themes": [
+        "non-hatred",
+        "de-escalation",
+        "cycles of hostility"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "hatred",
+        "retaliation",
+        "hostility",
+        "conflict"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 98,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-DHP-160",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        8,
+        15
+      ],
+      "related_category_ids": [
+        16
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Dhammapada",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Dhammapada",
+      "book_chapter_section": "Chapter XII, verse 160",
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vol. X, Part I (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Dhammapada_(Muller)",
+        "https://sacred-texts.com/bud/sbe10/sbe1014.htm"
+      ],
+      "bibliographic_citation": "Dhammapada 160, trans. F. Max Müller, Sacred Books of the East 10.1 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "In context the verse emphasizes training and governing one's own conduct rather than waiting for another person to do that work.",
+      "philosophical_themes": [
+        "self-discipline",
+        "agency",
+        "self-training"
+      ],
+      "retrieval_keywords": [
+        "agency",
+        "choice",
+        "self-discipline",
+        "indecision",
+        "overwhelm"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 91,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-DHP-204",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        18,
+        19
+      ],
+      "related_category_ids": [
+        1
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Dhammapada",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Dhammapada",
+      "book_chapter_section": "Chapter XV, verse 204",
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vol. X, Part I (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://nanda.online-dhamma.net/tipitaka/sutta/khuddaka/dhammapada/dhp-contrast-reading/dhp-contrast-reading-en-chap15/"
+      ],
+      "bibliographic_citation": "Dhammapada 204, trans. F. Max Müller, Sacred Books of the East 10.1 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The verse ranks health, contentment, trustworthy relationship, and liberation as forms of well-being beyond material accumulation alone.",
+      "philosophical_themes": [
+        "health",
+        "contentment",
+        "trust",
+        "well-being"
+      ],
+      "retrieval_keywords": [
+        "health",
+        "contentment",
+        "wealth",
+        "security",
+        "trust"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 86,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-DHP-277",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        2,
+        18,
+        22
+      ],
+      "related_category_ids": [
+        13
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Dhammapada",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Dhammapada",
+      "book_chapter_section": "Chapter XX, verse 277",
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vol. X, Part I (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://www.swaveda.com/texts/dhammapada/20/",
+        "https://en.wikisource.org/wiki/Dhammapada_(Muller)"
+      ],
+      "bibliographic_citation": "Dhammapada 277, trans. F. Max Müller, Sacred Books of the East 10.1 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "This is Müller's compact rendering of the Buddhist teaching that conditioned formations are impermanent.",
+      "philosophical_themes": [
+        "impermanence",
+        "conditioned phenomena",
+        "change"
+      ],
+      "retrieval_keywords": [
+        "impermanence",
+        "change",
+        "mortality",
+        "waiting",
+        "loss"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 91,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-SNP-1-8-144",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        1,
+        17
+      ],
+      "related_category_ids": [
+        5
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Sutta-Nipata",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Sutta-Nipata",
+      "book_chapter_section": "1.8 Mettasutta, verse 144",
+      "translator": "Viggo Fausböll",
+      "edition": "Sacred Books of the East, Vol. X, Part II (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/sutta-nipata",
+        "https://vignette.wikia.nocookie.net/tipitaka/images/0/02/Suttanipata_transln.pdf/revision/latest"
+      ],
+      "bibliographic_citation": "Sutta-Nipata 1.8, v. 144, trans. Viggo Fausböll, Sacred Books of the East 10.2 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Mettasutta develops impartial goodwill toward living beings without making that goodwill dependent on social closeness.",
+      "philosophical_themes": [
+        "metta",
+        "goodwill",
+        "universal concern"
+      ],
+      "retrieval_keywords": [
+        "belonging",
+        "goodwill",
+        "isolation",
+        "community",
+        "metta"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-SNP-1-8-147",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        4,
+        5,
+        25
+      ],
+      "related_category_ids": [
+        12
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Sutta-Nipata",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Sutta-Nipata",
+      "book_chapter_section": "1.8 Mettasutta, verse 147",
+      "translator": "Viggo Fausböll",
+      "edition": "Sacred Books of the East, Vol. X, Part II (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/sutta-nipata",
+        "https://vignette.wikia.nocookie.net/tipitaka/images/0/02/Suttanipata_transln.pdf/revision/latest"
+      ],
+      "bibliographic_citation": "Sutta-Nipata 1.8, v. 147, trans. Viggo Fausböll, Sacred Books of the East 10.2 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The verse places non-deception and non-contempt inside a broader practice of goodwill, including when anger or resentment is present.",
+      "philosophical_themes": [
+        "non-harm",
+        "goodwill",
+        "anger",
+        "resentment"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "resentment",
+        "contempt",
+        "conflict",
+        "mistreatment"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 94,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-SNP-RHINO-SOLITUDE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        1
+      ],
+      "related_category_ids": [
+        16,
+        17
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Sutta-Nipata",
+      "author_or_attributed_figure": "Traditional Pali Canon",
+      "work": "Sutta-Nipata",
+      "book_chapter_section": "1.3 Khaggavisana Sutta (Rhinoceros discourse)",
+      "translator": "Viggo Fausböll",
+      "edition": "Sacred Books of the East, Vol. X, Part II (1881)",
+      "publication_year": 1881,
+      "source_urls": [
+        "https://verdict.org/library/theravada/sutta-nipata"
+      ],
+      "bibliographic_citation": "Sutta-Nipata 1.3, trans. Viggo Fausböll, Sacred Books of the East 10.2 (Oxford: Clarendon Press, 1881).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Rhinoceros discourse repeatedly praises solitary renunciant practice and freedom from entangling attachments.",
+      "philosophical_themes": [
+        "renunciation",
+        "solitude",
+        "non-attachment"
+      ],
+      "retrieval_keywords": [
+        "solitude",
+        "renunciation",
+        "withdrawal",
+        "independence"
+      ],
+      "source_confidence": 98,
+      "category_fit_score": 55,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-MN-21-GOODWILL",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        4,
+        5,
+        25
+      ],
+      "related_category_ids": [
+        12
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Majjhima Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourse attributed to the Buddha",
+      "work": "Majjhima Nikaya",
+      "book_chapter_section": "MN 21, Kakacupama Sutta; early instruction section",
+      "translator": "Robert Chalmers (Lord Chalmers)",
+      "edition": "Further Dialogues of the Buddha, Vol. I (1926)",
+      "publication_year": 1926,
+      "source_urls": [
+        "https://obo.genaud.net/dhamma-vinaya/chlm/mn/mn.021.chlm.sbb.htm"
+      ],
+      "bibliographic_citation": "Majjhima Nikaya 21, trans. Lord Chalmers, Further Dialogues of the Buddha, Vol. I (London: Humphrey Milford/Oxford University Press, 1926).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Early in MN 21, before the discourse's later extreme simile, the teaching recommends maintaining compassion and avoiding hostile speech when hearing criticism.",
+      "philosophical_themes": [
+        "goodwill",
+        "speech",
+        "non-enmity",
+        "response discipline"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "criticism",
+        "speech",
+        "conflict",
+        "enmity"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 94,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-MN-4-FEAR-SOLITUDE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        1
+      ],
+      "related_category_ids": [
+        18
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Majjhima Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourse attributed to the Buddha",
+      "work": "Majjhima Nikaya",
+      "book_chapter_section": "MN 4, Bhaya-Bherava Sutta",
+      "translator": "Robert Chalmers (Lord Chalmers)",
+      "edition": "Further Dialogues of the Buddha, Vol. I (1926)",
+      "publication_year": 1926,
+      "source_urls": [
+        "https://obo.genaud.net/dhamma-vinaya/chlm/mn/mn.004.chlm.sbb.htm"
+      ],
+      "bibliographic_citation": "Majjhima Nikaya 4, trans. Lord Chalmers, Further Dialogues of the Buddha, Vol. I (1926).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The discourse explicitly acknowledges that solitude can evoke fear and dread, then frames disciplined conduct and attention as part of meeting that fear.",
+      "philosophical_themes": [
+        "fear",
+        "solitude",
+        "ethical preparation",
+        "attention"
+      ],
+      "retrieval_keywords": [
+        "fear",
+        "dread",
+        "solitude",
+        "anxiety"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 72,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-MN-63-PRIORITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        13
+      ],
+      "related_category_ids": [
+        15
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Majjhima Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourse attributed to the Buddha",
+      "work": "Majjhima Nikaya",
+      "book_chapter_section": "MN 63, Cula-Malunkya Sutta",
+      "translator": "Robert Chalmers (Lord Chalmers)",
+      "edition": "Further Dialogues of the Buddha, Vol. I (1926)",
+      "publication_year": 1926,
+      "source_urls": [
+        "https://buddhadust.net/dhamma-vinaya/chlm/mn/mn.063.chlm.sbb.htm"
+      ],
+      "bibliographic_citation": "Majjhima Nikaya 63, trans. Lord Chalmers, Further Dialogues of the Buddha, Vol. I (1926).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The discourse declines to settle a set of speculative cosmological questions and redirects attention toward teachings presented as relevant to suffering and its cessation.",
+      "philosophical_themes": [
+        "pragmatic priority",
+        "speculation",
+        "suffering",
+        "practice"
+      ],
+      "retrieval_keywords": [
+        "meaning",
+        "uncertainty",
+        "certainty",
+        "speculation",
+        "decision"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 69,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-UD-1-10-ATTENTION",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        15,
+        16
+      ],
+      "related_category_ids": [
+        8
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Udana",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourse attributed to the Buddha",
+      "work": "Udana",
+      "book_chapter_section": "Udana 1.10, Bahiya episode",
+      "translator": "Dawsonne Melancthon Strong",
+      "edition": "Luzac & Company, 1902",
+      "publication_year": 1902,
+      "source_urls": [
+        "https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/udana",
+        "https://books.google.com/books?id=UhQRAAAAIAAJ"
+      ],
+      "bibliographic_citation": "Udana 1.10, trans. D. M. Strong, The Udana; or, The Solemn Utterances of the Buddha (London: Luzac & Co., 1902).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Bahiya instruction trains attention to seeing, hearing, thinking, and knowing without adding further identification or elaboration.",
+      "philosophical_themes": [
+        "bare attention",
+        "non-identification",
+        "sense experience"
+      ],
+      "retrieval_keywords": [
+        "attention",
+        "perception",
+        "overthinking",
+        "identity",
+        "overwhelm"
+      ],
+      "source_confidence": 98,
+      "category_fit_score": 80,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-ITI-50-ROOTS",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        4,
+        11,
+        20
+      ],
+      "related_category_ids": [
+        5
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Itivuttaka",
+      "author_or_attributed_figure": "Traditional Pali Canon; teaching attributed to the Buddha",
+      "work": "Itivuttaka",
+      "book_chapter_section": "No. 50, Roots (Mula Sutta)",
+      "translator": "Justin Hartley Moore",
+      "edition": "Columbia University Indo-Iranian Series, Vol. V (1908)",
+      "publication_year": 1908,
+      "source_urls": [
+        "https://openlibrary.org/books/OL24179771M/Sayings_of_Buddha_the_Iti-Vuttaka",
+        "https://commons.wikimedia.org/wiki/File:Sayings_of_Buddha,_the_Iti-Vuttaka;_a_Pali_work_of_the_Buddhist_canon_for_the_first_time_translated_(IA_sayingsofbuddhai00moorrich).pdf"
+      ],
+      "bibliographic_citation": "Itivuttaka 50, in Sayings of Buddha: The Iti-Vuttaka, trans. Justin Hartley Moore (New York: Columbia University Press, 1908).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Itivuttaka 50 identifies greed, hatred, and delusion as three harmful roots, providing a compact early-Buddhist frame for reactive grasping and hostility.",
+      "philosophical_themes": [
+        "greed",
+        "hatred",
+        "delusion",
+        "harmful roots"
+      ],
+      "retrieval_keywords": [
+        "greed",
+        "hatred",
+        "delusion",
+        "envy",
+        "compulsion",
+        "reactivity"
+      ],
+      "source_confidence": 90,
+      "category_fit_score": 78,
+      "review_status": "DRAFT",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-BUD-SN-36-9-IMPERMANENT-FEELING",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        22,
+        23
+      ],
+      "related_category_ids": [
+        2,
+        18,
+        24
+      ],
+      "tradition": "Early Buddhism",
+      "school_or_lineage": "Pali Canon / Samyutta Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourse attributed to the Buddha",
+      "work": "Samyutta Nikaya",
+      "book_chapter_section": "SN 36.9, Anicca Sutta",
+      "translator": "F. L. Woodward",
+      "edition": "The Book of the Kindred Sayings, Vol. IV",
+      "publication_year": null,
+      "source_urls": [
+        "https://buddhadust.net/dhamma-vinaya/pts/sn/04_salv/sn04.36.009.wood.pts.htm"
+      ],
+      "bibliographic_citation": "Samyutta Nikaya 36.9, trans. F. L. Woodward, The Book of the Kindred Sayings, Vol. IV, Pali Text Society.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "SN 36.9 describes pleasant, painful, and neutral feelings as conditioned and subject to change and cessation.",
+      "philosophical_themes": [
+        "impermanence",
+        "feeling",
+        "change"
+      ],
+      "retrieval_keywords": [
+        "feeling",
+        "mood",
+        "impermanence",
+        "waiting",
+        "change"
+      ],
+      "source_confidence": 98,
+      "category_fit_score": 84,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-8-WATER",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        5,
+        15,
+        22
+      ],
+      "related_category_ids": [
+        4,
+        25
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 8",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://www.sacred-texts.com/tao/sbe39/sbe39015.htm",
+        "https://www.gutenberg.org/ebooks/216"
+      ],
+      "bibliographic_citation": "Daodejing 8, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (Oxford: Clarendon Press, 1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Chapter 8 develops water as an image for benefiting without contentious striving, accepting low places, and acting with situational timing.",
+      "philosophical_themes": [
+        "water",
+        "non-contention",
+        "adaptability",
+        "timeliness"
+      ],
+      "retrieval_keywords": [
+        "non-striving",
+        "water",
+        "adaptability",
+        "timing",
+        "conflict",
+        "overwhelm"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 91,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        16,
+        20
+      ],
+      "related_category_ids": [
+        8,
+        9
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 33",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://www.sacred-texts.com/tao/sbe39/sbe39040.htm",
+        "https://www.gutenberg.org/cache/epub/216/pg216-images.html"
+      ],
+      "bibliographic_citation": "Daodejing 33, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The chapter contrasts knowledge and power over others with self-knowledge and self-mastery, then turns to contentment and endurance.",
+      "philosophical_themes": [
+        "self-knowledge",
+        "self-mastery",
+        "comparison"
+      ],
+      "retrieval_keywords": [
+        "self-knowledge",
+        "identity",
+        "comparison",
+        "self-mastery"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 91,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-46-CONTENTMENT",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        19,
+        20
+      ],
+      "related_category_ids": [
+        15
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 46",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://sacred-texts.com/tao/sbe39/sbe39053.htm",
+        "https://classics.mit.edu/Lao/taote.2.ii.html"
+      ],
+      "bibliographic_citation": "Daodejing 46, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Chapter 46 contrasts unbounded wanting with contentment and presents 'enough' as a different measure of sufficiency.",
+      "philosophical_themes": [
+        "contentment",
+        "desire",
+        "enough",
+        "acquisition"
+      ],
+      "retrieval_keywords": [
+        "contentment",
+        "enough",
+        "money",
+        "security",
+        "envy",
+        "acquisition"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 94,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-64-STEP",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        8,
+        14,
+        15
+      ],
+      "related_category_ids": [
+        22
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 64",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://www.sacred-texts.com/tao/sbe39/sbe39071.htm",
+        "https://classics.mit.edu/Lao/taote.2.ii.html"
+      ],
+      "bibliographic_citation": "Daodejing 64, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The surrounding chapter emphasizes addressing beginnings before disorder compounds and treating large developments as arising from small starts.",
+      "philosophical_themes": [
+        "small beginnings",
+        "process",
+        "attention to early stages"
+      ],
+      "retrieval_keywords": [
+        "first step",
+        "stuck",
+        "overwhelm",
+        "purpose",
+        "starting"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 97,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-ZZ-3-LIMITS",
+      "record_type": "VERIFIED_DIRECT_QUOTE",
+      "category_ids": [
+        8,
+        15
+      ],
+      "related_category_ids": [
+        13,
+        22
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi Inner Chapters; chapter 3",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; Inner Chapter",
+      "work": "Zhuangzi",
+      "book_chapter_section": "Inner Chapter 3, Nourishing the Lord of Life, §1",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://ctext.org/zhuangzi/nourishing-the-lord-of-life",
+        "https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)"
+      ],
+      "bibliographic_citation": "Zhuangzi, Inner Chapter 3.1, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The opening warns against exhausting finite life by trying to pursue limitless knowledge, before moving into a broader discussion of sustaining life.",
+      "philosophical_themes": [
+        "limits",
+        "knowledge",
+        "life",
+        "overreach"
+      ],
+      "retrieval_keywords": [
+        "overthinking",
+        "information overload",
+        "analysis paralysis",
+        "limits",
+        "knowledge"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 92,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": true,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-22-NONDISPLAY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        6,
+        9,
+        20
+      ],
+      "related_category_ids": [
+        16
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 22",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://archive.sacred-texts.com/tao/sbe39/sbe39029.htm",
+        "https://ctext.org/dao-de-jing/ens"
+      ],
+      "bibliographic_citation": "Daodejing 22, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Chapter 22 links fewer desires, less self-display, less self-assertion, and less self-boasting with a form of non-contentious completeness.",
+      "philosophical_themes": [
+        "non-striving",
+        "humility",
+        "self-display",
+        "status"
+      ],
+      "retrieval_keywords": [
+        "status",
+        "shame",
+        "failure",
+        "comparison",
+        "self-display"
+      ],
+      "source_confidence": 98,
+      "category_fit_score": 84,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-48-WUWEI",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        15,
+        22
+      ],
+      "related_category_ids": [
+        14
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 48",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://archive.sacred-texts.com/tao/sbe39/sbe39055.htm",
+        "https://en.wikisource.org/wiki/T%C3%A2o_Teh_King"
+      ],
+      "bibliographic_citation": "Daodejing 48, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Chapter 48 contrasts accumulating learning with a Dao-oriented process of diminishing deliberate doing until action is no longer forced toward an ulterior end.",
+      "philosophical_themes": [
+        "wu wei",
+        "non-forcing",
+        "subtraction",
+        "effort"
+      ],
+      "retrieval_keywords": [
+        "wu wei",
+        "non-forcing",
+        "over-effort",
+        "overwhelm",
+        "waiting"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 93,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-DDJ-76-FLEXIBILITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        5,
+        15,
+        22
+      ],
+      "related_category_ids": [
+        4
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Daodejing / Tao Teh King",
+      "book_chapter_section": "Chapter 76",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://archive.sacred-texts.com/tao/sbe39/sbe39083.htm"
+      ],
+      "bibliographic_citation": "Daodejing 76, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Chapter 76 contrasts the supple and flexible with the rigid and force-dependent, using living bodies and plants as its imagery.",
+      "philosophical_themes": [
+        "softness",
+        "flexibility",
+        "rigidity",
+        "life"
+      ],
+      "retrieval_keywords": [
+        "flexibility",
+        "rigidity",
+        "adaptability",
+        "conflict",
+        "patience"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-ZZ-1-NOFAME",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        9,
+        16,
+        20
+      ],
+      "related_category_ids": [
+        6
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi Inner Chapter 1",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; Inner Chapter",
+      "work": "Zhuangzi",
+      "book_chapter_section": "Inner Chapter 1, Enjoyment in Untroubled Ease",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://ctext.org/zhuangzi/enjoyment-in-untroubled-ease",
+        "https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)"
+      ],
+      "bibliographic_citation": "Zhuangzi, Inner Chapter 1, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The chapter culminates in an ideal that is not anchored in self-fixation, accumulated merit, or fame, within a larger argument about dependence and untroubled wandering.",
+      "philosophical_themes": [
+        "self",
+        "merit",
+        "fame",
+        "untroubled wandering"
+      ],
+      "retrieval_keywords": [
+        "fame",
+        "merit",
+        "status",
+        "failure",
+        "identity",
+        "comparison"
+      ],
+      "source_confidence": 98,
+      "category_fit_score": 87,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-ZZ-2-BUTTERFLY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        16,
+        13
+      ],
+      "related_category_ids": [
+        3
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi Inner Chapter 2",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; Inner Chapter",
+      "work": "Zhuangzi",
+      "book_chapter_section": "Inner Chapter 2, Adjustment of Controversies; butterfly dream passage",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://ctext.org/zhuangzi/adjustment-of-controversies",
+        "https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)"
+      ],
+      "bibliographic_citation": "Zhuangzi, Inner Chapter 2, butterfly-dream passage, trans. James Legge, The Texts of Taoism, Part I, SBE 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The butterfly-dream passage destabilizes rigid confidence about perspective and identity and concludes by naming a 'transformation of things.'",
+      "philosophical_themes": [
+        "perspective",
+        "transformation",
+        "identity",
+        "dream"
+      ],
+      "retrieval_keywords": [
+        "identity",
+        "perspective",
+        "transformation",
+        "self-story"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 78,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-ZZ-4-USELESS-TREE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        6,
+        9,
+        14
+      ],
+      "related_category_ids": [
+        20
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi Inner Chapter 4",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; Inner Chapter",
+      "work": "Zhuangzi",
+      "book_chapter_section": "Inner Chapter 4, Man in the World; useless-tree passages",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://ctext.org/zhuangzi/man-in-the-world-associated-with",
+        "https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)"
+      ],
+      "bibliographic_citation": "Zhuangzi, Inner Chapter 4, trans. James Legge, The Texts of Taoism, Part I, Sacred Books of the East 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The chapter repeatedly uses trees judged useless by ordinary standards to question whether conventional utility exhausts a thing's value or determines whether it can flourish.",
+      "philosophical_themes": [
+        "usefulness",
+        "value",
+        "survival",
+        "conventional judgment"
+      ],
+      "retrieval_keywords": [
+        "worthless",
+        "usefulness",
+        "career",
+        "failure",
+        "productivity",
+        "shame"
+      ],
+      "source_confidence": 100,
+      "category_fit_score": 94,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-ZZ-4-FASTING-MIND",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        15
+      ],
+      "related_category_ids": [
+        5
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi Inner Chapter 4",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; Inner Chapter",
+      "work": "Zhuangzi",
+      "book_chapter_section": "Inner Chapter 4, 'fasting of the mind' passage",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 39 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://ctext.org/zhuangzi/man-in-the-world-associated-with"
+      ],
+      "bibliographic_citation": "Zhuangzi, Inner Chapter 4, 'fasting of the mind' passage, trans. James Legge, The Texts of Taoism, Part I, SBE 39 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The 'fasting of the mind' passage uses a dialogue about loosening preoccupation and fixed mental occupation before entering a difficult social situation.",
+      "philosophical_themes": [
+        "attention",
+        "preoccupation",
+        "fasting of the mind",
+        "openness"
+      ],
+      "retrieval_keywords": [
+        "preoccupation",
+        "overthinking",
+        "attention",
+        "conflict",
+        "overwhelm"
+      ],
+      "source_confidence": 98,
+      "category_fit_score": 83,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-DAO-ZZ-20-EMPTY-BOAT",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        4,
+        5
+      ],
+      "related_category_ids": [
+        25
+      ],
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi Outer Chapter 20; later authorship layer",
+      "author_or_attributed_figure": "Zhuangzi received textual tradition; Outer Chapter, not securely historical Zhuang Zhou",
+      "work": "Zhuangzi",
+      "book_chapter_section": "Outer Chapter 20, Mountain Tree; empty-boat passage",
+      "translator": "James Legge",
+      "edition": "Sacred Books of the East 40 (1891)",
+      "publication_year": 1891,
+      "source_urls": [
+        "https://tianmu.org/good-work-library/daoist/zhuangzi/outer-chapters/zhuangzi-the-tree-on-the-mountain",
+        "https://openlibrary.org/books/OL59025058M/The_Sacred_Books_Of_China_The_Texts_Of_Taoism_Part_II"
+      ],
+      "bibliographic_citation": "Zhuangzi, Outer Chapter 20, empty-boat passage, trans. James Legge, The Texts of Taoism, Part II, Sacred Books of the East 40 (1891).",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The empty-boat story contrasts a collision that provokes little anger when no agent is perceived with escalating anger when intention is attributed to another person.",
+      "philosophical_themes": [
+        "anger",
+        "attribution",
+        "empty boat",
+        "self-emptying"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "intent",
+        "attribution",
+        "conflict",
+        "personalization"
+      ],
+      "source_confidence": 96,
+      "category_fit_score": 93,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-GITA-ACTION",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        9,
+        14,
+        15,
+        22
+      ],
+      "related_category_ids": [
+        8,
+        9,
+        14,
+        15,
+        22
+      ],
+      "tradition": "Hindu philosophical traditions",
+      "school_or_lineage": "Bhagavad Gita / synthetic yoga traditions",
+      "author_or_attributed_figure": "Traditional Bhagavad Gita tradition",
+      "work": "Bhagavad Gita",
+      "book_chapter_section": null,
+      "translator": "Sir Edwin Arnold",
+      "edition": "The Song Celestial, 1885; Project Gutenberg eBook #2388",
+      "publication_year": 1885,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2388"
+      ],
+      "bibliographic_citation": "Bhagavad Gita. Translated by Sir Edwin Arnold as The Song Celestial. 1885. Project Gutenberg eBook #2388.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Gita distinguishes committed action from fixation on outcomes: attention is placed on one's conduct and duty rather than securing a preferred result.",
+      "philosophical_themes": [
+        "action without attachment",
+        "duty",
+        "equanimity"
+      ],
+      "retrieval_keywords": [
+        "stuck",
+        "fear of failure",
+        "career purpose",
+        "overwhelm",
+        "impatience"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-GITA-EQUANIMITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        4,
+        7,
+        18,
+        19,
+        23
+      ],
+      "related_category_ids": [
+        3,
+        4,
+        7,
+        18,
+        19,
+        23
+      ],
+      "tradition": "Hindu philosophical traditions",
+      "school_or_lineage": "Bhagavad Gita / synthetic yoga traditions",
+      "author_or_attributed_figure": "Traditional Bhagavad Gita tradition",
+      "work": "Bhagavad Gita",
+      "book_chapter_section": null,
+      "translator": "Sir Edwin Arnold",
+      "edition": "The Song Celestial, 1885; Project Gutenberg eBook #2388",
+      "publication_year": 1885,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2388"
+      ],
+      "bibliographic_citation": "Bhagavad Gita. Translated by Sir Edwin Arnold as The Song Celestial. 1885. Project Gutenberg eBook #2388.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The text repeatedly treats steadiness amid gain/loss, pleasure/pain, and changing conditions as a discipline of action rather than emotional numbness.",
+      "philosophical_themes": [
+        "equanimity",
+        "change",
+        "steadiness"
+      ],
+      "retrieval_keywords": [
+        "future dread",
+        "anger",
+        "heartbreak",
+        "mortality fear",
+        "security fear",
+        "sadness"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-GITA-DESIRE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        10,
+        11,
+        20,
+        24
+      ],
+      "related_category_ids": [
+        10,
+        11,
+        20,
+        24
+      ],
+      "tradition": "Hindu philosophical traditions",
+      "school_or_lineage": "Bhagavad Gita / synthetic yoga traditions",
+      "author_or_attributed_figure": "Traditional Bhagavad Gita tradition",
+      "work": "Bhagavad Gita",
+      "book_chapter_section": null,
+      "translator": "Sir Edwin Arnold",
+      "edition": "The Song Celestial, 1885; Project Gutenberg eBook #2388",
+      "publication_year": 1885,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2388"
+      ],
+      "bibliographic_citation": "Bhagavad Gita. Translated by Sir Edwin Arnold as The Song Celestial. 1885. Project Gutenberg eBook #2388.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Gita describes how fixation, craving, and reactive desire can narrow judgment, while disciplined attention can interrupt that chain.",
+      "philosophical_themes": [
+        "desire",
+        "attention",
+        "self-regulation"
+      ],
+      "retrieval_keywords": [
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "loss of joy"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 82,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-GITA-MORTALITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        2,
+        7,
+        18
+      ],
+      "related_category_ids": [
+        2,
+        7,
+        18
+      ],
+      "tradition": "Hindu philosophical traditions",
+      "school_or_lineage": "Bhagavad Gita / synthetic yoga traditions",
+      "author_or_attributed_figure": "Traditional Bhagavad Gita tradition",
+      "work": "Bhagavad Gita",
+      "book_chapter_section": null,
+      "translator": "Sir Edwin Arnold",
+      "edition": "The Song Celestial, 1885; Project Gutenberg eBook #2388",
+      "publication_year": 1885,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2388"
+      ],
+      "bibliographic_citation": "Bhagavad Gita. Translated by Sir Edwin Arnold as The Song Celestial. 1885. Project Gutenberg eBook #2388.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Arjuna's grief and fear are addressed within a metaphysical framework that distinguishes changing embodied life from the enduring principle described by the text.",
+      "philosophical_themes": [
+        "grief",
+        "mortality",
+        "loss"
+      ],
+      "retrieval_keywords": [
+        "bereavement",
+        "heartbreak",
+        "fear of death"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 80,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-UPANISHAD-SELF",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        6,
+        13,
+        16,
+        17,
+        21
+      ],
+      "related_category_ids": [
+        6,
+        13,
+        16,
+        17,
+        21
+      ],
+      "tradition": "Upanishadic / Vedantic source tradition",
+      "school_or_lineage": "Principal Upanishads; pre-systematic Vedanta source literature",
+      "author_or_attributed_figure": "Traditional Upanishadic authorship",
+      "work": "Principal Upanishads",
+      "book_chapter_section": null,
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vols. 1 and 15",
+      "publication_year": "1879-1884",
+      "source_urls": [
+        "https://sacred-texts.com/hin/upan/index.htm",
+        "https://sacred-texts.com/hin/sbe01/index.htm"
+      ],
+      "bibliographic_citation": "The Upanishads. Translated by F. Max Müller. Sacred Books of the East, Vols. 1 and 15. Oxford: Clarendon Press, 1879-1884.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Upanishadic inquiry repeatedly asks what is deepest in the self and what remains when social roles, possessions, and passing states are not treated as ultimate identity.",
+      "philosophical_themes": [
+        "self-knowledge",
+        "identity",
+        "ultimate concern"
+      ],
+      "retrieval_keywords": [
+        "shame",
+        "meaninglessness",
+        "identity confusion",
+        "belonging confusion",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-UPANISHAD-MORTALITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        2,
+        18,
+        23,
+        24
+      ],
+      "related_category_ids": [
+        2,
+        18,
+        23,
+        24
+      ],
+      "tradition": "Upanishadic / Vedantic source tradition",
+      "school_or_lineage": "Principal Upanishads; pre-systematic Vedanta source literature",
+      "author_or_attributed_figure": "Traditional Upanishadic authorship",
+      "work": "Principal Upanishads",
+      "book_chapter_section": null,
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vols. 1 and 15",
+      "publication_year": "1879-1884",
+      "source_urls": [
+        "https://sacred-texts.com/hin/upan/index.htm",
+        "https://sacred-texts.com/hin/sbe01/index.htm"
+      ],
+      "bibliographic_citation": "The Upanishads. Translated by F. Max Müller. Sacred Books of the East, Vols. 1 and 15. Oxford: Clarendon Press, 1879-1884.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Several Upanishadic dialogues use mortality and impermanence as prompts for inquiry into what a life should be oriented toward.",
+      "philosophical_themes": [
+        "mortality",
+        "impermanence",
+        "ultimate value"
+      ],
+      "retrieval_keywords": [
+        "grief",
+        "mortality fear",
+        "low mood",
+        "loss of joy"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 82,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-YOGA-PRACTICE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        8,
+        11,
+        15,
+        22
+      ],
+      "related_category_ids": [
+        3,
+        8,
+        11,
+        15,
+        22
+      ],
+      "tradition": "Yoga philosophy",
+      "school_or_lineage": "Classical Yoga / Patanjali",
+      "author_or_attributed_figure": "Patanjali (traditional attribution)",
+      "work": "Yoga Sutras",
+      "book_chapter_section": null,
+      "translator": "Charles Johnston",
+      "edition": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+      "publication_year": 1912,
+      "source_urls": [
+        "https://sacred-texts.com/hin/ysp/index.htm"
+      ],
+      "bibliographic_citation": "Patanjali. The Yoga Sutras of Patanjali: The Book of the Spiritual Man. Interpretation by Charles Johnston. 1912.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Classical Yoga presents sustained practice and non-attachment as paired disciplines for stabilizing attention rather than demanding immediate certainty or control.",
+      "philosophical_themes": [
+        "practice",
+        "non-attachment",
+        "attention"
+      ],
+      "retrieval_keywords": [
+        "anxiety",
+        "indecision",
+        "compulsive coping",
+        "overwhelm",
+        "impatience"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-YOGA-AFFLICTIONS",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        4,
+        7,
+        10,
+        11,
+        20,
+        21
+      ],
+      "related_category_ids": [
+        4,
+        7,
+        10,
+        11,
+        20,
+        21
+      ],
+      "tradition": "Yoga philosophy",
+      "school_or_lineage": "Classical Yoga / Patanjali",
+      "author_or_attributed_figure": "Patanjali (traditional attribution)",
+      "work": "Yoga Sutras",
+      "book_chapter_section": null,
+      "translator": "Charles Johnston",
+      "edition": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+      "publication_year": 1912,
+      "source_urls": [
+        "https://sacred-texts.com/hin/ysp/index.htm"
+      ],
+      "bibliographic_citation": "Patanjali. The Yoga Sutras of Patanjali: The Book of the Spiritual Man. Interpretation by Charles Johnston. 1912.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Yoga Sutras analyze attachment, aversion, misidentification, and fear as recurring afflictive patterns that can condition action and attention.",
+      "philosophical_themes": [
+        "attachment",
+        "aversion",
+        "conditioning"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "heartbreak",
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 80,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-YOGA-RELATIONAL",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        1,
+        5,
+        12,
+        17,
+        25
+      ],
+      "related_category_ids": [
+        1,
+        5,
+        12,
+        17,
+        25
+      ],
+      "tradition": "Yoga philosophy",
+      "school_or_lineage": "Classical Yoga / Patanjali",
+      "author_or_attributed_figure": "Patanjali (traditional attribution)",
+      "work": "Yoga Sutras",
+      "book_chapter_section": null,
+      "translator": "Charles Johnston",
+      "edition": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+      "publication_year": 1912,
+      "source_urls": [
+        "https://sacred-texts.com/hin/ysp/index.htm"
+      ],
+      "bibliographic_citation": "Patanjali. The Yoga Sutras of Patanjali: The Book of the Spiritual Man. Interpretation by Charles Johnston. 1912.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The cultivation of friendliness, compassion, appreciative joy, and equanimity is presented as a way of steadying the mind in relation to other people.",
+      "philosophical_themes": [
+        "friendliness",
+        "compassion",
+        "equanimity"
+      ],
+      "retrieval_keywords": [
+        "loneliness",
+        "conflict",
+        "betrayal",
+        "belonging",
+        "mistreatment"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-HABIT",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        6,
+        9,
+        14,
+        16,
+        17,
+        21
+      ],
+      "related_category_ids": [
+        6,
+        9,
+        14,
+        16,
+        17,
+        21
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucianism",
+      "author_or_attributed_figure": "Confucius and disciples tradition",
+      "work": "Analects",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / Project Gutenberg eBook #3330",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3330",
+        "https://www.gutenberg.org/ebooks/4094"
+      ],
+      "bibliographic_citation": "Confucius. Analects. Translated by James Legge. Public-domain electronic editions via Project Gutenberg.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Analects emphasizes learning, repeated practice, correction, and cultivation of character over defining a person by a single failure or fixed trait.",
+      "philosophical_themes": [
+        "self-cultivation",
+        "learning",
+        "habit"
+      ],
+      "retrieval_keywords": [
+        "shame",
+        "failure",
+        "vocation",
+        "identity",
+        "belonging",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-RECIPROCITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        1,
+        5,
+        7,
+        12,
+        25
+      ],
+      "related_category_ids": [
+        1,
+        5,
+        7,
+        12,
+        25
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucianism",
+      "author_or_attributed_figure": "Confucius and disciples tradition",
+      "work": "Analects",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / Project Gutenberg eBook #3330",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3330",
+        "https://www.gutenberg.org/ebooks/4094"
+      ],
+      "bibliographic_citation": "Confucius. Analects. Translated by James Legge. Public-domain electronic editions via Project Gutenberg.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Confucian reciprocity asks a person to consider others while maintaining standards of conduct; relationship quality is tied to humane and appropriate action.",
+      "philosophical_themes": [
+        "reciprocity",
+        "relationship ethics",
+        "conduct"
+      ],
+      "retrieval_keywords": [
+        "loneliness",
+        "conflict",
+        "rejection",
+        "betrayal",
+        "mistreatment"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-FAULTS",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        6,
+        9,
+        21,
+        23
+      ],
+      "related_category_ids": [
+        6,
+        9,
+        21,
+        23
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucianism",
+      "author_or_attributed_figure": "Confucius and disciples tradition",
+      "work": "Analects",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / Project Gutenberg eBook #3330",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3330",
+        "https://www.gutenberg.org/ebooks/4094"
+      ],
+      "bibliographic_citation": "Confucius. Analects. Translated by James Legge. Public-domain electronic editions via Project Gutenberg.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Analects treats recognizing and correcting one's faults as part of cultivation, separating moral growth from permanent self-condemnation.",
+      "philosophical_themes": [
+        "fault correction",
+        "learning",
+        "character"
+      ],
+      "retrieval_keywords": [
+        "shame",
+        "fear of failure",
+        "guilt",
+        "low mood"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-LEARNING-PURPOSE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        13,
+        14,
+        22
+      ],
+      "related_category_ids": [
+        8,
+        13,
+        14,
+        22
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucianism",
+      "author_or_attributed_figure": "Confucius and disciples tradition",
+      "work": "Analects",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / Project Gutenberg eBook #3330",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3330",
+        "https://www.gutenberg.org/ebooks/4094"
+      ],
+      "bibliographic_citation": "Confucius. Analects. Translated by James Legge. Public-domain electronic editions via Project Gutenberg.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Learning is framed as a lifelong practice shaped by purpose, relationships, and conduct rather than a race toward immediate status.",
+      "philosophical_themes": [
+        "learning",
+        "purpose",
+        "patience"
+      ],
+      "retrieval_keywords": [
+        "stuck",
+        "meaninglessness",
+        "career purpose",
+        "impatience"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-MENCIUS-COMPASSION",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        1,
+        6,
+        12,
+        17,
+        21,
+        25
+      ],
+      "related_category_ids": [
+        1,
+        6,
+        12,
+        17,
+        21,
+        25
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Mencian Confucianism",
+      "author_or_attributed_figure": "Mencius / Mengzi tradition",
+      "work": "Mencius",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / public-domain collected edition",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/10056",
+        "https://plato.stanford.edu/entries/mencius/"
+      ],
+      "bibliographic_citation": "Mencius. Mencius. Historical English translations by James Legge; contextual verification with Stanford Encyclopedia of Philosophy, 'Mencius'.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Mencian ethics treats compassion and other moral dispositions as capacities that can be cultivated rather than proof that a person is irredeemably good or bad.",
+      "philosophical_themes": [
+        "compassion",
+        "moral cultivation",
+        "humaneness"
+      ],
+      "retrieval_keywords": [
+        "loneliness",
+        "shame",
+        "betrayal",
+        "belonging",
+        "guilt",
+        "mistreatment"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-MENCIUS-RIGHTEOUSNESS",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        14,
+        19,
+        20,
+        21
+      ],
+      "related_category_ids": [
+        14,
+        19,
+        20,
+        21
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Mencian Confucianism",
+      "author_or_attributed_figure": "Mencius / Mengzi tradition",
+      "work": "Mencius",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / public-domain collected edition",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/10056",
+        "https://plato.stanford.edu/entries/mencius/"
+      ],
+      "bibliographic_citation": "Mencius. Mencius. Historical English translations by James Legge; contextual verification with Stanford Encyclopedia of Philosophy, 'Mencius'.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Mencius repeatedly contrasts righteousness with fixation on advantage, making ethical orientation more important than status or gain alone.",
+      "philosophical_themes": [
+        "righteousness",
+        "profit",
+        "status"
+      ],
+      "retrieval_keywords": [
+        "career purpose",
+        "financial fear",
+        "envy",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-MENCIUS-ADVERSITY",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        9,
+        15,
+        23,
+        24
+      ],
+      "related_category_ids": [
+        3,
+        9,
+        15,
+        23,
+        24
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Mencian Confucianism",
+      "author_or_attributed_figure": "Mencius / Mengzi tradition",
+      "work": "Mencius",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / public-domain collected edition",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/10056",
+        "https://plato.stanford.edu/entries/mencius/"
+      ],
+      "bibliographic_citation": "Mencius. Mencius. Historical English translations by James Legge; contextual verification with Stanford Encyclopedia of Philosophy, 'Mencius'.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Mencian texts sometimes interpret hardship as a context in which capacities are tested and developed, while not treating suffering itself as inherently good.",
+      "philosophical_themes": [
+        "adversity",
+        "development",
+        "persistence"
+      ],
+      "retrieval_keywords": [
+        "anxiety",
+        "fear of failure",
+        "overwhelm",
+        "low mood",
+        "anhedonia"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 78,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-GREATLEARNING",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        5,
+        8,
+        14,
+        15,
+        17
+      ],
+      "related_category_ids": [
+        5,
+        8,
+        14,
+        15,
+        17
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucian self-cultivation tradition",
+      "author_or_attributed_figure": "Traditional Confucian textual tradition",
+      "work": "Great Learning",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics, Volume 1; Project Gutenberg eBook #3100",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3100"
+      ],
+      "bibliographic_citation": "The Great Learning and The Doctrine of the Mean. In The Chinese Classics, translated by James Legge. Project Gutenberg eBook #3100.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Great Learning links personal cultivation with relationships and wider responsibilities, emphasizing ordered attention from the self outward.",
+      "philosophical_themes": [
+        "self-cultivation",
+        "relationships",
+        "responsibility"
+      ],
+      "retrieval_keywords": [
+        "conflict",
+        "stuck",
+        "career purpose",
+        "overwhelm",
+        "belonging"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-CONF-MEAN-BALANCE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        4,
+        13,
+        16,
+        22
+      ],
+      "related_category_ids": [
+        3,
+        4,
+        13,
+        16,
+        22
+      ],
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucian self-cultivation tradition",
+      "author_or_attributed_figure": "Traditional Confucian textual tradition",
+      "work": "Doctrine of the Mean",
+      "book_chapter_section": null,
+      "translator": "James Legge",
+      "edition": "The Chinese Classics, Volume 1; Project Gutenberg eBook #3100",
+      "publication_year": "19th century",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3100"
+      ],
+      "bibliographic_citation": "The Great Learning and The Doctrine of the Mean. In The Chinese Classics, translated by James Legge. Project Gutenberg eBook #3100.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "The Doctrine of the Mean develops an ideal of balanced, fitting response rather than emotional absence or rigid sameness.",
+      "philosophical_themes": [
+        "balance",
+        "sincerity",
+        "fitting response"
+      ],
+      "retrieval_keywords": [
+        "anxiety",
+        "anger",
+        "meaninglessness",
+        "identity confusion",
+        "impatience"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-ZEN-PRESENT",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        3,
+        8,
+        15,
+        22,
+        23,
+        24
+      ],
+      "related_category_ids": [
+        3,
+        8,
+        15,
+        22,
+        23,
+        24
+      ],
+      "tradition": "Zen Buddhism",
+      "school_or_lineage": "Japanese Zen philosophical overview",
+      "author_or_attributed_figure": "Zen Buddhist traditions",
+      "work": "Japanese Zen Buddhist Philosophy",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy, substantive revision 2024",
+      "publication_year": 2024,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/japanese-zen/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Japanese Zen Buddhist Philosophy.' Substantive revision 2024.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Zen practice emphasizes embodied attention to present activity and the transformation of habitual dualistic framing, with practice taking priority over abstract reassurance.",
+      "philosophical_themes": [
+        "present attention",
+        "practice",
+        "nonduality"
+      ],
+      "retrieval_keywords": [
+        "anxiety",
+        "stuck",
+        "overwhelm",
+        "impatience",
+        "low mood",
+        "anhedonia"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 80,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-ZEN-KOAN",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        13,
+        16,
+        24
+      ],
+      "related_category_ids": [
+        8,
+        13,
+        16,
+        24
+      ],
+      "tradition": "Zen Buddhism",
+      "school_or_lineage": "Rinzai/koan tradition; Mumonkan reception",
+      "author_or_attributed_figure": "Wumen Huikai / koan tradition",
+      "work": "The Gateless Gate",
+      "book_chapter_section": null,
+      "translator": "Nyogen Senzaki",
+      "edition": "1934 English translation",
+      "publication_year": 1934,
+      "source_urls": [
+        "https://sacred-texts.com/bud/glg/index.htm",
+        "https://plato.stanford.edu/entries/japanese-zen/"
+      ],
+      "bibliographic_citation": "Wumen Huikai. The Gateless Gate. Historical translation by Nyogen Senzaki, 1934; contextual review via Stanford Encyclopedia of Philosophy, 'Japanese Zen Buddhist Philosophy'.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Koan literature deliberately frustrates ordinary conceptual habits; its role is practice within a tradition, not giving literal factual answers to existential or identity questions.",
+      "philosophical_themes": [
+        "koan",
+        "perspective",
+        "conceptual limits"
+      ],
+      "retrieval_keywords": [
+        "stuck",
+        "meaninglessness",
+        "identity confusion",
+        "anhedonia"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 72,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-JAIN-NONVIOLENCE",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        4,
+        5,
+        12,
+        25
+      ],
+      "related_category_ids": [
+        4,
+        5,
+        12,
+        25
+      ],
+      "tradition": "Jaina philosophy",
+      "school_or_lineage": "Cross-sectarian philosophical overview",
+      "author_or_attributed_figure": "Jaina philosophical traditions",
+      "work": "Jaina Philosophy",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2023,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/jaina-philosophy/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Jaina Philosophy.' First published 2023.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Jaina ethics places non-harming, careful conduct, and self-mastery at the center of how one relates to other living beings.",
+      "philosophical_themes": [
+        "nonviolence",
+        "careful conduct",
+        "self-mastery"
+      ],
+      "retrieval_keywords": [
+        "anger",
+        "conflict",
+        "betrayal",
+        "mistreatment"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-JAIN-MANYSIDED",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        5,
+        8,
+        12,
+        16,
+        17
+      ],
+      "related_category_ids": [
+        5,
+        8,
+        12,
+        16,
+        17
+      ],
+      "tradition": "Jaina philosophy",
+      "school_or_lineage": "Cross-sectarian philosophical overview",
+      "author_or_attributed_figure": "Jaina philosophical traditions",
+      "work": "Jaina Philosophy",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2023,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/jaina-philosophy/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Jaina Philosophy.' First published 2023.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Jaina many-sidedness holds that a single description can capture only part of a complex reality, encouraging disciplined perspective-taking without saying every view is equally true.",
+      "philosophical_themes": [
+        "many-sidedness",
+        "perspective",
+        "epistemic humility"
+      ],
+      "retrieval_keywords": [
+        "conflict",
+        "indecision",
+        "betrayal",
+        "identity",
+        "belonging"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-JAIN-NONATTACHMENT",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        10,
+        11,
+        19,
+        20,
+        22
+      ],
+      "related_category_ids": [
+        10,
+        11,
+        19,
+        20,
+        22
+      ],
+      "tradition": "Jaina philosophy",
+      "school_or_lineage": "Cross-sectarian philosophical overview",
+      "author_or_attributed_figure": "Jaina philosophical traditions",
+      "work": "Jaina Philosophy",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2023,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/jaina-philosophy/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Jaina Philosophy.' First published 2023.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Non-attachment in Jaina ethics concerns reducing possessiveness and passions as part of a demanding ethical path.",
+      "philosophical_themes": [
+        "non-attachment",
+        "possessiveness",
+        "restraint"
+      ],
+      "retrieval_keywords": [
+        "substance use",
+        "compulsive coping",
+        "financial fear",
+        "envy",
+        "impatience"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 76,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-JAIN-CRAVING",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        10,
+        11
+      ],
+      "related_category_ids": [
+        10,
+        11
+      ],
+      "tradition": "Jaina philosophy",
+      "school_or_lineage": "Cross-sectarian philosophical overview",
+      "author_or_attributed_figure": "Jaina philosophical traditions",
+      "work": "Jaina Philosophy",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2023,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/jaina-philosophy/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Jaina Philosophy.' First published 2023.",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Jaina analyses of passion and attachment can be used as a philosophical lens on urges, provided they are not substituted for evidence-based care or medical support.",
+      "philosophical_themes": [
+        "craving",
+        "urge",
+        "attachment"
+      ],
+      "retrieval_keywords": [
+        "substance use",
+        "compulsive coping"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 70,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-EPICURUS-DESIRES",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        10,
+        11,
+        19,
+        20,
+        24
+      ],
+      "related_category_ids": [
+        10,
+        11,
+        19,
+        20,
+        24
+      ],
+      "tradition": "Epicureanism",
+      "school_or_lineage": "Hellenistic Epicurean ethics",
+      "author_or_attributed_figure": "Epicurus",
+      "work": "Letter to Menoeceus / Principal Doctrines",
+      "book_chapter_section": null,
+      "translator": "C. D. Yonge",
+      "edition": "G. Bell and Sons reprint, 1915; Project Gutenberg eBook #57342",
+      "publication_year": 1915,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/57342",
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Diogenes Laertius. Lives and Opinions of Eminent Philosophers, Book X. Translated by C. D. Yonge. 1915 reprint; Project Gutenberg eBook #57342.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Epicurean ethics distinguishes necessary desires from empty or socially inflated desires and treats freedom from needless disturbance as more important than maximizing consumption.",
+      "philosophical_themes": [
+        "desire classification",
+        "contentment",
+        "tranquility"
+      ],
+      "retrieval_keywords": [
+        "substance use",
+        "compulsive coping",
+        "financial fear",
+        "envy",
+        "anhedonia"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 80,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-EPICURUS-FRIENDSHIP",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        1,
+        7,
+        12,
+        17,
+        23
+      ],
+      "related_category_ids": [
+        1,
+        7,
+        12,
+        17,
+        23
+      ],
+      "tradition": "Epicureanism",
+      "school_or_lineage": "Hellenistic Epicurean ethics",
+      "author_or_attributed_figure": "Epicurus",
+      "work": "Principal Doctrines / Epicurean tradition",
+      "book_chapter_section": null,
+      "translator": "C. D. Yonge",
+      "edition": "G. Bell and Sons reprint, 1915; Project Gutenberg eBook #57342",
+      "publication_year": 1915,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/57342",
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Diogenes Laertius. Lives and Opinions of Eminent Philosophers, Book X. Translated by C. D. Yonge. 1915 reprint; Project Gutenberg eBook #57342.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Epicurean ethics gives friendship a central place in secure and pleasant living, making relationships part of flourishing rather than mere status.",
+      "philosophical_themes": [
+        "friendship",
+        "security",
+        "companionship"
+      ],
+      "retrieval_keywords": [
+        "loneliness",
+        "rejection",
+        "betrayal",
+        "belonging",
+        "low mood"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-EPICURUS-DEATH",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        2,
+        3,
+        18,
+        23
+      ],
+      "related_category_ids": [
+        2,
+        3,
+        18,
+        23
+      ],
+      "tradition": "Epicureanism",
+      "school_or_lineage": "Hellenistic Epicurean ethics",
+      "author_or_attributed_figure": "Epicurus",
+      "work": "Letter to Menoeceus",
+      "book_chapter_section": null,
+      "translator": "C. D. Yonge",
+      "edition": "G. Bell and Sons reprint, 1915; Project Gutenberg eBook #57342",
+      "publication_year": 1915,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/57342",
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Diogenes Laertius. Lives and Opinions of Eminent Philosophers, Book X. Translated by C. D. Yonge. 1915 reprint; Project Gutenberg eBook #57342.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Epicurean arguments aim to reduce fear of death by examining what death can mean for the one who dies, shifting attention toward living well in the present.",
+      "philosophical_themes": [
+        "death anxiety",
+        "mortality",
+        "present life"
+      ],
+      "retrieval_keywords": [
+        "grief",
+        "anxiety",
+        "mortality fear",
+        "low mood"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 84,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-GREEK-VIRTUE-HABIT",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        6,
+        9,
+        14,
+        21
+      ],
+      "related_category_ids": [
+        6,
+        9,
+        14,
+        21
+      ],
+      "tradition": "Classical Greek ethics beyond Stoicism",
+      "school_or_lineage": "Aristotelian and Epicurean contextual scholarship",
+      "author_or_attributed_figure": "Aristotelian ethical tradition",
+      "work": "Ancient Ethical Theory",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2020,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Ancient Ethical Theory.'",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Aristotelian ethics understands character as formed through repeated activity and practical judgment, allowing mistakes to be treated as part of cultivation rather than a permanent identity.",
+      "philosophical_themes": [
+        "virtue",
+        "habit",
+        "practical judgment"
+      ],
+      "retrieval_keywords": [
+        "shame",
+        "fear of failure",
+        "career purpose",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 80,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-GREEK-FLOURISHING",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        8,
+        13,
+        14,
+        16,
+        21
+      ],
+      "related_category_ids": [
+        8,
+        13,
+        14,
+        16,
+        21
+      ],
+      "tradition": "Classical Greek ethics beyond Stoicism",
+      "school_or_lineage": "Aristotelian and Epicurean contextual scholarship",
+      "author_or_attributed_figure": "Ancient Greek ethical traditions",
+      "work": "Ancient Ethical Theory",
+      "book_chapter_section": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2020,
+      "source_urls": [
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Ancient Ethical Theory.'",
+      "rights_status": "CITATION_ONLY",
+      "display_summary": "Ancient Greek ethical theories ask what kind of life is worth living and how choices, relationships, and character contribute to flourishing.",
+      "philosophical_themes": [
+        "flourishing",
+        "choice",
+        "character"
+      ],
+      "retrieval_keywords": [
+        "stuck",
+        "meaninglessness",
+        "career purpose",
+        "identity",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 88,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-YOGA-REJECTION",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        7,
+        21
+      ],
+      "related_category_ids": [
+        7,
+        21
+      ],
+      "tradition": "Yoga philosophy",
+      "school_or_lineage": "Classical Yoga / Patanjali",
+      "author_or_attributed_figure": "Patanjali (traditional attribution)",
+      "work": "Yoga Sutras",
+      "book_chapter_section": null,
+      "translator": "Charles Johnston",
+      "edition": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+      "publication_year": 1912,
+      "source_urls": [
+        "https://sacred-texts.com/hin/ysp/index.htm"
+      ],
+      "bibliographic_citation": "Patanjali. The Yoga Sutras of Patanjali: The Book of the Spiritual Man. Interpretation by Charles Johnston. 1912.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Attachment and aversion can keep attention bound to a painful relational event; practice can notice those reactions without making them the whole identity.",
+      "philosophical_themes": [
+        "heartbreak",
+        "attachment",
+        "aversion"
+      ],
+      "retrieval_keywords": [
+        "rejection",
+        "guilt"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 78,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    },
+    {
+      "record_id": "WIS-IND-GITA-GRIEF-DISCERNMENT",
+      "record_type": "SOURCE_PARAPHRASE",
+      "category_ids": [
+        2,
+        7,
+        18
+      ],
+      "related_category_ids": [
+        2,
+        7,
+        18
+      ],
+      "tradition": "Hindu philosophical traditions",
+      "school_or_lineage": "Bhagavad Gita / synthetic yoga traditions",
+      "author_or_attributed_figure": "Traditional Bhagavad Gita tradition",
+      "work": "Bhagavad Gita",
+      "book_chapter_section": null,
+      "translator": "Sir Edwin Arnold",
+      "edition": "The Song Celestial, 1885; Project Gutenberg eBook #2388",
+      "publication_year": 1885,
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2388"
+      ],
+      "bibliographic_citation": "Bhagavad Gita. Translated by Sir Edwin Arnold as The Song Celestial. 1885. Project Gutenberg eBook #2388.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "display_summary": "Arjuna's paralysis begins in grief, attachment, and moral conflict; the dialogue treats discernment and action as emerging only after that distress is taken seriously.",
+      "philosophical_themes": [
+        "grief",
+        "heartbreak",
+        "mortality"
+      ],
+      "retrieval_keywords": [
+        "loss",
+        "rejection",
+        "fear of death"
+      ],
+      "source_confidence": 94,
+      "category_fit_score": 82,
+      "review_status": "SOURCE_VERIFIED",
+      "direct_quote_available": false,
+      "direct_quote_text_display_enabled": false
+    }
+  ]
+}
