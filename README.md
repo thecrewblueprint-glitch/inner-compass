@@ -1,4 +1,4 @@
-# Inner Compass
+# Inner Compass Beta
 
 Inner Compass is a **local-first, deterministic reflection web app**. A user can describe a problem, receive a safety-aware category match, explore source-linked wisdom, save privacy-safe bookmarks, browse a research Wisdom Library, and explore a visual Suggested Reads directory.
 
@@ -38,7 +38,7 @@ Current surfaces:
 - **Privacy** — personalization toggle and clear-local-data controls
 - **Lifelines** — U.S.-scoped launch resources and safety routing
 
-The current shared release is 18+ and U.S.-only. Public static deployment is supported through GitHub Pages with preview and debug UI disabled.
+The current shared release is a **Beta** for adults 18+ in the United States. Public static deployment is supported through GitHub Pages with preview and debug UI disabled.
 
 ## Canonical production knowledge base
 
