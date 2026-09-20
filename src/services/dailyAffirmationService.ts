@@ -20,6 +20,8 @@ export interface DailyAffirmationItem {
 
 const INTERACTIONS_STORAGE_KEY = 'inner_compass_category_interactions_v1';
 const SAVED_REFLECTIONS_STORAGE_KEY = 'inner_compass_saved_reflections_v1';
+const PERSONALIZATION_STORAGE_KEY = 'inner_compass_personalization_enabled_v1';
+const UNSOLICITED_DAILY_EXCLUDED_CATEGORY_IDS = new Set([10]);
 
 /**
  * Record privacy-safe category interaction metadata.
@@ -61,6 +63,7 @@ export function getInteractedCategoryIds(): number[] {
 
   try {
     if (typeof localStorage !== 'undefined') {
+      if (localStorage.getItem(PERSONALIZATION_STORAGE_KEY) === 'false') return [];
       const rawInteractions = localStorage.getItem(INTERACTIONS_STORAGE_KEY);
       if (rawInteractions) {
         const map = JSON.parse(rawInteractions);
@@ -104,10 +107,8 @@ const PILLAR_DISPLAY_NAMES: Record<PillarType, string> = {
  * canonical teaching text as a summary and explicitly mark it as non-quotation.
  */
 function extractQuoteForEntry(entry: KBEntry): { text: string; isVerified: boolean } {
-  if (entry.verified_quote && entry.verified_quote.trim()) {
-    return { text: entry.verified_quote.trim(), isVerified: true };
-  }
-
+  // Product quote display stays disabled until edition-by-edition rights review is cleared.
+  // The canonical teaching summary remains safe for deterministic daily display.
   return { text: entry.teaching.trim(), isVerified: false };
 }
 
@@ -126,7 +127,9 @@ export function getDailyAffirmationItem(
   shuffleOffset = 0,
   targetDate = new Date()
 ): DailyAffirmationItem {
-  const interactedIds = getInteractedCategoryIds();
+  const interactedIds = getInteractedCategoryIds().filter(
+    (id) => !UNSOLICITED_DAILY_EXCLUDED_CATEGORY_IDS.has(id)
+  );
   const hasInteractions = interactedIds.length > 0;
 
   let candidateCategories: Category[] = [];
@@ -137,7 +140,9 @@ export function getDailyAffirmationItem(
   }
 
   if (candidateCategories.length === 0) {
-    candidateCategories = CANONICAL_CATEGORIES;
+    candidateCategories = CANONICAL_CATEGORIES.filter(
+      (cat) => !UNSOLICITED_DAILY_EXCLUDED_CATEGORY_IDS.has(cat.category_id)
+    );
   }
 
   interface CandidateEntry {
