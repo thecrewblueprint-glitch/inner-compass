@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "readings": [
     {
       "reading_id": "READ-MARCUS-MEDITATIONS",
@@ -67,7 +67,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780812968255",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Meditations",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Roman Stoicism"
+      ]
     },
     {
       "reading_id": "READ-EPICTETUS-HANDBOOK",
@@ -127,7 +130,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780140449464",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Discourses and Selected Writings",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Roman Stoicism"
+      ]
     },
     {
       "reading_id": "READ-SENECA-LETTERS",
@@ -193,7 +199,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780140442106",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Letters from a Stoic",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Roman Stoicism"
+      ]
     },
     {
       "reading_id": "READ-DHAMMAPADA",
@@ -257,7 +266,11 @@
       "cover_image_source": "Open Library Covers API · ISBN 9781586380205",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Dhammapada",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Early Buddhist / Nikaya sources",
+        "Theravada"
+      ]
     },
     {
       "reading_id": "READ-SUTTA-NIPATA",
@@ -320,7 +333,11 @@
       "cover_image_source": "Open Library Covers API · ISBN 9781614294290",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Suttanipāta",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Early Buddhist / Nikaya sources",
+        "Theravada"
+      ]
     },
     {
       "reading_id": "READ-MUMONKAN",
@@ -379,7 +396,11 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780861713820",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Gateless Gate",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Mahayana",
+        "Zen / Chan"
+      ]
     },
     {
       "reading_id": "READ-GITA",
@@ -454,7 +475,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9781586380199",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Bhagavad Gita",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Bhagavad Gita"
+      ]
     },
     {
       "reading_id": "READ-UPANISHADS",
@@ -525,7 +549,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9781586380212",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Upanishads",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Principal Upanishads"
+      ]
     },
     {
       "reading_id": "READ-YOGA-SUTRAS",
@@ -596,7 +623,11 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780865477360",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Yoga Sutras of Patañjali",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Yoga Sutras",
+        "Classical Yoga"
+      ]
     },
     {
       "reading_id": "READ-DAO-DE-JING",
@@ -661,7 +692,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780679724346",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Tao Te Ching",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Daodejing tradition"
+      ]
     },
     {
       "reading_id": "READ-ZHUANGZI",
@@ -727,7 +761,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780872209114",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Zhuangzi: The Essential Writings",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Zhuangzi tradition"
+      ]
     },
     {
       "reading_id": "READ-ANALECTS",
@@ -796,7 +833,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780872206359",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Analects",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Classical Confucianism"
+      ]
     },
     {
       "reading_id": "READ-MENCIUS",
@@ -866,7 +906,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780872209138",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Mengzi",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Mencian tradition"
+      ]
     },
     {
       "reading_id": "READ-GREAT-LEARNING-MEAN",
@@ -937,7 +980,12 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780872208261",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Four Books",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Great Learning",
+        "Doctrine of the Mean",
+        "Classical Confucianism"
+      ]
     },
     {
       "reading_id": "READ-JAINS-DUNDAS",
@@ -1012,7 +1060,12 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780415266062",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Jains",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Digambara",
+        "Svetambara",
+        "Cross-sectarian Jain philosophy"
+      ]
     },
     {
       "reading_id": "READ-EPICURUS",
@@ -1085,7 +1138,10 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780872202412",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for The Epicurus Reader",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Epicurus and later Epicurean tradition"
+      ]
     },
     {
       "reading_id": "READ-ZEN-BEGINNERS-MIND",
@@ -1152,7 +1208,11 @@
       "cover_image_source": "Open Library Covers API · ISBN 9781590308493",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Zen Mind, Beginner's Mind",
-      "fallback_visual_style": "neutral-cover-unavailable"
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Mahayana",
+        "Zen / Chan"
+      ]
     },
     {
       "reading_id": "READ-CONFUCIUS-SCHUMAN",
@@ -1213,6 +1273,1099 @@
       "cover_image_source": "Open Library Covers API · ISBN 9780465025510",
       "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
       "cover_image_alt": "Book cover for Confucius: And the World He Created",
+      "fallback_visual_style": "neutral-cover-unavailable",
+      "branch_coverage": [
+        "Classical Confucianism"
+      ]
+    },
+    {
+      "reading_id": "READ-HELLENISTIC-PHILOSOPHERS",
+      "title": "The Hellenistic Philosophers, Volume 1",
+      "author_or_attributed_author": "A. A. Long and D. N. Sedley",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 1987,
+      "region": "Mediterranean",
+      "culture": "Hellenistic Greek and Roman",
+      "tradition": "Stoicism",
+      "school": "Hellenistic philosophy",
+      "lineage_or_branch": "Greek Stoicism",
+      "branch_coverage": [
+        "Greek Stoicism"
+      ],
+      "record_type": "SCHOLARSHIP",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "Stoic sources",
+        "ethics",
+        "logic",
+        "physics"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "Source translations with philosophical commentary covering major Hellenistic schools, including early Greek Stoicism.",
+      "why_read_it": "Provides a source-grounded route into Greek Stoic material that predates the better-known Roman Stoics.",
+      "what_it_is_not": "Not a beginner self-help adaptation of Stoicism.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "A. A. Long and D. N. Sedley. The Hellenistic Philosophers, Vol. 1. Cambridge University Press, 1987.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/0521275563",
+      "publisher_or_site": "Cambridge University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/0521275563-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 0521275563",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for The Hellenistic Philosophers, Volume 1",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-BUDDHA-WORDS",
+      "title": "In the Buddha's Words",
+      "author_or_attributed_author": "Bhikkhu Bodhi",
+      "translator": null,
+      "editor": "Bhikkhu Bodhi",
+      "edition": null,
+      "publication_year": 2005,
+      "region": "South Asia",
+      "culture": "Pali Buddhist",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school": "Pali Canon / Theravada",
+      "lineage_or_branch": "Nikaya anthology",
+      "branch_coverage": [
+        "Early Buddhist / Nikaya sources",
+        "Theravada"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "BEGINNER",
+      "primary_topics": [
+        "suffering",
+        "ethics",
+        "meditation",
+        "liberation"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A structured anthology of discourses translated from the Pali Canon.",
+      "why_read_it": "Gives beginners a coherent, source-based path through major Nikaya teachings rather than isolated quotations.",
+      "what_it_is_not": "Not a survey of all later Buddhist schools.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Bhikkhu Bodhi, ed. In the Buddha's Words: An Anthology of Discourses from the Pali Canon. Wisdom Publications, 2005.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780861714919",
+      "publisher_or_site": "Wisdom Publications",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780861714919-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780861714919",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for In the Buddha's Words",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-MAHAYANA-WILLIAMS",
+      "title": "Mahayana Buddhism: The Doctrinal Foundations",
+      "author_or_attributed_author": "Paul Williams",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 2008,
+      "region": "South and East Asia",
+      "culture": "Mahayana Buddhist",
+      "tradition": "Mahayana Buddhism",
+      "school": "Mahayana studies",
+      "lineage_or_branch": "Mahayana overview",
+      "branch_coverage": [
+        "Mahayana"
+      ],
+      "record_type": "SCHOLARSHIP",
+      "difficulty": "INTERMEDIATE",
+      "primary_topics": [
+        "bodhisattva ideal",
+        "emptiness",
+        "Buddha nature",
+        "Mahayana history"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A scholarly introduction to the diversity and doctrinal development of Mahayana Buddhism.",
+      "why_read_it": "Establishes the broader Mahayana context before users enter individual schools such as Madhyamaka, Yogacara, Pure Land, or Zen.",
+      "what_it_is_not": "Not a claim that Mahayana is one uniform doctrine.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Paul Williams. Mahayana Buddhism: The Doctrinal Foundations, 2nd ed. Routledge, 2008.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780415356534",
+      "publisher_or_site": "Routledge",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780415356534-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780415356534",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Mahayana Buddhism: The Doctrinal Foundations",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-MADHYAMAKA-GARFIELD",
+      "title": "The Fundamental Wisdom of the Middle Way",
+      "author_or_attributed_author": "Nagarjuna",
+      "translator": "Jay L. Garfield",
+      "editor": "Jay L. Garfield",
+      "edition": null,
+      "publication_year": 1995,
+      "region": "South Asia / Tibetan transmission",
+      "culture": "Mahayana Buddhist",
+      "tradition": "Mahayana Buddhism",
+      "school": "Madhyamaka",
+      "lineage_or_branch": "Madhyamaka",
+      "branch_coverage": [
+        "Madhyamaka"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "emptiness",
+        "dependent origination",
+        "conceptual analysis"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "Translation and philosophical commentary on Nagarjuna's Mulamadhyamakakarika.",
+      "why_read_it": "A direct route into Madhyamaka reasoning with sustained scholarly commentary.",
+      "what_it_is_not": "Not a simple slogan that 'nothing exists.'",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Nagarjuna. The Fundamental Wisdom of the Middle Way. Translated and commented by Jay L. Garfield. Oxford University Press, 1995.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/0195093364",
+      "publisher_or_site": "Oxford University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/0195093364-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 0195093364",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for The Fundamental Wisdom of the Middle Way",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-YOGACARA-LIVING",
+      "title": "Living Yogacara",
+      "author_or_attributed_author": "Tagawa Shun'ei",
+      "translator": "Charles Muller",
+      "editor": null,
+      "edition": null,
+      "publication_year": 2009,
+      "region": "India / East Asia",
+      "culture": "Mahayana Buddhist",
+      "tradition": "Mahayana Buddhism",
+      "school": "Yogacara / Consciousness-Only",
+      "lineage_or_branch": "Yogacara",
+      "branch_coverage": [
+        "Yogacara"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "INTERMEDIATE",
+      "primary_topics": [
+        "consciousness",
+        "perception",
+        "mind",
+        "practice"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "An accessible introduction to Yogacara/Consciousness-Only thought from a Japanese Hosso perspective.",
+      "why_read_it": "Gives the branch its own readable entry point rather than treating Yogacara as a footnote to general Mahayana.",
+      "what_it_is_not": "Not a modern psychological theory or neuroscience text.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Tagawa Shun'ei. Living Yogacara: An Introduction to Consciousness-Only Buddhism. Translated by Charles Muller. Wisdom Publications, 2009.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780861715893",
+      "publisher_or_site": "Wisdom Publications",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780861715893-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780861715893",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Living Yogacara",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-PURE-LAND-UNNO",
+      "title": "River of Fire, River of Water",
+      "author_or_attributed_author": "Taitetsu Unno",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 1998,
+      "region": "Japan / East Asia",
+      "culture": "Japanese Buddhist",
+      "tradition": "Pure Land Buddhism",
+      "school": "Jodo Shinshu / Shin Buddhism",
+      "lineage_or_branch": "Pure Land",
+      "branch_coverage": [
+        "Pure Land"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "BEGINNER",
+      "primary_topics": [
+        "entrusting",
+        "Pure Land",
+        "daily practice",
+        "awakening"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "An introduction to Shin/Pure Land Buddhism by scholar Taitetsu Unno.",
+      "why_read_it": "Adds a distinct Pure Land path so Japanese Buddhism is not reduced to Zen.",
+      "what_it_is_not": "Not a general introduction to all Mahayana or all Japanese Buddhism.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Taitetsu Unno. River of Fire, River of Water. Image, 1998.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780385485111",
+      "publisher_or_site": "Image",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780385485111-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780385485111",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for River of Fire, River of Water",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-TIBETAN-WORLD",
+      "title": "The World of Tibetan Buddhism",
+      "author_or_attributed_author": "Tenzin Gyatso, the Fourteenth Dalai Lama",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 1995,
+      "region": "Tibet / Himalayan traditions",
+      "culture": "Tibetan Buddhist",
+      "tradition": "Tibetan Buddhism",
+      "school": "Tibetan Buddhist overview",
+      "lineage_or_branch": "Vajrayana / Tibetan Buddhism",
+      "branch_coverage": [
+        "Tibetan Buddhism / Vajrayana"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "BEGINNER",
+      "primary_topics": [
+        "Tibetan Buddhism",
+        "ethics",
+        "meditation",
+        "Vajrayana"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "An overview of Tibetan Buddhist philosophy and practice.",
+      "why_read_it": "Provides a broad orientation before users move into specialized Dzogchen or Mahamudra material.",
+      "what_it_is_not": "Not a substitute for lineage-specific instruction or initiation.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Tenzin Gyatso. The World of Tibetan Buddhism: An Overview of Its Philosophy and Practice. Wisdom Publications, 1995.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780861710973",
+      "publisher_or_site": "Wisdom Publications",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780861710973-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780861710973",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for The World of Tibetan Buddhism",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-DZOGCHEN-CRYSTAL",
+      "title": "The Crystal and the Way of Light",
+      "author_or_attributed_author": "Chogyal Namkhai Norbu",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 1999,
+      "region": "Tibet / Himalayan traditions",
+      "culture": "Tibetan Buddhist / Dzogchen",
+      "tradition": "Tibetan Buddhism",
+      "school": "Dzogchen",
+      "lineage_or_branch": "Dzogchen",
+      "branch_coverage": [
+        "Dzogchen"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "Dzogchen",
+        "awareness",
+        "practice context"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A modern introduction to Dzogchen in relation to sutra and tantra.",
+      "why_read_it": "Gives Dzogchen its own identified reading rather than folding it into a generic Tibetan Buddhism label.",
+      "what_it_is_not": "Not an authorization to undertake restricted practices without appropriate instruction.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Chogyal Namkhai Norbu. The Crystal and the Way of Light. Snow Lion Publications, 1999.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9781559391351",
+      "publisher_or_site": "Snow Lion Publications",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9781559391351-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9781559391351",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for The Crystal and the Way of Light",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-MAHAMUDRA-MOONLIGHT",
+      "title": "Mahamudra: The Moonlight—Quintessence of Mind and Meditation",
+      "author_or_attributed_author": "Dakpo Tashi Namgyal",
+      "translator": "Lobsang P. Lhalungpa",
+      "editor": null,
+      "edition": null,
+      "publication_year": 2006,
+      "region": "Tibet / Himalayan traditions",
+      "culture": "Tibetan Buddhist",
+      "tradition": "Tibetan Buddhism",
+      "school": "Kagyu Mahamudra",
+      "lineage_or_branch": "Mahamudra",
+      "branch_coverage": [
+        "Mahamudra"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "SPECIALIST",
+      "primary_topics": [
+        "Mahamudra",
+        "meditation",
+        "mind",
+        "Kagyu"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A major Tibetan Mahamudra manual in English translation.",
+      "why_read_it": "Provides a serious branch-specific source for readers who want to go beyond broad Tibetan Buddhist introductions.",
+      "what_it_is_not": "Not a beginner wellness manual or a replacement for traditional practice guidance.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Dakpo Tashi Namgyal. Mahamudra: The Moonlight—Quintessence of Mind and Meditation, 2nd ed. Translated by Lobsang P. Lhalungpa. Wisdom Publications, 2006.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780861712991",
+      "publisher_or_site": "Wisdom Publications",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780861712991-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780861712991",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Mahamudra: The Moonlight—Quintessence of Mind and Meditation",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-SEON-CHINUL",
+      "title": "The Korean Approach to Zen: The Collected Works of Chinul",
+      "author_or_attributed_author": "Chinul",
+      "translator": "Robert E. Buswell Jr.",
+      "editor": "Robert E. Buswell Jr.",
+      "edition": null,
+      "publication_year": 2022,
+      "region": "Korea / East Asia",
+      "culture": "Korean Buddhist",
+      "tradition": "Zen / Chan / Seon Buddhism",
+      "school": "Korean Seon",
+      "lineage_or_branch": "Korean Seon",
+      "branch_coverage": [
+        "Korean Seon",
+        "Zen / Chan"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "Seon",
+        "sudden awakening",
+        "cultivation",
+        "hwadu"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "Collected writings of the Korean Seon master Chinul in Robert Buswell's translation.",
+      "why_read_it": "Ensures Seon has its own source path rather than being silently absorbed into Japanese Zen.",
+      "what_it_is_not": "Not a Japanese Zen text despite the English title's use of 'Zen.'",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Chinul. The Korean Approach to Zen: The Collected Works of Chinul. Translated by Robert E. Buswell Jr. University of Hawai‘i Press, 2022 edition.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780824895433",
+      "publisher_or_site": "University of Hawai‘i Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780824895433-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780824895433",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for The Korean Approach to Zen: The Collected Works of Chinul",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-INDIAN-SOURCEBOOK",
+      "title": "A Sourcebook in Indian Philosophy",
+      "author_or_attributed_author": "Sarvepalli Radhakrishnan and Charles A. Moore",
+      "translator": null,
+      "editor": "Sarvepalli Radhakrishnan and Charles A. Moore",
+      "edition": null,
+      "publication_year": 1957,
+      "region": "South Asia",
+      "culture": "Indian philosophical traditions",
+      "tradition": "Indian philosophical traditions",
+      "school": "Comparative sourcebook",
+      "lineage_or_branch": "Classical Indian schools",
+      "branch_coverage": [
+        "Advaita Vedanta",
+        "Vishishtadvaita Vedanta",
+        "Dvaita Vedanta",
+        "Samkhya",
+        "Nyaya",
+        "Vaisheshika",
+        "Mimamsa"
+      ],
+      "record_type": "SCHOLARSHIP",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "Vedanta",
+        "Nyaya",
+        "Vaisheshika",
+        "Samkhya",
+        "Yoga",
+        "Mimamsa"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A large sourcebook with dedicated sections on the major orthodox systems and Vedanta thinkers including Shankara, Ramanuja, and Madhva.",
+      "why_read_it": "Provides an auditable starter source for several classical schools that are otherwise easy to omit from popular reading lists.",
+      "what_it_is_not": "Not the last word on contemporary scholarship; use it as a structured sourcebook and then go deeper branch by branch.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Sarvepalli Radhakrishnan and Charles A. Moore, eds. A Sourcebook in Indian Philosophy. Princeton University Press, 1957.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780691019581",
+      "publisher_or_site": "Princeton University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780691019581-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780691019581",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for A Sourcebook in Indian Philosophy",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-DAOISM-MILLER",
+      "title": "Daoism: A Short Introduction",
+      "author_or_attributed_author": "James Miller",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 2003,
+      "region": "China",
+      "culture": "Chinese Daoist",
+      "tradition": "Daoism",
+      "school": "Daoist studies",
+      "lineage_or_branch": "Later philosophical and religious Daoism",
+      "branch_coverage": [
+        "later philosophical / religious Daoism"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "BEGINNER",
+      "primary_topics": [
+        "Daoist history",
+        "religion",
+        "ritual",
+        "cultivation",
+        "classical texts"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A concise survey connecting classical texts to later Daoist movements, practices, and institutions.",
+      "why_read_it": "Prevents the directory from equating Daoism only with the Daodejing and Zhuangzi.",
+      "what_it_is_not": "Not a modern Western 'Taoist' self-help adaptation.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "James Miller. Daoism: A Short Introduction. Oneworld, 2003.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9781851683154",
+      "publisher_or_site": "Oneworld",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9781851683154-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9781851683154",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Daoism: A Short Introduction",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-XUNZI-HUTTON",
+      "title": "Xunzi: The Complete Text",
+      "author_or_attributed_author": "Xunzi",
+      "translator": "Eric L. Hutton",
+      "editor": "Eric L. Hutton",
+      "edition": null,
+      "publication_year": 2014,
+      "region": "China",
+      "culture": "Classical Chinese",
+      "tradition": "Confucianism",
+      "school": "Xunzi tradition",
+      "lineage_or_branch": "Xunzi",
+      "branch_coverage": [
+        "Xunzi tradition"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "ritual",
+        "human nature",
+        "learning",
+        "ethics"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "Complete English translation of the Xunzi with scholarly apparatus.",
+      "why_read_it": "Adds a major classical Confucian voice distinct from the Analects and Mencius.",
+      "what_it_is_not": "Not interchangeable with Mencian claims about human nature.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Xunzi. Xunzi: The Complete Text. Translated by Eric L. Hutton. Princeton University Press, 2014.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780691161044",
+      "publisher_or_site": "Princeton University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780691161044-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780691161044",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Xunzi: The Complete Text",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-CONFUCIANISM-YAO",
+      "title": "An Introduction to Confucianism",
+      "author_or_attributed_author": "Xinzhong Yao",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 2000,
+      "region": "China / East Asia",
+      "culture": "Confucian",
+      "tradition": "Confucianism",
+      "school": "Confucian studies",
+      "lineage_or_branch": "Neo-Confucian and later developments",
+      "branch_coverage": [
+        "Neo-Confucianism"
+      ],
+      "record_type": "SCHOLARSHIP",
+      "difficulty": "INTERMEDIATE",
+      "primary_topics": [
+        "Confucian history",
+        "schools",
+        "ritual",
+        "modern transformations"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A broad scholarly introduction treating Confucianism as a changing philosophical and religious tradition.",
+      "why_read_it": "Gives users historical context for later and Neo-Confucian developments beyond the classical texts.",
+      "what_it_is_not": "Not a primary Neo-Confucian text.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Xinzhong Yao. An Introduction to Confucianism. Cambridge University Press, 2000.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/0521643120",
+      "publisher_or_site": "Cambridge University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/0521643120-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 0521643120",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for An Introduction to Confucianism",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-KUKAI-MAJOR-WORKS",
+      "title": "Kukai: Major Works",
+      "author_or_attributed_author": "Kukai",
+      "translator": "Yoshito S. Hakeda",
+      "editor": "Yoshito S. Hakeda",
+      "edition": null,
+      "publication_year": 1972,
+      "region": "Japan",
+      "culture": "Japanese Buddhist",
+      "tradition": "Japanese Buddhist traditions",
+      "school": "Shingon",
+      "lineage_or_branch": "Shingon / esoteric Buddhism",
+      "branch_coverage": [
+        "Shingon / esoteric Buddhism"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "Shingon",
+        "esoteric Buddhism",
+        "language",
+        "Buddhahood"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "Translations of major writings by Kukai, founder of Japanese Shingon Buddhism.",
+      "why_read_it": "Provides a branch-specific primary-source route into Japanese esoteric Buddhism.",
+      "what_it_is_not": "Not representative of all Japanese Buddhist traditions.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Kukai. Kukai: Major Works. Translated by Yoshito S. Hakeda. Columbia University Press, 1972.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780231059336",
+      "publisher_or_site": "Columbia University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780231059336-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780231059336",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Kukai: Major Works",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-SHINTO-KAMI-WAY",
+      "title": "Shinto: The Kami Way",
+      "author_or_attributed_author": "Sokyo Ono",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 1962,
+      "region": "Japan",
+      "culture": "Shinto",
+      "tradition": "Japanese religious-philosophical traditions",
+      "school": "Shinto studies",
+      "lineage_or_branch": "Shinto",
+      "branch_coverage": [
+        "Shinto philosophical / religious studies"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "BEGINNER",
+      "primary_topics": [
+        "kami",
+        "ritual",
+        "shrines",
+        "Japanese religion"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A concise English-language introduction to Shinto institutions, ideas, and practice.",
+      "why_read_it": "Creates a distinct Shinto reading path rather than treating Japanese thought as synonymous with Zen.",
+      "what_it_is_not": "Not a claim that Shinto is a single systematic philosophy in the Western academic sense.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Sokyo Ono. Shinto: The Kami Way. Charles E. Tuttle, 1962.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/0804805253",
+      "publisher_or_site": "Charles E. Tuttle",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/0804805253-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 0804805253",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Shinto: The Kami Way",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-NISHIDA-INQUIRY",
+      "title": "An Inquiry into the Good",
+      "author_or_attributed_author": "Kitaro Nishida",
+      "translator": "Masao Abe and Christopher Ives",
+      "editor": null,
+      "edition": null,
+      "publication_year": 1990,
+      "region": "Japan",
+      "culture": "Modern Japanese philosophy",
+      "tradition": "Kyoto School",
+      "school": "Kyoto School",
+      "lineage_or_branch": "Kyoto School",
+      "branch_coverage": [
+        "Kyoto School"
+      ],
+      "record_type": "PRIMARY_TEXT",
+      "difficulty": "ADVANCED",
+      "primary_topics": [
+        "pure experience",
+        "good",
+        "reality",
+        "self"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "English translation of Nishida Kitaro's early philosophical work, foundational for later Kyoto School discussion.",
+      "why_read_it": "Adds modern Japanese philosophy as a distinct path beyond Buddhist and Shinto traditions.",
+      "what_it_is_not": "Not a representative summary of every Kyoto School thinker.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Kitaro Nishida. An Inquiry into the Good. Translated by Masao Abe and Christopher Ives. Yale University Press, 1990.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/9780300052336",
+      "publisher_or_site": "Yale University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/9780300052336-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 9780300052336",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for An Inquiry into the Good",
+      "fallback_visual_style": "neutral-cover-unavailable"
+    },
+    {
+      "reading_id": "READ-SIKHISM-NESBITT",
+      "title": "Sikhism: A Very Short Introduction",
+      "author_or_attributed_author": "Eleanor Nesbitt",
+      "translator": null,
+      "editor": null,
+      "edition": null,
+      "publication_year": 2005,
+      "region": "Punjab / South Asia and diaspora",
+      "culture": "Sikh",
+      "tradition": "Sikh philosophy and theology",
+      "school": "Sikh studies",
+      "lineage_or_branch": "Sikh philosophy / theology",
+      "branch_coverage": [
+        "Sikh philosophy / theology"
+      ],
+      "record_type": "MODERN_INTRODUCTION",
+      "difficulty": "BEGINNER",
+      "primary_topics": [
+        "Guru tradition",
+        "scripture",
+        "practice",
+        "community",
+        "identity"
+      ],
+      "metaphysical_topics": [],
+      "ethical_topics": [],
+      "contemplative_topics": [],
+      "related_inner_compass_categories": [
+        3,
+        8,
+        13,
+        15,
+        16,
+        18,
+        22
+      ],
+      "related_wisdom_record_ids": [],
+      "historical_context": "A concise academic introduction to Sikh beliefs, practices, history, and contemporary issues.",
+      "why_read_it": "Adds a careful starter path for Sikh thought instead of treating South Asian philosophy as only Hindu, Buddhist, and Jain.",
+      "what_it_is_not": "Not a substitute for reading Sikh scripture in an appropriate translation and context.",
+      "interpretive_cautions": [
+        "Read within the named tradition and historical context rather than as generic self-help."
+      ],
+      "translation_notes": null,
+      "rights_status": "CITATION_ONLY",
+      "public_domain_available": false,
+      "open_access_url": null,
+      "publisher_url": null,
+      "bibliographic_citation": "Eleanor Nesbitt. Sikhism: A Very Short Introduction. Oxford University Press, 2005.",
+      "source_quality": "HIGH",
+      "review_status": "AUDITED",
+      "resource_format": "BOOK",
+      "resource_url": "https://openlibrary.org/isbn/0192806017",
+      "publisher_or_site": "Oxford University Press",
+      "cover_image_url": "https://covers.openlibrary.org/b/isbn/0192806017-L.jpg?default=false",
+      "cover_image_source": "Open Library Covers API · ISBN 0192806017",
+      "cover_image_rights_status": "REMOTE_REFERENCE_OPEN_LIBRARY",
+      "cover_image_alt": "Book cover for Sikhism: A Very Short Introduction",
       "fallback_visual_style": "neutral-cover-unavailable"
     }
   ]
