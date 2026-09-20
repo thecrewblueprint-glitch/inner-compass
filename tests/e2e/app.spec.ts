@@ -9,13 +9,27 @@ test.describe('Inner Compass web app core flow', () => {
     const consoleErrors: string[] = [];
     const pageErrors: string[] = [];
     const guidanceRequests: string[] = [];
+    const failedAppResponses: string[] = [];
 
     page.on('console', (msg) => {
-      if (msg.type() === 'error') consoleErrors.push(msg.text());
+      if (
+        msg.type() === 'error' &&
+        !msg.text().includes('Failed to load resource: the server responded with a status of 404')
+      ) {
+        consoleErrors.push(msg.text());
+      }
     });
     page.on('pageerror', (err) => pageErrors.push(err.message));
     page.on('request', (request) => {
       if (request.url().includes('/api/guidance')) guidanceRequests.push(request.url());
+    });
+    page.on('response', (response) => {
+      if (
+        response.status() >= 400 &&
+        response.url().startsWith('http://127.0.0.1:3000')
+      ) {
+        failedAppResponses.push(`${response.status()} ${response.url()}`);
+      }
     });
 
     await page.goto('/');
@@ -69,6 +83,7 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText(/United States resources/)).toBeVisible();
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
+    expect(failedAppResponses, `Same-origin HTTP failures: ${failedAppResponses.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
   });
 
