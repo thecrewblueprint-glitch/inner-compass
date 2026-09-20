@@ -106,7 +106,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
       const sourceBlock = item.isVerifiedQuote
         ? `"${item.quoteText}"\n— ${item.author}, ${item.sourceWork}`
         : `Teaching summary (not a direct quote):\n${item.quoteText}\nSource context: ${item.author}, ${item.sourceWork}`;
-      const textToCopy = `${sourceBlock}\n\nToday's Canonical Reflection:\n${item.dailyAffirmation}`;
+      const textToCopy = `${sourceBlock}\n\nToday's Reflection:\n${item.dailyAffirmation}`;
       if (typeof navigator !== 'undefined' && navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy);
         setCopied(true);
@@ -215,7 +215,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
             ]}
           >
             <Text style={[styles.verifiedPillText, { color: theme.textSecondary }]}>
-              {item.isVerifiedQuote ? '✓ Verified Source Quote' : 'Teaching Summary · Not a Direct Quote'}
+              {item.isVerifiedQuote ? '✓ Direct Source Passage' : 'Source-Based Summary'}
             </Text>
           </View>
         </View>
@@ -251,7 +251,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
         ]}
       >
         <Text style={[styles.affirmationLabel, { color: theme.affirmationLabel }]}>
-          TODAY'S CANONICAL REFLECTION
+          TODAY'S REFLECTION
         </Text>
         <Text style={[styles.affirmationText, { color: theme.affirmationText }]}>
           {item.dailyAffirmation}
