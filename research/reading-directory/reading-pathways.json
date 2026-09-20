@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "pathways": [
+    {
+      "pathway_id": "PATH-BEGINNER-EASTERN",
+      "title": "New to Asian philosophy",
+      "description": "Start with short, contextualized primary texts, then add scholarship before moving into dense metaphysics.",
+      "reading_ids": [
+        "READ-DHAMMAPADA",
+        "READ-DAO-DE-JING",
+        "READ-ANALECTS",
+        "READ-GITA",
+        "READ-SEP-ZEN"
+      ]
+    },
+    {
+      "pathway_id": "PATH-SELF",
+      "title": "Questions about self and identity",
+      "description": "Compare traditions that disagree sharply about what a self is.",
+      "reading_ids": [
+        "READ-UPANISHADS",
+        "READ-YOGA-SUTRAS",
+        "READ-SEP-ZEN",
+        "READ-JAIN-SEP",
+        "READ-ZHUANGZI"
+      ]
+    },
+    {
+      "pathway_id": "PATH-SUFFERING",
+      "title": "Suffering, change, and mortality",
+      "description": "Primary and comparative readings on loss, impermanence, mortality, and steadiness.",
+      "reading_ids": [
+        "READ-DHAMMAPADA",
+        "READ-GITA",
+        "READ-MARCUS-MEDITATIONS",
+        "READ-EPICURUS",
+        "READ-UPANISHADS"
+      ]
+    },
+    {
+      "pathway_id": "PATH-RELATIONSHIPS",
+      "title": "Relationships, conduct, and conflict",
+      "description": "Texts emphasizing reciprocity, non-harm, compassion, and response discipline.",
+      "reading_ids": [
+        "READ-ANALECTS",
+        "READ-MENCIUS",
+        "READ-DHAMMAPADA",
+        "READ-JAIN-SEP",
+        "READ-SENECA-LETTERS"
+      ]
+    },
+    {
+      "pathway_id": "PATH-NONFORCING",
+      "title": "Control, non-forcing, and action",
+      "description": "Compare Stoic agency, Daoist non-forcing, Gita action, and Yoga practice without treating them as equivalent.",
+      "reading_ids": [
+        "READ-EPICTETUS-HANDBOOK",
+        "READ-DAO-DE-JING",
+        "READ-ZHUANGZI",
+        "READ-GITA",
+        "READ-YOGA-SUTRAS"
+      ]
+    },
+    {
+      "pathway_id": "PATH-PRIMARY-ONLY",
+      "title": "Primary texts only",
+      "description": "A route that excludes modern scholarship and focuses on historical source texts.",
+      "reading_ids": [
+        "READ-MARCUS-MEDITATIONS",
+        "READ-DHAMMAPADA",
+        "READ-GITA",
+        "READ-UPANISHADS",
+        "READ-DAO-DE-JING",
+        "READ-ZHUANGZI",
+        "READ-ANALECTS",
+        "READ-MENCIUS",
+        "READ-EPICURUS"
+      ]
+    }
+  ]
+}
