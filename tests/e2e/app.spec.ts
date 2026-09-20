@@ -9,6 +9,28 @@ const navigateFromHeader = async (page: import('@playwright/test').Page, label: 
   await page.getByLabel(`Navigate to ${label}`).click();
 };
 
+const assertNoHorizontalScroller = async (page: import('@playwright/test').Page) => {
+  const offenders = await page.evaluate(() =>
+    Array.from(document.querySelectorAll<HTMLElement>('*'))
+      .filter((element) => {
+        const style = window.getComputedStyle(element);
+        const overflowX = style.overflowX;
+        return (
+          (overflowX === 'auto' || overflowX === 'scroll') &&
+          element.scrollWidth > element.clientWidth + 1
+        );
+      })
+      .map((element) => ({
+        tag: element.tagName,
+        text: (element.textContent || '').trim().slice(0, 80),
+        scrollWidth: element.scrollWidth,
+        clientWidth: element.clientWidth,
+      }))
+  );
+
+  expect(offenders, JSON.stringify(offenders, null, 2)).toEqual([]);
+};
+
 test.describe('Inner Compass web app core flow', () => {
   test('loads, reflects locally, saves privately, and navigates core surfaces', async ({ page }) => {
     const consoleErrors: string[] = [];
@@ -140,6 +162,29 @@ test.describe('Inner Compass web app core flow', () => {
       'Inner Compass Beta'
     );
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index,follow');
+  });
+
+  test('page navigation and filter controls never require horizontal scrolling', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+
+    await navigateFromHeader(page, 'Taxonomy');
+    await expect(page.getByText('All 25 Categories', { exact: true })).toBeVisible();
+    await assertNoHorizontalScroller(page);
+
+    await navigateFromHeader(page, 'Wisdom');
+    await expect(page.getByText('All traditions', { exact: true })).toBeVisible();
+    await assertNoHorizontalScroller(page);
+
+    await navigateFromHeader(page, 'Suggested Reads');
+    await expect(page.getByText('All branches', { exact: true })).toBeVisible();
+    await expect(page.getByText('Public-domain / open access', { exact: true })).toBeVisible();
+    await assertNoHorizontalScroller(page);
+
+    await page.getByLabel('Open Theme Palette Selector').click();
+    await expect(page.getByText('Color:', { exact: true })).toBeVisible();
+    await expect(page.getByText('🌈 All', { exact: true })).toBeVisible();
+    await assertNoHorizontalScroller(page);
   });
 
   test('internal links connect guidance, reads, wisdom, and categories', async ({ page }) => {

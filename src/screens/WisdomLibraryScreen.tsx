@@ -120,7 +120,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
         ]}
       />
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <View style={styles.filters}>
         <Pressable
           onPress={() => setTradition('ALL')}
           style={[
@@ -148,7 +148,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
             <Text style={{ color: tradition === item ? theme.accentText : theme.badgeText, fontWeight: '700' }}>{item}</Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <Pressable
         onPress={() => setVerifiedOnly((v) => !v)}
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
   linkContextText: { fontSize: 11, fontWeight: '600', flex: 1 },
   clearLink: { fontSize: 11, fontWeight: '800' },
   search: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 14, marginBottom: 10 },
-  filters: { gap: 8, paddingVertical: 4, paddingRight: 20 },
+  filters: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingVertical: 4 },
   chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 7 },
   toggle: { borderWidth: 1, borderRadius: 10, padding: 11, marginTop: 10 },
   toggleText: { fontSize: 12, fontWeight: '700' },

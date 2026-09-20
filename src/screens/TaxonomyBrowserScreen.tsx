@@ -54,11 +54,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
       </View>
 
       {/* Filter Chips */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.filterRow}
-      >
+      <View style={styles.filterRow}>
         {ROOTS_FILTER.map((rf) => {
           const isSelected = selectedFilter === rf.key;
           return (
@@ -85,7 +81,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
             </Pressable>
           );
         })}
-      </ScrollView>
+      </View>
 
       {/* Categories List */}
       <View style={styles.categoriesList}>
@@ -273,6 +269,7 @@ const styles = StyleSheet.create({
   },
   filterRow: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 8,
     paddingVertical: 10,
     marginBottom: 14,
