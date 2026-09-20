@@ -16,6 +16,8 @@ interface GuidanceScreenProps {
   onSaveReflection: (category: Category, affirmation: string) => void;
   isSaved: boolean;
   onOpenCrisis: () => void;
+  onOpenWisdom: (categoryId: number) => void;
+  onOpenReads: (categoryId: number) => void;
 }
 
 const PILLAR_LABELS: Record<string, { title: string; color: string; bg: string; border: string; darkColor: string; darkBg: string; darkBorder: string }> = {
@@ -55,6 +57,8 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
   onSaveReflection,
   isSaved,
   onOpenCrisis,
+  onOpenWisdom,
+  onOpenReads,
 }) => {
   const { theme } = useTheme();
   const { category, safety, affirmation, synthesis } = result;
@@ -201,6 +205,23 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         >
           {synthesis}
         </Text>
+      </View>
+
+      <View style={styles.relatedNav}>
+        <Pressable
+          onPress={() => onOpenWisdom(category.category_id)}
+          accessibilityLabel={`Open wisdom for category ${category.category_id}`}
+          style={[styles.relatedNavButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+        >
+          <Text style={[styles.relatedNavText, { color: theme.accentPrimary }]}>Browse Wisdom Library →</Text>
+        </Pressable>
+        <Pressable
+          onPress={() => onOpenReads(category.category_id)}
+          accessibilityLabel={`Open suggested reads for category ${category.category_id}`}
+          style={[styles.relatedNavButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+        >
+          <Text style={[styles.relatedNavText, { color: theme.accentPrimary }]}>Suggested Reads →</Text>
+        </Pressable>
       </View>
 
       {/* Three Pillars Breakdown */}
@@ -458,6 +479,22 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     fontStyle: 'italic',
+  },
+  relatedNav: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+    marginBottom: 22,
+  },
+  relatedNavButton: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+  },
+  relatedNavText: {
+    fontSize: 12,
+    fontWeight: '800',
   },
   pillarsContainer: {
     gap: 16,
