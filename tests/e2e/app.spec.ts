@@ -115,4 +115,26 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByText('Clear personalization history', { exact: true }).click();
     expect(await page.evaluate(() => localStorage.getItem('inner_compass_category_interactions_v1'))).toBeNull();
   });
+  test('back navigation returns exactly one page at a time', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByText('Taxonomy', { exact: true }).click();
+    await expect(page.getByText('All 25 Categories')).toBeVisible();
+
+    await page.getByText('Wisdom', { exact: true }).click();
+    await expect(page.getByText('AUDITED RESEARCH LIBRARY')).toBeVisible();
+
+    await page.getByText('Category #1', { exact: true }).first().click();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+
+    await page.getByLabel('Go back one page').click();
+    await expect(page.getByText('AUDITED RESEARCH LIBRARY')).toBeVisible();
+
+    await page.getByLabel('Go back one page').click();
+    await expect(page.getByText('All 25 Categories')).toBeVisible();
+
+    await page.getByLabel('Go back one page').click();
+    await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
+  });
+
 });
