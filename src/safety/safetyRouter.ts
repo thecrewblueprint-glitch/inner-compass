@@ -112,7 +112,9 @@ const IPV_ABUSE_PATTERNS = [
 
 const SUBSTANCE_PATTERNS = [
   /\b(substance use|drug addiction|alcohol addiction|chemical dependency|withdrawal|detox|relapse|overdose)\b/,
-  /\b(craving|cravings|urge|urges)\s+.*\b(alcohol|drugs?|opioids?)\b/,
+  /\b(craving|cravings|urge|urges)\s+.*\b(alcohol|drugs?|opioids?|drink|drinking)\b/,
+  /\b(alcohol|drugs?|opioids?|drink|drinking)\s+.*\b(craving|cravings|urge|urges|sober|sobriety|relapse)\b/,
+  /\bdrinking\s+.*\b(escape|numb|sober|sobriety)\b/,
 ];
 
 const MORAL_INJURY_PATTERNS = [
