@@ -47,7 +47,7 @@ jobs:
           npm run dev > server.log 2>&1 &
           echo $! > server.pid
           for i in {1..30}; do
-            if curl -fsS http://127.0.0.1:3000/api/health >/dev/null; then
+            if curl -fsS http://127.0.0.1:3000/ >/dev/null; then
               exit 0
             fi
             sleep 1
