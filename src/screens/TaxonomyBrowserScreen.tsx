@@ -43,9 +43,9 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.badgeText, { color: theme.badgeText }]}>CANONICAL TAXONOMY V1.0</Text>
         </View>
-        <Text style={[styles.title, { color: theme.textPrimary }]}>The 25 Clinical Wisdom Categories</Text>
+        <Text style={[styles.title, { color: theme.textPrimary }]}>The 25 Reflection Categories</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Systematic mapping of human existential dilemmas across Eastern Philosophy, Jungian Shadow Work, and Evidence-Based Psychology.
+          Research-informed mapping of recurring human dilemmas across sourced philosophy, Jungian/post-Jungian material, and evidence-based non-clinical psychology.
         </Text>
       </View>
 
@@ -148,7 +148,7 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
                   {/* Synthesis Note */}
                   <View style={[styles.synthesisBox, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
                     <Text style={[styles.synthesisLabel, { color: theme.textMuted }]}>SYNTHESIS NOTE:</Text>
-                    <Text style={[styles.synthesisText, { color: theme.textPrimary }]}>"{cat.synthesis_note}"</Text>
+                    <Text style={[styles.synthesisText, { color: theme.textPrimary }]}>{cat.synthesis_note}</Text>
                   </View>
 
                   {/* Safety Notes if any */}
