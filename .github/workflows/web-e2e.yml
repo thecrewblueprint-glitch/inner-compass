@@ -33,8 +33,8 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Enforce zero-runtime-AI policy
-        run: python3 tools/eval/check_production_ai_policy.py
+      - name: Enforce deterministic-only architecture
+        run: npm run audit:deterministic
 
       - name: Audit wisdom corpus
         run: python3 tools/eval/audit_wisdom_corpus.py
@@ -111,10 +111,10 @@ jobs:
           python3 - <<'PY'
           import json
           h=json.load(open("health.json"))
-          assert h["runtimeAiProviders"] == 0
+          assert h["externalDecisionProviders"] == 0
           assert h["rawReflectionProductionTransport"] is False
           assert h["runtime"] == "local-deterministic"
-          print("PASS: production health is local-deterministic with zero runtime AI.")
+          print("PASS: production health is local-deterministic with zero external decision providers.")
           PY
 
       - name: Upload production logs
