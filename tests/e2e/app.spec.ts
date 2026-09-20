@@ -132,17 +132,17 @@ test.describe('Inner Compass web app core flow', () => {
     expect(375 - (menuBox!.x + menuBox!.width)).toBeLessThanOrEqual(20);
     await expect(themeButton).toContainText('Colors');
 
-    await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
+    await expect(page.getByLabel('Navigate to Categories')).toHaveCount(0);
 
     await menuButton.click();
     await expect(page.getByLabel('Close navigation menu')).toBeVisible();
     await expect(page.getByLabel('Navigate to Reflect')).toBeVisible();
     await expect(page.getByLabel('Navigate to Lifelines 24/7')).toBeVisible();
 
-    await page.getByLabel('Navigate to Taxonomy').click();
+    await page.getByLabel('Navigate to Categories').click();
     await expect(page.getByText('All 25 Categories')).toBeVisible();
     await expect(page.getByLabel('Open navigation menu')).toBeVisible();
-    await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
+    await expect(page.getByLabel('Navigate to Categories')).toHaveCount(0);
   });
 
   test('public shell has clean share metadata', async ({ page }) => {
