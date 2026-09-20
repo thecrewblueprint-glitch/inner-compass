@@ -151,7 +151,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
           style={[styles.pathwayCard, { backgroundColor: pathway === null ? theme.accentPrimary : theme.card, borderColor: pathway === null ? theme.accentPrimary : theme.cardBorder }]}
         >
           <Text style={[styles.pathwayTitle, { color: pathway === null ? theme.accentText : theme.textPrimary }]}>Browse all</Text>
-          <Text style={[styles.pathwayDesc, { color: pathway === null ? theme.accentText : theme.textSecondary }]}>Entire audited starter collection</Text>
+          <Text style={[styles.pathwayDesc, { color: pathway === null ? theme.accentText : theme.textSecondary }]}>Entire starter collection</Text>
         </Pressable>
         {READING_PATHWAYS.map((item) => (
           <Pressable
