@@ -545,6 +545,776 @@
       "category_fit_score": 95,
       "review_status": "SOURCE_LINKED",
       "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-01-COMPLETE-2",
+      "category_id": 1,
+      "text": "I can seek humane connection while respecting the reality of how isolated I feel.",
+      "source_record_ids": [
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Confucianism",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-01-COMPLETE-3",
+      "category_id": 1,
+      "text": "Belonging grows through reciprocal presence, not through proving my worth.",
+      "source_record_ids": [
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Confucianism",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-02-COMPLETE-2",
+      "category_id": 2,
+      "text": "Mortality can sharpen what matters without making loss feel smaller.",
+      "source_record_ids": [
+        "WIS-EPICURUS-DEATH",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Epicureanism",
+        "Hindu philosophical traditions"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-02-COMPLETE-3",
+      "category_id": 2,
+      "text": "I can carry love and grief together while remaining open to the next honest step.",
+      "source_record_ids": [
+        "WIS-EPICURUS-DEATH",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Epicureanism",
+        "Hindu philosophical traditions"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-03-COMPLETE-3",
+      "category_id": 3,
+      "text": "I can separate what needs action now from what my mind is predicting.",
+      "source_record_ids": [
+        "WIS-ZEN-PRESENT",
+        "WIS-EPICURUS-DEATH"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-06-COMPLETE-2",
+      "category_id": 6,
+      "text": "I can correct what needs correcting without turning growth into self-rejection.",
+      "source_record_ids": [
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-GREEK-VIRTUE-HABIT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-06-COMPLETE-3",
+      "category_id": 6,
+      "text": "My character is shaped by repeated choices, not one humiliating moment.",
+      "source_record_ids": [
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-GREEK-VIRTUE-HABIT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-07-COMPLETE-1",
+      "category_id": 7,
+      "text": "Rejection hurts, and I can let the pain be real without making it a verdict on my value.",
+      "source_record_ids": [
+        "WIS-IND-YOGA-REJECTION",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Yoga philosophy",
+        "Hindu philosophical traditions"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-07-COMPLETE-2",
+      "category_id": 7,
+      "text": "I can loosen my grip on a lost relationship without pretending it meant nothing.",
+      "source_record_ids": [
+        "WIS-IND-YOGA-REJECTION",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Yoga philosophy",
+        "Hindu philosophical traditions"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-07-COMPLETE-3",
+      "category_id": 7,
+      "text": "Heartbreak can be held with dignity while I rebuild connection to my own life.",
+      "source_record_ids": [
+        "WIS-IND-YOGA-REJECTION",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Yoga philosophy",
+        "Hindu philosophical traditions"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-09-COMPLETE-3",
+      "category_id": 9,
+      "text": "Practice and correction matter more than appearing flawless.",
+      "source_record_ids": [
+        "WIS-CONF-MENCIUS-ADVERSITY",
+        "WIS-GREEK-VIRTUE-HABIT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-10-COMPLETE-1",
+      "category_id": 10,
+      "text": "I can seek real human and medical support while treating urges with honesty rather than shame.",
+      "source_record_ids": [
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": "Safety hard ceiling remains authoritative; this affirmation is not treatment or detox guidance.",
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-10-COMPLETE-2",
+      "category_id": 10,
+      "text": "Philosophical reflection can support recovery, but safety and professional care come first.",
+      "source_record_ids": [
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": "Safety hard ceiling remains authoritative; this affirmation is not treatment or detox guidance.",
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-10-COMPLETE-3",
+      "category_id": 10,
+      "text": "I do not have to manage substance-related risk alone.",
+      "source_record_ids": [
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": "Safety hard ceiling remains authoritative; this affirmation is not treatment or detox guidance.",
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-11-COMPLETE-1",
+      "category_id": 11,
+      "text": "An urge can be noticed without being obeyed automatically.",
+      "source_record_ids": [
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-11-COMPLETE-2",
+      "category_id": 11,
+      "text": "I can make space between a pattern and my next action.",
+      "source_record_ids": [
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-11-COMPLETE-3",
+      "category_id": 11,
+      "text": "Compassionate attention can support change without excusing harm.",
+      "source_record_ids": [
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-12-COMPLETE-1",
+      "category_id": 12,
+      "text": "I can acknowledge broken trust without forcing premature reconciliation.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-12-COMPLETE-2",
+      "category_id": 12,
+      "text": "Discernment can grow from betrayal while boundaries remain valid.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-12-COMPLETE-3",
+      "category_id": 12,
+      "text": "Understanding another perspective does not erase what happened.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-13-COMPLETE-1",
+      "category_id": 13,
+      "text": "Meaning can be cultivated through action, relationship, and attention rather than discovered all at once.",
+      "source_record_ids": [
+        "WIS-ZEN-KOAN",
+        "WIS-GREEK-FLOURISHING"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-13-COMPLETE-2",
+      "category_id": 13,
+      "text": "I can ask what is worth serving today even when the larger answer is unclear.",
+      "source_record_ids": [
+        "WIS-ZEN-KOAN",
+        "WIS-GREEK-FLOURISHING"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-13-COMPLETE-3",
+      "category_id": 13,
+      "text": "A meaningful life can be built from repeated commitments, not one perfect revelation.",
+      "source_record_ids": [
+        "WIS-ZEN-KOAN",
+        "WIS-GREEK-FLOURISHING"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-14-COMPLETE-3",
+      "category_id": 14,
+      "text": "My work can be guided by purpose without becoming my entire identity.",
+      "source_record_ids": [
+        "WIS-GREEK-VIRTUE-HABIT",
+        "WIS-GREEK-FLOURISHING"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-16-COMPLETE-2",
+      "category_id": 16,
+      "text": "Identity can be explored patiently rather than solved under pressure.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-GREEK-FLOURISHING"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-16-COMPLETE-3",
+      "category_id": 16,
+      "text": "I can hold multiple perspectives on myself without losing the need for reality and responsibility.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-GREEK-FLOURISHING"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-17-COMPLETE-1",
+      "category_id": 17,
+      "text": "Belonging can include loyalty, difference, and thoughtful choice rather than total conformity.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-17-COMPLETE-2",
+      "category_id": 17,
+      "text": "I can learn from a tradition or group without disappearing inside it.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-17-COMPLETE-3",
+      "category_id": 17,
+      "text": "Connection is stronger when it does not require denying my own experience.",
+      "source_record_ids": [
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-18-COMPLETE-3",
+      "category_id": 18,
+      "text": "I can let awareness of impermanence clarify what matters today.",
+      "source_record_ids": [
+        "WIS-EPICURUS-DEATH",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Epicureanism",
+        "Hindu philosophical traditions"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-19-COMPLETE-3",
+      "category_id": 19,
+      "text": "I can address what is actually needed without letting comparison define enough.",
+      "source_record_ids": [
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-20-COMPLETE-2",
+      "category_id": 20,
+      "text": "I can use comparison as information without turning it into self-contempt.",
+      "source_record_ids": [
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-20-COMPLETE-3",
+      "category_id": 20,
+      "text": "Enough can be a deliberate standard rather than a moving social target.",
+      "source_record_ids": [
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Jaina philosophy",
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-21-COMPLETE-1",
+      "category_id": 21,
+      "text": "Accountability can include repair without permanent self-condemnation.",
+      "source_record_ids": [
+        "WIS-GREEK-FLOURISHING",
+        "WIS-IND-YOGA-REJECTION"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Classical Greek ethics beyond Stoicism",
+        "Yoga philosophy"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-21-COMPLETE-2",
+      "category_id": 21,
+      "text": "I can face what I regret while still choosing what I do next.",
+      "source_record_ids": [
+        "WIS-GREEK-FLOURISHING",
+        "WIS-IND-YOGA-REJECTION"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Classical Greek ethics beyond Stoicism",
+        "Yoga philosophy"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-21-COMPLETE-3",
+      "category_id": 21,
+      "text": "Guilt can point toward responsibility without becoming my entire identity.",
+      "source_record_ids": [
+        "WIS-GREEK-FLOURISHING",
+        "WIS-IND-YOGA-REJECTION"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Classical Greek ethics beyond Stoicism",
+        "Yoga philosophy"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-23-COMPLETE-1",
+      "category_id": 23,
+      "text": "Sadness can be present without becoming a prophecy about my whole future.",
+      "source_record_ids": [
+        "WIS-EPICURUS-FRIENDSHIP",
+        "WIS-EPICURUS-DEATH"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-23-COMPLETE-2",
+      "category_id": 23,
+      "text": "I can stay connected to simple responsibilities and people while low mood passes through.",
+      "source_record_ids": [
+        "WIS-EPICURUS-FRIENDSHIP",
+        "WIS-EPICURUS-DEATH"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-23-COMPLETE-3",
+      "category_id": 23,
+      "text": "If sadness is persistent or worsening, reaching for human support is part of taking it seriously.",
+      "source_record_ids": [
+        "WIS-EPICURUS-FRIENDSHIP",
+        "WIS-EPICURUS-DEATH"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Epicureanism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-24-COMPLETE-1",
+      "category_id": 24,
+      "text": "Loss of joy deserves care, not moral judgment.",
+      "source_record_ids": [
+        "WIS-ZEN-KOAN",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Epicureanism"
+      ],
+      "safety_notes": "Persistent or sudden loss of pleasure may warrant professional support.",
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-24-COMPLETE-2",
+      "category_id": 24,
+      "text": "I can stay close to small acts of life even when pleasure feels distant.",
+      "source_record_ids": [
+        "WIS-ZEN-KOAN",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Epicureanism"
+      ],
+      "safety_notes": "Persistent or sudden loss of pleasure may warrant professional support.",
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-24-COMPLETE-3",
+      "category_id": 24,
+      "text": "If numbness or loss of interest is persistent or sudden, seeking professional support is a responsible next step.",
+      "source_record_ids": [
+        "WIS-ZEN-KOAN",
+        "WIS-EPICURUS-DESIRES"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Zen Buddhism",
+        "Epicureanism"
+      ],
+      "safety_notes": "Persistent or sudden loss of pleasure may warrant professional support.",
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
+    },
+    {
+      "affirmation_id": "AFF-25-COMPLETE-3",
+      "category_id": 25,
+      "text": "Perspective-taking never requires me to deny known harm.",
+      "source_record_ids": [
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-JAIN-NONVIOLENCE"
+      ],
+      "philosophical_theme": "source-linked reflective practice",
+      "tradition_basis": [
+        "Confucianism",
+        "Jaina philosophy"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 88,
+      "review_status": "CATEGORY_VERIFIED",
+      "notes": "Original Inner Compass wording linked to audited research records."
     }
   ]
 }
