@@ -57,7 +57,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
   onOpenCrisis,
 }) => {
   const { theme } = useTheme();
-  const { category, safety, affirmation, synthesis, isFallback } = result;
+  const { category, safety, affirmation, synthesis } = result;
   const isSubstanceHardCeiling = safety?.status === 'SUBSTANCE_HARD_CEILING' || category.category_id === 10;
 
   return (
@@ -133,15 +133,11 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           {category.category_name}
         </Text>
 
-        {isFallback ? (
-          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING (SCHEMA V1.0)</Text>
-          </View>
-        ) : (
-          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>STRUCTURED LLM SYNTHESIS (GROUNDED & VALIDATED)</Text>
-          </View>
-        )}
+        <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>
+            DETERMINISTIC REFLECTION MATCH · NOT A DIAGNOSIS
+          </Text>
+        </View>
       </View>
 
       {/* Category 10 Substance Hard Ceiling Banner */}
@@ -155,7 +151,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         >
           <Text style={[styles.hardCeilingTitle, { color: theme.crisisText }]}>⚠️ HARD SAFETY CEILING: SUBSTANCE USE</Text>
           <Text style={[styles.hardCeilingText, { color: theme.crisisText }]}>
-            Substance withdrawal and overdose carry physiological and mortality risks. Philosophy/wisdom content is an adjunct for meaning and recovery, never a substitute for medical care or crisis lifelines.
+            This topic is outside Inner Compass's ordinary reflection scope. Use qualified human support for medical, substance-use, or urgent safety needs; sourced wisdom is not a substitute for professional care.
           </Text>
           <Pressable
             style={({ pressed }) => [styles.lifelinesLink, pressed && { opacity: 0.75 }]}
@@ -254,26 +250,31 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
               </View>
               <Text style={[styles.sourceWork, { color: theme.textMuted }]}>Text: {entry.source_work}</Text>
 
-              {/* Verified Quote (if present) */}
-              {entry.verified_quote && (
-                <View
-                  style={[
-                    styles.quoteBox,
-                    {
-                      backgroundColor: theme.quoteBg,
-                      borderColor: theme.quoteBorder,
-                      borderLeftColor: theme.accentPrimary,
-                      borderLeftWidth: 3,
-                    },
-                  ]}
-                >
-                  <Text style={[styles.quoteLabel, { color: theme.quoteLabel }]}>VERIFIED PRIMARY SOURCE QUOTE:</Text>
-                  <Text style={[styles.quoteText, { color: theme.quoteText }]}>"{entry.verified_quote}"</Text>
-                </View>
-              )}
+              {/* Product display is summary-first until the exact translation has
+                  explicit product-display rights approval. Research quote records
+                  remain available in the research corpus but are not automatically
+                  promoted into the consumer UI. */}
+              <View
+                style={[
+                  styles.quoteBox,
+                  {
+                    backgroundColor: theme.quoteBg,
+                    borderColor: theme.quoteBorder,
+                    borderLeftColor: theme.accentPrimary,
+                    borderLeftWidth: 3,
+                  },
+                ]}
+              >
+                <Text style={[styles.quoteLabel, { color: theme.quoteLabel }]}>
+                  SOURCE-LINKED TEACHING SUMMARY · NOT A DIRECT QUOTE
+                </Text>
+                <Text style={[styles.quoteText, { color: theme.quoteText }]}>
+                  Direct quotation display is held until the exact translation and edition pass the product-rights review.
+                </Text>
+              </View>
 
               {/* Teaching description */}
-              <Text style={[styles.teachingLabel, { color: theme.textSecondary }]}>Teaching:</Text>
+              <Text style={[styles.teachingLabel, { color: theme.textSecondary }]}>Teaching summary:</Text>
               <Text style={[styles.teachingText, { color: theme.textPrimary }]}>{entry.teaching}</Text>
 
               {/* Concrete Practice (if present) */}
@@ -447,7 +448,6 @@ const styles = StyleSheet.create({
   },
   affirmationText: {
     fontSize: 18,
-    fontStyle: 'italic',
     lineHeight: 28,
     fontFamily: 'serif',
   },
@@ -469,7 +469,6 @@ const styles = StyleSheet.create({
   synthesisText: {
     fontSize: 14,
     lineHeight: 22,
-    fontStyle: 'italic',
   },
   pillarsContainer: {
     gap: 16,
