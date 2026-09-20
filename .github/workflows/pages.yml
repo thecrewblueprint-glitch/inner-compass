@@ -1,0 +1,78 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.repository.private == false }}
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAGES: "true"
+      VITE_INNER_COMPASS_PREVIEW: "false"
+      VITE_INNER_COMPASS_DEBUG: "false"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Enforce deterministic-only architecture
+        run: npm run audit:deterministic
+
+      - name: Audit wisdom corpus
+        run: npm run audit:wisdom
+
+      - name: Audit Suggested Reads directory
+        run: npm run audit:reads
+
+      - name: Audit safety routing
+        run: npm run audit:safety
+
+      - name: Audit public release surfaces
+        run: npm run audit:release
+
+      - name: TypeScript check
+        run: npm run lint
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.repository.private == false }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
