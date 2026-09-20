@@ -172,7 +172,6 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
               {
                 backgroundColor: theme.card,
                 borderColor: theme.cardBorder,
-                shadowColor: theme.cardShadow,
               },
             ]}
           >
@@ -275,7 +274,7 @@ const styles = StyleSheet.create({
   toggleText: { fontSize: 12, fontWeight: '700' },
   resultCount: { fontSize: 11, fontWeight: '700', marginVertical: 12, textTransform: 'uppercase', letterSpacing: 0.5 },
   list: { gap: 12 },
-  card: { borderWidth: 1, borderRadius: 16, padding: 17, shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.03, shadowRadius: 6 },
+  card: { borderWidth: 1, borderRadius: 16, padding: 17 },
   cardTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10 },
   typeBadge: { borderWidth: 1, borderRadius: 7, paddingHorizontal: 8, paddingVertical: 4 },
   typeText: { fontSize: 9, fontWeight: '800', letterSpacing: 0.5 },
