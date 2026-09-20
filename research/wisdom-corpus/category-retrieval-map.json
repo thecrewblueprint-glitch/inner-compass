@@ -140,11 +140,14 @@
         "judgment",
         "non-retaliation",
         "non-hatred",
-        "metta"
+        "metta",
+        "anger attribution",
+        "non-forcing"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism / Zhuangzi tradition"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
@@ -153,15 +156,16 @@
         "WIS-STOIC-SEN-ANGER-2-29",
         "WIS-BUD-DHP-5",
         "WIS-BUD-SNP-1-8-147",
-        "WIS-BUD-MN-21-GOODWILL"
+        "WIS-BUD-MN-21-GOODWILL",
+        "WIS-DAO-ZZ-20-EMPTY-BOAT"
       ],
       "neighboring_category_ids": [
         5,
         12,
         25
       ],
-      "retrieval_notes": "Strong cross-tradition agreement on interrupting retaliatory anger; never substitute this for protective action.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Strong cross-tradition agreement on interrupting retaliatory anger; never substitute this for protective action. Use empty-boat material only when intent is ambiguous; never against known abuse or intentional harm.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 5,
@@ -184,11 +188,16 @@
         "reciprocity",
         "response choice",
         "non-contempt",
-        "goodwill"
+        "goodwill",
+        "non-contention",
+        "water",
+        "flexibility",
+        "attribution"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
@@ -197,29 +206,47 @@
         "WIS-STOIC-SEN-ANGER-2-29",
         "WIS-BUD-DHP-5",
         "WIS-BUD-SNP-1-8-147",
-        "WIS-BUD-MN-21-GOODWILL"
+        "WIS-BUD-MN-21-GOODWILL",
+        "WIS-DAO-DDJ-8-WATER",
+        "WIS-DAO-DDJ-76-FLEXIBILITY",
+        "WIS-DAO-ZZ-20-EMPTY-BOAT"
       ],
       "neighboring_category_ids": [
         4,
         12,
         25
       ],
-      "retrieval_notes": "Ordinary conflict only; abuse/IPV boundary remains authoritative.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Ordinary conflict only; abuse/IPV boundary remains authoritative. Daoist non-contention supports flexible response, not submission or removal of boundaries.",
+      "review_status": "PHASE3_RESEARCHED"
     },
     {
       "category_id": 6,
       "category_name": "Shame / feeling fundamentally not okay",
-      "problem_signals": [],
+      "problem_signals": [
+        "worth tied to usefulness or productivity"
+      ],
       "negative_match_signals": [],
       "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "philosophical_themes": [
+        "conventional usefulness",
+        "value",
+        "self-display"
+      ],
+      "strong_fit_traditions": [
+        "Classical Daoism / Zhuangzi tradition"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-DAO-ZZ-4-USELESS-TREE",
+        "WIS-DAO-DDJ-22-NONDISPLAY"
+      ],
+      "neighboring_category_ids": [
+        9,
+        14,
+        20
+      ],
+      "retrieval_notes": "Usefulness motif can challenge global worth judgments but should not erase concrete responsibilities.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 7,
@@ -254,26 +281,33 @@
         "practice",
         "action",
         "self-training",
-        "pragmatic priority"
+        "pragmatic priority",
+        "small beginnings",
+        "limits",
+        "non-forcing"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-MUSONIUS-PRACTICE",
         "WIS-BUD-DHP-160",
-        "WIS-BUD-MN-63-PRIORITY"
+        "WIS-BUD-MN-63-PRIORITY",
+        "WIS-DAO-DDJ-64-STEP",
+        "WIS-DAO-DDJ-48-WUWEI",
+        "WIS-DAO-ZZ-3-LIMITS"
       ],
       "neighboring_category_ids": [
         9,
         14,
         15
       ],
-      "retrieval_notes": "Use agency/pragmatic-priority records when indecision is being maintained by impossible certainty demands.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Use agency/pragmatic-priority records when indecision is being maintained by impossible certainty demands. Strong fit for analysis paralysis and oversized tasks; missing factual information remains a separate issue.",
+      "review_status": "PHASE3_RESEARCHED"
     },
     {
       "category_id": 9,
@@ -291,24 +325,33 @@
       ],
       "philosophical_themes": [
         "external outcomes",
-        "anticipatory fear"
+        "anticipatory fear",
+        "status",
+        "fame",
+        "non-display",
+        "conventional usefulness"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-5",
-        "WIS-STOIC-SEN-13-4"
+        "WIS-STOIC-SEN-13-4",
+        "WIS-DAO-DDJ-22-NONDISPLAY",
+        "WIS-DAO-ZZ-1-NOFAME",
+        "WIS-DAO-ZZ-4-USELESS-TREE"
       ],
       "neighboring_category_ids": [
         3,
         8,
-        20
+        20,
+        6
       ],
-      "retrieval_notes": "Do not equate Stoic detachment from outcomes with lack of preparation.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Do not equate Stoic detachment from outcomes with lack of preparation. Daoist fit is strongest when fear of failure is fused with reputation or utility.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 10,
@@ -411,32 +454,38 @@
         "purpose",
         "practice",
         "pragmatic priority",
-        "impermanence"
+        "impermanence",
+        "limits of knowledge",
+        "perspective",
+        "transformation"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism / Zhuangzi tradition"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-SHORT-1",
         "WIS-STOIC-MUSONIUS-PRACTICE",
-        "WIS-BUD-MN-63-PRIORITY"
+        "WIS-BUD-MN-63-PRIORITY",
+        "WIS-DAO-ZZ-2-BUTTERFLY"
       ],
       "neighboring_category_ids": [
         14,
         16,
         23
       ],
-      "retrieval_notes": "Early Buddhist MN 63 is a specific pragmatic stance on certain speculative questions, not a universal dismissal of metaphysics.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Early Buddhist MN 63 is a specific pragmatic stance on certain speculative questions, not a universal dismissal of metaphysics. Perspective material may support existential inquiry but should not be used to assert metaphysical conclusions.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 14,
       "category_name": "Career / vocational purpose",
       "problem_signals": [
         "vocational uncertainty",
-        "purpose through work/action"
+        "purpose through work/action",
+        "career worth tied only to conventional usefulness"
       ],
       "negative_match_signals": [
         "need for concrete job-search information"
@@ -447,23 +496,30 @@
       "philosophical_themes": [
         "time",
         "practice",
-        "lived values"
+        "lived values",
+        "usefulness",
+        "small beginnings",
+        "vocation"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Classical Daoism / Zhuangzi tradition"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-SHORT-1",
-        "WIS-STOIC-MUSONIUS-PRACTICE"
+        "WIS-STOIC-MUSONIUS-PRACTICE",
+        "WIS-DAO-ZZ-4-USELESS-TREE",
+        "WIS-DAO-DDJ-64-STEP"
       ],
       "neighboring_category_ids": [
         8,
         13,
-        16
+        16,
+        6
       ],
-      "retrieval_notes": "Philosophy can frame values; it should not choose a career for the user.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Philosophy can frame values; it should not choose a career for the user. Philosophical value questions complement but do not replace practical career planning.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 15,
@@ -484,11 +540,16 @@
         "acceptance",
         "judgment",
         "attention",
-        "self-training"
+        "self-training",
+        "non-forcing",
+        "subtraction",
+        "first steps",
+        "flexibility"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
@@ -497,15 +558,21 @@
         "WIS-STOIC-EPI-ENCH-5",
         "WIS-STOIC-EPI-ENCH-8",
         "WIS-BUD-DHP-160",
-        "WIS-BUD-UD-1-10-ATTENTION"
+        "WIS-BUD-UD-1-10-ATTENTION",
+        "WIS-DAO-DDJ-8-WATER",
+        "WIS-DAO-DDJ-48-WUWEI",
+        "WIS-DAO-DDJ-64-STEP",
+        "WIS-DAO-DDJ-76-FLEXIBILITY",
+        "WIS-DAO-ZZ-3-LIMITS",
+        "WIS-DAO-ZZ-4-FASTING-MIND"
       ],
       "neighboring_category_ids": [
         3,
         8,
         22
       ],
-      "retrieval_notes": "Separate contemplative narrowing of attention from practical workload reduction and resource needs.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Separate contemplative narrowing of attention from practical workload reduction and resource needs. Strong Daoist fit, but practical workload/resource reduction remains distinct from contemplative non-forcing.",
+      "review_status": "PHASE3_RESEARCHED"
     },
     {
       "category_id": 16,
@@ -525,25 +592,34 @@
         "self-examination",
         "practice",
         "non-identification",
-        "attention"
+        "attention",
+        "self-knowledge",
+        "perspective",
+        "transformation",
+        "status detachment"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-28-1",
         "WIS-STOIC-MUSONIUS-PRACTICE",
-        "WIS-BUD-UD-1-10-ATTENTION"
+        "WIS-BUD-UD-1-10-ATTENTION",
+        "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
+        "WIS-DAO-ZZ-1-NOFAME",
+        "WIS-DAO-ZZ-2-BUTTERFLY"
       ],
       "neighboring_category_ids": [
         13,
         14,
-        17
+        17,
+        20
       ],
-      "retrieval_notes": "Buddhist non-identification should not be presented as a universal metaphysical answer about personal identity.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Buddhist non-identification should not be presented as a universal metaphysical answer about personal identity. Do not turn Zhuangzi perspective material into claims about dissociation, unreality, or ego annihilation.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 17,
@@ -642,23 +718,28 @@
       "philosophical_themes": [
         "externals",
         "control",
-        "contentment"
+        "contentment",
+        "enough",
+        "acquisition"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
-        "WIS-BUD-DHP-204"
+        "WIS-BUD-DHP-204",
+        "WIS-DAO-DDJ-46-CONTENTMENT"
       ],
       "neighboring_category_ids": [
         3,
-        15
+        15,
+        20
       ],
-      "retrieval_notes": "Acute material insecurity requires practical resources. Contentment must not romanticize deprivation.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Acute material insecurity requires practical resources. Contentment must not romanticize deprivation. Only use after ruling out urgent material insecurity; contentment is not a substitute for resources.",
+      "review_status": "PHASE3_PARTIAL"
     },
     {
       "category_id": 20,
@@ -677,24 +758,32 @@
       "philosophical_themes": [
         "greed",
         "comparison",
-        "reactivity"
+        "reactivity",
+        "self-knowledge",
+        "contentment",
+        "non-display"
       ],
       "strong_fit_traditions": [
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [
         "Using broad craving doctrine as a complete model of social comparison"
       ],
       "source_record_ids": [
-        "WIS-BUD-ITI-50-ROOTS"
+        "WIS-BUD-ITI-50-ROOTS",
+        "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
+        "WIS-DAO-DDJ-46-CONTENTMENT",
+        "WIS-DAO-DDJ-22-NONDISPLAY",
+        "WIS-DAO-ZZ-1-NOFAME"
       ],
       "neighboring_category_ids": [
         6,
         9,
         19
       ],
-      "retrieval_notes": "Current Buddhist coverage is broad ethical framing only; targeted envy sources remain needed.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Current Buddhist coverage is broad ethical framing only; targeted envy sources remain needed. Strong fit when envy is driven by status/display/acquisition; targeted envy research is still useful.",
+      "review_status": "PHASE3_RESEARCHED"
     },
     {
       "category_id": 21,
@@ -728,11 +817,16 @@
         "acceptance",
         "time",
         "control",
-        "impermanence of conditioned states and feelings"
+        "impermanence of conditioned states and feelings",
+        "water",
+        "non-forcing",
+        "flexibility",
+        "timeliness"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
@@ -740,14 +834,17 @@
         "WIS-STOIC-EPI-ENCH-8",
         "WIS-STOIC-SEN-SHORT-1",
         "WIS-BUD-DHP-277",
-        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING"
+        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING",
+        "WIS-DAO-DDJ-8-WATER",
+        "WIS-DAO-DDJ-48-WUWEI",
+        "WIS-DAO-DDJ-76-FLEXIBILITY"
       ],
       "neighboring_category_ids": [
         8,
         15
       ],
-      "retrieval_notes": "Impermanence is not a timetable; use to frame change, not promise rapid relief.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Impermanence is not a timetable; use to frame change, not promise rapid relief. Patience/flexibility must not be rendered as passive neglect.",
+      "review_status": "PHASE3_RESEARCHED"
     },
     {
       "category_id": 23,
