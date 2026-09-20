@@ -12,6 +12,8 @@ import { useTheme } from '../theme';
 
 interface TaxonomyBrowserScreenProps {
   onSelectCategory: (category: Category) => void;
+  onOpenWisdomForCategory?: (categoryId: number) => void;
+  onOpenReadsForCategory?: (categoryId: number) => void;
 }
 
 const ROOTS_FILTER: { key: string; label: string }[] = [
@@ -24,6 +26,8 @@ const ROOTS_FILTER: { key: string; label: string }[] = [
 
 export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
   onSelectCategory,
+  onOpenWisdomForCategory,
+  onOpenReadsForCategory,
 }) => {
   const { theme } = useTheme();
   const [selectedFilter, setSelectedFilter] = useState('ALL');
@@ -179,17 +183,46 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
                     ))}
                   </View>
 
-                  {/* Explore Guidance Button */}
-                  <Pressable
-                    style={({ pressed }) => [
-                      styles.exploreButton,
-                      { backgroundColor: theme.accentPrimary },
-                      pressed && { opacity: 0.85 },
-                    ]}
-                    onPress={() => onSelectCategory(cat)}
-                  >
-                    <Text style={[styles.exploreButtonText, { color: theme.accentText }]}>Reflect on this Category →</Text>
-                  </Pressable>
+                  <View style={styles.categoryActions}>
+                    <Pressable
+                      style={({ pressed }) => [
+                        styles.exploreButton,
+                        { backgroundColor: theme.accentPrimary },
+                        pressed && { opacity: 0.85 },
+                      ]}
+                      onPress={() => onSelectCategory(cat)}
+                    >
+                      <Text style={[styles.exploreButtonText, { color: theme.accentText }]}>Reflect on this Category →</Text>
+                    </Pressable>
+
+                    {onOpenWisdomForCategory && (
+                      <Pressable
+                        style={({ pressed }) => [
+                          styles.libraryButton,
+                          { backgroundColor: theme.card, borderColor: theme.cardBorder },
+                          pressed && { opacity: 0.8 },
+                        ]}
+                        onPress={() => onOpenWisdomForCategory(cat.category_id)}
+                        accessibilityLabel={`Open wisdom for taxonomy category ${cat.category_id}`}
+                      >
+                        <Text style={[styles.libraryButtonText, { color: theme.accentPrimary }]}>Wisdom Library →</Text>
+                      </Pressable>
+                    )}
+
+                    {onOpenReadsForCategory && (
+                      <Pressable
+                        style={({ pressed }) => [
+                          styles.libraryButton,
+                          { backgroundColor: theme.card, borderColor: theme.cardBorder },
+                          pressed && { opacity: 0.8 },
+                        ]}
+                        onPress={() => onOpenReadsForCategory(cat.category_id)}
+                        accessibilityLabel={`Open reads for taxonomy category ${cat.category_id}`}
+                      >
+                        <Text style={[styles.libraryButtonText, { color: theme.accentPrimary }]}>Suggested Reads →</Text>
+                      </Pressable>
+                    )}
+                  </View>
                 </View>
               )}
             </View>
@@ -402,11 +435,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 17,
   },
+  categoryActions: {
+    gap: 8,
+    marginTop: 8,
+  },
   exploreButton: {
     paddingVertical: 12,
     borderRadius: 10,
     alignItems: 'center',
-    marginTop: 8,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.1,
     shadowRadius: 3,
@@ -415,5 +451,15 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '700',
     letterSpacing: 0.3,
+  },
+  libraryButton: {
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  libraryButtonText: {
+    fontSize: 12,
+    fontWeight: '700',
   },
 });
