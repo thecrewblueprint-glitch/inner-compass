@@ -61,6 +61,6 @@ export interface ReadingTradition {
   note: string;
 }
 
-export const READING_RECORDS = readingsData.readings as unknown as ReadingRecord[];
+export const READING_RECORDS = (readingsData.readings as unknown as ReadingRecord[]).filter((record) => record.resource_format === 'BOOK');
 export const READING_PATHWAYS = pathwaysData.pathways as unknown as ReadingPathway[];
 export const READING_TRADITIONS = traditionsData.traditions as unknown as ReadingTradition[];
