@@ -145,7 +145,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         </View>
       )}
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pathways}>
+      <View style={styles.pathways}>
         <Pressable
           onPress={() => setPathway(null)}
           style={[styles.pathwayCard, { backgroundColor: pathway === null ? theme.accentPrimary : theme.card, borderColor: pathway === null ? theme.accentPrimary : theme.cardBorder }]}
@@ -163,7 +163,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             <Text numberOfLines={2} style={[styles.pathwayDesc, { color: pathway === item.pathway_id ? theme.accentText : theme.textSecondary }]}>{item.description}</Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <TextInput
         value={query}
@@ -174,7 +174,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         style={[styles.search, { color: theme.textPrimary, backgroundColor: theme.inputBg, borderColor: theme.inputBorder }]}
       />
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <View style={styles.filters}>
         {['ALL', ...traditions].map((item) => (
           <Pressable
             key={item}
@@ -186,10 +186,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             </Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Branch / school</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <View style={styles.filters}>
         {['ALL', ...branches].map((item) => (
           <Pressable
             key={item}
@@ -201,10 +201,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             </Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Region</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <View style={styles.filters}>
         {['ALL', ...regions].map((item) => (
           <Pressable
             key={item}
@@ -216,10 +216,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             </Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Book type</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <View style={styles.filters}>
         {['ALL', ...recordTypes].map((item) => (
           <Pressable
             key={item}
@@ -231,10 +231,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             </Text>
           </Pressable>
         ))}
-      </ScrollView>
+      </View>
 
       <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Reading level / access</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <View style={styles.filters}>
         {['ALL', 'BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'SPECIALIST'].map((item) => (
           <Pressable
             key={item}
@@ -256,7 +256,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             Public-domain / open access
           </Text>
         </Pressable>
-      </ScrollView>
+      </View>
 
       <Text style={[styles.count, { color: theme.textMuted }]}>{filtered.length} suggested reads</Text>
 
@@ -386,13 +386,13 @@ const styles = StyleSheet.create({
   linkContext: { borderWidth: 1, borderRadius: 12, padding: 12, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
   linkContextText: { fontSize: 11, fontWeight: '600', flex: 1 },
   clearLink: { fontSize: 11, fontWeight: '800' },
-  pathways: { gap: 10, paddingVertical: 4, paddingRight: 20, marginBottom: 12 },
-  pathwayCard: { width: 220, minHeight: 92, borderWidth: 1, borderRadius: 15, padding: 13 },
+  pathways: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingVertical: 4, marginBottom: 12 },
+  pathwayCard: { width: 220, maxWidth: '100%', minHeight: 92, borderWidth: 1, borderRadius: 15, padding: 13 },
   pathwayTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
   pathwayDesc: { fontSize: 11, lineHeight: 16 },
   search: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 14, marginBottom: 8 },
   filterLabel: { fontSize: 9, fontWeight: '800', letterSpacing: 0.6, textTransform: 'uppercase', marginTop: 8, marginBottom: 1 },
-  filters: { gap: 7, paddingVertical: 4, paddingRight: 20 },
+  filters: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, paddingVertical: 4 },
   chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 11, paddingVertical: 6 },
   count: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5, marginVertical: 12 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, alignItems: 'flex-start' },
