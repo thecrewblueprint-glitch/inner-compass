@@ -11,7 +11,8 @@
     "lint": "tsc --noEmit",
     "test:e2e": "playwright test",
     "audit:wisdom": "python3 tools/eval/audit_wisdom_corpus.py",
-    "audit:deterministic": "python3 tools/eval/check_deterministic_only_policy.py"
+    "audit:deterministic": "python3 tools/eval/check_deterministic_only_policy.py",
+    "audit:reads": "python3 tools/eval/audit_reading_directory.py"
   },
   "dependencies": {
     "express": "^4.21.2",
