@@ -34,6 +34,23 @@ const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
 
 type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'crisis';
 
+type CrisisAlert = {
+  reason?: string;
+  safetyNotes?: string[];
+} | null;
+
+interface NavigationState {
+  tab: AppTab;
+  guidanceResult: GuidanceResult | null;
+  crisisAlert: CrisisAlert;
+}
+
+const ROOT_NAVIGATION: NavigationState = {
+  tab: 'reflect',
+  guidanceResult: null,
+  crisisAlert: null,
+};
+
 const getCategoryAffirmation = (categoryId: number, fallback: string): string => {
   const candidate = WISDOM_AFFIRMATIONS.find(
     (item) =>
@@ -45,13 +62,19 @@ const getCategoryAffirmation = (categoryId: number, fallback: string): string =>
 
 const AppContent: React.FC = () => {
   const { theme } = useTheme();
-  const [currentTab, setCurrentTab] = useState<AppTab>('reflect');
-  const [guidanceResult, setGuidanceResult] = useState<GuidanceResult | null>(null);
-  const [crisisAlert, setCrisisAlert] = useState<{ reason?: string; safetyNotes?: string[] } | null>(null);
+  const [navigationStack, setNavigationStack] = useState<NavigationState[]>([
+    ROOT_NAVIGATION,
+  ]);
   const [isLoading, setIsLoading] = useState(false);
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
+
+  const currentNavigation = navigationStack[navigationStack.length - 1];
+  const currentTab = currentNavigation.tab;
+  const guidanceResult = currentNavigation.guidanceResult;
+  const crisisAlert = currentNavigation.crisisAlert;
+  const canGoBack = navigationStack.length > 1;
 
   const [ageConfirmed, setAgeConfirmed] = useState(() => {
     if (IS_PREVIEW_MODE) return true;
@@ -98,6 +121,31 @@ const AppContent: React.FC = () => {
     }
   }, [savedReflections]);
 
+  const pushNavigation = (next: NavigationState) => {
+    setNavigationStack((previous) => [...previous, next]);
+  };
+
+  const navigateBack = () => {
+    setNavigationStack((previous) =>
+      previous.length > 1 ? previous.slice(0, -1) : previous
+    );
+  };
+
+  const navigateToTab = (tab: AppTab) => {
+    const isSameRootView =
+      currentNavigation.tab === tab &&
+      currentNavigation.guidanceResult === null &&
+      currentNavigation.crisisAlert === null;
+
+    if (isSameRootView) return;
+
+    pushNavigation({
+      tab,
+      guidanceResult: null,
+      crisisAlert: null,
+    });
+  };
+
   const trackCategoryInteraction = (
     categoryId: number,
     source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample'
@@ -108,13 +156,18 @@ const AppContent: React.FC = () => {
   };
 
   const routeSafety = (reason?: string, safetyNotes?: string[]) => {
-    setCrisisAlert({ reason, safetyNotes });
-    setGuidanceResult(null);
     setClarificationPrompt(null);
-    setCurrentTab('crisis');
+    pushNavigation({
+      tab: 'crisis',
+      guidanceResult: null,
+      crisisAlert: { reason, safetyNotes },
+    });
   };
 
-  const makeGuidance = (category: Category, safety: ReturnType<typeof evaluateSafetyUpstream>): GuidanceResult => {
+  const makeGuidance = (
+    category: Category,
+    safety: ReturnType<typeof evaluateSafetyUpstream>
+  ): GuidanceResult => {
     const grounding = validateGrounding(null, category);
     return {
       category,
@@ -126,6 +179,19 @@ const AppContent: React.FC = () => {
     };
   };
 
+  const openGuidance = (
+    category: Category,
+    safety: ReturnType<typeof evaluateSafetyUpstream>,
+    source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample'
+  ) => {
+    pushNavigation({
+      tab: 'reflect',
+      guidanceResult: makeGuidance(category, safety),
+      crisisAlert: null,
+    });
+    trackCategoryInteraction(category.category_id, source);
+  };
+
   const handleSubmitProblem = async (
     problemText: string,
     preferredRoot?: ExistentialRoot | null
@@ -134,7 +200,6 @@ const AppContent: React.FC = () => {
     setClarificationPrompt(null);
 
     try {
-      // Raw reflection text is processed only in this browser execution path.
       const safety = evaluateSafetyUpstream(problemText);
 
       if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
@@ -153,17 +218,10 @@ const AppContent: React.FC = () => {
           retrieval.clarificationQuestion ||
             'Could you add one concrete detail about what feels most difficult right now?'
         );
-        setGuidanceResult(null);
-        setCrisisAlert(null);
-        setCurrentTab('reflect');
         return;
       }
 
-      const result = makeGuidance(retrieval.category, safety);
-      setGuidanceResult(result);
-      setCrisisAlert(null);
-      setCurrentTab('reflect');
-      trackCategoryInteraction(retrieval.category.category_id, 'reflection');
+      openGuidance(retrieval.category, safety, 'reflection');
     } finally {
       setIsLoading(false);
     }
@@ -173,7 +231,6 @@ const AppContent: React.FC = () => {
     category: Category,
     source: 'saved' | 'taxonomy_view' | 'sample'
   ) => {
-    // Direct navigation must obey the same hard ceiling as reflection routing.
     if (category.category_id === 10) {
       const safety = evaluateSafetyUpstream('substance use');
       routeSafety(
@@ -189,10 +246,7 @@ const AppContent: React.FC = () => {
       return;
     }
 
-    setGuidanceResult(makeGuidance(category, safety));
-    setCrisisAlert(null);
-    setCurrentTab('reflect');
-    trackCategoryInteraction(category.category_id, source);
+    openGuidance(category, safety, source);
   };
 
   const handleSelectCategoryId = (categoryId: number) => {
@@ -201,7 +255,10 @@ const AppContent: React.FC = () => {
   };
 
   const handleSaveReflection = (category: Category, affirmation: string) => {
-    const isAlreadySaved = savedReflections.some((item) => item.categoryId === category.category_id);
+    const isAlreadySaved = savedReflections.some(
+      (item) => item.categoryId === category.category_id
+    );
+
     if (isAlreadySaved) {
       setSavedReflections((previous) =>
         previous.filter((item) => item.categoryId !== category.category_id)
@@ -251,15 +308,20 @@ const AppContent: React.FC = () => {
     } catch {
       // No remote fallback.
     }
+
     setSavedReflections([]);
     setPersonalizationEnabled(true);
     setDailyInteractionTimestamp(Date.now());
+    setNavigationStack([ROOT_NAVIGATION]);
+
     if (!IS_PREVIEW_MODE) setAgeConfirmed(false);
   };
 
   const isCurrentCategorySaved = Boolean(
     guidanceResult &&
-      savedReflections.some((item) => item.categoryId === guidanceResult.category.category_id)
+      savedReflections.some(
+        (item) => item.categoryId === guidanceResult.category.category_id
+      )
   );
 
   if (!ageConfirmed) {
@@ -318,25 +380,35 @@ const AppContent: React.FC = () => {
         </View>
 
         <View style={styles.navRightSection}>
+          {canGoBack && (
+            <Pressable
+              onPress={navigateBack}
+              accessibilityLabel="Go back one page"
+              style={[styles.backButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+            >
+              <Text style={[styles.backButtonText, { color: theme.textPrimary }]}>← Back</Text>
+            </Pressable>
+          )}
+
           <Pressable
             onPress={() => setThemePickerVisible(true)}
             accessibilityLabel="Open Theme Palette Selector"
             style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
           >
-            <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>{theme.icon} {theme.name}</Text>
+            <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>
+              {theme.icon} {theme.name}
+            </Text>
           </Pressable>
 
           <View style={styles.tabsRow}>
             {tabs.map((tab) => {
               const active = currentTab === tab.id;
               const crisis = tab.id === 'crisis';
+
               return (
                 <Pressable
                   key={tab.id}
-                  onPress={() => {
-                    if (tab.id === 'crisis') setCrisisAlert(null);
-                    setCurrentTab(tab.id);
-                  }}
+                  onPress={() => navigateToTab(tab.id)}
                   style={[
                     styles.tabButton,
                     {
@@ -388,13 +460,13 @@ const AppContent: React.FC = () => {
           (guidanceResult ? (
             <GuidanceScreen
               result={guidanceResult}
-              onBack={() => setGuidanceResult(null)}
+              onBack={navigateBack}
               onOpenPractice={(category, entry) =>
                 setPracticeModal({ visible: true, category, entry })
               }
               onSaveReflection={handleSaveReflection}
               isSaved={isCurrentCategorySaved}
-              onOpenCrisis={() => setCurrentTab('crisis')}
+              onOpenCrisis={() => routeSafety()}
             />
           ) : (
             <HomeScreen
@@ -443,10 +515,7 @@ const AppContent: React.FC = () => {
           <CrisisScreen
             reason={crisisAlert?.reason}
             safetyNotes={crisisAlert?.safetyNotes}
-            onDismiss={() => {
-              setCrisisAlert(null);
-              setCurrentTab('reflect');
-            }}
+            onDismiss={navigateBack}
           />
         )}
       </View>
@@ -488,6 +557,8 @@ const styles = StyleSheet.create({
   brandTitle: { fontSize: 15, fontWeight: '800', letterSpacing: 0.8 },
   brandSubtitle: { fontSize: 10, marginTop: 1 },
   navRightSection: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 9 },
+  backButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
+  backButtonText: { fontSize: 11, fontWeight: '800' },
   themeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
   themeButtonText: { fontSize: 11, fontWeight: '700' },
   tabsRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 6 },
