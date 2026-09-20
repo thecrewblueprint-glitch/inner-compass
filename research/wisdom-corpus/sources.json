@@ -459,14 +459,14 @@
       "translator": "James Legge",
       "edition": "The Chinese Classics / public-domain collected edition",
       "publication_year": "19th century",
-      "publisher": "Public-domain editions; Project Gutenberg collection",
+      "publisher": "Chinese Text Project (Legge English translation) / Stanford Encyclopedia of Philosophy context",
       "source_urls": [
-        "https://www.gutenberg.org/ebooks/10056",
+        "https://ctext.org/mengzi",
         "https://plato.stanford.edu/entries/mencius/"
       ],
-      "bibliographic_citation": "Mencius. Mencius. Historical English translations by James Legge; contextual verification with Stanford Encyclopedia of Philosophy, 'Mencius'.",
+      "bibliographic_citation": "Mencius (Mengzi). English translation by James Legge, available through the Chinese Text Project; contextual verification with Stanford Encyclopedia of Philosophy, 'Mencius'.",
       "rights_status": "PUBLIC_DOMAIN",
-      "rights_notes": "Historical Legge wording is public domain in the United States; SEP is citation-only contextual scholarship.",
+      "rights_notes": "The underlying historical Legge translation is public domain in the United States; the product links out and uses paraphrase rather than reproducing hosted text.",
       "review_status": "SOURCE_VERIFIED"
     },
     {
