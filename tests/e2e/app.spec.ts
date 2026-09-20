@@ -44,11 +44,13 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.getByText(/^Journal(?: \(\d+\))?$/).click();
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
+    await page.getByLabel('Open wisdom for category 1').click();
+    await expect(page.getByText('AUDITED RESEARCH LIBRARY')).toBeVisible();
+    await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
+    await expect(page.getByText(/Exact quotation intentionally withheld/).first()).toBeVisible();
 
     await page.getByText('Wisdom', { exact: true }).click();
-    await expect(page.getByText('AUDITED RESEARCH LIBRARY')).toBeVisible();
     await expect(page.getByText(/71 records/)).toBeVisible();
-    await expect(page.getByText(/Exact quotation intentionally withheld/).first()).toBeVisible();
 
     await page.getByText('Suggested Reads', { exact: true }).first().click();
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
@@ -67,6 +69,33 @@ test.describe('Inner Compass web app core flow', () => {
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
+  });
+
+  test('internal links connect guidance, reads, wisdom, and categories', async ({ page }) => {
+    await page.goto('/');
+
+    const input = page.getByRole('textbox', { name: 'Problem Input' });
+    await input.fill(SAFE_REFLECTION);
+    await page.getByLabel('Submit Reflection').click();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+
+    await page.getByLabel('Open wisdom for category 1').click();
+    await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
+
+    await page.getByText('Reflect', { exact: true }).click();
+    await page.getByLabel('Open suggested reads for category 1').click();
+    await expect(page.getByText('Showing reads linked to Category #1.')).toBeVisible();
+
+    await page.getByText('Suggested Reads', { exact: true }).first().click();
+    await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
+
+    await page.getByText('View details').first().click();
+    await page.getByLabel('Open wisdom WIS-STOIC-MA-6-6').click();
+    await expect(page.getByText('Showing wisdom linked to WIS-STOIC-MA-6-6.')).toBeVisible();
+
+    await page.getByLabel('Suggested reads for WIS-STOIC-MA-6-6').click();
+    await expect(page.getByText('Showing reads linked to wisdom record WIS-STOIC-MA-6-6.')).toBeVisible();
+    await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
   });
 
   test('asks for clarification before showing guidance on ambiguous input', async ({ page }) => {

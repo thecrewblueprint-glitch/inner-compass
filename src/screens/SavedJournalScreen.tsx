@@ -6,19 +6,18 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
-import { Category, SavedReflection } from '../types';
-import { getCategoryById } from '../knowledgeBase/kbLoader';
+import { SavedReflection } from '../types';
 import { useTheme } from '../theme';
 
 interface SavedJournalScreenProps {
   savedList: SavedReflection[];
-  onSelectCategory: (category: Category) => void;
+  onOpenWisdomForCategory: (categoryId: number) => void;
   onRemove: (id: string) => void;
 }
 
 export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
   savedList,
-  onSelectCategory,
+  onOpenWisdomForCategory,
   onRemove,
 }) => {
   const { theme } = useTheme();
@@ -55,7 +54,6 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
       ) : (
         <View style={styles.list}>
           {savedList.map((item) => {
-            const cat = getCategoryById(item.categoryId);
             const dateStr = new Date(item.timestamp).toLocaleDateString('en-US', {
               month: 'short',
               day: 'numeric',
@@ -104,14 +102,13 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
                 </Text>
 
                 <View style={[styles.cardActions, { borderTopColor: theme.cardBorder }]}>
-                  {cat && (
-                    <Pressable
-                      style={({ pressed }) => [styles.viewButton, pressed && { opacity: 0.75 }]}
-                      onPress={() => onSelectCategory(cat)}
-                    >
-                      <Text style={[styles.viewButtonText, { color: theme.accentPrimary }]}>View Sourced Teachings →</Text>
-                    </Pressable>
-                  )}
+                  <Pressable
+                    style={({ pressed }) => [styles.viewButton, pressed && { opacity: 0.75 }]}
+                    onPress={() => onOpenWisdomForCategory(item.categoryId)}
+                    accessibilityLabel={`Open wisdom for category ${item.categoryId}`}
+                  >
+                    <Text style={[styles.viewButtonText, { color: theme.accentPrimary }]}>View Sourced Teachings →</Text>
+                  </Pressable>
 
                   <Pressable
                     style={({ pressed }) => [styles.removeButton, pressed && { opacity: 0.75 }]}
