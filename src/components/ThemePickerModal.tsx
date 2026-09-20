@@ -124,11 +124,7 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
           {/* Color Spectrum Filter Row */}
           <View style={[styles.colorBar, { borderBottomColor: theme.cardBorder }]}>
             <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Color:</Text>
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.colorPillsScroll}
-            >
+            <View style={styles.colorPillsScroll}>
               <Pressable
                 style={[
                   styles.colorChip,
@@ -174,7 +170,7 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
                   </Pressable>
                 );
               })}
-            </ScrollView>
+            </View>
           </View>
 
           {/* Theme List / Grid */}
@@ -370,6 +366,7 @@ const styles = StyleSheet.create({
   },
   filterBar: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     paddingHorizontal: 22,
     paddingVertical: 9,
@@ -378,14 +375,18 @@ const styles = StyleSheet.create({
   },
   colorBar: {
     flexDirection: 'row',
-    alignItems: 'center',
+    flexWrap: 'wrap',
+    alignItems: 'flex-start',
     paddingHorizontal: 22,
     paddingVertical: 9,
     borderBottomWidth: 1,
     gap: 10,
   },
   colorPillsScroll: {
+    flex: 1,
+    minWidth: 0,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     alignItems: 'center',
     gap: 6,
   },
@@ -405,6 +406,7 @@ const styles = StyleSheet.create({
   },
   filterPills: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 8,
   },
   filterPill: {
