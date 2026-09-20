@@ -61,7 +61,7 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.goto('/');
     await expect(page.getByText('INNER COMPASS', { exact: true })).toBeVisible();
-    await expect(page.getByText('PREVIEW MODE ACTIVE')).toBeVisible();
+    await expect(page.getByText('BETA PREVIEW')).toBeVisible();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
     await expect(page.getByText('Daily Wisdom & Reflection')).toBeVisible();
     await expect(page.getByText("TODAY'S REFLECTION")).toBeVisible();
