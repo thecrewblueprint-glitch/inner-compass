@@ -49,7 +49,7 @@ export interface EmergencyResource {
   badge: string;
 }
 
-export type SafetyStatus = 'SAFE' | 'CRISIS_REDIRECT' | 'ABUSE_REDIRECT' | 'ABUSE_BOUNDARY' | 'ESCALATION_REDIRECT' | 'SUBSTANCE_HARD_CEILING';
+export type SafetyStatus = 'SAFE' | 'SAFETY_REVIEW_REDIRECT' | 'CRISIS_REDIRECT' | 'ABUSE_REDIRECT' | 'ABUSE_BOUNDARY' | 'ESCALATION_REDIRECT' | 'SUBSTANCE_HARD_CEILING';
 
 export interface SafetyRoutingResult {
   status: SafetyStatus;
@@ -59,6 +59,8 @@ export interface SafetyRoutingResult {
   emergencyResources: EmergencyResource[];
   blockedFromWisdomMatching: boolean;
   suggestedCategoryId?: number;
+  matchedRule?: string;
+  confidence?: 'high' | 'precautionary';
 }
 
 export interface StructuredGroundingProbe {
