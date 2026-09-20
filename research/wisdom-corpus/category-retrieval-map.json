@@ -5,151 +5,400 @@
       "category_id": 1,
       "category_name": "Loneliness / feeling isolated even around people",
       "problem_signals": [
-        "unwanted isolation",
+        "feeling disconnected from other people",
+        "interpersonal friction",
+        "difficulty remembering shared humanity",
+        "feeling excluded",
+        "difficulty holding goodwill toward self or others",
         "belonging distress",
-        "difficulty holding goodwill without forced closeness"
+        "questioning solitude",
+        "need for distance from distracting social pressure",
+        "fear arising in solitude",
+        "dread amplified by being alone",
+        "anxiety around uncertainty",
+        "loneliness",
+        "conflict",
+        "betrayal",
+        "belonging",
+        "mistreatment",
+        "rejection",
+        "shame",
+        "guilt",
+        "low mood"
       ],
       "negative_match_signals": [
-        "harmful social withdrawal",
-        "active abuse requiring distance"
+        "acute abuse or violence",
+        "immediate safety threat",
+        "pressure to reconnect with unsafe people",
+        "painful loneliness",
+        "social withdrawal worsening functioning",
+        "loss of supportive relationships",
+        "acute danger",
+        "severe isolation needing human support",
+        "equanimity never requires remaining in unsafe relationships",
+        "not a substitute for boundaries",
+        "reciprocity does not erase wrongdoing",
+        "do not encourage reconciliation in unsafe relationships",
+        "do not turn the doctrine of good human tendencies into blame for suffering",
+        "does not imply friendship alone resolves depression or unsafe relationships"
       ],
       "existential_roots": [
-        "Isolation"
+        "Isolation",
+        "Freedom",
+        "Death",
+        "Meaninglessness"
       ],
       "philosophical_themes": [
+        "social nature",
+        "cooperation",
+        "shared humanity",
         "metta",
         "goodwill",
-        "chosen solitude versus unwanted isolation"
+        "universal concern",
+        "renunciation",
+        "solitude",
+        "non-attachment",
+        "fear",
+        "ethical preparation",
+        "attention",
+        "friendliness",
+        "compassion",
+        "equanimity",
+        "reciprocity",
+        "relationship ethics",
+        "conduct",
+        "moral cultivation",
+        "humaneness",
+        "friendship",
+        "security",
+        "companionship"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Yoga philosophy",
+        "Confucianism",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [
-        "Rhinoceros discourse as a direct loneliness prescription"
+        "Early Buddhism"
       ],
       "source_record_ids": [
         "WIS-STOIC-MA-2-1",
         "WIS-BUD-SNP-1-8-144",
         "WIS-BUD-SNP-RHINO-SOLITUDE",
-        "WIS-BUD-MN-4-FEAR-SOLITUDE"
+        "WIS-BUD-MN-4-FEAR-SOLITUDE",
+        "WIS-IND-YOGA-RELATIONAL",
+        "WIS-CONF-RECIPROCITY",
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-EPICURUS-FRIENDSHIP"
       ],
       "neighboring_category_ids": [
         5,
         17,
         23
       ],
-      "retrieval_notes": "Early Buddhist sources distinguish goodwill from social proximity. Renunciant solitude must not be treated as the remedy for painful loneliness.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 2,
       "category_name": "Grief / loss of a person, relationship, or way of life",
       "problem_signals": [
+        "grief after death or loss",
+        "painful remembrance",
+        "difficulty accepting change",
+        "mortality awareness",
+        "waiting for permanence",
+        "grief around change",
         "bereavement",
+        "heartbreak",
+        "fear of death",
+        "grief",
+        "mortality fear",
+        "low mood",
+        "loss of joy",
+        "anxiety",
         "loss",
-        "painful remembrance"
+        "rejection"
       ],
       "negative_match_signals": [
-        "pressure to stop grieving quickly"
+        "acute crisis",
+        "pressure to stop grieving on a timetable",
+        "fresh grief where impermanence language would feel dismissive",
+        "do not impose the Gita's metaphysics on users who do not share it",
+        "grief has no required timetable",
+        "do not use metaphysics to minimize bereavement or depression symptoms",
+        "do not use philosophical arguments to dismiss grief",
+        "not suitable as crisis intervention",
+        "do not use metaphysical claims to rush grief",
+        "not a prescription to stay in harmful relationships"
       ],
       "existential_roots": [
         "Death",
-        "Meaninglessness"
+        "Meaninglessness",
+        "Freedom",
+        "Isolation"
       ],
       "philosophical_themes": [
         "grief",
         "memory",
-        "impermanence"
+        "continuing bond",
+        "impermanence",
+        "conditioned phenomena",
+        "change",
+        "mortality",
+        "loss",
+        "ultimate value",
+        "death anxiety",
+        "present life",
+        "heartbreak"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Hindu philosophical traditions",
+        "Upanishadic / Vedantic source tradition",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-63-4",
-        "WIS-BUD-DHP-277"
+        "WIS-BUD-DHP-277",
+        "WIS-IND-GITA-MORTALITY",
+        "WIS-IND-UPANISHAD-MORTALITY",
+        "WIS-EPICURUS-DEATH",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
       ],
       "neighboring_category_ids": [
         7,
         23
       ],
-      "retrieval_notes": "Impermanence can contextualize loss but should not be used as a shortcut around grief.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 3,
       "category_name": "General anxiety / dread about the future",
       "problem_signals": [
-        "future dread",
+        "distress amplified by interpretation",
+        "feeling overwhelmed by external events",
+        "future-focused worry",
+        "trying to control uncontrollable outcomes",
+        "indecision caused by outcome fixation",
+        "fear of external judgment or loss",
+        "impatience with events",
+        "reactive interpretation",
+        "fear amplified by prediction",
+        "anger tied to appraisal",
+        "anticipatory fear",
         "catastrophizing",
-        "uncertainty"
+        "fear of failure",
+        "rehearsing future disasters",
+        "fear arising in solitude",
+        "dread amplified by being alone",
+        "anxiety around uncertainty",
+        "mental proliferation around perception",
+        "overwhelm from added interpretation",
+        "identity fused with passing experience",
+        "mental preoccupation",
+        "overthinking before a difficult interaction",
+        "attention crowded by assumptions",
+        "future dread"
       ],
       "negative_match_signals": [
-        "known immediate danger"
+        "concrete immediate danger",
+        "material crisis requiring practical action",
+        "immediate financial emergency",
+        "medical emergency",
+        "active safety risk",
+        "objective immediate danger",
+        "abuse or coercion",
+        "known immediate danger",
+        "acute danger",
+        "severe isolation needing human support",
+        "dissociation",
+        "psychosis-like symptoms",
+        "need for clinical assessment",
+        "severe anxiety symptoms requiring human support",
+        "perceptual disturbance",
+        "equanimity is not suppression",
+        "do not spiritualize unmet material needs",
+        "not treatment for psychiatric symptoms",
+        "do not reduce yoga to relaxation technique",
+        "never romanticize trauma or deprivation",
+        "not treatment for depression/anhedonia",
+        "balance is contextual, not emotional suppression",
+        "not treatment",
+        "avoid using nonduality language with destabilizing reality-testing symptoms"
       ],
       "existential_roots": [
         "Freedom",
-        "Death"
+        "Death",
+        "Isolation",
+        "Meaninglessness"
       ],
       "philosophical_themes": [
-        "control",
         "judgment",
-        "anticipatory fear",
+        "interpretation",
+        "agency over response",
+        "dichotomy of control",
+        "agency",
+        "external outcomes",
+        "appraisal",
+        "emotional response",
+        "anticipatory anxiety",
+        "imagination",
+        "fear",
+        "solitude",
+        "ethical preparation",
         "attention",
-        "fear in solitude"
+        "bare attention",
+        "non-identification",
+        "sense experience",
+        "preoccupation",
+        "fasting of the mind",
+        "openness",
+        "equanimity",
+        "change",
+        "steadiness",
+        "practice"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Zen Buddhism",
+        "Epicureanism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Early Buddhism",
+        "Confucianism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-MA-8-47",
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-5",
         "WIS-STOIC-SEN-13-4",
         "WIS-BUD-MN-4-FEAR-SOLITUDE",
-        "WIS-BUD-UD-1-10-ATTENTION"
+        "WIS-BUD-UD-1-10-ATTENTION",
+        "WIS-DAO-ZZ-4-FASTING-MIND",
+        "WIS-IND-GITA-EQUANIMITY",
+        "WIS-IND-YOGA-PRACTICE",
+        "WIS-CONF-MENCIUS-ADVERSITY",
+        "WIS-CONF-MEAN-BALANCE",
+        "WIS-ZEN-PRESENT",
+        "WIS-EPICURUS-DEATH"
       ],
       "neighboring_category_ids": [
         9,
         15,
         18
       ],
-      "retrieval_notes": "Buddhist attention/fear records complement Stoic appraisal records; concrete danger remains a negative-match boundary.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 4,
       "category_name": "Anger",
       "problem_signals": [
+        "anger after mistreatment",
+        "desire for revenge",
+        "feeling wronged or disrespected",
+        "reactive interpretation",
+        "fear amplified by prediction",
+        "anger tied to appraisal",
+        "impulsive anger",
+        "urge to react immediately",
+        "conflict escalation",
+        "anger feeding anger",
+        "retaliatory hostility",
+        "ongoing quarrel",
         "anger",
-        "urge to retaliate",
-        "reactivity"
+        "resentment",
+        "desire to humiliate",
+        "conflict after being wronged",
+        "verbal conflict",
+        "anger after criticism",
+        "retaliatory speech",
+        "compulsive grasping",
+        "envy driven by wanting",
+        "repeated reactive patterns",
+        "anger intensified by assumptions about another person's intent",
+        "personalizing ambiguous behavior"
       ],
       "negative_match_signals": [
-        "need for immediate self-protection"
+        "active abuse",
+        "immediate danger",
+        "need for legal or safety intervention",
+        "objective immediate danger",
+        "abuse or coercion",
+        "need for immediate self-protection",
+        "immediate physical danger",
+        "active violence",
+        "coercion",
+        "abuse",
+        "substance withdrawal or overdose",
+        "acute psychiatric crisis",
+        "clear intentional abuse",
+        "known malicious conduct",
+        "immediate safety threat",
+        "equanimity is not suppression",
+        "do not spiritualize unmet material needs",
+        "Category 10 remains safety-gated",
+        "not diagnosis or treatment",
+        "avoid blaming users for distress",
+        "balance is contextual, not emotional suppression",
+        "nonviolence does not require tolerating abuse",
+        "safety and boundaries remain primary"
       ],
       "existential_roots": [
-        "Freedom"
+        "Freedom",
+        "Isolation",
+        "Death",
+        "Meaninglessness"
       ],
       "philosophical_themes": [
-        "delay",
-        "judgment",
+        "character",
         "non-retaliation",
+        "response choice",
+        "appraisal",
+        "judgment",
+        "emotional response",
+        "delay",
+        "anger regulation",
         "non-hatred",
-        "metta",
-        "anger attribution",
-        "non-forcing"
+        "de-escalation",
+        "cycles of hostility",
+        "non-harm",
+        "goodwill",
+        "anger",
+        "resentment",
+        "speech",
+        "non-enmity",
+        "response discipline",
+        "greed",
+        "hatred",
+        "delusion",
+        "harmful roots",
+        "attribution",
+        "empty boat"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism / Zhuangzi tradition"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Jaina philosophy"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Early Buddhism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-MA-6-6",
         "WIS-STOIC-EPI-ENCH-5",
@@ -157,47 +406,113 @@
         "WIS-BUD-DHP-5",
         "WIS-BUD-SNP-1-8-147",
         "WIS-BUD-MN-21-GOODWILL",
-        "WIS-DAO-ZZ-20-EMPTY-BOAT"
+        "WIS-BUD-ITI-50-ROOTS",
+        "WIS-DAO-ZZ-20-EMPTY-BOAT",
+        "WIS-IND-GITA-EQUANIMITY",
+        "WIS-IND-YOGA-AFFLICTIONS",
+        "WIS-CONF-MEAN-BALANCE",
+        "WIS-JAIN-NONVIOLENCE"
       ],
       "neighboring_category_ids": [
         5,
         12,
         25
       ],
-      "retrieval_notes": "Strong cross-tradition agreement on interrupting retaliatory anger; never substitute this for protective action. Use empty-boat material only when intent is ambiguous; never against known abuse or intentional harm.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 5,
       "category_name": "Ongoing conflict with someone",
       "problem_signals": [
-        "ongoing interpersonal conflict",
-        "reciprocity problems"
+        "feeling disconnected from other people",
+        "interpersonal friction",
+        "difficulty remembering shared humanity",
+        "power imbalance",
+        "disrespect",
+        "interpersonal hierarchy",
+        "dehumanizing treatment",
+        "impulsive anger",
+        "urge to react immediately",
+        "conflict escalation",
+        "anger feeding anger",
+        "retaliatory hostility",
+        "ongoing quarrel",
+        "anger",
+        "resentment",
+        "desire to humiliate",
+        "conflict after being wronged",
+        "verbal conflict",
+        "anger after criticism",
+        "retaliatory speech",
+        "forcing a conflict",
+        "over-controlling a situation",
+        "impatience with timing",
+        "rigidity"
       ],
       "negative_match_signals": [
-        "IPV",
-        "coercive control",
-        "physical danger"
+        "acute abuse or violence",
+        "immediate safety threat",
+        "active abuse requiring safety response",
+        "need for immediate self-protection",
+        "active abuse",
+        "immediate physical danger",
+        "active violence",
+        "coercion",
+        "abuse",
+        "immediate danger",
+        "need for decisive protective action",
+        "clear boundary must remain firm",
+        "safety plan requires consistency",
+        "clear intentional abuse",
+        "known malicious conduct",
+        "equanimity never requires remaining in unsafe relationships",
+        "not a substitute for boundaries",
+        "reciprocity does not erase wrongdoing",
+        "do not encourage reconciliation in unsafe relationships",
+        "role-based ethics should not erase personal safety or autonomy",
+        "nonviolence does not require tolerating abuse",
+        "safety and boundaries remain primary",
+        "not relativism",
+        "known harm should not be reframed away"
       ],
       "existential_roots": [
-        "Freedom",
-        "Isolation"
+        "Isolation",
+        "Freedom"
       ],
       "philosophical_themes": [
+        "social nature",
         "cooperation",
+        "shared humanity",
         "reciprocity",
-        "response choice",
-        "non-contempt",
+        "human dignity",
+        "social equality",
+        "delay",
+        "anger regulation",
+        "judgment",
+        "non-hatred",
+        "de-escalation",
+        "cycles of hostility",
+        "non-harm",
         "goodwill",
-        "non-contention",
+        "anger",
+        "resentment",
+        "speech",
+        "non-enmity",
+        "response discipline",
         "water",
-        "flexibility",
-        "attribution"
+        "non-contention",
+        "adaptability",
+        "timeliness",
+        "softness"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Yoga philosophy",
+        "Confucianism",
+        "Jaina philosophy"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
@@ -209,140 +524,429 @@
         "WIS-BUD-MN-21-GOODWILL",
         "WIS-DAO-DDJ-8-WATER",
         "WIS-DAO-DDJ-76-FLEXIBILITY",
-        "WIS-DAO-ZZ-20-EMPTY-BOAT"
+        "WIS-DAO-ZZ-20-EMPTY-BOAT",
+        "WIS-IND-YOGA-RELATIONAL",
+        "WIS-CONF-RECIPROCITY",
+        "WIS-CONF-GREATLEARNING",
+        "WIS-JAIN-NONVIOLENCE",
+        "WIS-JAIN-MANYSIDED"
       ],
       "neighboring_category_ids": [
         4,
         12,
         25
       ],
-      "retrieval_notes": "Ordinary conflict only; abuse/IPV boundary remains authoritative. Daoist non-contention supports flexible response, not submission or removal of boundaries.",
-      "review_status": "PHASE3_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 6,
       "category_name": "Shame / feeling fundamentally not okay",
       "problem_signals": [
-        "worth tied to usefulness or productivity"
+        "self-worth tied to recognition",
+        "fear of looking unsuccessful",
+        "status comparison",
+        "compulsion to prove oneself",
+        "feeling worthless because not conventionally useful",
+        "fear of failure under productivity standards",
+        "career identity tied only to utility",
+        "shame",
+        "meaninglessness",
+        "identity confusion",
+        "belonging confusion",
+        "guilt",
+        "failure",
+        "vocation",
+        "identity",
+        "belonging",
+        "fear of failure",
+        "low mood",
+        "loneliness",
+        "betrayal",
+        "mistreatment",
+        "career purpose"
       ],
-      "negative_match_signals": [],
-      "existential_roots": [],
+      "negative_match_signals": [
+        "legitimate need to communicate achievements or advocate for oneself",
+        "concrete job-performance feedback that needs practical response",
+        "distinct Upanishads differ",
+        "later Vedanta schools interpret these materials differently",
+        "not a clinical identity model",
+        "do not translate role ethics into conformity pressure",
+        "not a clinical model",
+        "accountability and self-condemnation are not the same",
+        "serious harm may require practical repair",
+        "do not turn the doctrine of good human tendencies into blame for suffering",
+        "virtue language should not become perfectionism"
+      ],
+      "existential_roots": [
+        "Meaninglessness",
+        "Isolation",
+        "Freedom"
+      ],
       "philosophical_themes": [
-        "conventional usefulness",
+        "non-striving",
+        "humility",
+        "self-display",
+        "status",
+        "usefulness",
         "value",
-        "self-display"
+        "survival",
+        "conventional judgment",
+        "self-knowledge",
+        "identity",
+        "ultimate concern",
+        "self-cultivation",
+        "learning",
+        "habit",
+        "fault correction",
+        "character",
+        "compassion",
+        "moral cultivation",
+        "humaneness",
+        "virtue",
+        "practical judgment"
       ],
       "strong_fit_traditions": [
-        "Classical Daoism / Zhuangzi tradition"
+        "Classical Daoism",
+        "Upanishadic / Vedantic source tradition",
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
+        "WIS-DAO-DDJ-22-NONDISPLAY",
         "WIS-DAO-ZZ-4-USELESS-TREE",
-        "WIS-DAO-DDJ-22-NONDISPLAY"
+        "WIS-IND-UPANISHAD-SELF",
+        "WIS-CONF-HABIT",
+        "WIS-CONF-FAULTS",
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-GREEK-VIRTUE-HABIT"
       ],
       "neighboring_category_ids": [
         9,
         14,
         20
       ],
-      "retrieval_notes": "Usefulness motif can challenge global worth judgments but should not erase concrete responsibilities.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 7,
       "category_name": "Rejection / heartbreak",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
-      "weak_or_forced_traditions": [],
-      "source_record_ids": [],
+      "problem_signals": [
+        "future dread",
+        "anger",
+        "heartbreak",
+        "mortality fear",
+        "security fear",
+        "sadness",
+        "bereavement",
+        "fear of death",
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "guilt",
+        "loneliness",
+        "conflict",
+        "rejection",
+        "betrayal",
+        "mistreatment",
+        "belonging",
+        "low mood",
+        "loss"
+      ],
+      "negative_match_signals": [
+        "equanimity is not suppression",
+        "do not spiritualize unmet material needs",
+        "do not impose the Gita's metaphysics on users who do not share it",
+        "grief has no required timetable",
+        "Category 10 remains safety-gated",
+        "not diagnosis or treatment",
+        "avoid blaming users for distress",
+        "reciprocity does not erase wrongdoing",
+        "do not encourage reconciliation in unsafe relationships",
+        "does not imply friendship alone resolves depression or unsafe relationships",
+        "not a directive to suppress grief",
+        "not relationship advice",
+        "do not use metaphysical claims to rush grief",
+        "not a prescription to stay in harmful relationships"
+      ],
+      "existential_roots": [
+        "Death",
+        "Freedom",
+        "Isolation"
+      ],
+      "philosophical_themes": [
+        "equanimity",
+        "change",
+        "steadiness",
+        "grief",
+        "mortality",
+        "loss",
+        "attachment",
+        "aversion",
+        "conditioning",
+        "reciprocity",
+        "relationship ethics",
+        "conduct",
+        "friendship",
+        "security",
+        "companionship",
+        "heartbreak"
+      ],
+      "strong_fit_traditions": [
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Epicureanism"
+      ],
+      "weak_or_forced_traditions": [
+        "Yoga philosophy"
+      ],
+      "source_record_ids": [
+        "WIS-IND-GITA-EQUANIMITY",
+        "WIS-IND-GITA-MORTALITY",
+        "WIS-IND-YOGA-AFFLICTIONS",
+        "WIS-CONF-RECIPROCITY",
+        "WIS-EPICURUS-FRIENDSHIP",
+        "WIS-IND-YOGA-REJECTION",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
+      ],
       "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 8,
       "category_name": "Feeling stuck / can't decide",
       "problem_signals": [
-        "indecision",
-        "outcome fixation",
-        "difficulty acting"
+        "trying to control uncontrollable outcomes",
+        "indecision caused by outcome fixation",
+        "fear of external judgment or loss",
+        "impatience with events",
+        "knowing ideas but not acting",
+        "uncertain vocation",
+        "identity built only from theory",
+        "waiting for someone else to decide",
+        "feeling powerless about one's own conduct",
+        "overwhelm about what to do next",
+        "paralysis from unanswerable speculation",
+        "existential questions blocking action",
+        "demand for certainty before living",
+        "feeling unable to start",
+        "career/purpose paralysis",
+        "overwhelm from the size of a task",
+        "analysis paralysis",
+        "trying to know everything before acting",
+        "overwhelm from limitless information",
+        "over-efforting",
+        "adding more and more interventions",
+        "forcing a decision or timeline",
+        "stuck",
+        "fear of failure"
       ],
       "negative_match_signals": [
-        "decision requires missing factual information"
+        "immediate financial emergency",
+        "medical emergency",
+        "active safety risk",
+        "need for specialized clinical or practical intervention",
+        "external constraint removes meaningful choice",
+        "immediate safety emergency",
+        "user explicitly wants comparative metaphysical study rather than problem-solving",
+        "the obstacle is missing resources or information rather than task size",
+        "learning is itself the user's chosen goal",
+        "missing facts are genuinely required for a decision",
+        "inaction would worsen a concrete problem",
+        "urgent practical task",
+        "not permission to ignore consequences",
+        "not a substitute for practical planning",
+        "not treatment for psychiatric symptoms",
+        "do not reduce yoga to relaxation technique",
+        "not generic productivity advice",
+        "social obligations differ across contexts",
+        "role-based ethics should not erase personal safety or autonomy",
+        "not treatment",
+        "avoid using nonduality language with destabilizing reality-testing symptoms",
+        "do not present paradox as evidence reality is unreal",
+        "not suitable for acute disorientation",
+        "not relativism"
       ],
       "existential_roots": [
-        "Freedom"
+        "Freedom",
+        "Death",
+        "Meaninglessness",
+        "Isolation"
       ],
       "philosophical_themes": [
-        "control",
+        "dichotomy of control",
+        "agency",
+        "external outcomes",
         "practice",
+        "reason",
+        "embodied ethics",
         "action",
+        "self-discipline",
         "self-training",
         "pragmatic priority",
+        "speculation",
+        "suffering",
         "small beginnings",
+        "process",
+        "attention to early stages",
         "limits",
-        "non-forcing"
+        "knowledge",
+        "life",
+        "overreach",
+        "wu wei",
+        "non-forcing",
+        "subtraction",
+        "effort",
+        "action without attachment"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Zen Buddhism",
+        "Jaina philosophy",
+        "Classical Greek ethics beyond Stoicism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Early Buddhism",
+        "Zen Buddhism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-MUSONIUS-PRACTICE",
         "WIS-BUD-DHP-160",
         "WIS-BUD-MN-63-PRIORITY",
         "WIS-DAO-DDJ-64-STEP",
+        "WIS-DAO-ZZ-3-LIMITS",
         "WIS-DAO-DDJ-48-WUWEI",
-        "WIS-DAO-ZZ-3-LIMITS"
+        "WIS-IND-GITA-ACTION",
+        "WIS-IND-YOGA-PRACTICE",
+        "WIS-CONF-LEARNING-PURPOSE",
+        "WIS-CONF-GREATLEARNING",
+        "WIS-ZEN-PRESENT",
+        "WIS-ZEN-KOAN",
+        "WIS-JAIN-MANYSIDED",
+        "WIS-GREEK-FLOURISHING"
       ],
       "neighboring_category_ids": [
         9,
         14,
         15
       ],
-      "retrieval_notes": "Use agency/pragmatic-priority records when indecision is being maintained by impossible certainty demands. Strong fit for analysis paralysis and oversized tasks; missing factual information remains a separate issue.",
-      "review_status": "PHASE3_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 9,
       "category_name": "Fear of failure",
       "problem_signals": [
-        "fear of failing",
-        "fear of judgment",
-        "catastrophizing outcome"
+        "trying to control uncontrollable outcomes",
+        "indecision caused by outcome fixation",
+        "fear of external judgment or loss",
+        "impatience with events",
+        "reactive interpretation",
+        "fear amplified by prediction",
+        "anger tied to appraisal",
+        "anticipatory fear",
+        "catastrophizing",
+        "fear of failure",
+        "rehearsing future disasters",
+        "self-worth tied to recognition",
+        "fear of looking unsuccessful",
+        "status comparison",
+        "compulsion to prove oneself",
+        "identity built around achievement",
+        "fear of failure/status loss",
+        "comparison and reputation",
+        "feeling worthless because not conventionally useful",
+        "fear of failure under productivity standards",
+        "career identity tied only to utility",
+        "stuck",
+        "career purpose",
+        "overwhelm"
       ],
       "negative_match_signals": [
-        "actual current failure requiring practical remediation"
+        "immediate financial emergency",
+        "medical emergency",
+        "active safety risk",
+        "objective immediate danger",
+        "abuse or coercion",
+        "known immediate danger",
+        "legitimate need to communicate achievements or advocate for oneself",
+        "need to establish authorship, credit, or professional record",
+        "concrete job-performance feedback that needs practical response",
+        "not permission to ignore consequences",
+        "not a substitute for practical planning",
+        "do not translate role ethics into conformity pressure",
+        "not a clinical model",
+        "accountability and self-condemnation are not the same",
+        "serious harm may require practical repair",
+        "never romanticize trauma or deprivation",
+        "not treatment for depression/anhedonia",
+        "virtue language should not become perfectionism"
       ],
       "existential_roots": [
-        "Freedom"
+        "Freedom",
+        "Death",
+        "Meaninglessness",
+        "Isolation"
       ],
       "philosophical_themes": [
+        "dichotomy of control",
+        "agency",
         "external outcomes",
-        "anticipatory fear",
+        "appraisal",
+        "judgment",
+        "emotional response",
+        "anticipatory anxiety",
+        "imagination",
+        "fear",
+        "non-striving",
+        "humility",
+        "self-display",
         "status",
+        "self",
+        "merit",
         "fame",
-        "non-display",
-        "conventional usefulness"
+        "untroubled wandering",
+        "usefulness",
+        "value",
+        "survival",
+        "conventional judgment",
+        "action without attachment",
+        "duty",
+        "equanimity"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Confucianism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-5",
         "WIS-STOIC-SEN-13-4",
         "WIS-DAO-DDJ-22-NONDISPLAY",
         "WIS-DAO-ZZ-1-NOFAME",
-        "WIS-DAO-ZZ-4-USELESS-TREE"
+        "WIS-DAO-ZZ-4-USELESS-TREE",
+        "WIS-IND-GITA-ACTION",
+        "WIS-CONF-HABIT",
+        "WIS-CONF-FAULTS",
+        "WIS-CONF-MENCIUS-ADVERSITY",
+        "WIS-GREEK-VIRTUE-HABIT"
       ],
       "neighboring_category_ids": [
         3,
@@ -350,167 +954,451 @@
         20,
         6
       ],
-      "retrieval_notes": "Do not equate Stoic detachment from outcomes with lack of preparation. Daoist fit is strongest when fear of failure is fused with reputation or utility.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 10,
       "category_name": "Substance use",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
-      "weak_or_forced_traditions": [],
-      "source_record_ids": [],
+      "problem_signals": [
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "loss of joy",
+        "anger",
+        "heartbreak",
+        "guilt",
+        "financial fear",
+        "impatience",
+        "anhedonia"
+      ],
+      "negative_match_signals": [
+        "Category 10 remains safety-gated",
+        "not addiction treatment",
+        "anhedonia may require professional support",
+        "not diagnosis or treatment",
+        "avoid blaming users for distress",
+        "do not romanticize poverty or deprivation",
+        "no detox or treatment guidance",
+        "pleasure is not a recommendation for intoxication",
+        "not treatment for anhedonia"
+      ],
+      "existential_roots": [
+        "Freedom",
+        "Meaninglessness",
+        "Death"
+      ],
+      "philosophical_themes": [
+        "desire",
+        "attention",
+        "self-regulation",
+        "attachment",
+        "aversion",
+        "conditioning",
+        "non-attachment",
+        "possessiveness",
+        "restraint",
+        "craving",
+        "urge",
+        "desire classification",
+        "contentment",
+        "tranquility"
+      ],
+      "strong_fit_traditions": [
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Epicureanism"
+      ],
+      "weak_or_forced_traditions": [
+        "Jaina philosophy"
+      ],
+      "source_record_ids": [
+        "WIS-IND-GITA-DESIRE",
+        "WIS-IND-YOGA-AFFLICTIONS",
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
+      ],
       "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 11,
       "category_name": "Compulsive / behavioral coping",
       "problem_signals": [
-        "repeated reactive grasping",
-        "habit loops framed as craving"
+        "anger",
+        "compulsive grasping",
+        "envy driven by wanting",
+        "repeated reactive patterns",
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "loss of joy",
+        "anxiety",
+        "indecision",
+        "overwhelm",
+        "impatience",
+        "heartbreak",
+        "guilt",
+        "financial fear",
+        "anhedonia"
       ],
       "negative_match_signals": [
-        "substance use or withdrawal",
-        "clinical compulsion requiring treatment"
+        "substance withdrawal or overdose",
+        "acute psychiatric crisis",
+        "Category 10 remains safety-gated",
+        "not addiction treatment",
+        "anhedonia may require professional support",
+        "not treatment for psychiatric symptoms",
+        "do not reduce yoga to relaxation technique",
+        "not diagnosis or treatment",
+        "avoid blaming users for distress",
+        "do not romanticize poverty or deprivation",
+        "no detox or treatment guidance",
+        "pleasure is not a recommendation for intoxication",
+        "not treatment for anhedonia"
       ],
       "existential_roots": [
-        "Death",
-        "Meaninglessness"
+        "Freedom",
+        "Meaninglessness",
+        "Death"
       ],
       "philosophical_themes": [
         "greed",
+        "hatred",
         "delusion",
-        "reactivity"
+        "harmful roots",
+        "desire",
+        "attention",
+        "self-regulation",
+        "practice",
+        "non-attachment",
+        "attachment",
+        "aversion",
+        "conditioning",
+        "possessiveness",
+        "restraint",
+        "craving",
+        "urge",
+        "desire classification",
+        "contentment",
+        "tranquility"
       ],
       "strong_fit_traditions": [
-        "Early Buddhism"
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [
-        "Treating Buddhist craving language as a clinical addiction model"
+        "Early Buddhism",
+        "Jaina philosophy"
       ],
       "source_record_ids": [
-        "WIS-BUD-ITI-50-ROOTS"
+        "WIS-BUD-ITI-50-ROOTS",
+        "WIS-IND-GITA-DESIRE",
+        "WIS-IND-YOGA-PRACTICE",
+        "WIS-IND-YOGA-AFFLICTIONS",
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-JAIN-CRAVING",
+        "WIS-EPICURUS-DESIRES"
       ],
       "neighboring_category_ids": [
         10,
         20
       ],
-      "retrieval_notes": "Research-stage ethical frame only. Do not infer diagnosis, and never use for Category 10 substance hard-ceiling routing.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 12,
       "category_name": "Betrayal / broken trust",
       "problem_signals": [
+        "anger after mistreatment",
+        "desire for revenge",
+        "feeling wronged or disrespected",
+        "loneliness",
+        "conflict",
         "betrayal",
-        "urge for revenge"
+        "belonging",
+        "mistreatment",
+        "rejection",
+        "shame",
+        "guilt",
+        "anger",
+        "indecision",
+        "identity",
+        "low mood"
       ],
       "negative_match_signals": [
-        "ongoing abuse",
-        "immediate danger"
+        "active abuse",
+        "immediate danger",
+        "need for legal or safety intervention",
+        "equanimity never requires remaining in unsafe relationships",
+        "not a substitute for boundaries",
+        "reciprocity does not erase wrongdoing",
+        "do not encourage reconciliation in unsafe relationships",
+        "do not turn the doctrine of good human tendencies into blame for suffering",
+        "nonviolence does not require tolerating abuse",
+        "safety and boundaries remain primary",
+        "not relativism",
+        "known harm should not be reframed away",
+        "does not imply friendship alone resolves depression or unsafe relationships"
       ],
       "existential_roots": [
-        "Isolation"
+        "Freedom",
+        "Isolation",
+        "Meaninglessness"
       ],
       "philosophical_themes": [
+        "character",
         "non-retaliation",
-        "character"
+        "response choice",
+        "friendliness",
+        "compassion",
+        "equanimity",
+        "reciprocity",
+        "relationship ethics",
+        "conduct",
+        "moral cultivation",
+        "humaneness",
+        "nonviolence",
+        "careful conduct",
+        "self-mastery",
+        "many-sidedness",
+        "perspective",
+        "epistemic humility",
+        "friendship",
+        "security",
+        "companionship"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Yoga philosophy",
+        "Confucianism",
+        "Jaina philosophy",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
-        "WIS-STOIC-MA-6-6"
+        "WIS-STOIC-MA-6-6",
+        "WIS-IND-YOGA-RELATIONAL",
+        "WIS-CONF-RECIPROCITY",
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-JAIN-NONVIOLENCE",
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
       ],
       "neighboring_category_ids": [
         4,
         5,
         25
       ],
-      "retrieval_notes": "Current Stoic coverage is narrow: response after wrongdoing, not trust-repair theory.",
-      "review_status": "PHASE1_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 13,
       "category_name": "General life meaninglessness",
       "problem_signals": [
-        "life feels wasted",
-        "lack of direction"
+        "sense that life is slipping away",
+        "lack of purpose",
+        "time anxiety",
+        "waiting instead of living",
+        "paralysis from unanswerable speculation",
+        "existential questions blocking action",
+        "demand for certainty before living",
+        "rigid certainty about one self-story",
+        "philosophical questions about identity and perspective",
+        "shame",
+        "meaninglessness",
+        "identity confusion",
+        "belonging confusion",
+        "guilt",
+        "stuck",
+        "career purpose",
+        "impatience",
+        "anxiety",
+        "anger",
+        "anhedonia",
+        "identity"
       ],
       "negative_match_signals": [
-        "acute crisis"
+        "acute crisis",
+        "compulsive productivity pressure",
+        "user explicitly wants comparative metaphysical study rather than problem-solving",
+        "dissociation",
+        "confusion about reality causing impairment",
+        "psychosis-like symptoms",
+        "distinct Upanishads differ",
+        "later Vedanta schools interpret these materials differently",
+        "not a clinical identity model",
+        "not generic productivity advice",
+        "social obligations differ across contexts",
+        "balance is contextual, not emotional suppression",
+        "do not present paradox as evidence reality is unreal",
+        "not suitable for acute disorientation",
+        "historical theories disagree about the good life; do not present one as neutral fact"
       ],
       "existential_roots": [
-        "Meaninglessness"
+        "Death",
+        "Meaninglessness",
+        "Freedom"
       ],
       "philosophical_themes": [
+        "mortality",
         "time",
         "purpose",
-        "practice",
+        "attention",
         "pragmatic priority",
-        "impermanence",
-        "limits of knowledge",
+        "speculation",
+        "suffering",
+        "practice",
         "perspective",
-        "transformation"
+        "transformation",
+        "identity",
+        "dream",
+        "self-knowledge",
+        "ultimate concern",
+        "learning",
+        "patience",
+        "balance",
+        "sincerity",
+        "fitting response",
+        "koan",
+        "conceptual limits",
+        "flourishing",
+        "choice",
+        "character"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism",
-        "Classical Daoism / Zhuangzi tradition"
+        "Upanishadic / Vedantic source tradition",
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Early Buddhism",
+        "Classical Daoism",
+        "Zen Buddhism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-SEN-SHORT-1",
-        "WIS-STOIC-MUSONIUS-PRACTICE",
         "WIS-BUD-MN-63-PRIORITY",
-        "WIS-DAO-ZZ-2-BUTTERFLY"
+        "WIS-DAO-ZZ-2-BUTTERFLY",
+        "WIS-IND-UPANISHAD-SELF",
+        "WIS-CONF-LEARNING-PURPOSE",
+        "WIS-CONF-MEAN-BALANCE",
+        "WIS-ZEN-KOAN",
+        "WIS-GREEK-FLOURISHING"
       ],
       "neighboring_category_ids": [
         14,
         16,
         23
       ],
-      "retrieval_notes": "Early Buddhist MN 63 is a specific pragmatic stance on certain speculative questions, not a universal dismissal of metaphysics. Perspective material may support existential inquiry but should not be used to assert metaphysical conclusions.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 14,
       "category_name": "Career / vocational purpose",
       "problem_signals": [
-        "vocational uncertainty",
-        "purpose through work/action",
-        "career worth tied only to conventional usefulness"
+        "sense that life is slipping away",
+        "lack of purpose",
+        "time anxiety",
+        "waiting instead of living",
+        "knowing ideas but not acting",
+        "uncertain vocation",
+        "identity built only from theory",
+        "feeling unable to start",
+        "career/purpose paralysis",
+        "overwhelm from the size of a task",
+        "feeling worthless because not conventionally useful",
+        "fear of failure under productivity standards",
+        "career identity tied only to utility",
+        "stuck",
+        "fear of failure",
+        "career purpose",
+        "overwhelm",
+        "impatience",
+        "shame",
+        "failure",
+        "vocation",
+        "identity",
+        "belonging",
+        "guilt"
       ],
       "negative_match_signals": [
-        "need for concrete job-search information"
+        "acute crisis",
+        "compulsive productivity pressure",
+        "need for specialized clinical or practical intervention",
+        "the obstacle is missing resources or information rather than task size",
+        "concrete job-performance feedback that needs practical response",
+        "not permission to ignore consequences",
+        "not a substitute for practical planning",
+        "do not translate role ethics into conformity pressure",
+        "not a clinical model",
+        "not generic productivity advice",
+        "social obligations differ across contexts",
+        "does not imply material needs are unimportant",
+        "do not shame financial concern",
+        "role-based ethics should not erase personal safety or autonomy",
+        "virtue language should not become perfectionism",
+        "historical theories disagree about the good life; do not present one as neutral fact"
       ],
       "existential_roots": [
-        "Meaninglessness"
+        "Death",
+        "Meaninglessness",
+        "Freedom",
+        "Isolation"
       ],
       "philosophical_themes": [
+        "mortality",
         "time",
+        "purpose",
+        "attention",
         "practice",
-        "lived values",
-        "usefulness",
+        "reason",
+        "embodied ethics",
+        "action",
         "small beginnings",
-        "vocation"
+        "process",
+        "attention to early stages",
+        "usefulness",
+        "value",
+        "survival",
+        "conventional judgment",
+        "action without attachment",
+        "duty",
+        "equanimity",
+        "self-cultivation",
+        "learning",
+        "habit",
+        "patience",
+        "righteousness",
+        "profit"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Classical Daoism / Zhuangzi tradition"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-SHORT-1",
         "WIS-STOIC-MUSONIUS-PRACTICE",
+        "WIS-DAO-DDJ-64-STEP",
         "WIS-DAO-ZZ-4-USELESS-TREE",
-        "WIS-DAO-DDJ-64-STEP"
+        "WIS-IND-GITA-ACTION",
+        "WIS-CONF-HABIT",
+        "WIS-CONF-LEARNING-PURPOSE",
+        "WIS-CONF-MENCIUS-RIGHTEOUSNESS",
+        "WIS-CONF-GREATLEARNING",
+        "WIS-GREEK-VIRTUE-HABIT",
+        "WIS-GREEK-FLOURISHING"
       ],
       "neighboring_category_ids": [
         8,
@@ -518,99 +1406,241 @@
         16,
         6
       ],
-      "retrieval_notes": "Philosophy can frame values; it should not choose a career for the user. Philosophical value questions complement but do not replace practical career planning.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 15,
       "category_name": "Overwhelm / too much to control",
       "problem_signals": [
-        "too much to control",
-        "overwhelm",
-        "resistance to circumstances"
+        "distress amplified by interpretation",
+        "feeling overwhelmed by external events",
+        "future-focused worry",
+        "trying to control uncontrollable outcomes",
+        "indecision caused by outcome fixation",
+        "fear of external judgment or loss",
+        "impatience with events",
+        "impatience",
+        "resistance to circumstances",
+        "overwhelm from insisting events differ",
+        "waiting for someone else to decide",
+        "feeling powerless about one's own conduct",
+        "overwhelm about what to do next",
+        "mental proliferation around perception",
+        "overwhelm from added interpretation",
+        "identity fused with passing experience",
+        "forcing a conflict",
+        "over-controlling a situation",
+        "impatience with timing",
+        "feeling unable to start",
+        "career/purpose paralysis",
+        "overwhelm from the size of a task",
+        "analysis paralysis",
+        "trying to know everything before acting"
       ],
       "negative_match_signals": [
-        "material emergency"
+        "concrete immediate danger",
+        "material crisis requiring practical action",
+        "immediate financial emergency",
+        "medical emergency",
+        "active safety risk",
+        "unsafe situation requiring change",
+        "injustice requiring action",
+        "external constraint removes meaningful choice",
+        "immediate safety emergency",
+        "dissociation",
+        "psychosis-like symptoms",
+        "need for clinical assessment",
+        "active abuse",
+        "immediate danger",
+        "need for decisive protective action",
+        "the obstacle is missing resources or information rather than task size",
+        "learning is itself the user's chosen goal",
+        "missing facts are genuinely required for a decision",
+        "inaction would worsen a concrete problem",
+        "urgent practical task",
+        "clear boundary must remain firm",
+        "safety plan requires consistency",
+        "severe anxiety symptoms requiring human support",
+        "perceptual disturbance"
       ],
       "existential_roots": [
-        "Freedom"
+        "Freedom",
+        "Death",
+        "Meaninglessness",
+        "Isolation"
       ],
       "philosophical_themes": [
-        "dichotomy of control",
-        "acceptance",
         "judgment",
-        "attention",
+        "interpretation",
+        "agency over response",
+        "dichotomy of control",
+        "agency",
+        "external outcomes",
+        "acceptance",
+        "non-resistance",
+        "alignment with reality",
+        "self-discipline",
         "self-training",
-        "non-forcing",
-        "subtraction",
-        "first steps",
-        "flexibility"
+        "bare attention",
+        "non-identification",
+        "sense experience",
+        "water",
+        "non-contention",
+        "adaptability",
+        "timeliness",
+        "small beginnings",
+        "process",
+        "attention to early stages",
+        "limits",
+        "knowledge",
+        "life"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Zen Buddhism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Confucianism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-MA-8-47",
         "WIS-STOIC-EPI-ENCH-1",
-        "WIS-STOIC-EPI-ENCH-5",
         "WIS-STOIC-EPI-ENCH-8",
         "WIS-BUD-DHP-160",
         "WIS-BUD-UD-1-10-ATTENTION",
         "WIS-DAO-DDJ-8-WATER",
-        "WIS-DAO-DDJ-48-WUWEI",
         "WIS-DAO-DDJ-64-STEP",
-        "WIS-DAO-DDJ-76-FLEXIBILITY",
         "WIS-DAO-ZZ-3-LIMITS",
-        "WIS-DAO-ZZ-4-FASTING-MIND"
+        "WIS-DAO-DDJ-48-WUWEI",
+        "WIS-DAO-DDJ-76-FLEXIBILITY",
+        "WIS-DAO-ZZ-4-FASTING-MIND",
+        "WIS-IND-GITA-ACTION",
+        "WIS-IND-YOGA-PRACTICE",
+        "WIS-CONF-MENCIUS-ADVERSITY",
+        "WIS-CONF-GREATLEARNING",
+        "WIS-ZEN-PRESENT"
       ],
       "neighboring_category_ids": [
         3,
         8,
         22
       ],
-      "retrieval_notes": "Separate contemplative narrowing of attention from practical workload reduction and resource needs. Strong Daoist fit, but practical workload/resource reduction remains distinct from contemplative non-forcing.",
-      "review_status": "PHASE3_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 16,
       "category_name": "Personal identity confusion",
       "problem_signals": [
-        "trying to escape self through external change",
-        "uncertain self-direction"
+        "trying to escape inner distress through changing location",
+        "gloom that follows external changes",
+        "identity discomfort",
+        "knowing ideas but not acting",
+        "uncertain vocation",
+        "identity built only from theory",
+        "mental proliferation around perception",
+        "overwhelm from added interpretation",
+        "identity fused with passing experience",
+        "uncertainty about self",
+        "measuring strength through comparison",
+        "preoccupation with other people's status",
+        "identity built around achievement",
+        "fear of failure/status loss",
+        "comparison and reputation",
+        "rigid certainty about one self-story",
+        "philosophical questions about identity and perspective",
+        "shame",
+        "meaninglessness",
+        "identity confusion",
+        "belonging confusion",
+        "guilt",
+        "failure",
+        "vocation"
       ],
       "negative_match_signals": [
-        "unsafe environment where leaving is protective"
+        "unsafe environment where relocation is protective",
+        "need for specialized clinical or practical intervention",
+        "dissociation",
+        "psychosis-like symptoms",
+        "need for clinical assessment",
+        "identity disturbance requiring clinical assessment",
+        "need to establish authorship, credit, or professional record",
+        "confusion about reality causing impairment",
+        "distinct Upanishads differ",
+        "later Vedanta schools interpret these materials differently",
+        "not a clinical identity model",
+        "do not translate role ethics into conformity pressure",
+        "not a clinical model",
+        "balance is contextual, not emotional suppression",
+        "do not present paradox as evidence reality is unreal",
+        "not suitable for acute disorientation",
+        "not relativism",
+        "known harm should not be reframed away",
+        "historical theories disagree about the good life; do not present one as neutral fact"
       ],
       "existential_roots": [
         "Meaninglessness",
-        "Freedom"
+        "Freedom",
+        "Isolation"
       ],
       "philosophical_themes": [
         "self-examination",
+        "inner change",
+        "escape",
         "practice",
+        "reason",
+        "embodied ethics",
+        "action",
+        "bare attention",
         "non-identification",
-        "attention",
+        "sense experience",
         "self-knowledge",
+        "self-mastery",
+        "comparison",
+        "self",
+        "merit",
+        "fame",
+        "untroubled wandering",
         "perspective",
         "transformation",
-        "status detachment"
+        "identity",
+        "dream",
+        "ultimate concern",
+        "self-cultivation",
+        "learning"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Upanishadic / Vedantic source tradition",
+        "Confucianism",
+        "Jaina philosophy",
+        "Classical Greek ethics beyond Stoicism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Classical Daoism",
+        "Zen Buddhism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-SEN-28-1",
         "WIS-STOIC-MUSONIUS-PRACTICE",
         "WIS-BUD-UD-1-10-ATTENTION",
         "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
         "WIS-DAO-ZZ-1-NOFAME",
-        "WIS-DAO-ZZ-2-BUTTERFLY"
+        "WIS-DAO-ZZ-2-BUTTERFLY",
+        "WIS-IND-UPANISHAD-SELF",
+        "WIS-CONF-HABIT",
+        "WIS-CONF-MEAN-BALANCE",
+        "WIS-ZEN-KOAN",
+        "WIS-JAIN-MANYSIDED",
+        "WIS-GREEK-FLOURISHING"
       ],
       "neighboring_category_ids": [
         13,
@@ -618,217 +1648,636 @@
         17,
         20
       ],
-      "retrieval_notes": "Buddhist non-identification should not be presented as a universal metaphysical answer about personal identity. Do not turn Zhuangzi perspective material into claims about dissociation, unreality, or ego annihilation.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 17,
       "category_name": "Cultural or group belonging confusion",
       "problem_signals": [
+        "feeling disconnected from other people",
+        "interpersonal friction",
+        "difficulty remembering shared humanity",
+        "power imbalance",
+        "disrespect",
+        "interpersonal hierarchy",
+        "dehumanizing treatment",
+        "feeling excluded",
+        "difficulty holding goodwill toward self or others",
+        "belonging distress",
+        "shame",
+        "meaninglessness",
+        "identity confusion",
+        "belonging confusion",
+        "guilt",
+        "loneliness",
+        "conflict",
+        "betrayal",
         "belonging",
-        "status hierarchy",
-        "social inclusion"
+        "mistreatment",
+        "failure",
+        "vocation",
+        "identity",
+        "stuck"
       ],
       "negative_match_signals": [
-        "discrimination requiring practical remedy"
+        "acute abuse or violence",
+        "immediate safety threat",
+        "active abuse requiring safety response",
+        "pressure to reconnect with unsafe people",
+        "distinct Upanishads differ",
+        "later Vedanta schools interpret these materials differently",
+        "not a clinical identity model",
+        "equanimity never requires remaining in unsafe relationships",
+        "not a substitute for boundaries",
+        "do not translate role ethics into conformity pressure",
+        "not a clinical model",
+        "do not turn the doctrine of good human tendencies into blame for suffering",
+        "role-based ethics should not erase personal safety or autonomy",
+        "not relativism",
+        "known harm should not be reframed away",
+        "does not imply friendship alone resolves depression or unsafe relationships"
       ],
       "existential_roots": [
-        "Isolation"
+        "Isolation",
+        "Freedom",
+        "Meaninglessness"
       ],
       "philosophical_themes": [
-        "shared humanity",
-        "dignity",
         "social nature",
-        "goodwill"
+        "cooperation",
+        "shared humanity",
+        "reciprocity",
+        "human dignity",
+        "social equality",
+        "metta",
+        "goodwill",
+        "universal concern",
+        "self-knowledge",
+        "identity",
+        "ultimate concern",
+        "friendliness",
+        "compassion",
+        "equanimity",
+        "self-cultivation",
+        "learning",
+        "habit",
+        "moral cultivation",
+        "humaneness",
+        "relationships",
+        "responsibility",
+        "many-sidedness",
+        "perspective"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Upanishadic / Vedantic source tradition",
+        "Yoga philosophy",
+        "Confucianism",
+        "Jaina philosophy",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-2-1",
         "WIS-STOIC-SEN-47-11",
-        "WIS-BUD-SNP-1-8-144"
+        "WIS-BUD-SNP-1-8-144",
+        "WIS-IND-UPANISHAD-SELF",
+        "WIS-IND-YOGA-RELATIONAL",
+        "WIS-CONF-HABIT",
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-CONF-GREATLEARNING",
+        "WIS-JAIN-MANYSIDED",
+        "WIS-EPICURUS-FRIENDSHIP"
       ],
       "neighboring_category_ids": [
         1,
         5,
         25
       ],
-      "retrieval_notes": "Goodwill can support belonging reflection without requiring assimilation or approval from every group.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 18,
       "category_name": "Illness or fear about health / mortality",
       "problem_signals": [
-        "illness limiting life",
+        "illness limiting activity",
+        "fear that sickness removes all agency",
+        "sense that life is slipping away",
+        "lack of purpose",
+        "time anxiety",
+        "waiting instead of living",
+        "health fear",
+        "security fear",
+        "equating wealth with total well-being",
+        "difficulty accepting change",
         "mortality awareness",
-        "health-related loss of agency"
+        "waiting for permanence",
+        "grief around change",
+        "future dread",
+        "anger",
+        "heartbreak",
+        "mortality fear",
+        "sadness",
+        "bereavement",
+        "fear of death",
+        "grief",
+        "low mood",
+        "loss of joy",
+        "anxiety"
       ],
       "negative_match_signals": [
         "medical emergency",
-        "diagnostic question"
+        "need for diagnosis or treatment advice",
+        "acute crisis",
+        "compulsive productivity pressure",
+        "acute financial crisis",
+        "food or housing insecurity",
+        "fresh grief where impermanence language would feel dismissive",
+        "equanimity is not suppression",
+        "do not spiritualize unmet material needs",
+        "do not impose the Gita's metaphysics on users who do not share it",
+        "grief has no required timetable",
+        "do not use metaphysics to minimize bereavement or depression symptoms",
+        "do not use philosophical arguments to dismiss grief",
+        "not suitable as crisis intervention",
+        "do not use metaphysical claims to rush grief",
+        "not a prescription to stay in harmful relationships"
       ],
       "existential_roots": [
-        "Death"
+        "Death",
+        "Freedom",
+        "Meaninglessness",
+        "Isolation"
       ],
       "philosophical_themes": [
         "illness",
-        "mortality",
         "remaining agency",
+        "practice under limitation",
+        "mortality",
         "time",
+        "purpose",
+        "attention",
+        "health",
+        "contentment",
+        "trust",
+        "well-being",
         "impermanence",
-        "health"
+        "conditioned phenomena",
+        "change",
+        "equanimity",
+        "steadiness",
+        "grief",
+        "loss",
+        "ultimate value",
+        "death anxiety",
+        "present life",
+        "heartbreak"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Hindu philosophical traditions",
+        "Upanishadic / Vedantic source tradition",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-78-20",
         "WIS-STOIC-SEN-SHORT-1",
         "WIS-BUD-DHP-204",
-        "WIS-BUD-DHP-277"
+        "WIS-BUD-DHP-277",
+        "WIS-IND-GITA-EQUANIMITY",
+        "WIS-IND-GITA-MORTALITY",
+        "WIS-IND-UPANISHAD-MORTALITY",
+        "WIS-EPICURUS-DEATH",
+        "WIS-IND-GITA-GRIEF-DISCERNMENT"
       ],
       "neighboring_category_ids": [
         3,
         15
       ],
-      "retrieval_notes": "Health and impermanence teachings are contemplative adjuncts only; medical care remains primary where needed.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 19,
       "category_name": "Financial or security fear",
       "problem_signals": [
-        "fear about property or security beyond immediate control"
+        "trying to control uncontrollable outcomes",
+        "indecision caused by outcome fixation",
+        "fear of external judgment or loss",
+        "impatience with events",
+        "health fear",
+        "security fear",
+        "equating wealth with total well-being",
+        "never feeling financially secure enough",
+        "envy of others' possessions/status",
+        "endless acquisition pressure",
+        "future dread",
+        "anger",
+        "heartbreak",
+        "mortality fear",
+        "sadness",
+        "career purpose",
+        "financial fear",
+        "envy",
+        "guilt",
+        "substance use",
+        "compulsive coping",
+        "impatience",
+        "anhedonia"
       ],
       "negative_match_signals": [
+        "immediate financial emergency",
+        "medical emergency",
+        "active safety risk",
+        "acute financial crisis",
+        "food or housing insecurity",
+        "actual poverty",
         "imminent eviction",
         "food insecurity",
-        "urgent debt/legal issue"
+        "urgent debt or legal crisis",
+        "equanimity is not suppression",
+        "do not spiritualize unmet material needs",
+        "does not imply material needs are unimportant",
+        "do not shame financial concern",
+        "Category 10 remains safety-gated",
+        "do not romanticize poverty or deprivation",
+        "pleasure is not a recommendation for intoxication",
+        "not treatment for anhedonia"
       ],
       "existential_roots": [
         "Freedom",
-        "Death"
+        "Death",
+        "Meaninglessness"
       ],
       "philosophical_themes": [
-        "externals",
-        "control",
+        "dichotomy of control",
+        "agency",
+        "external outcomes",
+        "health",
         "contentment",
+        "trust",
+        "well-being",
+        "desire",
         "enough",
-        "acquisition"
+        "acquisition",
+        "equanimity",
+        "change",
+        "steadiness",
+        "righteousness",
+        "profit",
+        "status",
+        "non-attachment",
+        "possessiveness",
+        "restraint",
+        "desire classification",
+        "tranquility"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Confucianism",
+        "Epicureanism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Jaina philosophy"
+      ],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-BUD-DHP-204",
-        "WIS-DAO-DDJ-46-CONTENTMENT"
+        "WIS-DAO-DDJ-46-CONTENTMENT",
+        "WIS-IND-GITA-EQUANIMITY",
+        "WIS-CONF-MENCIUS-RIGHTEOUSNESS",
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-EPICURUS-DESIRES"
       ],
       "neighboring_category_ids": [
         3,
         15,
         20
       ],
-      "retrieval_notes": "Acute material insecurity requires practical resources. Contentment must not romanticize deprivation. Only use after ruling out urgent material insecurity; contentment is not a substitute for resources.",
-      "review_status": "PHASE3_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 20,
       "category_name": "Envy / comparing myself to others",
       "problem_signals": [
+        "anger",
+        "compulsive grasping",
         "envy driven by wanting",
-        "comparison feeding grasping"
+        "repeated reactive patterns",
+        "uncertainty about self",
+        "measuring strength through comparison",
+        "preoccupation with other people's status",
+        "never feeling financially secure enough",
+        "envy of others' possessions/status",
+        "endless acquisition pressure",
+        "self-worth tied to recognition",
+        "fear of looking unsuccessful",
+        "status comparison",
+        "compulsion to prove oneself",
+        "identity built around achievement",
+        "fear of failure/status loss",
+        "comparison and reputation",
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "loss of joy",
+        "heartbreak",
+        "guilt",
+        "career purpose"
       ],
       "negative_match_signals": [
-        "ordinary admiration without distress"
+        "substance withdrawal or overdose",
+        "acute psychiatric crisis",
+        "identity disturbance requiring clinical assessment",
+        "actual poverty",
+        "imminent eviction",
+        "food insecurity",
+        "urgent debt or legal crisis",
+        "legitimate need to communicate achievements or advocate for oneself",
+        "need to establish authorship, credit, or professional record",
+        "Category 10 remains safety-gated",
+        "not addiction treatment",
+        "anhedonia may require professional support",
+        "not diagnosis or treatment",
+        "avoid blaming users for distress",
+        "does not imply material needs are unimportant",
+        "do not shame financial concern",
+        "do not romanticize poverty or deprivation",
+        "pleasure is not a recommendation for intoxication",
+        "not treatment for anhedonia"
       ],
       "existential_roots": [
-        "Isolation",
-        "Meaninglessness"
+        "Freedom",
+        "Meaninglessness",
+        "Death",
+        "Isolation"
       ],
       "philosophical_themes": [
         "greed",
-        "comparison",
-        "reactivity",
+        "hatred",
+        "delusion",
+        "harmful roots",
         "self-knowledge",
+        "self-mastery",
+        "comparison",
         "contentment",
-        "non-display"
+        "desire",
+        "enough",
+        "acquisition",
+        "non-striving",
+        "humility",
+        "self-display",
+        "status",
+        "self",
+        "merit",
+        "fame",
+        "untroubled wandering",
+        "attention",
+        "self-regulation",
+        "attachment",
+        "aversion",
+        "conditioning"
       ],
       "strong_fit_traditions": [
-        "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Epicureanism"
       ],
       "weak_or_forced_traditions": [
-        "Using broad craving doctrine as a complete model of social comparison"
+        "Early Buddhism",
+        "Jaina philosophy"
       ],
       "source_record_ids": [
         "WIS-BUD-ITI-50-ROOTS",
         "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
         "WIS-DAO-DDJ-46-CONTENTMENT",
         "WIS-DAO-DDJ-22-NONDISPLAY",
-        "WIS-DAO-ZZ-1-NOFAME"
+        "WIS-DAO-ZZ-1-NOFAME",
+        "WIS-IND-GITA-DESIRE",
+        "WIS-IND-YOGA-AFFLICTIONS",
+        "WIS-CONF-MENCIUS-RIGHTEOUSNESS",
+        "WIS-JAIN-NONATTACHMENT",
+        "WIS-EPICURUS-DESIRES"
       ],
       "neighboring_category_ids": [
         6,
         9,
         19
       ],
-      "retrieval_notes": "Current Buddhist coverage is broad ethical framing only; targeted envy sources remain needed. Strong fit when envy is driven by status/display/acquisition; targeted envy research is still useful.",
-      "review_status": "PHASE3_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 21,
       "category_name": "Guilt / can't forgive myself",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
-      "weak_or_forced_traditions": [],
-      "source_record_ids": [],
+      "problem_signals": [
+        "shame",
+        "meaninglessness",
+        "identity confusion",
+        "belonging confusion",
+        "guilt",
+        "anger",
+        "heartbreak",
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "failure",
+        "vocation",
+        "identity",
+        "belonging",
+        "fear of failure",
+        "low mood",
+        "loneliness",
+        "betrayal",
+        "mistreatment",
+        "career purpose",
+        "financial fear",
+        "stuck",
+        "rejection"
+      ],
+      "negative_match_signals": [
+        "distinct Upanishads differ",
+        "later Vedanta schools interpret these materials differently",
+        "not a clinical identity model",
+        "Category 10 remains safety-gated",
+        "not diagnosis or treatment",
+        "avoid blaming users for distress",
+        "do not translate role ethics into conformity pressure",
+        "not a clinical model",
+        "accountability and self-condemnation are not the same",
+        "serious harm may require practical repair",
+        "do not turn the doctrine of good human tendencies into blame for suffering",
+        "does not imply material needs are unimportant",
+        "do not shame financial concern",
+        "virtue language should not become perfectionism",
+        "historical theories disagree about the good life; do not present one as neutral fact",
+        "not a directive to suppress grief",
+        "not relationship advice"
+      ],
+      "existential_roots": [
+        "Meaninglessness",
+        "Freedom",
+        "Death",
+        "Isolation"
+      ],
+      "philosophical_themes": [
+        "self-knowledge",
+        "identity",
+        "ultimate concern",
+        "attachment",
+        "aversion",
+        "conditioning",
+        "self-cultivation",
+        "learning",
+        "habit",
+        "fault correction",
+        "character",
+        "compassion",
+        "moral cultivation",
+        "humaneness",
+        "righteousness",
+        "profit",
+        "status",
+        "virtue",
+        "practical judgment",
+        "flourishing",
+        "choice",
+        "heartbreak"
+      ],
+      "strong_fit_traditions": [
+        "Upanishadic / Vedantic source tradition",
+        "Yoga philosophy",
+        "Confucianism",
+        "Classical Greek ethics beyond Stoicism"
+      ],
+      "weak_or_forced_traditions": [
+        "Yoga philosophy"
+      ],
+      "source_record_ids": [
+        "WIS-IND-UPANISHAD-SELF",
+        "WIS-IND-YOGA-AFFLICTIONS",
+        "WIS-CONF-HABIT",
+        "WIS-CONF-FAULTS",
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-CONF-MENCIUS-RIGHTEOUSNESS",
+        "WIS-GREEK-VIRTUE-HABIT",
+        "WIS-GREEK-FLOURISHING",
+        "WIS-IND-YOGA-REJECTION"
+      ],
       "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 22,
       "category_name": "Impatience / waiting for something to change",
       "problem_signals": [
+        "trying to control uncontrollable outcomes",
+        "indecision caused by outcome fixation",
+        "fear of external judgment or loss",
+        "impatience with events",
         "impatience",
-        "waiting",
-        "resisting what has already occurred"
+        "resistance to circumstances",
+        "overwhelm from insisting events differ",
+        "sense that life is slipping away",
+        "lack of purpose",
+        "time anxiety",
+        "waiting instead of living",
+        "difficulty accepting change",
+        "mortality awareness",
+        "waiting for permanence",
+        "grief around change",
+        "treating a current feeling as permanent",
+        "impatience for mood to change",
+        "identifying completely with a passing feeling",
+        "forcing a conflict",
+        "over-controlling a situation",
+        "impatience with timing",
+        "over-efforting",
+        "adding more and more interventions",
+        "forcing a decision or timeline"
       ],
       "negative_match_signals": [
-        "delay would worsen a practical problem"
+        "immediate financial emergency",
+        "medical emergency",
+        "active safety risk",
+        "unsafe situation requiring change",
+        "injustice requiring action",
+        "acute crisis",
+        "compulsive productivity pressure",
+        "fresh grief where impermanence language would feel dismissive",
+        "persistent severe low mood",
+        "sudden loss of pleasure",
+        "active abuse",
+        "immediate danger",
+        "need for decisive protective action",
+        "inaction would worsen a concrete problem",
+        "urgent practical task",
+        "clear boundary must remain firm",
+        "safety plan requires consistency",
+        "not permission to ignore consequences",
+        "not a substitute for practical planning",
+        "not treatment for psychiatric symptoms",
+        "do not reduce yoga to relaxation technique",
+        "not generic productivity advice",
+        "social obligations differ across contexts",
+        "balance is contextual, not emotional suppression"
       ],
       "existential_roots": [
-        "Freedom"
+        "Freedom",
+        "Death",
+        "Meaninglessness",
+        "Isolation"
       ],
       "philosophical_themes": [
+        "dichotomy of control",
+        "agency",
+        "external outcomes",
         "acceptance",
+        "non-resistance",
+        "alignment with reality",
+        "mortality",
         "time",
-        "control",
-        "impermanence of conditioned states and feelings",
+        "purpose",
+        "attention",
+        "impermanence",
+        "conditioned phenomena",
+        "change",
+        "feeling",
         "water",
+        "non-contention",
+        "adaptability",
+        "timeliness",
+        "wu wei",
         "non-forcing",
-        "flexibility",
-        "timeliness"
+        "subtraction",
+        "effort",
+        "softness",
+        "flexibility"
       ],
       "strong_fit_traditions": [
         "Stoicism",
         "Early Buddhism",
-        "Classical Daoism"
+        "Classical Daoism",
+        "Hindu philosophical traditions",
+        "Yoga philosophy",
+        "Confucianism",
+        "Zen Buddhism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Jaina philosophy"
+      ],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-8",
@@ -837,108 +2286,311 @@
         "WIS-BUD-SN-36-9-IMPERMANENT-FEELING",
         "WIS-DAO-DDJ-8-WATER",
         "WIS-DAO-DDJ-48-WUWEI",
-        "WIS-DAO-DDJ-76-FLEXIBILITY"
+        "WIS-DAO-DDJ-76-FLEXIBILITY",
+        "WIS-IND-GITA-ACTION",
+        "WIS-IND-YOGA-PRACTICE",
+        "WIS-CONF-LEARNING-PURPOSE",
+        "WIS-CONF-MEAN-BALANCE",
+        "WIS-ZEN-PRESENT",
+        "WIS-JAIN-NONATTACHMENT"
       ],
       "neighboring_category_ids": [
         8,
         15
       ],
-      "retrieval_notes": "Impermanence is not a timetable; use to frame change, not promise rapid relief. Patience/flexibility must not be rendered as passive neglect.",
-      "review_status": "PHASE3_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 23,
       "category_name": "Low mood / persistent sadness",
       "problem_signals": [
-        "gloom that persists across changes of scenery"
+        "trying to escape inner distress through changing location",
+        "gloom that follows external changes",
+        "identity discomfort",
+        "treating a current feeling as permanent",
+        "impatience for mood to change",
+        "identifying completely with a passing feeling",
+        "future dread",
+        "anger",
+        "heartbreak",
+        "mortality fear",
+        "security fear",
+        "sadness",
+        "grief",
+        "low mood",
+        "loss of joy",
+        "shame",
+        "fear of failure",
+        "guilt",
+        "anxiety",
+        "overwhelm",
+        "anhedonia",
+        "stuck",
+        "impatience",
+        "loneliness"
       ],
       "negative_match_signals": [
-        "acute or severe deterioration requiring support"
+        "unsafe environment where relocation is protective",
+        "persistent severe low mood",
+        "sudden loss of pleasure",
+        "acute crisis",
+        "equanimity is not suppression",
+        "do not spiritualize unmet material needs",
+        "do not use metaphysics to minimize bereavement or depression symptoms",
+        "accountability and self-condemnation are not the same",
+        "serious harm may require practical repair",
+        "never romanticize trauma or deprivation",
+        "not treatment for depression/anhedonia",
+        "not treatment",
+        "avoid using nonduality language with destabilizing reality-testing symptoms",
+        "does not imply friendship alone resolves depression or unsafe relationships",
+        "do not use philosophical arguments to dismiss grief",
+        "not suitable as crisis intervention"
       ],
       "existential_roots": [
         "Meaninglessness",
-        "Freedom"
+        "Freedom",
+        "Death",
+        "Isolation"
       ],
       "philosophical_themes": [
         "self-examination",
+        "inner change",
         "escape",
-        "impermanence of feeling"
+        "impermanence",
+        "feeling",
+        "change",
+        "equanimity",
+        "steadiness",
+        "mortality",
+        "ultimate value",
+        "fault correction",
+        "learning",
+        "character",
+        "adversity",
+        "development",
+        "persistence",
+        "present attention",
+        "practice",
+        "nonduality",
+        "friendship",
+        "security",
+        "companionship",
+        "death anxiety",
+        "present life"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Hindu philosophical traditions",
+        "Upanishadic / Vedantic source tradition",
+        "Confucianism",
+        "Zen Buddhism",
+        "Epicureanism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Confucianism"
+      ],
       "source_record_ids": [
         "WIS-STOIC-SEN-28-1",
-        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING"
+        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING",
+        "WIS-IND-GITA-EQUANIMITY",
+        "WIS-IND-UPANISHAD-MORTALITY",
+        "WIS-CONF-FAULTS",
+        "WIS-CONF-MENCIUS-ADVERSITY",
+        "WIS-ZEN-PRESENT",
+        "WIS-EPICURUS-FRIENDSHIP",
+        "WIS-EPICURUS-DEATH"
       ],
       "neighboring_category_ids": [
         13,
         16,
         24
       ],
-      "retrieval_notes": "Only a narrow contemplative adjunct. Persistent low mood should not be treated as solved by impermanence reflection.",
-      "review_status": "PHASE2_PARTIAL"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 24,
       "category_name": "Can't feel joy / anhedonia",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
-      "weak_or_forced_traditions": [],
-      "source_record_ids": [],
+      "problem_signals": [
+        "substance use",
+        "compulsive coping",
+        "envy",
+        "loss of joy",
+        "grief",
+        "mortality fear",
+        "low mood",
+        "anxiety",
+        "fear of failure",
+        "overwhelm",
+        "anhedonia",
+        "stuck",
+        "impatience",
+        "meaninglessness",
+        "identity confusion",
+        "financial fear"
+      ],
+      "negative_match_signals": [
+        "Category 10 remains safety-gated",
+        "not addiction treatment",
+        "anhedonia may require professional support",
+        "do not use metaphysics to minimize bereavement or depression symptoms",
+        "never romanticize trauma or deprivation",
+        "not treatment for depression/anhedonia",
+        "not treatment",
+        "avoid using nonduality language with destabilizing reality-testing symptoms",
+        "do not present paradox as evidence reality is unreal",
+        "not suitable for acute disorientation",
+        "pleasure is not a recommendation for intoxication",
+        "not treatment for anhedonia"
+      ],
+      "existential_roots": [
+        "Freedom",
+        "Meaninglessness",
+        "Death"
+      ],
+      "philosophical_themes": [
+        "desire",
+        "attention",
+        "self-regulation",
+        "mortality",
+        "impermanence",
+        "ultimate value",
+        "adversity",
+        "development",
+        "persistence",
+        "present attention",
+        "practice",
+        "nonduality",
+        "koan",
+        "perspective",
+        "conceptual limits",
+        "desire classification",
+        "contentment",
+        "tranquility"
+      ],
+      "strong_fit_traditions": [
+        "Hindu philosophical traditions",
+        "Upanishadic / Vedantic source tradition",
+        "Zen Buddhism",
+        "Epicureanism"
+      ],
+      "weak_or_forced_traditions": [
+        "Confucianism",
+        "Zen Buddhism"
+      ],
+      "source_record_ids": [
+        "WIS-IND-GITA-DESIRE",
+        "WIS-IND-UPANISHAD-MORTALITY",
+        "WIS-CONF-MENCIUS-ADVERSITY",
+        "WIS-ZEN-PRESENT",
+        "WIS-ZEN-KOAN",
+        "WIS-EPICURUS-DESIRES"
+      ],
       "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     },
     {
       "category_id": 25,
       "category_name": "Being mistreated / bullied / disrespected",
       "problem_signals": [
+        "anger after mistreatment",
+        "desire for revenge",
+        "feeling wronged or disrespected",
+        "power imbalance",
         "disrespect",
+        "interpersonal hierarchy",
+        "dehumanizing treatment",
+        "anger",
+        "resentment",
+        "desire to humiliate",
+        "conflict after being wronged",
+        "verbal conflict",
+        "anger after criticism",
+        "retaliatory speech",
+        "loneliness",
+        "conflict",
+        "betrayal",
+        "belonging",
         "mistreatment",
-        "retaliatory urge"
+        "rejection",
+        "shame",
+        "guilt"
       ],
       "negative_match_signals": [
-        "abuse",
-        "violence",
+        "active abuse",
+        "immediate danger",
+        "need for legal or safety intervention",
+        "active abuse requiring safety response",
+        "active violence",
         "coercion",
-        "immediate danger"
+        "abuse",
+        "equanimity never requires remaining in unsafe relationships",
+        "not a substitute for boundaries",
+        "reciprocity does not erase wrongdoing",
+        "do not encourage reconciliation in unsafe relationships",
+        "do not turn the doctrine of good human tendencies into blame for suffering",
+        "nonviolence does not require tolerating abuse",
+        "safety and boundaries remain primary"
       ],
       "existential_roots": [
+        "Freedom",
         "Isolation",
-        "Freedom"
+        "Meaninglessness"
       ],
       "philosophical_themes": [
-        "dignity",
+        "character",
         "non-retaliation",
+        "response choice",
         "reciprocity",
-        "non-hatred",
-        "non-contempt"
+        "human dignity",
+        "social equality",
+        "non-harm",
+        "goodwill",
+        "anger",
+        "resentment",
+        "speech",
+        "non-enmity",
+        "response discipline",
+        "friendliness",
+        "compassion",
+        "equanimity",
+        "relationship ethics",
+        "conduct",
+        "moral cultivation",
+        "humaneness",
+        "nonviolence",
+        "careful conduct",
+        "self-mastery"
       ],
       "strong_fit_traditions": [
         "Stoicism",
-        "Early Buddhism"
+        "Early Buddhism",
+        "Yoga philosophy",
+        "Confucianism",
+        "Jaina philosophy"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-6-6",
         "WIS-STOIC-SEN-47-11",
-        "WIS-BUD-DHP-5",
         "WIS-BUD-SNP-1-8-147",
-        "WIS-BUD-MN-21-GOODWILL"
+        "WIS-BUD-MN-21-GOODWILL",
+        "WIS-IND-YOGA-RELATIONAL",
+        "WIS-CONF-RECIPROCITY",
+        "WIS-CONF-MENCIUS-COMPASSION",
+        "WIS-JAIN-NONVIOLENCE"
       ],
       "neighboring_category_ids": [
         4,
         5,
         12
       ],
-      "retrieval_notes": "Boundary/safety behavior remains primary; non-hatred is not submission.",
-      "review_status": "PHASE2_RESEARCHED"
+      "retrieval_notes": "Deterministic category selection remains authoritative; retrieve only after category selection/clarification. Safety routing overrides corpus retrieval.",
+      "review_status": "CATEGORY_VERIFIED"
     }
   ]
 }
