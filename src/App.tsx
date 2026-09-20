@@ -12,6 +12,8 @@ import { GuidanceScreen } from './screens/GuidanceScreen';
 import { CrisisScreen } from './screens/CrisisScreen';
 import { TaxonomyBrowserScreen } from './screens/TaxonomyBrowserScreen';
 import { SavedJournalScreen } from './screens/SavedJournalScreen';
+import { LegalScreen } from './screens/LegalScreen';
+import { LaunchGate, LAUNCH_ATTESTATION_KEY } from './components/LaunchGate';
 import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
 import { evaluateSafetyUpstream } from './safety/safetyRouter';
@@ -27,13 +29,25 @@ const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
 const AppContent: React.FC = () => {
   const { theme, themeMode, setThemeMode } = useTheme();
   const isPreview = IS_PREVIEW_MODE;
-  const [currentTab, setCurrentTab] = useState<'reflect' | 'taxonomy' | 'crisis' | 'journal'>('reflect');
+  const [currentTab, setCurrentTab] = useState<'reflect' | 'taxonomy' | 'crisis' | 'journal' | 'legal'>('reflect');
   const [guidanceResult, setGuidanceResult] = useState<GuidanceResult | null>(null);
   const [crisisAlert, setCrisisAlert] = useState<{ reason?: string; safetyNotes?: string[] } | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
+
+  const [launchAccepted, setLaunchAccepted] = useState<boolean>(() => {
+    try {
+      if (typeof localStorage === 'undefined') return false;
+      const raw = localStorage.getItem(LAUNCH_ATTESTATION_KEY);
+      if (!raw) return false;
+      const parsed = JSON.parse(raw);
+      return parsed?.version === 1 && parsed?.adult === true && parsed?.us === true;
+    } catch {
+      return false;
+    }
+  });
 
   // Saved reflections (Rule 7: Never stores raw problem text)
   const [savedReflections, setSavedReflections] = useState<SavedReflection[]>(() => {
@@ -83,134 +97,51 @@ const AppContent: React.FC = () => {
     setClarificationPrompt(null);
 
     try {
-      // 1. Upstream Deterministic Safety Evaluation
+      // Privacy-by-design production path:
+      // raw reflection text is processed only in this browser and is never sent
+      // to a server, analytics product, or AI provider.
       const safety = evaluateSafetyUpstream(problemText);
 
-      // Handle Crisis / Abuse / Substance hard ceilings
       if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
         setCrisisAlert({
           reason: safety.reason,
           safetyNotes: safety.safetyNotes,
         });
         setCurrentTab('crisis');
-        setIsLoading(false);
+        setGuidanceResult(null);
         return;
       }
 
-      // 2. Call server API endpoint for guidance (deterministic in Preview Mode)
-      const response = await fetch('/api/guidance', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          problem: problemText,
-          problemText,
-          preferredRoot,
-          suggestedCategoryId: safety.suggestedCategoryId,
-          isPreview,
-        }),
-      });
+      const retrieval = retrieveGroundedGuidance(
+        problemText,
+        preferredRoot,
+        safety.suggestedCategoryId
+      );
 
-      if (response.ok) {
-        const data = await response.json();
-
-        if (data.needsClarification) {
-          setClarificationPrompt(
-            data.clarification?.question ||
+      if (retrieval.needsClarification) {
+        setClarificationPrompt(
+          retrieval.clarificationQuestion ||
             'Could you add one concrete detail about what feels most difficult right now?'
-          );
-          setGuidanceResult(null);
-          setCrisisAlert(null);
-          setCurrentTab('reflect');
-          setIsLoading(false);
-          return;
-        }
-
-        if (data.blockedFromWisdom) {
-          setCrisisAlert({
-            reason: data.safety?.reason,
-            safetyNotes: data.safety?.safetyNotes,
-          });
-          setCurrentTab('crisis');
-          setIsLoading(false);
-          return;
-        }
-
-        const category = data.category as Category;
-        const result: GuidanceResult = {
-          category,
-          safety: data.safety || safety,
-          grounding: data.grounding || validateGrounding(null, category),
-          affirmation: data.affirmation || `I anchor in ${category.category_name} with awareness and presence.`,
-          synthesis: data.synthesis || category.synthesis_note,
-          isFallback: Boolean(data.isFallback),
-        };
-
-        setGuidanceResult(result);
-        trackCategoryInteraction(category.category_id, 'reflection');
-        setCrisisAlert(null);
-      } else {
-        // Deterministic local client fallback
-        const retrieval = retrieveGroundedGuidance(problemText, preferredRoot, safety.suggestedCategoryId);
-        if (retrieval.needsClarification) {
-          setClarificationPrompt(
-            retrieval.clarificationQuestion ||
-            'Could you add one concrete detail about what feels most difficult right now?'
-          );
-          setGuidanceResult(null);
-          setCrisisAlert(null);
-          setCurrentTab('reflect');
-          return;
-        }
-
-        const grounding = validateGrounding(null, retrieval.category);
-        const localResult: GuidanceResult = {
-          category: retrieval.category,
-          safety,
-          grounding,
-          affirmation: `I meet this moment with presence, honesty, and grounded courage.`,
-          synthesis: grounding.groundedSynthesis,
-          isFallback: true,
-        };
-        setGuidanceResult(localResult);
-        trackCategoryInteraction(retrieval.category.category_id, 'reflection');
-        setCrisisAlert(null);
-      }
-    } catch (err) {
-      // Deterministic local client fallback. Safety remains authoritative even if the server is unavailable.
-      const fallbackSafety = evaluateSafetyUpstream(problemText);
-      if (fallbackSafety.blockedFromWisdomMatching || fallbackSafety.status === 'SUBSTANCE_HARD_CEILING') {
-        setCrisisAlert({
-          reason: fallbackSafety.reason,
-          safetyNotes: fallbackSafety.safetyNotes,
-        });
-        setCurrentTab('crisis');
+        );
         setGuidanceResult(null);
-      } else {
-        const retrieval = retrieveGroundedGuidance(problemText, preferredRoot, fallbackSafety.suggestedCategoryId);
-        if (retrieval.needsClarification) {
-          setClarificationPrompt(
-            retrieval.clarificationQuestion ||
-            'Could you add one concrete detail about what feels most difficult right now?'
-          );
-          setGuidanceResult(null);
-          setCrisisAlert(null);
-          setCurrentTab('reflect');
-          return;
-        }
-
-        const grounding = validateGrounding(null, retrieval.category);
-        const localResult: GuidanceResult = {
-          category: retrieval.category,
-          safety: fallbackSafety,
-          grounding,
-          affirmation: `I meet this moment with presence, honesty, and grounded courage.`,
-          synthesis: grounding.groundedSynthesis,
-          isFallback: true,
-        };
-        setGuidanceResult(localResult);
-        trackCategoryInteraction(retrieval.category.category_id, 'reflection');
         setCrisisAlert(null);
+        setCurrentTab('reflect');
+        return;
       }
+
+      const grounding = validateGrounding(null, retrieval.category);
+      const localResult: GuidanceResult = {
+        category: retrieval.category,
+        safety,
+        grounding,
+        affirmation: retrieval.category.synthesis_note,
+        synthesis: grounding.groundedSynthesis,
+        isFallback: true,
+      };
+
+      setGuidanceResult(localResult);
+      trackCategoryInteraction(retrieval.category.category_id, 'reflection');
+      setCrisisAlert(null);
     } finally {
       setIsLoading(false);
     }
@@ -262,6 +193,10 @@ const AppContent: React.FC = () => {
     savedReflections.some((r) => r.categoryId === guidanceResult.category.category_id)
   );
 
+  if (!launchAccepted) {
+    return <LaunchGate onAccepted={() => setLaunchAccepted(true)} />;
+  }
+
   return (
     <SafeAreaView style={[styles.root, { backgroundColor: theme.canvas }]}>
       <StatusBar barStyle={theme.variant === 'dark' ? 'light-content' : 'dark-content'} />
@@ -274,7 +209,7 @@ const AppContent: React.FC = () => {
           </View>
           <View>
             <Text style={[styles.brandTitle, { color: theme.textPrimary }]}>INNER COMPASS</Text>
-            <Text style={[styles.brandSubtitle, { color: theme.textMuted }]}>Clinical Wisdom & Contemplative Taxonomy</Text>
+            <Text style={[styles.brandSubtitle, { color: theme.textMuted }]}>Guided Reflection & Sourced Wisdom</Text>
           </View>
         </View>
 
@@ -364,6 +299,24 @@ const AppContent: React.FC = () => {
             <Pressable
               style={({ pressed }) => [
                 styles.tabButton,
+                { backgroundColor: currentTab === 'legal' ? theme.tabActiveBg : theme.tabInactiveBg },
+                pressed && { opacity: 0.8 },
+              ]}
+              onPress={() => setCurrentTab('legal')}
+            >
+              <Text
+                style={[
+                  styles.tabText,
+                  { color: currentTab === 'legal' ? theme.tabActiveText : theme.tabInactiveText },
+                ]}
+              >
+                About & Privacy
+              </Text>
+            </Pressable>
+
+            <Pressable
+              style={({ pressed }) => [
+                styles.tabButton,
                 {
                   backgroundColor: currentTab === 'crisis' ? theme.crisisAccent : theme.crisisBg,
                   borderWidth: 1,
@@ -405,7 +358,7 @@ const AppContent: React.FC = () => {
               </View>
             </View>
             <Text style={[styles.previewNoticeText, { color: theme.textSecondary }]}>
-              Local Sourced Wisdom KB (25 categories / 75 pillars) · Live Firebase, Gemini & OpenRouter disabled
+              Local deterministic reflection · Raw reflection text stays on this device · No runtime AI providers
             </Text>
           </View>
         </View>
@@ -454,6 +407,10 @@ const AppContent: React.FC = () => {
               setSavedReflections((prev) => prev.filter((r) => r.id !== id));
             }}
           />
+        )}
+
+        {currentTab === 'legal' && (
+          <LegalScreen onResetLaunchGate={() => setLaunchAccepted(false)} />
         )}
 
         {currentTab === 'crisis' && (
