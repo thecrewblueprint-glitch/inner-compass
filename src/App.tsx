@@ -143,21 +143,37 @@ const AppContent: React.FC = () => {
   };
 
   const navigateToTab = (tab: AppTab) => {
-    const isSameRootView =
-      currentNavigation.tab === tab &&
-      currentNavigation.guidanceResult === null &&
-      currentNavigation.crisisAlert === null &&
-      currentNavigation.wisdomLinkContext === null &&
-      currentNavigation.readsLinkContext === null;
+    setNavigationStack((previous) => {
+      const current = previous[previous.length - 1];
+      const isSameRootView =
+        current.tab === tab &&
+        current.guidanceResult === null &&
+        current.crisisAlert === null &&
+        current.wisdomLinkContext === null &&
+        current.readsLinkContext === null;
 
-    if (isSameRootView) return;
+      if (isSameRootView) return previous;
 
-    pushNavigation({
-      tab,
-      guidanceResult: null,
-      crisisAlert: null,
-      wisdomLinkContext: null,
-      readsLinkContext: null,
+      // Tabs restore the most recent page in that section when it exists.
+      // This preserves a guidance result when the user follows a Wisdom/Reads
+      // cross-link and then returns to Reflect, while Back still walks the
+      // page history one state at a time.
+      for (let index = previous.length - 2; index >= 0; index -= 1) {
+        if (previous[index].tab === tab) {
+          return previous.slice(0, index + 1);
+        }
+      }
+
+      return [
+        ...previous,
+        {
+          tab,
+          guidanceResult: null,
+          crisisAlert: null,
+          wisdomLinkContext: null,
+          readsLinkContext: null,
+        },
+      ];
     });
   };
 
