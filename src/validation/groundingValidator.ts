@@ -1,11 +1,11 @@
-import { Category, GroundingValidationResult, KBEntry, StructuredLLMOutput } from '../types';
+import { Category, GroundingValidationResult, KBEntry, StructuredGroundingProbe } from '../types';
 import { getCategoryById } from '../knowledgeBase/kbLoader';
 
 /**
  * Deterministic Grounding Validator.
- * Canonical guidance is valid without any model output.
- * Optional structured phrasing/mocks are validated strictly against the canonical category
- * so tests can still exercise hallucination and source-integrity rejection behavior.
+ * Canonical guidance is valid on its own.
+ * Optional deterministic grounding probes are validated strictly against the canonical category
+ * so tests can exercise source-integrity rejection behavior without any external generator.
  */
 
 // Well-known authors across ALL categories in the canonical KB
@@ -45,13 +45,13 @@ const ALL_CANONICAL_AUTHORS = new Set([
 ]);
 
 export function validateGrounding(
-  llmOutput: StructuredLLMOutput | null,
+  probe: StructuredGroundingProbe | null,
   expectedCategory: Category
 ): GroundingValidationResult {
   const warnings: string[] = [];
 
   // Canonical deterministic guidance is the primary product path.
-  if (!llmOutput) {
+  if (!probe) {
     return {
       isValid: true,
       verifiedEntries: expectedCategory.entries,
@@ -61,13 +61,13 @@ export function validateGrounding(
   }
 
   // 1. Verify matched category ID. Any category mismatch fails closed.
-  if (llmOutput.matched_category_id !== expectedCategory.category_id) {
-    const altCategory = getCategoryById(llmOutput.matched_category_id);
+  if (probe.matched_category_id !== expectedCategory.category_id) {
+    const altCategory = getCategoryById(probe.matched_category_id);
     return {
       isValid: false,
       rejectionReason: altCategory
-        ? `LLM category mismatch: expected #${expectedCategory.category_id}, received #${llmOutput.matched_category_id}`
-        : `LLM returned invalid category ID: ${llmOutput.matched_category_id}`,
+        ? `Grounding probe category mismatch: expected #${expectedCategory.category_id}, received #${probe.matched_category_id}`
+        : `Grounding probe returned invalid category ID: ${probe.matched_category_id}`,
       verifiedEntries: expectedCategory.entries,
       groundedSynthesis: expectedCategory.synthesis_note,
       warnings: ['Category mismatch; reverted to deterministic canonical synthesis.'],
@@ -78,21 +78,21 @@ export function validateGrounding(
   const validEntryIds = new Set(expectedCategory.entries.map((e) => e.entry_id));
   const verifiedEntries: KBEntry[] = [];
 
-  if (!Array.isArray(llmOutput.selected_entry_ids) || llmOutput.selected_entry_ids.length === 0) {
+  if (!Array.isArray(probe.selected_entry_ids) || probe.selected_entry_ids.length === 0) {
     return {
       isValid: false,
-      rejectionReason: 'LLM output omitted required canonical entry IDs.',
+      rejectionReason: 'Grounding probe omitted required canonical entry IDs.',
       verifiedEntries: expectedCategory.entries,
       groundedSynthesis: expectedCategory.synthesis_note,
       warnings: ['Missing selected_entry_ids; reverted to deterministic canonical synthesis.'],
     };
   }
 
-  for (const id of llmOutput.selected_entry_ids) {
+  for (const id of probe.selected_entry_ids) {
     if (!validEntryIds.has(id)) {
       return {
         isValid: false,
-        rejectionReason: `LLM selected noncanonical entry ID ${id} for Category #${expectedCategory.category_id}`,
+        rejectionReason: `Grounding probe selected noncanonical entry ID ${id} for Category #${expectedCategory.category_id}`,
         verifiedEntries: expectedCategory.entries,
         groundedSynthesis: expectedCategory.synthesis_note,
         warnings: [`Rejected noncanonical entry ID: ${id}`],
@@ -100,14 +100,14 @@ export function validateGrounding(
     }
   }
 
-  const uniqueSelectedIds = new Set(llmOutput.selected_entry_ids);
+  const uniqueSelectedIds = new Set(probe.selected_entry_ids);
   if (
     uniqueSelectedIds.size !== validEntryIds.size ||
     [...validEntryIds].some((id) => !uniqueSelectedIds.has(id))
   ) {
     return {
       isValid: false,
-      rejectionReason: 'LLM output did not preserve the complete canonical three-pillar entry set.',
+      rejectionReason: 'Grounding probe did not preserve the complete canonical three-pillar entry set.',
       verifiedEntries: expectedCategory.entries,
       groundedSynthesis: expectedCategory.synthesis_note,
       warnings: ['Incomplete canonical entry set; reverted to deterministic canonical synthesis.'],
@@ -118,7 +118,7 @@ export function validateGrounding(
   verifiedEntries.push(...expectedCategory.entries);
 
   // 3. Inspect phrased reflection for invented quotes or unauthorized authors
-  const text = llmOutput.phrased_reflection || '';
+  const text = probe.phrased_reflection || '';
 
   // Extract author names present in this specific category's entries
   const categoryAuthors = expectedCategory.entries.map((e) => e.source_author.toLowerCase());
@@ -141,7 +141,7 @@ export function validateGrounding(
   }
 
   // 4. Quote verification check
-  // If the LLM uses quotation marks ("..."), check whether the quote matches a verified_quote in the entries
+  // If the grounding probe uses quotation marks ("..."), check whether the quote matches a verified_quote in the entries
   const quoteMatches = text.match(/"([^"]{15,})"/g) || [];
   for (const q of quoteMatches) {
     const cleanQuote = q.replace(/"/g, '').trim().toLowerCase();
@@ -154,7 +154,7 @@ export function validateGrounding(
     if (!isVerified) {
       return {
         isValid: false,
-        rejectionReason: 'LLM presented text as a quotation that is not a verified canonical quote.',
+        rejectionReason: 'Grounding probe presented text as a quotation that is not a verified canonical quote.',
         verifiedEntries: expectedCategory.entries,
         groundedSynthesis: expectedCategory.synthesis_note,
         warnings: ['Unverified quoted material rejected; reverted to deterministic canonical synthesis.'],

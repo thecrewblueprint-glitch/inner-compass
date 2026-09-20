@@ -61,7 +61,7 @@ export interface SafetyRoutingResult {
   suggestedCategoryId?: number;
 }
 
-export interface StructuredLLMOutput {
+export interface StructuredGroundingProbe {
   matched_category_id: number;
   existential_roots?: string[];
   phrased_reflection: string;
