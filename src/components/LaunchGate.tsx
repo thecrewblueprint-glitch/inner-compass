@@ -78,7 +78,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         </View>
 
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          By continuing, you attest that you are at least 18 years old, are located in the United States, and agree to use Inner Compass only as an informational reflection tool.
+          By continuing, you attest that you are at least 18 years old and are located in the United States. You also request local processing of the reflection text you choose to enter solely to provide the reflection features you request; that raw text is not sent off-device by the production app.
         </Text>
 
         <Pressable
