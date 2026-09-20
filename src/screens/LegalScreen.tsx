@@ -138,8 +138,8 @@ const Privacy = () => (
     <P>Your reflection text is processed in your browser on this device. Inner Compass is designed not to send that text to its servers, AI services, advertising networks, or analytics services.</P>
     <H>Local browser data</H>
     <P>The app may store saved reflection themes, affirmations, personalization counts, color settings, eligibility confirmation, and basic reliability information in your browser. Your original reflection text is not intentionally saved.</P>
-    <H>App reliability information</H>
-    <P>Inner Compass may keep a small local activity and error log on this device to help identify reliability problems. It excludes raw reflection text and is not sent elsewhere automatically.</P>
+    <H>On-device app information</H>
+    <P>Inner Compass may keep a small amount of information on this device about whether the app is working properly. It does not include what you typed in a reflection and is not sent elsewhere automatically.</P>
     <H>Third-party links</H>
     <P>When you choose an external crisis, library, publisher, or research link, you leave Inner Compass. The destination may receive ordinary web-request information under its own privacy policy.</P>
     <H>Retention and deletion</H>
