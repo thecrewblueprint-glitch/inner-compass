@@ -47,7 +47,12 @@ export const LegalScreen: React.FC<LegalScreenProps> = ({ initialDocument = 'pri
         </View>
       )}
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.tabs}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.tabs}
+        {...({ role: 'tablist', 'aria-label': 'Legal notice sections' } as any)}
+      >
         {DOCS.map((doc) => (
           <Pressable
             key={doc.key}
