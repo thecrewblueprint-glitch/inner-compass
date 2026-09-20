@@ -4,72 +4,179 @@
     {
       "category_id": 1,
       "category_name": "Loneliness / feeling isolated even around people",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "feeling socially disconnected",
+        "difficulty remembering shared humanity"
+      ],
+      "negative_match_signals": [
+        "active abuse",
+        "immediate threat"
+      ],
+      "existential_roots": [
+        "Isolation"
+      ],
+      "philosophical_themes": [
+        "social nature",
+        "cooperation"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-2-1"
+      ],
+      "neighboring_category_ids": [
+        5,
+        17
+      ],
+      "retrieval_notes": "Stoic fit is social-nature/cooperation, not a denial of loneliness.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 2,
       "category_name": "Grief / loss of a person, relationship, or way of life",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "bereavement",
+        "loss",
+        "painful remembrance"
+      ],
+      "negative_match_signals": [
+        "pressure to stop grieving quickly"
+      ],
+      "existential_roots": [
+        "Death",
+        "Meaninglessness"
+      ],
+      "philosophical_themes": [
+        "grief",
+        "memory"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-SEN-63-4"
+      ],
+      "neighboring_category_ids": [
+        7,
+        23
+      ],
+      "retrieval_notes": "Use Seneca with context that he permits grief and tears.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 3,
       "category_name": "General anxiety / dread about the future",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "future dread",
+        "catastrophizing",
+        "uncertainty"
+      ],
+      "negative_match_signals": [
+        "known immediate danger"
+      ],
+      "existential_roots": [
+        "Freedom",
+        "Death"
+      ],
+      "philosophical_themes": [
+        "control",
+        "judgment",
+        "anticipatory fear"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-8-47",
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-EPI-ENCH-5",
+        "WIS-STOIC-SEN-13-4"
+      ],
+      "neighboring_category_ids": [
+        9,
+        15,
+        18
+      ],
+      "retrieval_notes": "Distinguish imagined future threat from concrete present danger.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 4,
       "category_name": "Anger",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "anger",
+        "urge to retaliate",
+        "reactivity"
+      ],
+      "negative_match_signals": [
+        "need for immediate self-protection"
+      ],
+      "existential_roots": [
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "delay",
+        "judgment",
+        "non-retaliation"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-6-6",
+        "WIS-STOIC-EPI-ENCH-5",
+        "WIS-STOIC-SEN-ANGER-2-29"
+      ],
+      "neighboring_category_ids": [
+        5,
+        12,
+        25
+      ],
+      "retrieval_notes": "Delay retaliatory reaction, not protective action.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 5,
       "category_name": "Ongoing conflict with someone",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "ongoing interpersonal conflict",
+        "reciprocity problems"
+      ],
+      "negative_match_signals": [
+        "IPV",
+        "coercive control",
+        "physical danger"
+      ],
+      "existential_roots": [
+        "Freedom",
+        "Isolation"
+      ],
+      "philosophical_themes": [
+        "cooperation",
+        "reciprocity",
+        "response choice"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-2-1",
+        "WIS-STOIC-SEN-47-11",
+        "WIS-STOIC-SEN-ANGER-2-29"
+      ],
+      "neighboring_category_ids": [
+        4,
+        12,
+        25
+      ],
+      "retrieval_notes": "Ordinary conflict only; abuse boundary remains upstream.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 6,
@@ -102,30 +209,72 @@
     {
       "category_id": 8,
       "category_name": "Feeling stuck / can't decide",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "indecision",
+        "outcome fixation",
+        "difficulty acting"
+      ],
+      "negative_match_signals": [
+        "decision requires missing factual information"
+      ],
+      "existential_roots": [
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "control",
+        "practice",
+        "action"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-MUSONIUS-PRACTICE"
+      ],
+      "neighboring_category_ids": [
+        9,
+        14,
+        15
+      ],
+      "retrieval_notes": "Focus on actionable agency rather than guaranteeing an outcome.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 9,
       "category_name": "Fear of failure",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "fear of failing",
+        "fear of judgment",
+        "catastrophizing outcome"
+      ],
+      "negative_match_signals": [
+        "actual current failure requiring practical remediation"
+      ],
+      "existential_roots": [
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "external outcomes",
+        "anticipatory fear"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-EPI-ENCH-5",
+        "WIS-STOIC-SEN-13-4"
+      ],
+      "neighboring_category_ids": [
+        3,
+        8,
+        20
+      ],
+      "retrieval_notes": "Do not equate Stoic detachment from outcomes with lack of preparation.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 10,
@@ -158,114 +307,278 @@
     {
       "category_id": 12,
       "category_name": "Betrayal / broken trust",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "betrayal",
+        "urge for revenge"
+      ],
+      "negative_match_signals": [
+        "ongoing abuse",
+        "immediate danger"
+      ],
+      "existential_roots": [
+        "Isolation"
+      ],
+      "philosophical_themes": [
+        "non-retaliation",
+        "character"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-6-6"
+      ],
+      "neighboring_category_ids": [
+        4,
+        5,
+        25
+      ],
+      "retrieval_notes": "Current Stoic coverage is narrow: response after wrongdoing, not trust-repair theory.",
+      "review_status": "PHASE1_PARTIAL"
     },
     {
       "category_id": 13,
       "category_name": "General life meaninglessness",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "life feels wasted",
+        "lack of direction"
+      ],
+      "negative_match_signals": [
+        "acute crisis"
+      ],
+      "existential_roots": [
+        "Meaninglessness"
+      ],
+      "philosophical_themes": [
+        "time",
+        "purpose",
+        "practice"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-SEN-SHORT-1",
+        "WIS-STOIC-MUSONIUS-PRACTICE"
+      ],
+      "neighboring_category_ids": [
+        14,
+        16,
+        23
+      ],
+      "retrieval_notes": "Avoid turning mortality/time reflection into productivity shame.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 14,
       "category_name": "Career / vocational purpose",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "vocational uncertainty",
+        "purpose through work/action"
+      ],
+      "negative_match_signals": [
+        "need for concrete job-search information"
+      ],
+      "existential_roots": [
+        "Meaninglessness"
+      ],
+      "philosophical_themes": [
+        "time",
+        "practice",
+        "lived values"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-SEN-SHORT-1",
+        "WIS-STOIC-MUSONIUS-PRACTICE"
+      ],
+      "neighboring_category_ids": [
+        8,
+        13,
+        16
+      ],
+      "retrieval_notes": "Philosophy can frame values; it should not choose a career for the user.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 15,
       "category_name": "Overwhelm / too much to control",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "too much to control",
+        "overwhelm",
+        "resistance to circumstances"
+      ],
+      "negative_match_signals": [
+        "material emergency"
+      ],
+      "existential_roots": [
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "dichotomy of control",
+        "acceptance",
+        "judgment"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-8-47",
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-EPI-ENCH-5",
+        "WIS-STOIC-EPI-ENCH-8"
+      ],
+      "neighboring_category_ids": [
+        3,
+        8,
+        22
+      ],
+      "retrieval_notes": "Separate prioritization/agency from minimizing real workload.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 16,
       "category_name": "Personal identity confusion",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "trying to escape self through external change",
+        "uncertain self-direction"
+      ],
+      "negative_match_signals": [
+        "unsafe environment where leaving is protective"
+      ],
+      "existential_roots": [
+        "Meaninglessness",
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "self-examination",
+        "practice"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-SEN-28-1",
+        "WIS-STOIC-MUSONIUS-PRACTICE"
+      ],
+      "neighboring_category_ids": [
+        13,
+        14,
+        17
+      ],
+      "retrieval_notes": "Moderate fit; identity theory itself is not a core Stoic category in these records.",
+      "review_status": "PHASE1_PARTIAL"
     },
     {
       "category_id": 17,
       "category_name": "Cultural or group belonging confusion",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "belonging",
+        "status hierarchy",
+        "social inclusion"
+      ],
+      "negative_match_signals": [
+        "discrimination requiring practical remedy"
+      ],
+      "existential_roots": [
+        "Isolation"
+      ],
+      "philosophical_themes": [
+        "shared humanity",
+        "dignity",
+        "social nature"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-2-1",
+        "WIS-STOIC-SEN-47-11"
+      ],
+      "neighboring_category_ids": [
+        1,
+        5,
+        25
+      ],
+      "retrieval_notes": "Historical Roman hierarchy requires contextualization.",
+      "review_status": "PHASE1_PARTIAL"
     },
     {
       "category_id": 18,
       "category_name": "Illness or fear about health / mortality",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "illness limiting life",
+        "mortality awareness",
+        "health-related loss of agency"
+      ],
+      "negative_match_signals": [
+        "medical emergency",
+        "diagnostic question"
+      ],
+      "existential_roots": [
+        "Death"
+      ],
+      "philosophical_themes": [
+        "illness",
+        "mortality",
+        "remaining agency",
+        "time"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-SEN-78-20",
+        "WIS-STOIC-SEN-SHORT-1"
+      ],
+      "neighboring_category_ids": [
+        3,
+        15
+      ],
+      "retrieval_notes": "Never frame Stoic reflection as medical treatment.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 19,
       "category_name": "Financial or security fear",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "fear about property or security beyond immediate control"
+      ],
+      "negative_match_signals": [
+        "imminent eviction",
+        "food insecurity",
+        "urgent debt/legal issue"
+      ],
+      "existential_roots": [
+        "Freedom",
+        "Death"
+      ],
+      "philosophical_themes": [
+        "externals",
+        "control"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1"
+      ],
+      "neighboring_category_ids": [
+        3,
+        15
+      ],
+      "retrieval_notes": "Weak-to-moderate fit; practical-resource routing must accompany acute material need.",
+      "review_status": "PHASE1_PARTIAL"
     },
     {
       "category_id": 20,
@@ -298,30 +611,69 @@
     {
       "category_id": 22,
       "category_name": "Impatience / waiting for something to change",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "impatience",
+        "waiting",
+        "resisting what has already occurred"
+      ],
+      "negative_match_signals": [
+        "delay would worsen a practical problem"
+      ],
+      "existential_roots": [
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "acceptance",
+        "time",
+        "control"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-EPI-ENCH-8",
+        "WIS-STOIC-SEN-SHORT-1"
+      ],
+      "neighboring_category_ids": [
+        8,
+        15
+      ],
+      "retrieval_notes": "Acceptance applies to facts already present; action remains possible.",
+      "review_status": "PHASE1_RESEARCHED"
     },
     {
       "category_id": 23,
       "category_name": "Low mood / persistent sadness",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "gloom that persists across changes of scenery"
+      ],
+      "negative_match_signals": [
+        "acute or severe deterioration requiring support"
+      ],
+      "existential_roots": [
+        "Meaninglessness",
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "self-examination",
+        "escape"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-SEN-28-1"
+      ],
+      "neighboring_category_ids": [
+        13,
+        16,
+        24
+      ],
+      "retrieval_notes": "Narrow philosophical fit; not treatment for persistent low mood.",
+      "review_status": "PHASE1_PARTIAL"
     },
     {
       "category_id": 24,
@@ -340,16 +692,41 @@
     {
       "category_id": 25,
       "category_name": "Being mistreated / bullied / disrespected",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
+      "problem_signals": [
+        "disrespect",
+        "mistreatment",
+        "retaliatory urge"
+      ],
+      "negative_match_signals": [
+        "abuse",
+        "violence",
+        "coercion",
+        "immediate danger"
+      ],
+      "existential_roots": [
+        "Isolation",
+        "Freedom"
+      ],
+      "philosophical_themes": [
+        "dignity",
+        "non-retaliation",
+        "reciprocity"
+      ],
+      "strong_fit_traditions": [
+        "Stoicism"
+      ],
       "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "source_record_ids": [
+        "WIS-STOIC-MA-6-6",
+        "WIS-STOIC-SEN-47-11"
+      ],
+      "neighboring_category_ids": [
+        4,
+        5,
+        12
+      ],
+      "retrieval_notes": "Do not use philosophical restraint to suppress boundaries or safety action.",
+      "review_status": "PHASE1_RESEARCHED"
     }
   ]
 }
