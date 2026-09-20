@@ -89,6 +89,7 @@ async function startServer() {
         const safety = evaluateSafetyUpstream(problem);
         let route = 'WISDOM_GUIDANCE';
         if (safety.status === 'CRISIS_REDIRECT') route = 'CRISIS_REDIRECT';
+        else if (safety.status === 'SAFETY_REVIEW_REDIRECT') route = 'SAFETY_REVIEW_REDIRECT';
         else if (safety.status === 'ABUSE_REDIRECT') route = 'ABUSE_REDIRECT';
         else if (safety.status === 'SUBSTANCE_HARD_CEILING') route = 'SUBSTANCE_HARD_CEILING';
         else if (safety.status === 'ESCALATION_REDIRECT') route = 'ESCALATION_REDIRECT';
