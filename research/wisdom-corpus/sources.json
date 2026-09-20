@@ -1,4 +1,133 @@
 {
   "schema_version": "1.0",
-  "sources": []
+  "sources": [
+    {
+      "source_id": "SRC-STOIC-MARCUS-LONG-1862",
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Marcus Aurelius",
+      "work": "Meditations",
+      "source_type": "TRANSLATION",
+      "original_language": "Ancient Greek",
+      "translator": "George Long",
+      "edition": "Long translation (1862); Project Gutenberg electronic edition",
+      "publication_year": 1862,
+      "publisher": "Project Gutenberg electronic edition of public-domain translation",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/15877",
+        "https://www.gutenberg.org/files/15877/15877-h/15877-h.htm",
+        "https://classics.mit.edu/Antoninus/meditations.html"
+      ],
+      "bibliographic_citation": "Marcus Aurelius. Meditations. Translated by George Long. 1862. Public-domain electronic editions via Project Gutenberg and the Internet Classics Archive.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "George Long died in 1879; Project Gutenberg identifies the edition as public domain in the United States.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-STOIC-EPICTETUS-LONG-1890",
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Epictetus; recorded by Arrian",
+      "work": "Discourses, Enchiridion, and Fragments",
+      "source_type": "TRANSLATION",
+      "original_language": "Ancient Greek",
+      "translator": "George Long",
+      "edition": "George Bell and Sons, 1890",
+      "publication_year": 1890,
+      "publisher": "George Bell and Sons",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/10661",
+        "https://www.gutenberg.org/files/10661/10661-h/10661-h.htm",
+        "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0236"
+      ],
+      "bibliographic_citation": "Epictetus. The Discourses of Epictetus, with the Encheiridion and Fragments. Translated by George Long. London: George Bell and Sons, 1890.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg identifies the translation as public domain in the United States; Perseus provides a proofread electronic text.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-STOIC-SENECA-GUMMERE-1917-1925",
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Moral Letters to Lucilius",
+      "source_type": "TRANSLATION",
+      "original_language": "Latin",
+      "translator": "Richard M. Gummere",
+      "edition": "Loeb Classical Library, 3 vols.",
+      "publication_year": "1917-1925",
+      "publisher": "William Heinemann / Harvard University Press",
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius",
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_47",
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_63",
+        "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_78"
+      ],
+      "bibliographic_citation": "Seneca. Ad Lucilium Epistulae Morales. Translated by Richard M. Gummere. Loeb Classical Library. London: William Heinemann; New York/Cambridge: G. P. Putnam's Sons/Harvard University Press, 1917-1925.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Wikisource hosts the early Loeb volumes as public-domain U.S. editions.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-STOIC-SENECA-STEWART-ANGER",
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "Of Anger (De Ira)",
+      "source_type": "TRANSLATION",
+      "original_language": "Latin",
+      "translator": "Aubrey Stewart",
+      "edition": "Minor Dialogues translation, late nineteenth century",
+      "publication_year": null,
+      "publisher": "George Bell and Sons",
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Of_Anger"
+      ],
+      "bibliographic_citation": "Seneca. Of Anger (De Ira). Translated by Aubrey Stewart. George Bell and Sons public-domain edition.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Wikisource identifies the work as public domain in the United States because the translation was published before 1931.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-STOIC-SENECA-BASORE-SHORTNESS",
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Seneca the Younger",
+      "work": "On the Shortness of Life (De Brevitate Vitae)",
+      "source_type": "TRANSLATION",
+      "original_language": "Latin",
+      "translator": "John W. Basore",
+      "edition": "Moral Essays, Loeb Classical Library",
+      "publication_year": 1932,
+      "publisher": "William Heinemann / Harvard University Press",
+      "source_urls": [
+        "https://en.wikisource.org/wiki/On_the_shortness_of_life"
+      ],
+      "bibliographic_citation": "Seneca. On the Shortness of Life. In Moral Essays. Translated by John W. Basore. Loeb Classical Library, 1932.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Wikisource records the 1932 translation as public domain in the United States because copyright was not renewed; jurisdiction-specific review is still required for international deployment.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-STOIC-MUSONIUS-LUTZ-1947",
+      "tradition": "Stoicism",
+      "school_or_lineage": "Roman Stoicism",
+      "author_or_attributed_figure": "Musonius Rufus",
+      "work": "Lectures and Fragments",
+      "source_type": "TRANSLATION",
+      "original_language": "Ancient Greek",
+      "translator": "Cora E. Lutz",
+      "edition": "Musonius Rufus, 'The Roman Socrates,' Yale Classical Studies 10",
+      "publication_year": 1947,
+      "publisher": "Yale University Press",
+      "source_urls": [
+        "https://books.google.com/books/about/Musonius_Rufus_The_Roman_Socrates.html?id=akmxAAAAIAAJ",
+        "https://yalebooks.yale.edu/book/9780300252286/that-one-should-disdain-hardships/"
+      ],
+      "bibliographic_citation": "Musonius Rufus. 'Musonius Rufus, the Roman Socrates.' Translated and edited by Cora E. Lutz. Yale Classical Studies 10 (1947): 3-147.",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Treat the Lutz translation as citation/paraphrase-only in this corpus unless a separate rights review establishes direct-quote permission for the intended jurisdiction and product use.",
+      "review_status": "SOURCE_VERIFIED"
+    }
+  ]
 }
