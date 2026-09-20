@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Image,
   Linking,
@@ -56,6 +56,11 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
   const [linkedWisdomRecordId, setLinkedWisdomRecordId] = useState<string | null>(initialWisdomRecordId);
+
+  useEffect(() => {
+    setLinkedCategoryId(initialCategoryId);
+    setLinkedWisdomRecordId(initialWisdomRecordId);
+  }, [initialCategoryId, initialWisdomRecordId]);
 
   const traditions = useMemo(
     () => Array.from(new Set(READING_RECORDS.map((record) => record.tradition))).sort(),
