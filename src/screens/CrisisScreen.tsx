@@ -106,7 +106,6 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
               {
                 backgroundColor: theme.card,
                 borderColor: theme.cardBorder,
-                shadowColor: theme.cardShadow,
               },
             ]}
           >
@@ -191,9 +190,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     padding: 22,
     marginBottom: 18,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 8,
   },
   badge: {
     alignSelf: 'flex-start',
@@ -263,9 +259,6 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     padding: 18,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 5,
   },
   cardHeader: {
     flexDirection: 'row',
