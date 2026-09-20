@@ -7,5 +7,190 @@
     "may_not_make_clinical_or_universal_promises": true,
     "safety_router_remains_authoritative": true
   },
-  "candidates": []
+  "candidates": [
+    {
+      "affirmation_id": "AFF-02-STOIC-MEMORY",
+      "category_id": 2,
+      "text": "I can let memory hold both love and pain without demanding that grief disappear on a schedule.",
+      "source_record_ids": [
+        "WIS-STOIC-SEN-63-4"
+      ],
+      "philosophical_theme": "grief and remembrance",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Not a timetable for mourning.",
+      "category_fit_score": 96,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-03-STOIC-AGENCY",
+      "category_id": 3,
+      "text": "I can separate what is happening from what I am predicting, and return attention to the part of my response I can shape.",
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-SEN-13-4"
+      ],
+      "philosophical_theme": "agency under uncertainty",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Not for dismissing concrete danger.",
+      "category_fit_score": 98,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-04-STOIC-DELAY",
+      "category_id": 4,
+      "text": "I can give anger enough space for judgment to return before I choose what to do next.",
+      "source_record_ids": [
+        "WIS-STOIC-SEN-ANGER-2-29",
+        "WIS-STOIC-MA-6-6"
+      ],
+      "philosophical_theme": "anger and response choice",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Immediate protective action should not be delayed.",
+      "category_fit_score": 99,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-05-STOIC-RECIPROCITY",
+      "category_id": 5,
+      "text": "I can protect my boundaries without surrendering my own standards of fairness and humanity.",
+      "source_record_ids": [
+        "WIS-STOIC-MA-2-1",
+        "WIS-STOIC-SEN-47-11"
+      ],
+      "philosophical_theme": "conflict and reciprocity",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Not for abusive relationships.",
+      "category_fit_score": 90,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-08-STOIC-CONTROL",
+      "category_id": 8,
+      "text": "I do not need control of every outcome before I can choose the next action that belongs to me.",
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-MUSONIUS-PRACTICE"
+      ],
+      "philosophical_theme": "choice and action",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 95,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-09-STOIC-OUTCOME",
+      "category_id": 9,
+      "text": "I can act carefully without turning an uncertain outcome into a verdict on my worth.",
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-SEN-13-4"
+      ],
+      "philosophical_theme": "failure and external outcomes",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 95,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-14-STOIC-PRACTICE",
+      "category_id": 14,
+      "text": "Purpose can become clearer through the way I practice my values today, not only through finding a perfect title or destination.",
+      "source_record_ids": [
+        "WIS-STOIC-SEN-SHORT-1",
+        "WIS-STOIC-MUSONIUS-PRACTICE"
+      ],
+      "philosophical_theme": "vocation and lived values",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 89,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-15-STOIC-NEXT",
+      "category_id": 15,
+      "text": "I can release the demand to control the whole situation and work with the part that is actually mine to address.",
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-STOIC-EPI-ENCH-8"
+      ],
+      "philosophical_theme": "control and overwhelm",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Practical emergencies still require direct action.",
+      "category_fit_score": 98,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-18-STOIC-LIMIT",
+      "category_id": 18,
+      "text": "Illness may limit what I can do without erasing every form of agency, attention, or care still available to me.",
+      "source_record_ids": [
+        "WIS-STOIC-SEN-78-20"
+      ],
+      "philosophical_theme": "illness and remaining agency",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Not medical advice and never a substitute for care.",
+      "category_fit_score": 96,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-22-STOIC-REALITY",
+      "category_id": 22,
+      "text": "I can stop arguing with what has already happened and decide how I want to meet what is here now.",
+      "source_record_ids": [
+        "WIS-STOIC-EPI-ENCH-8"
+      ],
+      "philosophical_theme": "patience and acceptance",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Acceptance does not mean remaining passive in harmful conditions.",
+      "category_fit_score": 96,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-25-STOIC-CHARACTER",
+      "category_id": 25,
+      "text": "Someone else's disrespect does not require me to imitate it; I can keep my dignity and still protect my boundaries.",
+      "source_record_ids": [
+        "WIS-STOIC-MA-6-6",
+        "WIS-STOIC-SEN-47-11"
+      ],
+      "philosophical_theme": "mistreatment, dignity, and non-retaliation",
+      "tradition_basis": [
+        "Stoicism"
+      ],
+      "safety_notes": "Not for active abuse or immediate danger.",
+      "category_fit_score": 98,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    }
+  ]
 }
