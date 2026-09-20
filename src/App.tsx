@@ -646,7 +646,7 @@ const AppContent: React.FC = () => {
       </View>
 
       <View style={[styles.footer, { backgroundColor: theme.topBar, borderTopColor: theme.topBarBorder }]}>
-        <Text style={[styles.footerText, { color: theme.textMuted }]}>18+ · U.S. · English only · General-wellness reflection</Text>
+        <Text style={[styles.footerText, { color: theme.textMuted }]}>Beta · 18+ · U.S. · English only · General-wellness reflection</Text>
         <View style={styles.footerLinks}>
           <Pressable accessibilityRole="link" onPress={() => openLegalDocument('terms')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Legal & Safety</Text></Pressable>
           <Pressable accessibilityRole="link" onPress={() => openLegalDocument('health-data')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Consumer Health Data Policy</Text></Pressable>
