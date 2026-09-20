@@ -248,21 +248,15 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
               </View>
               <Text style={[styles.sourceWork, { color: theme.textMuted }]}>Text: {entry.source_work}</Text>
 
-              {/* Verified Quote (if present) */}
+              {/* Product-display rights gate: direct quotation text remains disabled. */}
               {entry.verified_quote && (
-                <View
-                  style={[
-                    styles.quoteBox,
-                    {
-                      backgroundColor: theme.quoteBg,
-                      borderColor: theme.quoteBorder,
-                      borderLeftColor: theme.accentPrimary,
-                      borderLeftWidth: 3,
-                    },
-                  ]}
-                >
-                  <Text style={[styles.quoteLabel, { color: theme.quoteLabel }]}>VERIFIED PRIMARY SOURCE QUOTE:</Text>
-                  <Text style={[styles.quoteText, { color: theme.quoteText }]}>"{entry.verified_quote}"</Text>
+                <View style={[styles.quoteBox, { backgroundColor: theme.quoteBg, borderColor: theme.quoteBorder }]}>
+                  <Text style={[styles.quoteText, { color: theme.quoteText }]}>
+                    Verified source passage available. Exact quotation is withheld pending product-display rights approval.
+                  </Text>
+                  <Text style={[styles.quoteAttribution, { color: theme.textMuted }]}>
+                    Source: {entry.source_author} · {entry.source_work}
+                  </Text>
                 </View>
               )}
 
