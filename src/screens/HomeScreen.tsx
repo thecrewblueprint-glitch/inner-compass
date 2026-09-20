@@ -19,6 +19,7 @@ interface HomeScreenProps {
   clarificationPrompt?: string | null;
   dailyInteractionTimestamp?: number;
   onOpenLegal?: () => void;
+  onOpenHealthData?: () => void;
   onOpenCrisis?: () => void;
 }
 
@@ -59,6 +60,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   clarificationPrompt,
   dailyInteractionTimestamp,
   onOpenLegal,
+  onOpenHealthData,
   onOpenCrisis,
 }) => {
   const { theme } = useTheme();
@@ -244,6 +246,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           {onOpenLegal && (
             <Pressable accessibilityRole="link" accessibilityLabel="Open legal and safety notices" onPress={onOpenLegal}>
               <Text style={[styles.noticeLink, { color: theme.accentPrimary }]}>Legal & Safety</Text>
+            </Pressable>
+          )}
+          {onOpenHealthData && (
+            <Pressable accessibilityRole="link" accessibilityLabel="Open Consumer Health Data Privacy Policy" onPress={onOpenHealthData}>
+              <Text style={[styles.noticeLink, { color: theme.accentPrimary }]}>Consumer Health Data Policy</Text>
             </Pressable>
           )}
           {onOpenCrisis && (
