@@ -150,6 +150,8 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.getByText('Taxonomy', { exact: true }).click();
     await page.getByText('Loneliness / feeling isolated even around people', { exact: true }).click();
+    await page.getByText('Reflect on this Category →', { exact: true }).click();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
     await page.getByLabel('Open wisdom for category 1').click();
     await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
 
