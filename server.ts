@@ -24,6 +24,14 @@ async function startServer() {
   const app = express();
   const PORT = Number(process.env.PORT || 3000);
   const isProduction = process.env.NODE_ENV === 'production';
+  const legalOperatorConfigured = Boolean(process.env.VITE_LEGAL_OPERATOR_NAME?.trim());
+  const legalContactConfigured = Boolean(process.env.VITE_LEGAL_CONTACT_EMAIL?.trim());
+  const counselReviewed = process.env.VITE_LEGAL_COUNSEL_REVIEWED === 'true';
+  const publicLaunchApproved = process.env.VITE_PUBLIC_LAUNCH_APPROVED === 'true';
+  const releaseTier =
+    legalOperatorConfigured && legalContactConfigured && counselReviewed && publicLaunchApproved
+      ? 'PUBLIC_RELEASE'
+      : 'CONTROLLED_BETA';
 
   app.use(express.json({ limit: '64kb' }));
 
@@ -36,6 +44,14 @@ async function startServer() {
       externalDecisionProviders: 0,
       rawReflectionProductionTransport: false,
       privacyEnforced: true,
+      supportedLanguage: 'en-US',
+      minimumAge: 18,
+      releaseTier,
+      legalOperatorConfigured,
+      legalContactConfigured,
+      counselReviewed,
+      publicLaunchApproved,
+      remoteDiagnosticsTransport: false,
       preview: process.env.VITE_INNER_COMPASS_PREVIEW === 'true',
     });
   });
