@@ -191,6 +191,175 @@
       "category_fit_score": 98,
       "review_status": "SOURCE_LINKED",
       "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-01-BUD-GOODWILL",
+      "category_id": 1,
+      "text": "I can hold goodwill for myself and others without forcing closeness where closeness is not available.",
+      "source_record_ids": [
+        "WIS-BUD-SNP-1-8-144"
+      ],
+      "philosophical_theme": "goodwill without forced proximity",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Does not encourage isolation or unwanted reconciliation.",
+      "category_fit_score": 88,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-03-BUD-PRESENT",
+      "category_id": 3,
+      "text": "I can notice what is actually present before treating every interpretation as a fact about what comes next.",
+      "source_record_ids": [
+        "WIS-BUD-UD-1-10-ATTENTION"
+      ],
+      "philosophical_theme": "attention before proliferation",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Not for dismissing concrete danger or destabilizing perceptual symptoms.",
+      "category_fit_score": 88,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-04-BUD-NONHATRED",
+      "category_id": 4,
+      "text": "I do not have to feed anger with more hostility; I can choose a response that does not multiply the conflict.",
+      "source_record_ids": [
+        "WIS-BUD-DHP-5",
+        "WIS-BUD-SNP-1-8-147",
+        "WIS-BUD-MN-21-GOODWILL"
+      ],
+      "philosophical_theme": "non-hatred and de-escalation",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Protective action and boundaries remain available.",
+      "category_fit_score": 99,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-05-BUD-SPEECH",
+      "category_id": 5,
+      "text": "I can refuse contempt and reactive speech while still naming the problem and keeping clear boundaries.",
+      "source_record_ids": [
+        "WIS-BUD-SNP-1-8-147",
+        "WIS-BUD-MN-21-GOODWILL"
+      ],
+      "philosophical_theme": "conflict without enmity",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Not for abusive or unsafe relationships.",
+      "category_fit_score": 96,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-08-BUD-SELFTRAIN",
+      "category_id": 8,
+      "text": "I can begin with the part of my conduct I can train instead of waiting for certainty to choose every step for me.",
+      "source_record_ids": [
+        "WIS-BUD-DHP-160",
+        "WIS-BUD-MN-63-PRIORITY"
+      ],
+      "philosophical_theme": "agency and pragmatic practice",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 90,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-15-BUD-ATTENTION",
+      "category_id": 15,
+      "text": "I can meet one piece of experience at a time instead of adding the whole weight of every possible meaning at once.",
+      "source_record_ids": [
+        "WIS-BUD-UD-1-10-ATTENTION",
+        "WIS-BUD-DHP-160"
+      ],
+      "philosophical_theme": "attention and self-training",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Practical overload may still require concrete support or reprioritization.",
+      "category_fit_score": 89,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-18-BUD-CHANGE",
+      "category_id": 18,
+      "text": "I can care for this body seriously while remembering that health and bodily conditions are not fixed forever.",
+      "source_record_ids": [
+        "WIS-BUD-DHP-204",
+        "WIS-BUD-DHP-277"
+      ],
+      "philosophical_theme": "health and impermanence",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Never a substitute for medical care.",
+      "category_fit_score": 93,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-19-BUD-CONTENTMENT",
+      "category_id": 19,
+      "text": "I can take practical steps toward security without making my entire sense of enough depend on having more.",
+      "source_record_ids": [
+        "WIS-BUD-DHP-204"
+      ],
+      "philosophical_theme": "contentment and material security",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Does not romanticize poverty or unmet basic needs.",
+      "category_fit_score": 84,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-22-BUD-IMPERMANENCE",
+      "category_id": 22,
+      "text": "Change does not have to happen on my preferred schedule for me to meet this moment with patience.",
+      "source_record_ids": [
+        "WIS-BUD-DHP-277",
+        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING"
+      ],
+      "philosophical_theme": "impermanence and patience",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Not a promise about when difficult feelings will pass.",
+      "category_fit_score": 94,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-25-BUD-DIGNITY",
+      "category_id": 25,
+      "text": "I can protect my dignity and boundaries without letting contempt or retaliation become the only response available to me.",
+      "source_record_ids": [
+        "WIS-BUD-DHP-5",
+        "WIS-BUD-SNP-1-8-147",
+        "WIS-BUD-MN-21-GOODWILL"
+      ],
+      "philosophical_theme": "non-hatred with boundaries",
+      "tradition_basis": [
+        "Early Buddhism"
+      ],
+      "safety_notes": "Not for active abuse or immediate danger.",
+      "category_fit_score": 96,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
     }
   ]
 }
