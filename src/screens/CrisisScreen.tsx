@@ -48,7 +48,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
         {...({ 'data-testid': 'crisis-alert-banner' } as any)}
       >
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.crisisBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.crisisText }]}>DEDICATED SAFETY & CRISIS ROUTING</Text>
+          <Text style={[styles.badgeText, { color: theme.crisisText }]}>OUTSIDE ORDINARY REFLECTION SCOPE</Text>
         </View>
         <Text
           style={[styles.title, { color: theme.crisisText }]}
@@ -65,7 +65,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
             style={[styles.reasonBox, { backgroundColor: theme.card, borderColor: theme.crisisBorder }]}
             {...({ 'data-testid': 'crisis-reason-box' } as any)}
           >
-            <Text style={[styles.reasonLabel, { color: theme.crisisText }]}>UPSTREAM SAFETY ROUTING NOTICE:</Text>
+            <Text style={[styles.reasonLabel, { color: theme.crisisText }]}>SCOPE NOTICE:</Text>
             <Text
               style={[styles.reasonText, { color: theme.textPrimary }]}
               {...({ 'data-testid': 'crisis-reason-text' } as any)}
@@ -89,7 +89,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
       {/* Rationale description */}
       <View style={[styles.rationaleBox, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.rationaleText, { color: theme.textSecondary }]}>
-          Philosophical contemplation is a valuable companion for living, but when acute crisis, relationship violence, suicidal despair, or medical withdrawal occurs, immediate human support and clinical care come first. You do not have to navigate unbearable moments alone.
+          Inner Compass is a reflection tool, not an emergency or treatment service. When a situation falls outside its scope, qualified human support and appropriate professional care take priority over philosophical guidance.
         </Text>
       </View>
 
@@ -168,7 +168,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
           ]}
           onPress={onDismiss}
         >
-          <Text style={[styles.dismissButtonText, { color: theme.textPrimary }]}>Return to Safe Reflection</Text>
+          <Text style={[styles.dismissButtonText, { color: theme.textPrimary }]}>Return to Reflection</Text>
         </Pressable>
       )}
     </ScrollView>
