@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { LegalScreen } from '../screens/LegalScreen';
+import { getReleaseTier } from '../legal/legalConfig';
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { useTheme } from '../theme';
 
@@ -11,6 +13,7 @@ export const LAUNCH_ATTESTATION_KEY = 'inner_compass_launch_attestation_us_adult
 export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
   const { theme } = useTheme();
   const [declined, setDeclined] = useState(false);
+  const [showLegal, setShowLegal] = useState(false);
 
   const accept = () => {
     try {
@@ -30,6 +33,10 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
     }
     onAccepted();
   };
+
+  if (showLegal) {
+    return <LegalScreen initialDocument="terms" onClose={() => setShowLegal(false)} />;
+  }
 
   if (declined) {
     return (
@@ -60,7 +67,9 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
   return (
     <ScrollView contentContainerStyle={[styles.center, { backgroundColor: theme.canvas }]}>
       <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
-        <Text style={[styles.eyebrow, { color: theme.accentPrimary }]}>INNER COMPASS · INITIAL U.S. RELEASE</Text>
+        <Text style={[styles.eyebrow, { color: theme.accentPrimary }]}>
+          INNER COMPASS · {getReleaseTier() === 'PUBLIC_RELEASE' ? 'PUBLIC U.S. RELEASE' : 'CONTROLLED U.S. BETA'}
+        </Text>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Before you continue</Text>
 
         <Text style={[styles.body, { color: theme.textSecondary }]}>
@@ -78,8 +87,22 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         </View>
 
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          By continuing, you attest that you are at least 18 years old and are located in the United States. You also request local processing of the reflection text you choose to enter solely to provide the reflection features you request; that raw text is not sent off-device by the production app.
+          The current release supports English only. By continuing, you attest that you are at least 18 years old and are located in the United States. You also request local processing of the reflection text you choose to enter solely to provide the reflection features you request; that raw text is not sent off-device by the production app.
         </Text>
+
+        <Pressable
+          style={({ pressed }) => [
+            styles.secondaryButton,
+            { borderColor: theme.cardBorder },
+            pressed && { opacity: 0.8 },
+          ]}
+          onPress={() => setShowLegal(true)}
+          accessibilityLabel="Review Terms Privacy Consumer Health Data Safety and Accessibility notices"
+        >
+          <Text style={[styles.secondaryText, { color: theme.accentPrimary }]}>
+            Review Terms, Privacy & Safety Notices
+          </Text>
+        </Pressable>
 
         <Pressable
           style={({ pressed }) => [
@@ -109,7 +132,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         </Pressable>
 
         <Text style={[styles.finePrint, { color: theme.textMuted }]}>
-          This gate stores only a local eligibility attestation. It does not request your birthdate, exact age, or precise location.
+          This gate stores only a local eligibility attestation. It does not request your birthdate, exact age, or precise location. Continuing acknowledges that the notices are available; it does not convert a controlled beta into a counsel-approved public release.
         </Text>
       </View>
     </ScrollView>
