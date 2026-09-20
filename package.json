@@ -9,11 +9,10 @@
     "start": "node dist/server.cjs",
     "preview": "vite preview",
     "lint": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "audit:wisdom": "python3 tools/eval/audit_wisdom_corpus.py"
   },
   "dependencies": {
-    "@google/genai": "*",
-    "expo": "^57.0.23",
     "express": "^4.21.2",
     "lucide-react": "^1.16.0",
     "motion": "^12.4.10",
