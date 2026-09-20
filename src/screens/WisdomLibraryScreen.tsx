@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   Linking,
   Pressable,
@@ -41,6 +41,11 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
   const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
   const [linkedRecordId, setLinkedRecordId] = useState<string | null>(initialRecordId);
+
+  useEffect(() => {
+    setLinkedCategoryId(initialCategoryId);
+    setLinkedRecordId(initialRecordId);
+  }, [initialCategoryId, initialRecordId]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
