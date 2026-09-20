@@ -77,7 +77,7 @@ export const PracticeModalRN: React.FC<PracticeModalProps> = ({
                 },
               ]}
             >
-              <Text style={[styles.techniqueLabel, { color: theme.accentPrimary }]}>CANONICAL TECHNIQUE INSTRUCTION:</Text>
+              <Text style={[styles.techniqueLabel, { color: theme.accentPrimary }]}>TRY THIS APPROACH:</Text>
               <Text style={[styles.techniqueText, { color: theme.textPrimary }]}>
                 {entry.practice_or_technique || entry.teaching}
               </Text>
@@ -85,7 +85,7 @@ export const PracticeModalRN: React.FC<PracticeModalProps> = ({
 
             {/* Step-by-Step Practice Guide */}
             <View style={styles.stepsSection}>
-              <Text style={[styles.stepsHeader, { color: theme.textMuted }]}>PRACTICE SEQUENCE:</Text>
+              <Text style={[styles.stepsHeader, { color: theme.textMuted }]}>GUIDED STEPS:</Text>
 
               <View style={styles.stepRow}>
                 <View style={[styles.stepNumBox, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
