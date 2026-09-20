@@ -102,7 +102,6 @@ export const TaxonomyBrowserScreen: React.FC<TaxonomyBrowserScreenProps> = ({
                 {
                   backgroundColor: theme.card,
                   borderColor: theme.cardBorder,
-                  shadowColor: theme.cardShadow,
                 },
               ]}
             >
@@ -295,9 +294,6 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     overflow: 'hidden',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 5,
   },
   cardHeader: {
     flexDirection: 'row',
