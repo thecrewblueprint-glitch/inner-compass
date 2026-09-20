@@ -13,7 +13,6 @@ def post_eval(problem, fixture_id, expected_category_id=None):
         "problem": problem,
         "fixtureId": fixture_id,
         "mode": "deterministic",
-        "skipGemini": True,
     }
     if expected_category_id is not None:
         payload["expectedCategoryId"] = expected_category_id
