@@ -101,7 +101,7 @@ export interface GuidanceResult {
   grounding?: GroundingValidationResult;
   affirmation: string;
   synthesis: string;
-  isFallback?: boolean;
+  guidanceSource?: 'canonical_deterministic';
 }
 
 export interface SavedReflection {
