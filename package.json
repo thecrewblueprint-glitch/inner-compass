@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "lint": "tsc --noEmit",
     "test:e2e": "playwright test",
-    "audit:wisdom": "python3 tools/eval/audit_wisdom_corpus.py"
+    "audit:wisdom": "python3 tools/eval/audit_wisdom_corpus.py",
+    "audit:deterministic": "python3 tools/eval/check_deterministic_only_policy.py"
   },
   "dependencies": {
     "express": "^4.21.2",
