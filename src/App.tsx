@@ -83,6 +83,7 @@ const AppContent: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
+  const [navigationMenuOpen, setNavigationMenuOpen] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
   const [legalDocument, setLegalDocument] = useState<LegalDocumentKey>('privacy');
 
@@ -501,16 +502,55 @@ const AppContent: React.FC = () => {
             <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>{theme.icon} {theme.name}</Text>
           </Pressable>
 
-          <View style={styles.tabsRow}>
+          <Pressable
+            onPress={() => setNavigationMenuOpen((open) => !open)}
+            accessibilityRole="button"
+            accessibilityLabel={navigationMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            accessibilityState={{ expanded: navigationMenuOpen }}
+            style={[
+              styles.menuButton,
+              {
+                backgroundColor: navigationMenuOpen ? theme.tabActiveBg : theme.card,
+                borderColor: navigationMenuOpen ? theme.accentPrimary : theme.cardBorder,
+              },
+            ]}
+          >
+            <Text
+              style={[
+                styles.menuButtonText,
+                { color: navigationMenuOpen ? theme.tabActiveText : theme.textPrimary },
+              ]}
+            >
+              ☰ Menu
+            </Text>
+          </Pressable>
+        </View>
+      </View>
+
+      {navigationMenuOpen && (
+        <View
+          style={[
+            styles.navigationMenu,
+            { backgroundColor: theme.card, borderBottomColor: theme.topBarBorder },
+          ]}
+          accessibilityLabel="Main navigation"
+        >
+          <View style={styles.navigationMenuInner}>
             {tabs.map((tab) => {
               const active = currentTab === tab.id;
               const crisis = tab.id === 'crisis';
               return (
                 <Pressable
                   key={tab.id}
-                  onPress={() => navigateToTab(tab.id)}
+                  onPress={() => {
+                    setNavigationMenuOpen(false);
+                    navigateToTab(tab.id);
+                  }}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Navigate to ${tab.label}`}
+                  accessibilityState={{ selected: active }}
                   style={[
-                    styles.tabButton,
+                    styles.menuItem,
                     {
                       backgroundColor: active
                         ? crisis
@@ -519,13 +559,13 @@ const AppContent: React.FC = () => {
                         : crisis
                           ? theme.crisisBg
                           : theme.tabInactiveBg,
-                      borderColor: crisis ? theme.crisisBorder : 'transparent',
+                      borderColor: crisis ? theme.crisisBorder : theme.cardBorder,
                     },
                   ]}
                 >
                   <Text
                     style={[
-                      styles.tabText,
+                      styles.menuItemText,
                       {
                         color: active
                           ? crisis
@@ -539,12 +579,22 @@ const AppContent: React.FC = () => {
                   >
                     {tab.label}
                   </Text>
+                  {active && (
+                    <Text
+                      style={[
+                        styles.menuItemStatus,
+                        { color: crisis ? '#FFFFFF' : theme.accentPrimary },
+                      ]}
+                    >
+                      Current
+                    </Text>
+                  )}
                 </Pressable>
               );
             })}
           </View>
         </View>
-      </View>
+      )}
 
       {IS_PREVIEW_MODE && (
         <View style={[styles.previewBanner, { backgroundColor: theme.card, borderBottomColor: theme.cardBorder }]}>
@@ -688,19 +738,23 @@ const styles = StyleSheet.create({
   ageButton: { borderRadius: 11, paddingVertical: 12, paddingHorizontal: 20 },
   ageButtonText: { fontSize: 13, fontWeight: '800' },
   topBar: { borderBottomWidth: 1, paddingHorizontal: 18, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 },
-  brandRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
+  brandRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexGrow: 1, flexShrink: 1, minWidth: 0 },
   logoCircle: { width: 38, height: 38, borderRadius: 12, borderWidth: 1, justifyContent: 'center', alignItems: 'center' },
   logoIcon: { fontSize: 19 },
   brandTitle: { fontSize: 15, fontWeight: '800', letterSpacing: 0.8 },
   brandSubtitle: { fontSize: 10, marginTop: 1 },
-  navRightSection: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 9 },
+  navRightSection: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 9 },
   backButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
   backButtonText: { fontSize: 11, fontWeight: '800' },
   themeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
   themeButtonText: { fontSize: 11, fontWeight: '700' },
-  tabsRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 6 },
-  tabButton: { borderWidth: 1, borderRadius: 9, paddingHorizontal: 10, paddingVertical: 6 },
-  tabText: { fontSize: 10, fontWeight: '700' },
+  menuButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 7, minWidth: 76, alignItems: 'center' },
+  menuButtonText: { fontSize: 11, fontWeight: '800' },
+  navigationMenu: { borderBottomWidth: 1, paddingHorizontal: 18, paddingVertical: 12 },
+  navigationMenuInner: { width: '100%', maxWidth: 1180, alignSelf: 'center', flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  menuItem: { minWidth: 132, flexGrow: 1, flexBasis: 132, maxWidth: 230, minHeight: 42, borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 8, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
+  menuItemText: { fontSize: 11, fontWeight: '800', flexShrink: 1 },
+  menuItemStatus: { fontSize: 9, fontWeight: '900', textTransform: 'uppercase', letterSpacing: 0.4 },
   previewBanner: { borderBottomWidth: 1, paddingHorizontal: 20, paddingVertical: 7, flexDirection: 'row', flexWrap: 'wrap', gap: 12, alignItems: 'center' },
   previewText: { fontSize: 10, fontWeight: '900', letterSpacing: 0.6 },
   previewDetail: { fontSize: 10 },
