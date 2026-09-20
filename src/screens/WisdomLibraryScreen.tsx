@@ -73,18 +73,18 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.badgeText }]}>AUDITED RESEARCH LIBRARY</Text>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>SOURCE-LINKED WISDOM LIBRARY</Text>
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Wisdom Library</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Browse source-linked teachings across traditions. Category selection remains deterministic and upstream safety rules stay authoritative.
+          Browse source-linked teachings across traditions. Safety routing remains active throughout the experience.
         </Text>
       </View>
 
       <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Quote-display rights gate</Text>
         <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-          Verified direct-quote records are identified here, but exact quote text remains hidden until product-display rights review is cleared. Teaching summaries and source metadata are available now.
+          Some source passages are listed without reproducing the full quotation text. Teaching summaries and source details remain available.
         </Text>
       </View>
 
@@ -157,7 +157,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
         accessibilityState={{ checked: verifiedOnly }}
       >
         <Text style={[styles.toggleText, { color: theme.textPrimary }]}>
-          {verifiedOnly ? '✓ ' : '○ '}Verified-source-passage records only
+          {verifiedOnly ? '✓ ' : '○ '}Source-passage records only
         </Text>
       </Pressable>
 
@@ -188,7 +188,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
               >
                 <Text style={[styles.typeText, { color: theme.textPrimary }]}>
                   {record.record_type === 'VERIFIED_DIRECT_QUOTE'
-                    ? 'VERIFIED SOURCE PASSAGE'
+                    ? 'SOURCE PASSAGE'
                     : 'SOURCE PARAPHRASE'}
                 </Text>
               </View>
