@@ -18,6 +18,8 @@ interface HomeScreenProps {
   isLoading: boolean;
   clarificationPrompt?: string | null;
   dailyInteractionTimestamp?: number;
+  onOpenLegal?: () => void;
+  onOpenCrisis?: () => void;
 }
 
 const SAMPLE_SCENARIOS = [
@@ -56,6 +58,8 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   isLoading,
   clarificationPrompt,
   dailyInteractionTimestamp,
+  onOpenLegal,
+  onOpenCrisis,
 }) => {
   const { theme } = useTheme();
   const [problemInput, setProblemInput] = useState('');
@@ -71,11 +75,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Header Banner */}
       <View style={styles.header}>
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.badgeText }]}>CLINICAL WISDOM TAXONOMY V1.0</Text>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>RESEARCH-INFORMED REFLECTION TAXONOMY V1.0</Text>
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>What is weighing on your heart?</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Share an honest reflection. Your input is matched deterministically to 25 verified clinical-wisdom categories grounded in Eastern philosophy, Jungian shadow work, and evidence-based psychology.
+          Share an honest reflection. Your input is matched deterministically to 25 research-informed reflection categories grounded in philosophy, depth-psychology traditions, and evidence-informed psychological methods.
         </Text>
       </View>
 
@@ -231,11 +235,23 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </View>
       </View>
 
-      {/* Safety and Privacy Notice */}
+      {/* Persistent release / safety notice */}
       <View style={[styles.privacyNote, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.privacyNoteText, { color: theme.textMuted }]}>
-          Privacy Assurance: In strict adherence to Rule 7, raw reflection text is never persisted or logged. Acute crisis and safety boundaries trigger deterministic redirection upstream.
+          18+ · United States · English only. Inner Compass is a general-wellness reflection tool, not therapy, diagnosis, medical care, or emergency response. Raw reflection text is processed locally and is not intentionally persisted.
         </Text>
+        <View style={styles.noticeLinks}>
+          {onOpenLegal && (
+            <Pressable accessibilityRole="link" accessibilityLabel="Open legal and safety notices" onPress={onOpenLegal}>
+              <Text style={[styles.noticeLink, { color: theme.accentPrimary }]}>Legal & Safety</Text>
+            </Pressable>
+          )}
+          {onOpenCrisis && (
+            <Pressable accessibilityRole="link" accessibilityLabel="Open crisis lifelines" onPress={onOpenCrisis}>
+              <Text style={[styles.noticeLink, { color: theme.crisisAccent }]}>Lifelines 24/7</Text>
+            </Pressable>
+          )}
+        </View>
       </View>
     </ScrollView>
   );
@@ -405,5 +421,16 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 18,
     textAlign: 'center',
+  },
+  noticeLinks: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 16,
+    marginTop: 10,
+    flexWrap: 'wrap',
+  },
+  noticeLink: {
+    fontSize: 12,
+    fontWeight: '800',
   },
 });
