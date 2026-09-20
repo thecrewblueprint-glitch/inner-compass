@@ -26,7 +26,7 @@ import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
 import { getCategoryById } from './knowledgeBase/kbLoader';
 import { WISDOM_AFFIRMATIONS } from './data/wisdomLibrary';
-import { Category, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
+import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
 import { ThemeProvider, useTheme } from './theme';
 import { recordCategoryInteraction } from './services/dailyAffirmationService';
 import { installGlobalDebugHooks, recordDebugEvent } from './debug/debugStore';
@@ -44,6 +44,7 @@ type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy
 type CrisisAlert = {
   reason?: string;
   safetyNotes?: string[];
+  resources?: EmergencyResource[];
 } | null;
 
 type WisdomLinkContext = { categoryId?: number; recordId?: string } | null;
@@ -207,12 +208,17 @@ const AppContent: React.FC = () => {
     setDailyInteractionTimestamp(Date.now());
   };
 
-  const routeSafety = (reason?: string, safetyNotes?: string[]) => {
+  const routeSafety = (reason?: string, safetyNotes?: string[], resources?: EmergencyResource[]) => {
     setClarificationPrompt(null);
+    recordDebugEvent('safety_route', {
+      status: 'manual_or_routed',
+      blocked: true,
+      resourceCount: resources?.length || 0,
+    });
     pushNavigation({
       tab: 'crisis',
       guidanceResult: null,
-      crisisAlert: { reason, safetyNotes },
+      crisisAlert: { reason, safetyNotes, resources },
       wisdomLinkContext: null,
       readsLinkContext: null,
     });
@@ -269,7 +275,7 @@ const AppContent: React.FC = () => {
       });
 
       if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
-        routeSafety(safety.reason, safety.safetyNotes);
+        routeSafety(safety.reason, safety.safetyNotes, safety.emergencyResources);
         return;
       }
 
@@ -312,14 +318,15 @@ const AppContent: React.FC = () => {
       const safety = evaluateSafetyUpstream('substance use');
       routeSafety(
         safety.reason || 'Substance-use guidance has a hard safety ceiling.',
-        safety.safetyNotes
+        safety.safetyNotes,
+        safety.emergencyResources
       );
       return;
     }
 
     const safety = evaluateSafetyUpstream(category.category_name);
     if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
-      routeSafety(safety.reason, safety.safetyNotes);
+      routeSafety(safety.reason, safety.safetyNotes, safety.emergencyResources);
       return;
     }
 
@@ -623,6 +630,7 @@ const AppContent: React.FC = () => {
           <CrisisScreen
             reason={crisisAlert?.reason}
             safetyNotes={crisisAlert?.safetyNotes}
+            resources={crisisAlert?.resources}
             onDismiss={navigateBack}
           />
         )}
