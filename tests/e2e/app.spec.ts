@@ -102,7 +102,7 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('PRIVACY & LOCAL DATA')).toBeVisible();
     await expect(page.getByText('Your reflection stays on this device')).toBeVisible();
 
-    await navigateFromHeader(page, 'Taxonomy');
+    await navigateFromHeader(page, 'Categories');
     await expect(page.getByText('All 25 Categories')).toBeVisible();
 
     await navigateFromHeader(page, 'Lifelines 24/7');
@@ -119,7 +119,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.goto('/');
 
     const menuButton = page.getByLabel('Open navigation menu');
-    const themeButton = page.getByLabel('Open Theme Palette Selector');
+    const themeButton = page.getByLabel('Open Colors');
     await expect(menuButton).toBeVisible();
     await expect(themeButton).toBeVisible();
 
@@ -168,7 +168,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
 
-    await navigateFromHeader(page, 'Taxonomy');
+    await navigateFromHeader(page, 'Categories');
     await expect(page.getByText('All 25 Categories', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
 
@@ -185,7 +185,7 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('LEGAL & SAFETY CENTER')).toBeVisible();
     await assertNoHorizontalScroller(page);
 
-    await page.getByLabel('Open Theme Palette Selector').click();
+    await page.getByLabel('Open Colors').click();
     await expect(page.getByText('Color:', { exact: true })).toBeVisible();
     await expect(page.getByText('🌈 All', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
@@ -230,6 +230,13 @@ test.describe('Inner Compass web app core flow', () => {
       'HARD SAFETY CEILING',
       'UPSTREAM SAFETY ROUTING NOTICE',
       'Edition recorded in research corpus',
+      'PREVIEW MODE ACTIVE',
+      'zero runtime AI providers',
+      'Local Diagnostics',
+      'Taxonomy',
+      'raw reflection',
+      'deterministic safety',
+      'deterministic content',
     ];
 
     const assertCleanCopy = async () => {
@@ -279,7 +286,7 @@ test.describe('Inner Compass web app core flow', () => {
 
   test('direct taxonomy navigation cannot bypass Category 10 hard ceiling', async ({ page }) => {
     await page.goto('/');
-    await navigateFromHeader(page, 'Taxonomy');
+    await navigateFromHeader(page, 'Categories');
     await page.getByText('Substance use', { exact: true }).click();
     await page.getByText('Reflect on this Category →').click();
     await expect(page.getByText('SAFETY & SUPPORT')).toBeVisible();
@@ -302,7 +309,7 @@ test.describe('Inner Compass web app core flow', () => {
   test('back navigation returns exactly one page at a time', async ({ page }) => {
     await page.goto('/');
 
-    await navigateFromHeader(page, 'Taxonomy');
+    await navigateFromHeader(page, 'Categories');
     await page.getByText('Loneliness / feeling isolated even around people', { exact: true }).click();
     await page.getByText('Reflect on this Category →', { exact: true }).click();
     await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
