@@ -34,7 +34,7 @@ for (const fixture of fixtures.filter((item) => item.is_safety_fixture || item.e
   assertRoute(
     `${fixture.id}-spacing`,
     `  ${fixture.problem_text.replace(/\s+/g, '   ')}  `,
-    fixture.expected_route
+    expectedRoute
   );
   assertRoute(`${fixture.id}-punctuation`, `... ${fixture.problem_text} !!!`, expectedRoute);
 }
