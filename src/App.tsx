@@ -471,15 +471,26 @@ const AppContent: React.FC = () => {
       <StatusBar barStyle={theme.variant === 'dark' ? 'light-content' : 'dark-content'} />
 
       <View style={[styles.topBar, { backgroundColor: theme.topBar, borderBottomColor: theme.topBarBorder }]}>
-        <View style={styles.brandRow}>
-          <View style={[styles.logoCircle, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={styles.logoIcon}>🧭</Text>
-          </View>
-          <View>
-            <Text style={[styles.brandTitle, { color: theme.textPrimary }]}>INNER COMPASS</Text>
-            <Text style={[styles.brandSubtitle, { color: theme.textMuted }]}>
-              Research-Informed Wisdom & Reflection
-            </Text>
+        <View style={styles.leftHeaderSection}>
+          <Pressable
+            onPress={() => setThemePickerVisible(true)}
+            accessibilityRole="button"
+            accessibilityLabel="Open Theme Palette Selector"
+            style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+          >
+            <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>🎨 Colors</Text>
+          </Pressable>
+
+          <View style={styles.brandRow}>
+            <View style={[styles.logoCircle, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+              <Text style={styles.logoIcon}>🧭</Text>
+            </View>
+            <View style={styles.brandCopy}>
+              <Text style={[styles.brandTitle, { color: theme.textPrimary }]}>INNER COMPASS</Text>
+              <Text style={[styles.brandSubtitle, { color: theme.textMuted }]}>
+                Research-Informed Wisdom & Reflection
+              </Text>
+            </View>
           </View>
         </View>
 
@@ -493,14 +504,6 @@ const AppContent: React.FC = () => {
               <Text style={[styles.backButtonText, { color: theme.textPrimary }]}>← Back</Text>
             </Pressable>
           )}
-
-          <Pressable
-            onPress={() => setThemePickerVisible(true)}
-            accessibilityLabel="Open Theme Palette Selector"
-            style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
-          >
-            <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>{theme.icon} {theme.name}</Text>
-          </Pressable>
 
           <Pressable
             onPress={() => setNavigationMenuOpen((open) => !open)}
@@ -738,7 +741,9 @@ const styles = StyleSheet.create({
   ageButton: { borderRadius: 11, paddingVertical: 12, paddingHorizontal: 20 },
   ageButtonText: { fontSize: 13, fontWeight: '800' },
   topBar: { borderBottomWidth: 1, paddingHorizontal: 18, paddingVertical: 10, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 },
-  brandRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexGrow: 1, flexShrink: 1, minWidth: 0 },
+  leftHeaderSection: { flexDirection: 'row', alignItems: 'center', gap: 10, flexGrow: 1, flexShrink: 1, minWidth: 0 },
+  brandRow: { flexDirection: 'row', alignItems: 'center', gap: 10, flexShrink: 1, minWidth: 0 },
+  brandCopy: { flexShrink: 1, minWidth: 0 },
   logoCircle: { width: 38, height: 38, borderRadius: 12, borderWidth: 1, justifyContent: 'center', alignItems: 'center' },
   logoIcon: { fontSize: 19 },
   brandTitle: { fontSize: 15, fontWeight: '800', letterSpacing: 0.8 },
@@ -746,7 +751,7 @@ const styles = StyleSheet.create({
   navRightSection: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end', gap: 9, marginLeft: 'auto' },
   backButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
   backButtonText: { fontSize: 11, fontWeight: '800' },
-  themeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
+  themeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7, flexShrink: 0 },
   themeButtonText: { fontSize: 11, fontWeight: '700' },
   menuButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 7, minWidth: 76, alignItems: 'center', marginLeft: 'auto' },
   menuButtonText: { fontSize: 11, fontWeight: '800' },
