@@ -402,3 +402,102 @@
 - Reviewer: OpenAI research audit
 - Review date: 2026-09-19
 
+## Phase 3 — Classical Daoism
+
+### [QV-DAO-001] WIS-DAO-DDJ-8-WATER
+- Proposed quote: “The highest excellence is like (that of) water.”
+- Author / attribution: Laozi (traditional attribution); received text is composite
+- Work: Daodejing / Tao Teh King
+- Passage locator: Chapter 8
+- Translator: James Legge
+- Edition: Sacred Books of the East 39 (1891)
+- Source URL(s): https://www.sacred-texts.com/tao/sbe39/sbe39015.htm ; https://www.gutenberg.org/ebooks/216
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 5, 15, 22
+- Context-fit notes: Use for adaptability/non-contention, not as an instruction to yield to abuse, exploitation, or urgent danger.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-DAO-002] WIS-DAO-DDJ-33-SELFKNOWLEDGE
+- Proposed quote: “He who knows himself is intelligent. He who overcomes himself is mighty.”
+- Author / attribution: Laozi (traditional attribution); received text is composite
+- Work: Daodejing / Tao Teh King
+- Passage locator: Chapter 33
+- Translator: James Legge
+- Edition: Sacred Books of the East 39 (1891)
+- Source URL(s): https://www.sacred-texts.com/tao/sbe39/sbe39040.htm ; https://www.gutenberg.org/cache/epub/216/pg216-images.html
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 16, 20
+- Context-fit notes: Use as a self-reflection teaching, not as a claim that all identity questions are solved by inwardness.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-DAO-003] WIS-DAO-DDJ-46-CONTENTMENT
+- Proposed quote: “Therefore the sufficiency of contentment is an enduring and unchanging sufficiency.”
+- Author / attribution: Laozi (traditional attribution); received text is composite
+- Work: Daodejing / Tao Teh King
+- Passage locator: Chapter 46
+- Translator: James Legge
+- Edition: Sacred Books of the East 39 (1891)
+- Source URL(s): https://sacred-texts.com/tao/sbe39/sbe39053.htm ; https://classics.mit.edu/Lao/taote.2.ii.html
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 19, 20
+- Context-fit notes: Use only after separating psychological comparison from concrete unmet material needs.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-DAO-004] WIS-DAO-DDJ-64-STEP
+- Proposed quote: “the journey of a thousand lî commenced with a single step.”
+- Author / attribution: Laozi (traditional attribution); received text is composite
+- Work: Daodejing / Tao Teh King
+- Passage locator: Chapter 64
+- Translator: James Legge
+- Edition: Sacred Books of the East 39 (1891)
+- Source URL(s): https://www.sacred-texts.com/tao/sbe39/sbe39071.htm ; https://classics.mit.edu/Lao/taote.2.ii.html
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 8, 14, 15
+- Context-fit notes: Use to support a manageable first action, not to imply every structural obstacle can be solved by effort.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-DAO-005] WIS-DAO-ZZ-3-LIMITS
+- Proposed quote: “There is a limit to our life, but to knowledge there is no limit.”
+- Author / attribution: Zhuangzi textual tradition; Inner Chapter
+- Work: Zhuangzi
+- Passage locator: Inner Chapter 3, Nourishing the Lord of Life, §1
+- Translator: James Legge
+- Edition: Sacred Books of the East 39 (1891)
+- Source URL(s): https://ctext.org/zhuangzi/nourishing-the-lord-of-life ; https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 8, 15
+- Context-fit notes: Strongest fit is information overload/analysis paralysis, not a command to stop studying.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-DAO-PARAPHRASES]
+- Records: WIS-DAO-DDJ-22-NONDISPLAY; WIS-DAO-DDJ-48-WUWEI; WIS-DAO-DDJ-76-FLEXIBILITY; WIS-DAO-ZZ-1-NOFAME; WIS-DAO-ZZ-2-BUTTERFLY; WIS-DAO-ZZ-4-USELESS-TREE; WIS-DAO-ZZ-4-FASTING-MIND; WIS-DAO-ZZ-20-EMPTY-BOAT
+- Decision: SOURCE_PARAPHRASE
+- Reason: translation density, authorship-layer caution, or risk of turning a literary/philosophical passage into a misleading slogan.
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
