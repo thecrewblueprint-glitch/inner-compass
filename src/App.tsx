@@ -52,6 +52,8 @@ const AppContent: React.FC = () => {
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
+  const [wisdomLinkContext, setWisdomLinkContext] = useState<{ categoryId?: number; recordId?: string } | null>(null);
+  const [readsLinkContext, setReadsLinkContext] = useState<{ categoryId?: number; wisdomRecordId?: string } | null>(null);
 
   const [ageConfirmed, setAgeConfirmed] = useState(() => {
     if (IS_PREVIEW_MODE) return true;
@@ -200,6 +202,26 @@ const AppContent: React.FC = () => {
     if (category) handleSelectCategory(category, 'taxonomy_view');
   };
 
+  const openWisdomForCategory = (categoryId: number) => {
+    setWisdomLinkContext({ categoryId });
+    setCurrentTab('wisdom');
+  };
+
+  const openWisdomRecord = (recordId: string) => {
+    setWisdomLinkContext({ recordId });
+    setCurrentTab('wisdom');
+  };
+
+  const openReadsForCategory = (categoryId: number) => {
+    setReadsLinkContext({ categoryId });
+    setCurrentTab('reads');
+  };
+
+  const openReadsForWisdomRecord = (recordId: string) => {
+    setReadsLinkContext({ wisdomRecordId: recordId });
+    setCurrentTab('reads');
+  };
+
   const handleSaveReflection = (category: Category, affirmation: string) => {
     const isAlreadySaved = savedReflections.some((item) => item.categoryId === category.category_id);
     if (isAlreadySaved) {
@@ -335,6 +357,8 @@ const AppContent: React.FC = () => {
                   key={tab.id}
                   onPress={() => {
                     if (tab.id === 'crisis') setCrisisAlert(null);
+                    if (tab.id === 'wisdom') setWisdomLinkContext(null);
+                    if (tab.id === 'reads') setReadsLinkContext(null);
                     setCurrentTab(tab.id);
                   }}
                   style={[
@@ -395,6 +419,8 @@ const AppContent: React.FC = () => {
               onSaveReflection={handleSaveReflection}
               isSaved={isCurrentCategorySaved}
               onOpenCrisis={() => setCurrentTab('crisis')}
+              onOpenWisdom={openWisdomForCategory}
+              onOpenReads={openReadsForCategory}
             />
           ) : (
             <HomeScreen
@@ -413,15 +439,27 @@ const AppContent: React.FC = () => {
         )}
 
         {currentTab === 'wisdom' && (
-          <WisdomLibraryScreen onSelectCategoryId={handleSelectCategoryId} />
+          <WisdomLibraryScreen
+            initialCategoryId={wisdomLinkContext?.categoryId ?? null}
+            initialRecordId={wisdomLinkContext?.recordId ?? null}
+            onSelectCategoryId={handleSelectCategoryId}
+            onOpenSuggestedReads={openReadsForWisdomRecord}
+          />
         )}
 
-        {currentTab === 'reads' && <SuggestedReadsScreen />}
+        {currentTab === 'reads' && (
+          <SuggestedReadsScreen
+            initialCategoryId={readsLinkContext?.categoryId ?? null}
+            initialWisdomRecordId={readsLinkContext?.wisdomRecordId ?? null}
+            onSelectCategoryId={handleSelectCategoryId}
+            onOpenWisdomRecord={openWisdomRecord}
+          />
+        )}
 
         {currentTab === 'journal' && (
           <SavedJournalScreen
             savedList={savedReflections}
-            onSelectCategory={(category) => handleSelectCategory(category, 'saved')}
+            onOpenWisdomForCategory={openWisdomForCategory}
             onRemove={(id) =>
               setSavedReflections((previous) => previous.filter((item) => item.id !== id))
             }
