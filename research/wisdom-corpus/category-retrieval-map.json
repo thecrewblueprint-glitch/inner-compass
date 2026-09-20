@@ -5,33 +5,42 @@
       "category_id": 1,
       "category_name": "Loneliness / feeling isolated even around people",
       "problem_signals": [
-        "feeling socially disconnected",
-        "difficulty remembering shared humanity"
+        "unwanted isolation",
+        "belonging distress",
+        "difficulty holding goodwill without forced closeness"
       ],
       "negative_match_signals": [
-        "active abuse",
-        "immediate threat"
+        "harmful social withdrawal",
+        "active abuse requiring distance"
       ],
       "existential_roots": [
         "Isolation"
       ],
       "philosophical_themes": [
-        "social nature",
-        "cooperation"
+        "metta",
+        "goodwill",
+        "chosen solitude versus unwanted isolation"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
-      "weak_or_forced_traditions": [],
+      "weak_or_forced_traditions": [
+        "Rhinoceros discourse as a direct loneliness prescription"
+      ],
       "source_record_ids": [
-        "WIS-STOIC-MA-2-1"
+        "WIS-STOIC-MA-2-1",
+        "WIS-BUD-SNP-1-8-144",
+        "WIS-BUD-SNP-RHINO-SOLITUDE",
+        "WIS-BUD-MN-4-FEAR-SOLITUDE"
       ],
       "neighboring_category_ids": [
         5,
-        17
+        17,
+        23
       ],
-      "retrieval_notes": "Stoic fit is social-nature/cooperation, not a denial of loneliness.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Early Buddhist sources distinguish goodwill from social proximity. Renunciant solitude must not be treated as the remedy for painful loneliness.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 2,
@@ -50,21 +59,24 @@
       ],
       "philosophical_themes": [
         "grief",
-        "memory"
+        "memory",
+        "impermanence"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
-        "WIS-STOIC-SEN-63-4"
+        "WIS-STOIC-SEN-63-4",
+        "WIS-BUD-DHP-277"
       ],
       "neighboring_category_ids": [
         7,
         23
       ],
-      "retrieval_notes": "Use Seneca with context that he permits grief and tears.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Impermanence can contextualize loss but should not be used as a shortcut around grief.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 3,
@@ -84,25 +96,30 @@
       "philosophical_themes": [
         "control",
         "judgment",
-        "anticipatory fear"
+        "anticipatory fear",
+        "attention",
+        "fear in solitude"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-8-47",
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-5",
-        "WIS-STOIC-SEN-13-4"
+        "WIS-STOIC-SEN-13-4",
+        "WIS-BUD-MN-4-FEAR-SOLITUDE",
+        "WIS-BUD-UD-1-10-ATTENTION"
       ],
       "neighboring_category_ids": [
         9,
         15,
         18
       ],
-      "retrieval_notes": "Distinguish imagined future threat from concrete present danger.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Buddhist attention/fear records complement Stoic appraisal records; concrete danger remains a negative-match boundary.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 4,
@@ -121,24 +138,30 @@
       "philosophical_themes": [
         "delay",
         "judgment",
-        "non-retaliation"
+        "non-retaliation",
+        "non-hatred",
+        "metta"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-6-6",
         "WIS-STOIC-EPI-ENCH-5",
-        "WIS-STOIC-SEN-ANGER-2-29"
+        "WIS-STOIC-SEN-ANGER-2-29",
+        "WIS-BUD-DHP-5",
+        "WIS-BUD-SNP-1-8-147",
+        "WIS-BUD-MN-21-GOODWILL"
       ],
       "neighboring_category_ids": [
         5,
         12,
         25
       ],
-      "retrieval_notes": "Delay retaliatory reaction, not protective action.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Strong cross-tradition agreement on interrupting retaliatory anger; never substitute this for protective action.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 5,
@@ -159,24 +182,30 @@
       "philosophical_themes": [
         "cooperation",
         "reciprocity",
-        "response choice"
+        "response choice",
+        "non-contempt",
+        "goodwill"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-2-1",
         "WIS-STOIC-SEN-47-11",
-        "WIS-STOIC-SEN-ANGER-2-29"
+        "WIS-STOIC-SEN-ANGER-2-29",
+        "WIS-BUD-DHP-5",
+        "WIS-BUD-SNP-1-8-147",
+        "WIS-BUD-MN-21-GOODWILL"
       ],
       "neighboring_category_ids": [
         4,
         12,
         25
       ],
-      "retrieval_notes": "Ordinary conflict only; abuse boundary remains upstream.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Ordinary conflict only; abuse/IPV boundary remains authoritative.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 6,
@@ -223,23 +252,28 @@
       "philosophical_themes": [
         "control",
         "practice",
-        "action"
+        "action",
+        "self-training",
+        "pragmatic priority"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
-        "WIS-STOIC-MUSONIUS-PRACTICE"
+        "WIS-STOIC-MUSONIUS-PRACTICE",
+        "WIS-BUD-DHP-160",
+        "WIS-BUD-MN-63-PRIORITY"
       ],
       "neighboring_category_ids": [
         9,
         14,
         15
       ],
-      "retrieval_notes": "Focus on actionable agency rather than guaranteeing an outcome.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Use agency/pragmatic-priority records when indecision is being maintained by impossible certainty demands.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 9,
@@ -293,16 +327,38 @@
     {
       "category_id": 11,
       "category_name": "Compulsive / behavioral coping",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
-      "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "problem_signals": [
+        "repeated reactive grasping",
+        "habit loops framed as craving"
+      ],
+      "negative_match_signals": [
+        "substance use or withdrawal",
+        "clinical compulsion requiring treatment"
+      ],
+      "existential_roots": [
+        "Death",
+        "Meaninglessness"
+      ],
+      "philosophical_themes": [
+        "greed",
+        "delusion",
+        "reactivity"
+      ],
+      "strong_fit_traditions": [
+        "Early Buddhism"
+      ],
+      "weak_or_forced_traditions": [
+        "Treating Buddhist craving language as a clinical addiction model"
+      ],
+      "source_record_ids": [
+        "WIS-BUD-ITI-50-ROOTS"
+      ],
+      "neighboring_category_ids": [
+        10,
+        20
+      ],
+      "retrieval_notes": "Research-stage ethical frame only. Do not infer diagnosis, and never use for Category 10 substance hard-ceiling routing.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 12,
@@ -353,23 +409,27 @@
       "philosophical_themes": [
         "time",
         "purpose",
-        "practice"
+        "practice",
+        "pragmatic priority",
+        "impermanence"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-SHORT-1",
-        "WIS-STOIC-MUSONIUS-PRACTICE"
+        "WIS-STOIC-MUSONIUS-PRACTICE",
+        "WIS-BUD-MN-63-PRIORITY"
       ],
       "neighboring_category_ids": [
         14,
         16,
         23
       ],
-      "retrieval_notes": "Avoid turning mortality/time reflection into productivity shame.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Early Buddhist MN 63 is a specific pragmatic stance on certain speculative questions, not a universal dismissal of metaphysics.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 14,
@@ -422,25 +482,30 @@
       "philosophical_themes": [
         "dichotomy of control",
         "acceptance",
-        "judgment"
+        "judgment",
+        "attention",
+        "self-training"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-8-47",
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-5",
-        "WIS-STOIC-EPI-ENCH-8"
+        "WIS-STOIC-EPI-ENCH-8",
+        "WIS-BUD-DHP-160",
+        "WIS-BUD-UD-1-10-ATTENTION"
       ],
       "neighboring_category_ids": [
         3,
         8,
         22
       ],
-      "retrieval_notes": "Separate prioritization/agency from minimizing real workload.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Separate contemplative narrowing of attention from practical workload reduction and resource needs.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 16,
@@ -458,23 +523,27 @@
       ],
       "philosophical_themes": [
         "self-examination",
-        "practice"
+        "practice",
+        "non-identification",
+        "attention"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-28-1",
-        "WIS-STOIC-MUSONIUS-PRACTICE"
+        "WIS-STOIC-MUSONIUS-PRACTICE",
+        "WIS-BUD-UD-1-10-ATTENTION"
       ],
       "neighboring_category_ids": [
         13,
         14,
         17
       ],
-      "retrieval_notes": "Moderate fit; identity theory itself is not a core Stoic category in these records.",
-      "review_status": "PHASE1_PARTIAL"
+      "retrieval_notes": "Buddhist non-identification should not be presented as a universal metaphysical answer about personal identity.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 17,
@@ -493,23 +562,26 @@
       "philosophical_themes": [
         "shared humanity",
         "dignity",
-        "social nature"
+        "social nature",
+        "goodwill"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-2-1",
-        "WIS-STOIC-SEN-47-11"
+        "WIS-STOIC-SEN-47-11",
+        "WIS-BUD-SNP-1-8-144"
       ],
       "neighboring_category_ids": [
         1,
         5,
         25
       ],
-      "retrieval_notes": "Historical Roman hierarchy requires contextualization.",
-      "review_status": "PHASE1_PARTIAL"
+      "retrieval_notes": "Goodwill can support belonging reflection without requiring assimilation or approval from every group.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 18,
@@ -530,22 +602,27 @@
         "illness",
         "mortality",
         "remaining agency",
-        "time"
+        "time",
+        "impermanence",
+        "health"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-SEN-78-20",
-        "WIS-STOIC-SEN-SHORT-1"
+        "WIS-STOIC-SEN-SHORT-1",
+        "WIS-BUD-DHP-204",
+        "WIS-BUD-DHP-277"
       ],
       "neighboring_category_ids": [
         3,
         15
       ],
-      "retrieval_notes": "Never frame Stoic reflection as medical treatment.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Health and impermanence teachings are contemplative adjuncts only; medical care remains primary where needed.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 19,
@@ -564,35 +641,60 @@
       ],
       "philosophical_themes": [
         "externals",
-        "control"
+        "control",
+        "contentment"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
-        "WIS-STOIC-EPI-ENCH-1"
+        "WIS-STOIC-EPI-ENCH-1",
+        "WIS-BUD-DHP-204"
       ],
       "neighboring_category_ids": [
         3,
         15
       ],
-      "retrieval_notes": "Weak-to-moderate fit; practical-resource routing must accompany acute material need.",
-      "review_status": "PHASE1_PARTIAL"
+      "retrieval_notes": "Acute material insecurity requires practical resources. Contentment must not romanticize deprivation.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 20,
       "category_name": "Envy / comparing myself to others",
-      "problem_signals": [],
-      "negative_match_signals": [],
-      "existential_roots": [],
-      "philosophical_themes": [],
-      "strong_fit_traditions": [],
-      "weak_or_forced_traditions": [],
-      "source_record_ids": [],
-      "neighboring_category_ids": [],
-      "retrieval_notes": "",
-      "review_status": "UNRESEARCHED"
+      "problem_signals": [
+        "envy driven by wanting",
+        "comparison feeding grasping"
+      ],
+      "negative_match_signals": [
+        "ordinary admiration without distress"
+      ],
+      "existential_roots": [
+        "Isolation",
+        "Meaninglessness"
+      ],
+      "philosophical_themes": [
+        "greed",
+        "comparison",
+        "reactivity"
+      ],
+      "strong_fit_traditions": [
+        "Early Buddhism"
+      ],
+      "weak_or_forced_traditions": [
+        "Using broad craving doctrine as a complete model of social comparison"
+      ],
+      "source_record_ids": [
+        "WIS-BUD-ITI-50-ROOTS"
+      ],
+      "neighboring_category_ids": [
+        6,
+        9,
+        19
+      ],
+      "retrieval_notes": "Current Buddhist coverage is broad ethical framing only; targeted envy sources remain needed.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 21,
@@ -625,23 +727,27 @@
       "philosophical_themes": [
         "acceptance",
         "time",
-        "control"
+        "control",
+        "impermanence of conditioned states and feelings"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-EPI-ENCH-1",
         "WIS-STOIC-EPI-ENCH-8",
-        "WIS-STOIC-SEN-SHORT-1"
+        "WIS-STOIC-SEN-SHORT-1",
+        "WIS-BUD-DHP-277",
+        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING"
       ],
       "neighboring_category_ids": [
         8,
         15
       ],
-      "retrieval_notes": "Acceptance applies to facts already present; action remains possible.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Impermanence is not a timetable; use to frame change, not promise rapid relief.",
+      "review_status": "PHASE2_RESEARCHED"
     },
     {
       "category_id": 23,
@@ -658,22 +764,25 @@
       ],
       "philosophical_themes": [
         "self-examination",
-        "escape"
+        "escape",
+        "impermanence of feeling"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
-        "WIS-STOIC-SEN-28-1"
+        "WIS-STOIC-SEN-28-1",
+        "WIS-BUD-SN-36-9-IMPERMANENT-FEELING"
       ],
       "neighboring_category_ids": [
         13,
         16,
         24
       ],
-      "retrieval_notes": "Narrow philosophical fit; not treatment for persistent low mood.",
-      "review_status": "PHASE1_PARTIAL"
+      "retrieval_notes": "Only a narrow contemplative adjunct. Persistent low mood should not be treated as solved by impermanence reflection.",
+      "review_status": "PHASE2_PARTIAL"
     },
     {
       "category_id": 24,
@@ -710,23 +819,29 @@
       "philosophical_themes": [
         "dignity",
         "non-retaliation",
-        "reciprocity"
+        "reciprocity",
+        "non-hatred",
+        "non-contempt"
       ],
       "strong_fit_traditions": [
-        "Stoicism"
+        "Stoicism",
+        "Early Buddhism"
       ],
       "weak_or_forced_traditions": [],
       "source_record_ids": [
         "WIS-STOIC-MA-6-6",
-        "WIS-STOIC-SEN-47-11"
+        "WIS-STOIC-SEN-47-11",
+        "WIS-BUD-DHP-5",
+        "WIS-BUD-SNP-1-8-147",
+        "WIS-BUD-MN-21-GOODWILL"
       ],
       "neighboring_category_ids": [
         4,
         5,
         12
       ],
-      "retrieval_notes": "Do not use philosophical restraint to suppress boundaries or safety action.",
-      "review_status": "PHASE1_RESEARCHED"
+      "retrieval_notes": "Boundary/safety behavior remains primary; non-hatred is not submission.",
+      "review_status": "PHASE2_RESEARCHED"
     }
   ]
 }

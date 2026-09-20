@@ -266,3 +266,139 @@
 - Decision: CONVERT_TO_PARAPHRASE
 - Reviewer: OpenAI research audit
 - Review date: 2026-09-19
+
+## Phase 2 — Early Buddhist / Pali Canon sources
+
+### [QV-BUD-001] WIS-BUD-DHP-5
+- Proposed quote: “For hatred does not cease by hatred at any time: hatred ceases by love, this is an old rule.”
+- Author / attribution: Traditional Pali Canon; teaching attributed to the Buddha
+- Work: Dhammapada
+- Passage locator: Chapter I, verse 5
+- Translator: F. Max Müller
+- Edition: Sacred Books of the East, Vol. X, Part I (1881)
+- Source URL(s): https://nanda.online-dhamma.net/tipitaka/sutta/khuddaka/dhammapada/dhp-contrast-reading/dhp-contrast-reading-en-full/ ; https://en.wikisource.org/wiki/Dhammapada_(Muller)
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 4, 5
+- Context-fit notes: Use as a de-escalation teaching, not as pressure to reconcile with or remain near someone unsafe.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-002] WIS-BUD-DHP-160
+- Proposed quote: “Self is the lord of self, who else could be the lord?”
+- Author / attribution: Traditional Pali Canon; teaching attributed to the Buddha
+- Work: Dhammapada
+- Passage locator: Chapter XII, verse 160
+- Translator: F. Max Müller
+- Edition: Sacred Books of the East, Vol. X, Part I (1881)
+- Source URL(s): https://en.wikisource.org/wiki/Dhammapada_(Muller) ; https://sacred-texts.com/bud/sbe10/sbe1014.htm
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 8, 15
+- Context-fit notes: Use for practical agency/self-training, not as a doctrinal statement about Buddhist metaphysics.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-003] WIS-BUD-DHP-204
+- Proposed quote: “Health is the greatest of gifts, contentedness the best riches; trust is the best of relationships, Nirvana the highest happiness.”
+- Author / attribution: Traditional Pali Canon; teaching attributed to the Buddha
+- Work: Dhammapada
+- Passage locator: Chapter XV, verse 204
+- Translator: F. Max Müller
+- Edition: Sacred Books of the East, Vol. X, Part I (1881)
+- Source URL(s): https://nanda.online-dhamma.net/tipitaka/sutta/khuddaka/dhammapada/dhp-contrast-reading/dhp-contrast-reading-en-chap15/
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 18, 19
+- Context-fit notes: Contentment is not a substitute for medical care, financial planning, or essential-resource support.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-004] WIS-BUD-DHP-277
+- Proposed quote: “All created things perish”
+- Author / attribution: Traditional Pali Canon; teaching attributed to the Buddha
+- Work: Dhammapada
+- Passage locator: Chapter XX, verse 277
+- Translator: F. Max Müller
+- Edition: Sacred Books of the East, Vol. X, Part I (1881)
+- Source URL(s): https://www.swaveda.com/texts/dhammapada/20/ ; https://en.wikisource.org/wiki/Dhammapada_(Muller)
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 2, 18, 22
+- Context-fit notes: Use as an impermanence teaching, not as a shortcut around grief or practical care.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-005] WIS-BUD-SNP-1-8-144
+- Proposed quote: “May all beings be happy and secure, may they be happy-minded.”
+- Author / attribution: Traditional Pali Canon; teaching attributed to the Buddha
+- Work: Sutta-Nipata
+- Passage locator: 1.8 Mettasutta, verse 144
+- Translator: Viggo Fausböll
+- Edition: Sacred Books of the East, Vol. X, Part II (1881)
+- Source URL(s): https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/sutta-nipata ; https://vignette.wikia.nocookie.net/tipitaka/images/0/02/Suttanipata_transln.pdf/revision/latest
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 1, 17
+- Context-fit notes: Goodwill does not require proximity, reconciliation, or belonging to every group.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-006] WIS-BUD-SNP-1-8-147
+- Proposed quote: “Let no one deceive another, let him not despise (another) in any place.”
+- Author / attribution: Traditional Pali Canon; teaching attributed to the Buddha
+- Work: Sutta-Nipata
+- Passage locator: 1.8 Mettasutta, verse 147
+- Translator: Viggo Fausböll
+- Edition: Sacred Books of the East, Vol. X, Part II (1881)
+- Source URL(s): https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/sutta-nipata ; https://vignette.wikia.nocookie.net/tipitaka/images/0/02/Suttanipata_transln.pdf/revision/latest
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 4, 5, 25
+- Context-fit notes: Non-contempt does not require tolerating mistreatment or giving up accountability.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-007] WIS-BUD-MN-21-GOODWILL
+- Proposed quote: “always to be kindly and compassionate, with your heart full of love and void of enmity.”
+- Author / attribution: Traditional Pali Canon; discourse attributed to the Buddha
+- Work: Majjhima Nikaya
+- Passage locator: MN 21, Kakacupama Sutta; early instruction section
+- Translator: Robert Chalmers (Lord Chalmers)
+- Edition: Further Dialogues of the Buddha, Vol. I (1926)
+- Source URL(s): https://obo.genaud.net/dhamma-vinaya/chlm/mn/mn.021.chlm.sbb.htm
+- Exact wording verified?: Yes
+- Surrounding context checked?: Yes
+- Translation identified?: Yes
+- Rights status: PUBLIC_DOMAIN
+- Category mapping: 4, 5, 25
+- Context-fit notes: Only the safe excerpt stored here is approved for automatic display. Do not auto-expand the discourse's later violent simile into user-facing content.
+- Decision: VERIFIED_DIRECT_QUOTE
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
+### [QV-BUD-PARAPHRASES]
+- Records: WIS-BUD-SNP-RHINO-SOLITUDE; WIS-BUD-MN-4-FEAR-SOLITUDE; WIS-BUD-MN-63-PRIORITY; WIS-BUD-UD-1-10-ATTENTION; WIS-BUD-ITI-50-ROOTS; WIS-BUD-SN-36-9-IMPERMANENT-FEELING
+- Decision: SOURCE_PARAPHRASE
+- Reason: translation/context integrity, passage-level verification status, or rights boundary made paraphrase preferable to user-facing direct quotation.
+- Reviewer: OpenAI research audit
+- Review date: 2026-09-19
+
