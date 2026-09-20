@@ -1,15 +1,132 @@
 # Inner Compass
 
-A mobile app that helps someone break down a problem they're facing and responds with real, sourced wisdom guidance plus an affirmation — drawing on Eastern philosophy, Jungian shadow work, and evidence-based psychology, not generic self-help or fabricated quotes. Guidance is retrieval-augmented: an LLM matches a user's problem to a curated, human/research-verified knowledge base of real teachings, and only phrases the response using that grounded content rather than generating content from its own training-data memory.
+Inner Compass is a **local-first, deterministic reflection web app**. A user can describe a problem, receive a safety-aware category match, explore source-linked wisdom, save privacy-safe bookmarks, browse a research Wisdom Library, and explore a visual Suggested Reads directory.
 
-## Status
+The product is designed to support reflection and human agency. It is **not** a chatbot, therapist, diagnostic system, emergency service, or medical-treatment product.
 
-Pre-MVP. The problem taxonomy is refined to v1.0 (see [`docs/TAXONOMY_V1.0.md`](docs/TAXONOMY_V1.0.md)), validated against real clinical/psychological literature (see [`docs/CLINICAL_KB_V1.0.md`](docs/CLINICAL_KB_V1.0.md)), and mapped to sourced wisdom content across three pillars (see [`docs/WISDOM_MAPPING_V1.0.md`](docs/WISDOM_MAPPING_V1.0.md)). That mapping is now structured into a retrieval-ready knowledge base — 25 categories × 3 sourced entries each (see [`content/knowledge-base/`](content/knowledge-base/), schema in [`docs/KB_SCHEMA_V1.md`](docs/KB_SCHEMA_V1.md)). Next step: the MVP app itself (React Native + Firebase + retrieval matching).
+## Current architecture
 
-See [`ROADMAP.md`](ROADMAP.md) for the full build plan.
+```text
+Reflection text
+  ↓
+browser-only deterministic safety router
+  ↓
+browser-only 25-category classifier
+  ↓
+uncertainty / multi-issue gate
+  ↓
+clarification when needed
+  ↓
+canonical three-pillar retrieval
+  ↓
+source-linked deterministic affirmation
+  ↓
+display
+```
 
-## Planned stack
+**No runtime AI provider is required or configured.** Raw reflection text is processed in the browser and is not sent to a model/provider or persisted in the local journal.
 
-- **App:** React Native
-- **LLM:** OpenRouter (free-tier model) — for matching + phrasing only, not content generation
-- **Backend/storage:** Firebase
+## Web product
+
+Current surfaces:
+
+- **Reflect** — deterministic safety, category matching, clarification, and canonical guidance
+- **Taxonomy** — all 25 problem categories and the three canonical pillars
+- **Wisdom** — 71 research records across audited source traditions; exact direct-quote text is rights-gated
+- **Suggested Reads** — visual curated library with 18 starter books/resources, traditions, pathways, levels, and legal reading links
+- **Journal** — local bookmarks without raw reflection text
+- **Privacy** — personalization toggle and clear-local-data controls
+- **Lifelines** — U.S.-scoped launch resources and safety routing
+
+Preview builds remain viewable for development/AI Studio. The initial public-launch configuration is 18+ and U.S.-only.
+
+## Canonical production knowledge base
+
+The original production KB remains structurally stable:
+
+- 25 categories
+- 4 existential roots
+- 3 pillars per category
+- 75 canonical entries
+
+See:
+- `docs/TAXONOMY_V1.0.md`
+- `docs/KB_SCHEMA_V1.md`
+- `content/knowledge-base/`
+
+The broader research corpus is intentionally separate from this canonical production KB.
+
+## Wisdom research corpus
+
+`research/wisdom-corpus/` currently contains:
+
+- 30 source records
+- 71 wisdom records
+- 75 source-linked affirmation candidates
+- all 25 categories with at least 5 mapped wisdom records
+- all 25 categories with at least 3 affirmation candidates
+- phase reports for Stoicism, Early Buddhism, Classical Daoism, Indian philosophy, Confucian/classical Chinese sources, and later-review traditions
+- source/translation/rights logs
+- deterministic audit tooling
+
+Exact quote wording is not enabled in the product until edition/translation rights are approved.
+
+## Suggested Reads
+
+`research/reading-directory/` contains:
+
+- tradition/branch hierarchy
+- 18 audited starter readings/resources
+- curated pathways
+- taxonomy links
+- translation guidance
+- rights metadata
+- visual metadata/fallback-cover rules
+
+The UI uses original metadata-driven visual cards when no approved cover artwork is available.
+
+## Privacy and compliance
+
+See `docs/legal/`:
+
+- `COMPLIANCE_ARCHITECTURE_2026.md`
+- `PRIVACY_DATA_MAP.md`
+- `CONTENT_RIGHTS_POLICY.md`
+- `PRODUCT_CLAIMS_POLICY.md`
+- `CANONICAL_QUOTE_RIGHTS_INVENTORY.md`
+- `LAUNCH_COMPLIANCE_CHECKLIST.md`
+
+Engineering controls do not substitute for owner/counsel launch approval.
+
+## Development
+
+```bash
+npm install
+npm run lint
+npm run audit:wisdom
+npm run dev
+npm run test:e2e
+```
+
+Production build:
+
+```bash
+npm run build
+NODE_ENV=production npm start
+```
+
+## Testing
+
+Regression layers include:
+
+- deterministic classifier baselines
+- deterministic uncertainty tests
+- grounding-validator adversarial tests
+- 12,000-scenario human-style fuzz harness
+- Playwright web E2E
+- zero-runtime-AI production-policy guard
+- wisdom-corpus referential/coverage audit
+
+## Mobile track
+
+A native React Native / Expo implementation remains a **separate future track**. The current authoritative product is the web app.
