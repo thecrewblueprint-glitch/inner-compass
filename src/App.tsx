@@ -15,7 +15,7 @@ import { SavedJournalScreen } from './screens/SavedJournalScreen';
 import { WisdomLibraryScreen } from './screens/WisdomLibraryScreen';
 import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
-import { LegalScreen } from './screens/LegalScreen';
+import { LegalScreen, LegalDocumentKey } from './screens/LegalScreen';
 import { DiagnosticsScreen } from './screens/DiagnosticsScreen';
 import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
@@ -82,6 +82,7 @@ const AppContent: React.FC = () => {
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
+  const [legalDocument, setLegalDocument] = useState<LegalDocumentKey>('privacy');
 
   const currentNavigation = navigationStack[navigationStack.length - 1];
   const currentTab = currentNavigation.tab;
@@ -197,6 +198,11 @@ const AppContent: React.FC = () => {
         },
       ];
     });
+  };
+
+  const openLegalDocument = (document: LegalDocumentKey) => {
+    setLegalDocument(document);
+    navigateToTab('legal');
   };
 
   const trackCategoryInteraction = (
@@ -569,7 +575,8 @@ const AppContent: React.FC = () => {
               isLoading={isLoading}
               clarificationPrompt={clarificationPrompt}
               dailyInteractionTimestamp={dailyInteractionTimestamp}
-              onOpenLegal={() => navigateToTab('legal')}
+              onOpenLegal={() => openLegalDocument('terms')}
+              onOpenHealthData={() => openLegalDocument('health-data')}
               onOpenCrisis={() => navigateToTab('crisis')}
             />
           ))}
@@ -618,11 +625,11 @@ const AppContent: React.FC = () => {
             onClearJournal={() => setSavedReflections([])}
             onClearPersonalization={clearPersonalization}
             onClearAllLocalData={clearAllLocalData}
-            onOpenLegal={() => navigateToTab('legal')}
+            onOpenLegal={() => openLegalDocument('privacy')}
           />
         )}
 
-        {currentTab === 'legal' && <LegalScreen />}
+        {currentTab === 'legal' && <LegalScreen initialDocument={legalDocument} />}
 
         {currentTab === 'diagnostics' && IS_DIAGNOSTICS_ENABLED && <DiagnosticsScreen />}
 
@@ -639,7 +646,8 @@ const AppContent: React.FC = () => {
       <View style={[styles.footer, { backgroundColor: theme.topBar, borderTopColor: theme.topBarBorder }]}>
         <Text style={[styles.footerText, { color: theme.textMuted }]}>18+ · U.S. · English only · General-wellness reflection</Text>
         <View style={styles.footerLinks}>
-          <Pressable accessibilityRole="link" onPress={() => navigateToTab('legal')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Legal & Safety</Text></Pressable>
+          <Pressable accessibilityRole="link" onPress={() => openLegalDocument('terms')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Legal & Safety</Text></Pressable>
+          <Pressable accessibilityRole="link" onPress={() => openLegalDocument('health-data')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Consumer Health Data Policy</Text></Pressable>
           <Pressable accessibilityRole="link" onPress={() => navigateToTab('privacy')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Privacy</Text></Pressable>
           <Pressable accessibilityRole="link" onPress={() => navigateToTab('crisis')}><Text style={[styles.footerLink, { color: theme.crisisAccent }]}>Lifelines</Text></Pressable>
         </View>
