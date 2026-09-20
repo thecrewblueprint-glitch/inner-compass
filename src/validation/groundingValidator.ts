@@ -2,11 +2,10 @@ import { Category, GroundingValidationResult, KBEntry, StructuredLLMOutput } fro
 import { getCategoryById } from '../knowledgeBase/kbLoader';
 
 /**
- * Phase 4: Deterministic Grounding Validator
- * Non-negotiable Rule 1: The LLM classifies and phrases only.
- * It does NOT invent philosophy, psychology claims, practices, quotes, sources, authors, or citations.
- * Rule 10: Strict validation against canonical entries from content/knowledge-base/
- * Fails closed if any hallucination, invented quote, or unauthorized author is detected.
+ * Deterministic Grounding Validator.
+ * Canonical guidance is valid without any model output.
+ * Optional structured phrasing/mocks are validated strictly against the canonical category
+ * so tests can still exercise hallucination and source-integrity rejection behavior.
  */
 
 // Well-known authors across ALL categories in the canonical KB
@@ -51,14 +50,13 @@ export function validateGrounding(
 ): GroundingValidationResult {
   const warnings: string[] = [];
 
-  // If no LLM output was provided or generation was skipped/failed
+  // Canonical deterministic guidance is the primary product path.
   if (!llmOutput) {
     return {
-      isValid: false,
-      rejectionReason: 'No LLM output provided; fallback to deterministic canonical synthesis.',
+      isValid: true,
       verifiedEntries: expectedCategory.entries,
       groundedSynthesis: expectedCategory.synthesis_note,
-      warnings: ['Used canonical synthesis directly.'],
+      warnings: [],
     };
   }
 

@@ -10,6 +10,8 @@ on:
       - "src/safety/**"
       - "server.ts"
       - "tools/eval/fixtures/classifier-gold.json"
+  pull_request:
+    branches: [main]
   workflow_dispatch:
     inputs:
       scenario_count:
@@ -27,7 +29,6 @@ jobs:
     timeout-minutes: 30
     env:
       VITE_INNER_COMPASS_PREVIEW: "true"
-      INNER_COMPASS_AI_MODE: "off"
       NODE_ENV: "development"
       INNER_COMPASS_BASE_URL: "http://127.0.0.1:3000"
 
@@ -75,7 +76,7 @@ jobs:
           SCENARIO_COUNT: ${{ github.event.inputs.scenario_count || '12000' }}
           WORKERS: ${{ github.event.inputs.workers || '20' }}
         run: |
-          python3 tools/eval/human_flow_fuzz.py --target-scenarios "$SCENARIO_COUNT" --workers "$WORKERS" --results-dir tools/eval/results/human-flow-ci --no-fail-quality
+          python3 tools/eval/human_flow_fuzz.py --target-scenarios "$SCENARIO_COUNT" --workers "$WORKERS" --results-dir tools/eval/results/human-flow-ci
 
       - name: Upload flow correction map
         if: always()

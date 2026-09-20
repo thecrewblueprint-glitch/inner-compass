@@ -32,7 +32,7 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Bookmarked Wisdom & Affirmations</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Review your grounded philosophical reflections and affirmations. Stored safely in local session storage without raw problem text.
+          Review your grounded philosophical reflections and affirmations. Stored on this device without raw problem text.
         </Text>
       </View>
 
@@ -95,12 +95,12 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
                       },
                     ]}
                   >
-                    <Text style={[styles.affirmationText, { color: theme.affirmationText }]}>"{item.affirmation}"</Text>
+                    <Text style={[styles.affirmationText, { color: theme.affirmationText }]}>{item.affirmation}</Text>
                   </View>
                 )}
 
                 <Text style={[styles.synthesisText, { color: theme.textSecondary }]} numberOfLines={3}>
-                  "{item.synthesisNote}"
+                  {item.synthesisNote}
                 </Text>
 
                 <View style={[styles.cardActions, { borderTopColor: theme.cardBorder }]}>

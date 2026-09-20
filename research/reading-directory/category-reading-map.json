@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.0",
+  "categories": {
+    "1": [
+      "READ-SENECA-LETTERS",
+      "READ-SUTTA-NIPATA",
+      "READ-ANALECTS",
+      "READ-MENCIUS",
+      "READ-EPICURUS",
+      "READ-SEP-CONFUCIUS"
+    ],
+    "2": [
+      "READ-SENECA-LETTERS",
+      "READ-DHAMMAPADA",
+      "READ-GITA",
+      "READ-UPANISHADS",
+      "READ-EPICURUS"
+    ],
+    "3": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-EPICTETUS-HANDBOOK",
+      "READ-SENECA-LETTERS",
+      "READ-GITA",
+      "READ-YOGA-SUTRAS",
+      "READ-DAO-DE-JING",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-EPICURUS",
+      "READ-SEP-ZEN"
+    ],
+    "4": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-DHAMMAPADA",
+      "READ-SUTTA-NIPATA",
+      "READ-YOGA-SUTRAS",
+      "READ-ZHUANGZI",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-JAIN-SEP"
+    ],
+    "5": [
+      "READ-DHAMMAPADA",
+      "READ-SUTTA-NIPATA",
+      "READ-DAO-DE-JING",
+      "READ-ZHUANGZI",
+      "READ-ANALECTS",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-JAIN-SEP",
+      "READ-SEP-CONFUCIUS"
+    ],
+    "6": [
+      "READ-UPANISHADS",
+      "READ-ANALECTS",
+      "READ-MENCIUS",
+      "READ-SEP-CONFUCIUS"
+    ],
+    "7": [
+      "READ-GITA",
+      "READ-YOGA-SUTRAS",
+      "READ-EPICURUS"
+    ],
+    "8": [
+      "READ-EPICTETUS-HANDBOOK",
+      "READ-MUMONKAN",
+      "READ-GITA",
+      "READ-YOGA-SUTRAS",
+      "READ-DAO-DE-JING",
+      "READ-ZHUANGZI",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-JAIN-SEP",
+      "READ-SEP-ZEN"
+    ],
+    "9": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-EPICTETUS-HANDBOOK",
+      "READ-GITA",
+      "READ-ANALECTS",
+      "READ-MENCIUS"
+    ],
+    "10": [
+      "READ-YOGA-SUTRAS",
+      "READ-JAIN-SEP",
+      "READ-EPICURUS"
+    ],
+    "11": [
+      "READ-YOGA-SUTRAS",
+      "READ-JAIN-SEP",
+      "READ-EPICURUS"
+    ],
+    "12": [
+      "READ-SENECA-LETTERS",
+      "READ-ANALECTS",
+      "READ-MENCIUS",
+      "READ-JAIN-SEP"
+    ],
+    "13": [
+      "READ-MUMONKAN",
+      "READ-UPANISHADS",
+      "READ-ZHUANGZI",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-SEP-ZEN"
+    ],
+    "14": [
+      "READ-GITA",
+      "READ-ZHUANGZI",
+      "READ-ANALECTS",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-SEP-CONFUCIUS"
+    ],
+    "15": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-EPICTETUS-HANDBOOK",
+      "READ-GITA",
+      "READ-YOGA-SUTRAS",
+      "READ-DAO-DE-JING",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-SEP-ZEN"
+    ],
+    "16": [
+      "READ-MUMONKAN",
+      "READ-UPANISHADS",
+      "READ-ZHUANGZI",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-JAIN-SEP",
+      "READ-SEP-ZEN"
+    ],
+    "17": [
+      "READ-SUTTA-NIPATA",
+      "READ-ANALECTS",
+      "READ-MENCIUS",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-JAIN-SEP",
+      "READ-SEP-CONFUCIUS"
+    ],
+    "18": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-SENECA-LETTERS",
+      "READ-DHAMMAPADA",
+      "READ-GITA",
+      "READ-UPANISHADS",
+      "READ-EPICURUS"
+    ],
+    "19": [
+      "READ-SENECA-LETTERS",
+      "READ-DAO-DE-JING",
+      "READ-MENCIUS",
+      "READ-JAIN-SEP",
+      "READ-EPICURUS"
+    ],
+    "20": [
+      "READ-DHAMMAPADA",
+      "READ-YOGA-SUTRAS",
+      "READ-DAO-DE-JING",
+      "READ-ZHUANGZI",
+      "READ-MENCIUS",
+      "READ-JAIN-SEP",
+      "READ-EPICURUS"
+    ],
+    "21": [
+      "READ-UPANISHADS",
+      "READ-YOGA-SUTRAS",
+      "READ-ANALECTS",
+      "READ-MENCIUS",
+      "READ-SEP-CONFUCIUS"
+    ],
+    "22": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-EPICTETUS-HANDBOOK",
+      "READ-GITA",
+      "READ-YOGA-SUTRAS",
+      "READ-DAO-DE-JING",
+      "READ-ZHUANGZI",
+      "READ-GREAT-LEARNING-MEAN",
+      "READ-JAIN-SEP",
+      "READ-SEP-ZEN"
+    ],
+    "23": [
+      "READ-SENECA-LETTERS",
+      "READ-UPANISHADS",
+      "READ-EPICURUS",
+      "READ-SEP-ZEN"
+    ],
+    "24": [
+      "READ-UPANISHADS",
+      "READ-EPICURUS",
+      "READ-SEP-ZEN"
+    ],
+    "25": [
+      "READ-MARCUS-MEDITATIONS",
+      "READ-DHAMMAPADA",
+      "READ-SUTTA-NIPATA",
+      "READ-ANALECTS",
+      "READ-MENCIUS",
+      "READ-JAIN-SEP"
+    ]
+  }
+}

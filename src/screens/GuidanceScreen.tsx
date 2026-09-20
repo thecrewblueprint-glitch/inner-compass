@@ -57,7 +57,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
   onOpenCrisis,
 }) => {
   const { theme } = useTheme();
-  const { category, safety, affirmation, synthesis, isFallback } = result;
+  const { category, safety, affirmation, synthesis } = result;
   const isSubstanceHardCeiling = safety?.status === 'SUBSTANCE_HARD_CEILING' || category.category_id === 10;
 
   return (
@@ -133,15 +133,9 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           {category.category_name}
         </Text>
 
-        {isFallback ? (
-          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING (SCHEMA V1.0)</Text>
-          </View>
-        ) : (
-          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>STRUCTURED LLM SYNTHESIS (GROUNDED & VALIDATED)</Text>
-          </View>
-        )}
+        <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING · DETERMINISTIC</Text>
+        </View>
       </View>
 
       {/* Category 10 Substance Hard Ceiling Banner */}
@@ -184,7 +178,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           style={[styles.affirmationText, { color: theme.affirmationText }]}
           {...({ 'data-testid': 'grounded-affirmation-text' } as any)}
         >
-          "{affirmation}"
+          {affirmation}
         </Text>
       </View>
 
@@ -205,7 +199,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           style={[styles.synthesisText, { color: theme.textPrimary }]}
           {...({ 'data-testid': 'grounded-synthesis-text' } as any)}
         >
-          "{synthesis}"
+          {synthesis}
         </Text>
       </View>
 
@@ -254,21 +248,15 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
               </View>
               <Text style={[styles.sourceWork, { color: theme.textMuted }]}>Text: {entry.source_work}</Text>
 
-              {/* Verified Quote (if present) */}
+              {/* Product-display rights gate: direct quotation text remains disabled. */}
               {entry.verified_quote && (
-                <View
-                  style={[
-                    styles.quoteBox,
-                    {
-                      backgroundColor: theme.quoteBg,
-                      borderColor: theme.quoteBorder,
-                      borderLeftColor: theme.accentPrimary,
-                      borderLeftWidth: 3,
-                    },
-                  ]}
-                >
-                  <Text style={[styles.quoteLabel, { color: theme.quoteLabel }]}>VERIFIED PRIMARY SOURCE QUOTE:</Text>
-                  <Text style={[styles.quoteText, { color: theme.quoteText }]}>"{entry.verified_quote}"</Text>
+                <View style={[styles.quoteBox, { backgroundColor: theme.quoteBg, borderColor: theme.quoteBorder }]}>
+                  <Text style={[styles.quoteText, { color: theme.quoteText }]}>
+                    Verified source passage available. Exact quotation is withheld pending product-display rights approval.
+                  </Text>
+                  <Text style={[styles.quoteAttribution, { color: theme.textMuted }]}>
+                    Source: {entry.source_author} · {entry.source_work}
+                  </Text>
                 </View>
               )}
 
@@ -536,6 +524,11 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontStyle: 'italic',
     lineHeight: 20,
+  },
+  quoteAttribution: {
+    fontSize: 11,
+    marginTop: 5,
+    fontStyle: 'italic',
   },
   teachingLabel: {
     fontSize: 11,

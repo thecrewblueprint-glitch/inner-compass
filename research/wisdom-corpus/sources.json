@@ -365,6 +365,271 @@
       "rights_status": "CITATION_ONLY",
       "rights_notes": "Used for received-text authorship layers and interpretive context only.",
       "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-IND-GITA-ARNOLD-1885",
+      "tradition": "Hindu philosophical traditions",
+      "school_or_lineage": "Bhagavad Gita / synthetic yoga traditions",
+      "author_or_attributed_figure": "Traditional Mahabharata tradition",
+      "work": "Bhagavad Gita / The Song Celestial",
+      "source_type": "TRANSLATION",
+      "original_language": "Sanskrit",
+      "translator": "Sir Edwin Arnold",
+      "edition": "The Song Celestial, 1885; Project Gutenberg eBook #2388",
+      "publication_year": 1885,
+      "publisher": "Project Gutenberg electronic edition of public-domain translation",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2388"
+      ],
+      "bibliographic_citation": "Bhagavad Gita. Translated by Sir Edwin Arnold as The Song Celestial. 1885. Project Gutenberg eBook #2388.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg lists the translation as public domain in the United States; international rights require jurisdictional review.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-IND-UPANISHADS-MULLER-1879-1884",
+      "tradition": "Upanishadic / Vedantic source tradition",
+      "school_or_lineage": "Principal Upanishads; pre-systematic Vedanta source literature",
+      "author_or_attributed_figure": "Traditional Vedic/Upanishadic authorship",
+      "work": "The Upanishads, Parts I-II",
+      "source_type": "TRANSLATION",
+      "original_language": "Sanskrit",
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vols. 1 and 15",
+      "publication_year": "1879-1884",
+      "publisher": "Oxford: Clarendon Press",
+      "source_urls": [
+        "https://sacred-texts.com/hin/upan/index.htm",
+        "https://sacred-texts.com/hin/sbe01/index.htm"
+      ],
+      "bibliographic_citation": "The Upanishads. Translated by F. Max Müller. Sacred Books of the East, Vols. 1 and 15. Oxford: Clarendon Press, 1879-1884.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "The historical translations are public domain in the United States; terminology is dated and requires tradition-aware review.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-IND-YOGA-JOHNSTON-1912",
+      "tradition": "Yoga philosophy",
+      "school_or_lineage": "Classical Yoga / Patanjali",
+      "author_or_attributed_figure": "Patanjali (traditional attribution)",
+      "work": "Yoga Sutras of Patanjali",
+      "source_type": "TRANSLATION",
+      "original_language": "Sanskrit",
+      "translator": "Charles Johnston",
+      "edition": "The Yoga Sutras of Patanjali: The Book of the Spiritual Man",
+      "publication_year": 1912,
+      "publisher": "New York: Charles Johnston",
+      "source_urls": [
+        "https://sacred-texts.com/hin/ysp/index.htm"
+      ],
+      "bibliographic_citation": "Patanjali. The Yoga Sutras of Patanjali: The Book of the Spiritual Man. Interpretation by Charles Johnston. 1912.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Sacred Texts identifies the 1912 edition as public domain in the United States.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-CONF-ANALECTS-LEGGE",
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucianism",
+      "author_or_attributed_figure": "Confucius and disciples tradition",
+      "work": "Analects",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / Project Gutenberg eBook #3330",
+      "publication_year": "19th century",
+      "publisher": "Project Gutenberg electronic edition",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3330",
+        "https://www.gutenberg.org/ebooks/4094"
+      ],
+      "bibliographic_citation": "Confucius. Analects. Translated by James Legge. Public-domain electronic editions via Project Gutenberg.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg lists the Legge translation as public domain in the United States.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-CONF-MENCIUS-LEGGE",
+      "tradition": "Confucianism",
+      "school_or_lineage": "Mencian Confucianism",
+      "author_or_attributed_figure": "Mencius / Mengzi tradition",
+      "work": "Mencius",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "James Legge",
+      "edition": "The Chinese Classics / public-domain collected edition",
+      "publication_year": "19th century",
+      "publisher": "Chinese Text Project (Legge English translation) / Stanford Encyclopedia of Philosophy context",
+      "source_urls": [
+        "https://ctext.org/mengzi",
+        "https://plato.stanford.edu/entries/mencius/"
+      ],
+      "bibliographic_citation": "Mencius (Mengzi). English translation by James Legge, available through the Chinese Text Project; contextual verification with Stanford Encyclopedia of Philosophy, 'Mencius'.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "The underlying historical Legge translation is public domain in the United States; the product links out and uses paraphrase rather than reproducing hosted text.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-CONF-CLASSICS-LEGGE-3100",
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucian self-cultivation tradition",
+      "author_or_attributed_figure": "Traditional Confucian textual tradition",
+      "work": "Great Learning and Doctrine of the Mean",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "James Legge",
+      "edition": "The Chinese Classics, Volume 1; Project Gutenberg eBook #3100",
+      "publication_year": "19th century",
+      "publisher": "Project Gutenberg electronic edition",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/3100"
+      ],
+      "bibliographic_citation": "The Great Learning and The Doctrine of the Mean. In The Chinese Classics, translated by James Legge. Project Gutenberg eBook #3100.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg lists the historical translation as public domain in the United States.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-ZEN-MUMONKAN-SENZAKI-1934",
+      "tradition": "Zen Buddhism",
+      "school_or_lineage": "Rinzai/koan tradition; Mumonkan reception",
+      "author_or_attributed_figure": "Wumen Huikai (Mumon); translated by Nyogen Senzaki",
+      "work": "The Gateless Gate (Mumonkan)",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "Nyogen Senzaki",
+      "edition": "1934 English translation",
+      "publication_year": 1934,
+      "publisher": "Historical English edition; electronic text at Sacred Texts",
+      "source_urls": [
+        "https://sacred-texts.com/bud/glg/index.htm",
+        "https://plato.stanford.edu/entries/japanese-zen/"
+      ],
+      "bibliographic_citation": "Wumen Huikai. The Gateless Gate. Historical translation by Nyogen Senzaki, 1934; contextual review via Stanford Encyclopedia of Philosophy, 'Japanese Zen Buddhist Philosophy'.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Sacred Texts reports the Senzaki translation as public domain in the United States due non-renewal; use paraphrase-first in product.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-JAIN-SEP-2023",
+      "tradition": "Jaina philosophy",
+      "school_or_lineage": "Cross-sectarian philosophical overview",
+      "author_or_attributed_figure": "Jaina philosophical traditions",
+      "work": "Jaina Philosophy (Stanford Encyclopedia of Philosophy)",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2023,
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/jaina-philosophy/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Jaina Philosophy.' First published 2023.",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Modern scholarship is citation/context only; no bulk quotation stored.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-EPICURUS-YONGE-1915",
+      "tradition": "Epicureanism",
+      "school_or_lineage": "Hellenistic Epicurean ethics",
+      "author_or_attributed_figure": "Epicurus, preserved by Diogenes Laertius",
+      "work": "Letter to Menoeceus and Principal Doctrines in Lives and Opinions of Eminent Philosophers, Book X",
+      "source_type": "TRANSLATION",
+      "original_language": "Ancient Greek",
+      "translator": "C. D. Yonge",
+      "edition": "G. Bell and Sons reprint, 1915; Project Gutenberg eBook #57342",
+      "publication_year": 1915,
+      "publisher": "G. Bell and Sons / Project Gutenberg",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/57342",
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Diogenes Laertius. Lives and Opinions of Eminent Philosophers, Book X. Translated by C. D. Yonge. 1915 reprint; Project Gutenberg eBook #57342.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg lists the Yonge translation as public domain in the United States.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-GREEK-ANCIENT-ETHICS-SEP",
+      "tradition": "Classical Greek ethics beyond Stoicism",
+      "school_or_lineage": "Aristotelian and Epicurean contextual scholarship",
+      "author_or_attributed_figure": "Multiple ancient Greek traditions",
+      "work": "Ancient Ethical Theory (Stanford Encyclopedia of Philosophy)",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2020,
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/ethics-ancient/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Ancient Ethical Theory.'",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Context-only modern scholarship.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-ZEN-SEP-2024",
+      "tradition": "Zen Buddhism",
+      "school_or_lineage": "Japanese Zen philosophical overview",
+      "author_or_attributed_figure": "Zen Buddhist traditions",
+      "work": "Japanese Zen Buddhist Philosophy (Stanford Encyclopedia of Philosophy)",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy, substantive revision 2024",
+      "publication_year": 2024,
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/japanese-zen/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Japanese Zen Buddhist Philosophy.' Substantive revision 2024.",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Context-only modern scholarship.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-CONF-SEP-CONFUCIUS",
+      "tradition": "Confucianism",
+      "school_or_lineage": "Classical Confucianism",
+      "author_or_attributed_figure": "Confucius",
+      "work": "Confucius (Stanford Encyclopedia of Philosophy)",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2020,
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/confucius/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Confucius.'",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Context-only modern scholarship.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-IND-SHANKARA-SEP",
+      "tradition": "Advaita Vedanta",
+      "school_or_lineage": "Shankara / Advaita Vedanta",
+      "author_or_attributed_figure": "Shankara",
+      "work": "Shankara (Stanford Encyclopedia of Philosophy)",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy",
+      "publication_year": 2021,
+      "publisher": "Stanford Encyclopedia of Philosophy",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/shankara/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Shankara.'",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Context-only modern scholarship; used to distinguish Advaita interpretation from Upanishadic source texts.",
+      "review_status": "SOURCE_VERIFIED"
     }
   ]
 }

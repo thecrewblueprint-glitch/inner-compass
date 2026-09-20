@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Inner Compass Reading Directory Record",
+  "type": "object",
+  "required": [
+    "reading_id",
+    "title",
+    "author_or_attributed_author",
+    "tradition",
+    "record_type",
+    "difficulty",
+    "why_read_it",
+    "rights_status",
+    "review_status",
+    "resource_format",
+    "resource_url"
+  ],
+  "properties": {
+    "reading_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "author_or_attributed_author": {
+      "type": "string"
+    },
+    "translator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "editor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "edition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publication_year": {
+      "type": [
+        "integer",
+        "string",
+        "null"
+      ]
+    },
+    "region": {
+      "type": "string"
+    },
+    "culture": {
+      "type": "string"
+    },
+    "tradition": {
+      "type": "string"
+    },
+    "school": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lineage_or_branch": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "record_type": {
+      "enum": [
+        "PRIMARY_TEXT",
+        "COMMENTARY",
+        "SCHOLARSHIP",
+        "MODERN_INTRODUCTION",
+        "CONTEMPORARY_PRACTICE_GUIDE"
+      ]
+    },
+    "difficulty": {
+      "enum": [
+        "BEGINNER",
+        "INTERMEDIATE",
+        "ADVANCED",
+        "SPECIALIST"
+      ]
+    },
+    "primary_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "metaphysical_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ethical_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contemplative_topics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_inner_compass_categories": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1,
+        "maximum": 25
+      }
+    },
+    "related_wisdom_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "historical_context": {
+      "type": "string"
+    },
+    "why_read_it": {
+      "type": "string"
+    },
+    "what_it_is_not": {
+      "type": "string"
+    },
+    "interpretive_cautions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "translation_notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "PUBLIC_DOMAIN",
+        "OPEN_LICENSE",
+        "LICENSED_OR_PERMISSIONED",
+        "CITATION_ONLY",
+        "REVIEW_REQUIRED"
+      ]
+    },
+    "public_domain_available": {
+      "type": "boolean"
+    },
+    "open_access_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "publisher_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "bibliographic_citation": {
+      "type": "string"
+    },
+    "source_quality": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string"
+    },
+    "resource_format": {
+      "enum": [
+        "BOOK",
+        "ONLINE_TEXT",
+        "WEBSITE",
+        "ARTICLE",
+        "ARCHIVE",
+        "OTHER"
+      ]
+    },
+    "resource_url": {
+      "type": "string"
+    },
+    "publisher_or_site": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cover_image_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cover_image_source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cover_image_rights_status": {
+      "type": "string"
+    },
+    "cover_image_alt": {
+      "type": "string"
+    },
+    "fallback_visual_style": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

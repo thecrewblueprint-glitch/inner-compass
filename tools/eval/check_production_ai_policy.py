@@ -1,24 +1,27 @@
 #!/usr/bin/env python3
+import json
 from pathlib import Path
 
-openrouter = Path("server/openrouter.ts").read_text()
 server = Path("server.ts").read_text()
 app = Path("src/App.tsx").read_text()
+package = json.loads(Path("package.json").read_text())
+env_example = Path(".env.example").read_text()
 gitignore = Path(".gitignore").read_text()
 
-assert "OPENROUTER_FREE_MODEL = 'openrouter/free'" in openrouter, "Production model is not locked to openrouter/free"
-assert "google/gemini-2.0-flash-001" not in openrouter, "Paid/explicit Gemini OpenRouter model reintroduced"
-assert "model: OPENROUTER_FREE_MODEL" in openrouter, "OpenRouter request is not using the free-only model constant"
+deps = {**package.get("dependencies", {}), **package.get("devDependencies", {})}
 
-guidance_start = server.index("// Primary Guidance Endpoint")
-eval_start = server.index("TEST-ONLY EVALUATION ENDPOINT")
-guidance = server[guidance_start:eval_start]
+for forbidden in ("@google/genai",):
+    assert forbidden not in deps, f"Runtime AI dependency reintroduced: {forbidden}"
 
-assert "callStructuredPhrasing" in guidance, "Production guidance no longer uses the guarded OpenRouter phrasing adapter"
-assert "getGeminiClient()" not in guidance, "Production Gemini fallback reintroduced"
-assert "openrouter_free" in guidance, "Production AI mode is not explicitly free-only"
+for forbidden in ("OPENROUTER", "GEMINI_API_KEY", "openrouter.ai", "GoogleGenAI", "generateContent", "callStructuredPhrasing"):
+    assert forbidden not in server, f"Runtime AI/provider code reintroduced in server: {forbidden}"
+    assert forbidden not in env_example, f"Provider credential/config reintroduced: {forbidden}"
+
+assert "fetch('/api/guidance'" not in app and 'fetch("/api/guidance"' not in app, "Raw reflection server transport reintroduced"
+assert "retrieveGroundedGuidance" in app, "Local deterministic retrieval missing"
+assert "evaluateSafetyUpstream" in app, "Local deterministic safety routing missing"
+assert "blockedFromWisdomMatching" in app, "Client no longer respects deterministic safety blocking"
 assert "|| true" not in app, "Forced preview mode reintroduced"
-assert "blockedFromWisdomMatching" in app, "Client fallback no longer respects deterministic safety blocking"
 assert ".env" in gitignore, "Local environment files are not ignored"
 
-print("PASS: production AI policy is deterministic-first, fail-closed, and OpenRouter-free-only.")
+print("PASS: production runtime is local-deterministic and contains no AI provider path.")

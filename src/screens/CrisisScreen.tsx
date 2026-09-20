@@ -57,7 +57,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
           24/7 Immediate Human Lifelines
         </Text>
         <Text style={[styles.subtitle, { color: theme.crisisText }]}>
-          Free, confidential, and staffed around the clock by compassionate human counselors.
+          United States launch resources. Availability, eligibility, and service terms are controlled by each provider.
         </Text>
 
         {reason && (
