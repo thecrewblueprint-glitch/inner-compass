@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { LegalScreen } from '../screens/LegalScreen';
-import { getReleaseTier } from '../legal/legalConfig';
 import { View, Text, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { useTheme } from '../theme';
 
