@@ -3,9 +3,10 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES === 'true' ? './' : '/',
   plugins: [react(), tailwindcss()],
   define: {
-    'import.meta.env.VITE_INNER_COMPASS_PREVIEW': JSON.stringify(process.env.VITE_INNER_COMPASS_PREVIEW || 'true'),
+    'import.meta.env.VITE_INNER_COMPASS_PREVIEW': JSON.stringify(process.env.VITE_INNER_COMPASS_PREVIEW || 'false'),
   },
   resolve: {
     alias: {
