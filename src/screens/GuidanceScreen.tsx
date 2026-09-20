@@ -525,6 +525,11 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     lineHeight: 20,
   },
+  quoteAttribution: {
+    fontSize: 11,
+    marginTop: 5,
+    fontStyle: 'italic',
+  },
   teachingLabel: {
     fontSize: 11,
     fontWeight: '700',
