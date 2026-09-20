@@ -360,6 +360,191 @@
       "category_fit_score": 96,
       "review_status": "SOURCE_LINKED",
       "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-04-DAO-INTENT",
+      "category_id": 4,
+      "text": "I can question the story I am assigning to another person's intent without denying what actually happened.",
+      "source_record_ids": [
+        "WIS-DAO-ZZ-20-EMPTY-BOAT"
+      ],
+      "philosophical_theme": "anger and attribution",
+      "tradition_basis": [
+        "Classical Daoism / Zhuangzi tradition"
+      ],
+      "safety_notes": "Not for known abuse or intentional harm.",
+      "category_fit_score": 94,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-05-DAO-NONFORCING",
+      "category_id": 5,
+      "text": "I can reduce unnecessary forcing in this conflict while still keeping clear boundaries and naming what matters.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-8-WATER",
+        "WIS-DAO-ZZ-20-EMPTY-BOAT"
+      ],
+      "philosophical_theme": "non-contention with boundaries",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": "Not for unsafe relationships.",
+      "category_fit_score": 93,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-06-DAO-USEFULNESS",
+      "category_id": 6,
+      "text": "My value is not exhausted by the standards that label me useful, impressive, or productive.",
+      "source_record_ids": [
+        "WIS-DAO-ZZ-4-USELESS-TREE"
+      ],
+      "philosophical_theme": "value beyond conventional usefulness",
+      "tradition_basis": [
+        "Classical Daoism / Zhuangzi tradition"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 96,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-08-DAO-FIRSTSTEP",
+      "category_id": 8,
+      "text": "I can stop trying to solve the whole path at once and take one workable step from where I am.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-64-STEP",
+        "WIS-DAO-ZZ-3-LIMITS"
+      ],
+      "philosophical_theme": "small beginnings and finite limits",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 98,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-09-DAO-NODISPLAY",
+      "category_id": 9,
+      "text": "I can act with care without making display, recognition, or reputation the final measure of whether I succeeded.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-22-NONDISPLAY",
+        "WIS-DAO-ZZ-1-NOFAME"
+      ],
+      "philosophical_theme": "achievement without status fixation",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 90,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-14-DAO-VALUE",
+      "category_id": 14,
+      "text": "A meaningful direction can include forms of value that are not immediately obvious, profitable, or conventionally useful.",
+      "source_record_ids": [
+        "WIS-DAO-ZZ-4-USELESS-TREE",
+        "WIS-DAO-DDJ-64-STEP"
+      ],
+      "philosophical_theme": "vocation and conventional usefulness",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": "Does not replace practical career planning.",
+      "category_fit_score": 90,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-15-DAO-SUBTRACT",
+      "category_id": 15,
+      "text": "I can remove effort that is only adding friction and focus on the next action that genuinely helps.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-48-WUWEI",
+        "WIS-DAO-DDJ-64-STEP"
+      ],
+      "philosophical_theme": "non-forcing and manageable action",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": "Urgent practical tasks still require action.",
+      "category_fit_score": 97,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-16-DAO-PERSPECTIVE",
+      "category_id": 16,
+      "text": "I can hold my current story about who I am with curiosity instead of turning it into the only perspective I am allowed to have.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
+        "WIS-DAO-ZZ-2-BUTTERFLY"
+      ],
+      "philosophical_theme": "identity and perspective",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": "Not for destabilizing reality-testing or dissociative symptoms.",
+      "category_fit_score": 88,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-19-DAO-ENOUGH",
+      "category_id": 19,
+      "text": "I can take real steps toward security while remembering that 'more' does not have to become an endless definition of enough.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-46-CONTENTMENT"
+      ],
+      "philosophical_theme": "contentment and material security",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": "Never romanticizes unmet basic needs.",
+      "category_fit_score": 94,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-20-DAO-COMPARISON",
+      "category_id": 20,
+      "text": "Another person's status does not have to become the measuring stick for my own worth or direction.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-33-SELFKNOWLEDGE",
+        "WIS-DAO-DDJ-22-NONDISPLAY"
+      ],
+      "philosophical_theme": "self-knowledge over comparison",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": null,
+      "category_fit_score": 95,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
+    },
+    {
+      "affirmation_id": "AFF-22-DAO-FLEX",
+      "category_id": 22,
+      "text": "I can practice flexibility with timing without confusing patience with passivity.",
+      "source_record_ids": [
+        "WIS-DAO-DDJ-8-WATER",
+        "WIS-DAO-DDJ-76-FLEXIBILITY",
+        "WIS-DAO-DDJ-48-WUWEI"
+      ],
+      "philosophical_theme": "flexibility and non-forcing",
+      "tradition_basis": [
+        "Classical Daoism"
+      ],
+      "safety_notes": "Necessary action and firm boundaries remain available.",
+      "category_fit_score": 95,
+      "review_status": "SOURCE_LINKED",
+      "notes": "Original Inner Compass wording."
     }
   ]
 }
