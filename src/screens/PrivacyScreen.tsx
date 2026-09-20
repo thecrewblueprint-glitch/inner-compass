@@ -40,7 +40,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Saved reflection themes, summaries, and affirmations: {savedCount}</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• A count of reflection themes you explored, used only for optional personalization</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Color preference and your adult/U.S. eligibility confirmation</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Basic app reliability information stored on this device when needed</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Basic information about whether the app is working properly, stored on this device when needed</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Your original reflection text is not saved</Text>
       </View>
 
