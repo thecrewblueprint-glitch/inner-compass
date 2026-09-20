@@ -1,6 +1,6 @@
 {
   "name": "Inner Compass",
-  "description": "Evidence-grounded wisdom guidance and affirmations for life's challenges, drawn from Eastern philosophy, Jungian shadow work, and evidence-based psychology.",
+  "description": "Private, deterministic guided reflection with sourced philosophy and psychology-informed educational material.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }
