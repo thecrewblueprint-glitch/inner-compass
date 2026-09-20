@@ -158,3 +158,38 @@
 - Inner Compass decision: Exclude direct wording from the product research corpus out of respect for the translator's stated request.
 - Rights status in this project: CITATION_ONLY / translation-comparison reference.
 
+## Phase 3 — Classical Daoism
+
+### [RIGHTS-DAO-001] SRC-DAO-DDJ-LEGGE-1891
+- Work: Tao Teh King / Daodejing
+- Translator: James Legge
+- Publication year: 1891
+- Rights status: PUBLIC_DOMAIN
+- U.S. basis: Project Gutenberg marks the Legge translation public domain in the USA.
+- Direct quote storage: Yes, with short-excerpt and translation-integrity policy.
+- Notes: Product attribution should distinguish traditional Laozi attribution from modern composite-text scholarship.
+
+### [RIGHTS-DAO-002] SRC-DAO-ZHUANGZI-LEGGE-1891-V39
+- Work: Zhuangzi, Books I-XVII
+- Translator: James Legge
+- Publication year: 1891
+- Rights status: PUBLIC_DOMAIN
+- U.S. basis: underlying Clarendon Press 1891 edition is public domain.
+- Direct quote storage: Yes from underlying public-domain edition.
+- Notes: Electronic sites such as Sacred Texts or CText may have independent terms for their digital formatting; use the historical edition as the rights basis.
+
+### [RIGHTS-DAO-003] SRC-DAO-ZHUANGZI-LEGGE-1891-V40
+- Work: Zhuangzi, Books XVIII-XXXIII
+- Translator: James Legge
+- Publication year: 1891
+- Rights status: PUBLIC_DOMAIN
+- U.S. basis: underlying Clarendon Press 1891 edition is public domain; scans are available through Internet Archive/Open Library/Wikimedia Commons.
+- Direct quote storage: Yes from underlying public-domain edition.
+- Notes: Textual-layer attribution remains required.
+
+### [RIGHTS-DAO-004] Modern SEP context records
+- Sources: Stanford Encyclopedia of Philosophy entries on Laozi and Zhuangzi
+- Rights status: CITATION_ONLY
+- Use: authorship/textual-history/context only
+- Direct quote storage: No substantial direct quotation in product corpus.
+

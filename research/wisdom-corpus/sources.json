@@ -258,6 +258,113 @@
       "rights_status": "CITATION_ONLY",
       "rights_notes": "The underlying early volumes are old enough for U.S. public-domain analysis, but the currently consulted PTS-derived electronic transcription asserts commercial rights. This phase therefore stores citation/paraphrase records only from this source pending a clean scan-level rights audit.",
       "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-DAO-DDJ-LEGGE-1891",
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Received Daodejing textual tradition",
+      "author_or_attributed_figure": "Laozi (traditional attribution); received text is composite",
+      "work": "Tao Teh King / Daodejing",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "James Legge",
+      "edition": "The Texts of Taoism, Part I; Sacred Books of the East, Vol. 39",
+      "publication_year": 1891,
+      "publisher": "Oxford: Clarendon Press",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/216",
+        "https://www.gutenberg.org/cache/epub/216/pg216-images.html",
+        "https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)",
+        "https://ctext.org/dao-de-jing/ens"
+      ],
+      "bibliographic_citation": "Laozi (traditional attribution). The Tao Teh King, in The Texts of Taoism, Part I. Translated by James Legge. Sacred Books of the East 39. Oxford: Clarendon Press, 1891.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg marks Legge's Tao Teh King translation public domain in the United States. Modern scholarship treats the received Daodejing as a composite text rather than securely the work of one historical author.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-DAO-ZHUANGZI-LEGGE-1891-V39",
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi received text; Inner Chapters and Books VIII-XVII",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; not all chapters attributable to historical Zhuang Zhou",
+      "work": "The Writings of Kwang-dze (Zhuangzi), Books I-XVII",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "James Legge",
+      "edition": "The Texts of Taoism, Part I; Sacred Books of the East, Vol. 39",
+      "publication_year": 1891,
+      "publisher": "Oxford: Clarendon Press",
+      "source_urls": [
+        "https://openlibrary.org/books/OL14040752M/The_Texts_of_T%C3%A2oism_Part_I_(The_Sacred_Books_of_China_The_Sacred_Books_of_the_East_Vol._39)",
+        "https://archive.org/details/sacredbooksofchi01oxfo",
+        "https://ctext.org/zhuangzi"
+      ],
+      "bibliographic_citation": "Zhuangzi textual tradition. The Writings of Kwang-dze, Books I-XVII, in The Texts of Taoism, Part I. Translated by James Legge. Sacred Books of the East 39. Oxford: Clarendon Press, 1891.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "The underlying 1891 Legge translation is public domain in the United States. Electronic hosts may impose separate terms on their formatting; use the underlying scan/text provenance for rights decisions.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-DAO-ZHUANGZI-LEGGE-1891-V40",
+      "tradition": "Classical Daoism",
+      "school_or_lineage": "Zhuangzi received text; Outer/Miscellaneous chapters XVIII-XXXIII",
+      "author_or_attributed_figure": "Zhuangzi textual tradition; later authorship layers",
+      "work": "The Writings of Kwang-dze (Zhuangzi), Books XVIII-XXXIII",
+      "source_type": "TRANSLATION",
+      "original_language": "Classical Chinese",
+      "translator": "James Legge",
+      "edition": "The Texts of Taoism, Part II; Sacred Books of the East, Vol. 40",
+      "publication_year": 1891,
+      "publisher": "Oxford: Clarendon Press",
+      "source_urls": [
+        "https://openlibrary.org/books/OL59025058M/The_Sacred_Books_Of_China_The_Texts_Of_Taoism_Part_II",
+        "https://commons.wikimedia.org/wiki/File:The_Sacred_Books_Of_China_The_Texts_Of_Taoism_Part_II_(IA_sacredbooksofchi028287mbp).pdf",
+        "https://ctext.org/zhuangzi"
+      ],
+      "bibliographic_citation": "Zhuangzi textual tradition. The Writings of Kwang-dze, Books XVIII-XXXIII, in The Texts of Taoism, Part II. Translated by James Legge. Sacred Books of the East 40. Oxford: Clarendon Press, 1891.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "The underlying 1891 Legge translation is public domain in the United States. Outer/Miscellaneous chapter material must not be attributed automatically to the historical Zhuang Zhou.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-DAO-LAOZI-SEP-2026",
+      "tradition": "Classical Chinese philosophy / Daoism scholarship",
+      "school_or_lineage": "Modern academic scholarship",
+      "author_or_attributed_figure": "Stanford Encyclopedia of Philosophy contributors",
+      "work": "Laozi",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy, current online edition",
+      "publication_year": 2026,
+      "publisher": "Stanford University",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/laozi/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Laozi.' Current online edition, accessed 2026-09-19.",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Used for authorship, textual-history, and interpretive context only; no substantial text is copied into the product corpus.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-DAO-ZHUANGZI-SEP-2024",
+      "tradition": "Classical Chinese philosophy / Daoism scholarship",
+      "school_or_lineage": "Modern academic scholarship",
+      "author_or_attributed_figure": "Stanford Encyclopedia of Philosophy contributors",
+      "work": "Zhuangzi",
+      "source_type": "SECONDARY_SCHOLARSHIP",
+      "original_language": null,
+      "translator": null,
+      "edition": "Stanford Encyclopedia of Philosophy, revised 2024",
+      "publication_year": 2024,
+      "publisher": "Stanford University",
+      "source_urls": [
+        "https://plato.stanford.edu/entries/zhuangzi/"
+      ],
+      "bibliographic_citation": "Stanford Encyclopedia of Philosophy. 'Zhuangzi.' Substantive revision 2024.",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "Used for received-text authorship layers and interpretive context only.",
+      "review_status": "SOURCE_VERIFIED"
     }
   ]
 }
