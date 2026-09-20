@@ -130,7 +130,6 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
         {
           backgroundColor: theme.card,
           borderColor: theme.cardBorder,
-          shadowColor: theme.cardShadow,
           borderLeftColor: theme.accentPrimary,
         },
       ]}
@@ -346,13 +345,8 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 16,
     borderWidth: 1,
-    borderLeftWidth: 4,
     padding: 20,
     marginBottom: 24,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 10,
-    elevation: 2,
   },
   headerRow: {
     flexDirection: 'row',

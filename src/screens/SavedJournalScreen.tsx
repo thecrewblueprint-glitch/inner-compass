@@ -42,7 +42,6 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
             {
               backgroundColor: theme.card,
               borderColor: theme.cardBorder,
-              shadowColor: theme.cardShadow,
             },
           ]}
         >
@@ -68,8 +67,7 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
                   {
                     backgroundColor: theme.card,
                     borderColor: theme.cardBorder,
-                    shadowColor: theme.cardShadow,
-                  },
+                        },
                 ]}
               >
                 <View style={styles.cardHeader}>
@@ -170,9 +168,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 36,
     alignItems: 'center',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 6,
   },
   emptyTitle: {
     fontSize: 17,
@@ -192,9 +187,6 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     borderWidth: 1,
     padding: 18,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 5,
   },
   cardHeader: {
     flexDirection: 'row',

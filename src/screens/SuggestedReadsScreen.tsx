@@ -267,7 +267,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
           return (
             <View
               key={record.reading_id}
-              style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder, shadowColor: theme.cardShadow }]}
+              style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
             >
               <View style={styles.cardLead}>
                 {record.cover_image_url && !coverFailed ? (
@@ -396,7 +396,7 @@ const styles = StyleSheet.create({
   chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 11, paddingVertical: 6 },
   count: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5, marginVertical: 12 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, alignItems: 'flex-start' },
-  card: { width: 500, maxWidth: '100%', borderWidth: 1, borderRadius: 17, padding: 15, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.04, shadowRadius: 8 },
+  card: { width: 500, maxWidth: '100%', borderWidth: 1, borderRadius: 17, padding: 15 },
   cardLead: { flexDirection: 'row', gap: 15 },
   cover: { width: 118, height: 168, borderRadius: 10 },
   fallbackCover: { borderWidth: 1, padding: 10, justifyContent: 'space-between', overflow: 'hidden' },
