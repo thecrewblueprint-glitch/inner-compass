@@ -81,7 +81,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>What is weighing on your heart?</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Share an honest reflection. Your input is matched deterministically to 25 research-informed reflection categories grounded in philosophy, depth-psychology traditions, and evidence-informed psychological methods.
+          Share an honest reflection. Your input is matched to 25 research-informed reflection categories grounded in philosophy, depth-psychology traditions, and evidence-informed psychological methods.
         </Text>
       </View>
 
