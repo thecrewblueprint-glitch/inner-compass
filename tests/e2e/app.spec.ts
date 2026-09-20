@@ -19,7 +19,7 @@ test.describe('Inner Compass web app core flow', () => {
     });
 
     await page.goto('/');
-    await expect(page.getByText('INNER COMPASS')).toBeVisible();
+    await expect(page.getByText('INNER COMPASS', { exact: true })).toBeVisible();
     await expect(page.getByText('PREVIEW MODE ACTIVE')).toBeVisible();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
     await expect(page.getByText('Daily Wisdom & Reflection')).toBeVisible();
@@ -57,7 +57,7 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
     await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
 
-    await page.getByText('Privacy', { exact: true }).click();
+    await page.getByText('Privacy', { exact: true }).first().click();
     await expect(page.getByText('PRIVACY & LOCAL DATA')).toBeVisible();
     await expect(page.getByText('Your reflection stays on this device')).toBeVisible();
 
@@ -139,7 +139,7 @@ test.describe('Inner Compass web app core flow', () => {
       localStorage.setItem('inner_compass_category_interactions_v1', JSON.stringify({ 1: { count: 1 } }));
     });
     await page.reload();
-    await page.getByText('Privacy', { exact: true }).click();
+    await page.getByText('Privacy', { exact: true }).first().click();
     await page.getByText('Clear journal', { exact: true }).click();
     expect(await page.evaluate(() => localStorage.getItem('inner_compass_saved_reflections_v1'))).toBe('[]');
     await page.getByText('Clear personalization history', { exact: true }).click();
