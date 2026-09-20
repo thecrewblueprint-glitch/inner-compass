@@ -12,6 +12,23 @@ import {
 import { useTheme } from '../theme';
 import { READING_PATHWAYS, READING_RECORDS } from '../data/readingDirectory';
 
+interface SuggestedReadsScreenProps {
+  initialCategoryId?: number | null;
+  initialWisdomRecordId?: string | null;
+  onSelectCategoryId?: (categoryId: number) => void;
+  onOpenWisdomRecord?: (recordId: string) => void;
+}
+
+const openExternalUrl = async (url: string) => {
+  if (typeof window !== 'undefined' && typeof window.open === 'function') {
+    window.open(url, '_blank', 'noopener,noreferrer');
+    return;
+  }
+  if (await Linking.canOpenURL(url)) {
+    await Linking.openURL(url);
+  }
+};
+
 const COVER_MARKS: Record<string, string> = {
   Stoicism: 'Σ',
   'Early Buddhist / Theravada canonical literature': '☸',
@@ -25,13 +42,20 @@ const COVER_MARKS: Record<string, string> = {
   Epicureanism: 'Ε',
 };
 
-export const SuggestedReadsScreen: React.FC = () => {
+export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
+  initialCategoryId = null,
+  initialWisdomRecordId = null,
+  onSelectCategoryId,
+  onOpenWisdomRecord,
+}) => {
   const { theme } = useTheme();
   const [query, setQuery] = useState('');
   const [tradition, setTradition] = useState('ALL');
   const [difficulty, setDifficulty] = useState('ALL');
   const [pathway, setPathway] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
+  const [linkedWisdomRecordId, setLinkedWisdomRecordId] = useState<string | null>(initialWisdomRecordId);
 
   const traditions = useMemo(
     () => Array.from(new Set(READING_RECORDS.map((record) => record.tradition))).sort(),
@@ -48,6 +72,8 @@ export const SuggestedReadsScreen: React.FC = () => {
       if (tradition !== 'ALL' && record.tradition !== tradition) return false;
       if (difficulty !== 'ALL' && record.difficulty !== difficulty) return false;
       if (pathwayIds && !pathwayIds.has(record.reading_id)) return false;
+      if (linkedCategoryId && !record.related_inner_compass_categories.includes(linkedCategoryId)) return false;
+      if (linkedWisdomRecordId && !record.related_wisdom_record_ids.includes(linkedWisdomRecordId)) return false;
       if (!q) return true;
       return [
         record.title,
@@ -61,7 +87,7 @@ export const SuggestedReadsScreen: React.FC = () => {
         ...record.ethical_topics,
       ].join(' ').toLowerCase().includes(q);
     });
-  }, [query, tradition, difficulty, selectedPathway]);
+  }, [query, tradition, difficulty, selectedPathway, linkedCategoryId, linkedWisdomRecordId]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -74,6 +100,22 @@ export const SuggestedReadsScreen: React.FC = () => {
           Explore primary texts and scholarship by tradition, branch, theme, and reading level. No generated recommendations are required.
         </Text>
       </View>
+
+      {(linkedCategoryId || linkedWisdomRecordId) && (
+        <View style={[styles.linkContext, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.linkContextText, { color: theme.textSecondary }]}>
+            Showing reads linked to {linkedWisdomRecordId ? `wisdom record ${linkedWisdomRecordId}` : `Category #${linkedCategoryId}`}.
+          </Text>
+          <Pressable
+            onPress={() => {
+              setLinkedCategoryId(null);
+              setLinkedWisdomRecordId(null);
+            }}
+          >
+            <Text style={[styles.clearLink, { color: theme.accentPrimary }]}>Show all reads</Text>
+          </Pressable>
+        </View>
+      )}
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pathways}>
         <Pressable
@@ -178,7 +220,7 @@ export const SuggestedReadsScreen: React.FC = () => {
                     <Pressable onPress={() => setExpandedId(isExpanded ? null : record.reading_id)}>
                       <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{isExpanded ? 'Less detail' : 'View details'}</Text>
                     </Pressable>
-                    <Pressable onPress={() => Linking.openURL(record.resource_url)}>
+                    <Pressable onPress={() => openExternalUrl(record.resource_url)}>
                       <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{isWebsite ? 'Read online ↗' : 'Open reading ↗'}</Text>
                     </Pressable>
                   </View>
@@ -192,7 +234,40 @@ export const SuggestedReadsScreen: React.FC = () => {
                   <Detail label="What it is not" value={record.what_it_is_not} color={theme.textSecondary} muted={theme.textMuted} />
                   {record.translation_notes && <Detail label="Translation / edition" value={record.translation_notes} color={theme.textSecondary} muted={theme.textMuted} />}
                   <Detail label="Interpretive cautions" value={record.interpretive_cautions.join(' • ')} color={theme.textSecondary} muted={theme.textMuted} />
-                  <Detail label="Related categories" value={record.related_inner_compass_categories.map((id) => `#${id}`).join(', ')} color={theme.textSecondary} muted={theme.textMuted} />
+                  <View style={styles.detailRow}>
+                    <Text style={[styles.detailLabel, { color: theme.textMuted }]}>Related categories</Text>
+                    <View style={styles.relatedLinksRow}>
+                      {record.related_inner_compass_categories.map((id) => (
+                        <Pressable
+                          key={id}
+                          disabled={!onSelectCategoryId}
+                          onPress={() => onSelectCategoryId?.(id)}
+                          accessibilityLabel={`Open category ${id}`}
+                          style={[styles.relatedLink, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
+                        >
+                          <Text style={[styles.relatedLinkText, { color: theme.accentPrimary }]}>Category #{id}</Text>
+                        </Pressable>
+                      ))}
+                    </View>
+                  </View>
+                  {record.related_wisdom_record_ids.length > 0 && (
+                    <View style={styles.detailRow}>
+                      <Text style={[styles.detailLabel, { color: theme.textMuted }]}>Related wisdom</Text>
+                      <View style={styles.relatedLinksRow}>
+                        {record.related_wisdom_record_ids.map((id) => (
+                          <Pressable
+                            key={id}
+                            disabled={!onOpenWisdomRecord}
+                            onPress={() => onOpenWisdomRecord?.(id)}
+                            accessibilityLabel={`Open wisdom ${id}`}
+                            style={[styles.relatedLink, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
+                          >
+                            <Text style={[styles.relatedLinkText, { color: theme.accentPrimary }]}>{id}</Text>
+                          </Pressable>
+                        ))}
+                      </View>
+                    </View>
+                  )}
                   <Detail label="Rights" value={record.public_domain_available ? 'Public-domain/open reading available' : record.rights_status} color={theme.textSecondary} muted={theme.textMuted} />
                 </View>
               )}
@@ -218,6 +293,9 @@ const styles = StyleSheet.create({
   badgeText: { fontSize: 10, fontWeight: '800', letterSpacing: 0.8 },
   title: { fontSize: 30, fontWeight: '700', fontFamily: 'serif', marginBottom: 8 },
   subtitle: { fontSize: 14, lineHeight: 21, maxWidth: 700, textAlign: 'center' },
+  linkContext: { borderWidth: 1, borderRadius: 12, padding: 12, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
+  linkContextText: { fontSize: 11, fontWeight: '600', flex: 1 },
+  clearLink: { fontSize: 11, fontWeight: '800' },
   pathways: { gap: 10, paddingVertical: 4, paddingRight: 20, marginBottom: 12 },
   pathwayCard: { width: 220, minHeight: 92, borderWidth: 1, borderRadius: 15, padding: 13 },
   pathwayTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
@@ -248,4 +326,7 @@ const styles = StyleSheet.create({
   detailRow: { gap: 3 },
   detailLabel: { fontSize: 9, textTransform: 'uppercase', letterSpacing: 0.6, fontWeight: '800' },
   detailValue: { fontSize: 12, lineHeight: 18 },
+  relatedLinksRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 2 },
+  relatedLink: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 8, paddingVertical: 5 },
+  relatedLinkText: { fontSize: 10, fontWeight: '800' },
 });
