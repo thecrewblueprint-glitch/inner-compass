@@ -101,7 +101,6 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           {
             backgroundColor: theme.card,
             borderColor: theme.cardBorder,
-            shadowColor: theme.cardShadow,
           },
         ]}
       >
@@ -219,8 +218,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
                 {
                   backgroundColor: theme.card,
                   borderColor: theme.cardBorder,
-                  shadowColor: theme.cardShadow,
-                },
+                      },
                 pressed && { opacity: 0.85 },
               ]}
               onPress={() => {
@@ -307,10 +305,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     padding: 22,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 10,
-    elevation: 2,
     marginBottom: 24,
   },
   inputLabel: {
@@ -405,9 +399,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 12,
     padding: 14,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.02,
-    shadowRadius: 4,
   },
   scenarioTitle: {
     fontSize: 13,
