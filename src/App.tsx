@@ -17,6 +17,7 @@ import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
 import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
+import { LaunchGate, LAUNCH_ATTESTATION_KEY } from './components/LaunchGate';
 import { evaluateSafetyUpstream } from './safety/safetyRouter';
 import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
@@ -29,7 +30,6 @@ import { recordCategoryInteraction } from './services/dailyAffirmationService';
 const STORAGE_KEY = 'inner_compass_saved_reflections_v1';
 const INTERACTION_KEY = 'inner_compass_category_interactions_v1';
 const PERSONALIZATION_KEY = 'inner_compass_personalization_enabled_v1';
-const AGE_KEY = 'inner_compass_age_confirmed_v1';
 const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
 
 type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'crisis';
@@ -55,10 +55,14 @@ const AppContent: React.FC = () => {
   const [wisdomLinkContext, setWisdomLinkContext] = useState<{ categoryId?: number; recordId?: string } | null>(null);
   const [readsLinkContext, setReadsLinkContext] = useState<{ categoryId?: number; wisdomRecordId?: string } | null>(null);
 
-  const [ageConfirmed, setAgeConfirmed] = useState(() => {
+  const [launchAccepted, setLaunchAccepted] = useState(() => {
     if (IS_PREVIEW_MODE) return true;
     try {
-      return typeof localStorage !== 'undefined' && localStorage.getItem(AGE_KEY) === 'true';
+      if (typeof localStorage === 'undefined') return false;
+      const raw = localStorage.getItem(LAUNCH_ATTESTATION_KEY);
+      if (!raw) return false;
+      const parsed = JSON.parse(raw);
+      return parsed?.version === 1 && parsed?.adult === true && parsed?.us === true;
     } catch {
       return false;
     }
@@ -276,7 +280,7 @@ const AppContent: React.FC = () => {
     setSavedReflections([]);
     setPersonalizationEnabled(true);
     setDailyInteractionTimestamp(Date.now());
-    if (!IS_PREVIEW_MODE) setAgeConfirmed(false);
+    if (!IS_PREVIEW_MODE) setLaunchAccepted(false);
   };
 
   const isCurrentCategorySaved = Boolean(
@@ -284,32 +288,8 @@ const AppContent: React.FC = () => {
       savedReflections.some((item) => item.categoryId === guidanceResult.category.category_id)
   );
 
-  if (!ageConfirmed) {
-    return (
-      <SafeAreaView style={[styles.root, styles.centered, { backgroundColor: theme.canvas }]}>
-        <View style={[styles.ageCard, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
-          <Text style={styles.ageIcon}>🧭</Text>
-          <Text style={[styles.ageTitle, { color: theme.textPrimary }]}>Inner Compass</Text>
-          <Text style={[styles.ageText, { color: theme.textSecondary }]}>
-            The initial public launch is intended for adults age 18 and older in the United States.
-          </Text>
-          <Pressable
-            accessibilityLabel="Confirm age 18 or older"
-            onPress={() => {
-              try {
-                localStorage.setItem(AGE_KEY, 'true');
-              } catch {
-                // Local storage may be unavailable.
-              }
-              setAgeConfirmed(true);
-            }}
-            style={[styles.ageButton, { backgroundColor: theme.accentPrimary }]}
-          >
-            <Text style={[styles.ageButtonText, { color: theme.accentText }]}>I am 18 or older</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
-    );
+  if (!launchAccepted) {
+    return <LaunchGate onAccepted={() => setLaunchAccepted(true)} />;
   }
 
   const tabs: { id: AppTab; label: string }[] = [
