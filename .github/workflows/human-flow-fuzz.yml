@@ -59,7 +59,7 @@ jobs:
 
       - name: Start deterministic preview server
         run: |
-          npm run dev > server.log 2>&1 &
+          npm run dev:eval > server.log 2>&1 &
           echo $! > server.pid
           for i in {1..30}; do
             if curl -fsS http://127.0.0.1:3000/api/health >/dev/null; then
