@@ -8,17 +8,20 @@ import {
   Linking,
 } from 'react-native';
 import { EMERGENCY_RESOURCES } from '../safety/safetyRouter';
+import { EmergencyResource } from '../types';
 import { useTheme } from '../theme';
 
 interface CrisisScreenProps {
   reason?: string;
   safetyNotes?: string[];
+  resources?: EmergencyResource[];
   onDismiss?: () => void;
 }
 
 export const CrisisScreen: React.FC<CrisisScreenProps> = ({
   reason,
   safetyNotes,
+  resources: routedResources,
   onDismiss,
 }) => {
   const { theme } = useTheme();
@@ -35,7 +38,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
     Linking.openURL(url);
   };
 
-  const resources = Object.values(EMERGENCY_RESOURCES);
+  const resources = routedResources?.length ? routedResources : Object.values(EMERGENCY_RESOURCES);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -57,7 +60,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
           24/7 Immediate Human Lifelines
         </Text>
         <Text style={[styles.subtitle, { color: theme.crisisText }]}>
-          United States launch resources. Availability, eligibility, and service terms are controlled by each provider.
+          United States resources · English-only app routing. Availability, eligibility, and service terms are controlled by each provider.
         </Text>
 
         {reason && (
@@ -89,7 +92,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
       {/* Rationale description */}
       <View style={[styles.rationaleBox, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.rationaleText, { color: theme.textSecondary }]}>
-          Philosophical contemplation is a valuable companion for living, but when acute crisis, relationship violence, suicidal despair, or medical withdrawal occurs, immediate human support and clinical care come first. You do not have to navigate unbearable moments alone.
+          Inner Compass is not an emergency service. Its deterministic English-language safety routing is designed to interrupt ordinary reflection when supported safety signals are detected, but automated text matching cannot recognize every possible wording or context. Lifelines remain available directly at all times.
         </Text>
       </View>
 
