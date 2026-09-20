@@ -128,6 +128,136 @@
       "rights_status": "CITATION_ONLY",
       "rights_notes": "Treat the Lutz translation as citation/paraphrase-only in this corpus unless a separate rights review establishes direct-quote permission for the intended jurisdiction and product use.",
       "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-BUD-DHP-MULLER-1881",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school_or_lineage": "Pali Canon; Khuddaka Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; teachings attributed to the Buddha",
+      "work": "Dhammapada",
+      "source_type": "TRANSLATION",
+      "original_language": "Pali",
+      "translator": "F. Max Müller",
+      "edition": "Sacred Books of the East, Vol. X, Part I",
+      "publication_year": 1881,
+      "publisher": "Oxford: Clarendon Press",
+      "source_urls": [
+        "https://www.gutenberg.org/ebooks/2017",
+        "https://en.wikisource.org/wiki/Dhammapada_(Muller)",
+        "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_10"
+      ],
+      "bibliographic_citation": "The Dhammapada. Translated from Pali by F. Max Müller. Sacred Books of the East, Vol. X, Part I. Oxford: Clarendon Press, 1881.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Project Gutenberg identifies the Müller translation as public domain in the United States. Translation terminology is historically dated and requires doctrinal review before product display.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-BUD-SNP-FAUSBOLL-1881",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school_or_lineage": "Pali Canon; Khuddaka Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; teachings attributed to the Buddha and early interlocutors",
+      "work": "Sutta-Nipata",
+      "source_type": "TRANSLATION",
+      "original_language": "Pali",
+      "translator": "Viggo Fausböll",
+      "edition": "Sacred Books of the East, Vol. X, Part II",
+      "publication_year": 1881,
+      "publisher": "Oxford: Clarendon Press",
+      "source_urls": [
+        "https://en.wikisource.org/wiki/Sacred_Books_of_the_East/Volume_10",
+        "https://sacred-texts.com/bud/sbe10/sbe1029.htm",
+        "https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/sutta-nipata"
+      ],
+      "bibliographic_citation": "The Sutta-Nipata. Translated from Pali by Viggo Fausböll. Sacred Books of the East, Vol. X, Part II. Oxford: Clarendon Press, 1881.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "1881 translation is public domain in the United States. Victorian terminology and early scholarly assumptions require contextual review.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-BUD-MN-CHALMERS-1926-1927",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school_or_lineage": "Pali Canon; Majjhima Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourses attributed to the Buddha and disciples",
+      "work": "Further Dialogues of the Buddha (Majjhima Nikaya)",
+      "source_type": "TRANSLATION",
+      "original_language": "Pali",
+      "translator": "Robert Chalmers (Lord Chalmers)",
+      "edition": "Sacred Books of the Buddhists, Vols. V-VI",
+      "publication_year": "1926-1927",
+      "publisher": "London: Humphrey Milford / Oxford University Press",
+      "source_urls": [
+        "https://obo.genaud.net/dhamma-vinaya/chlm/mn/mn.021.chlm.sbb.htm",
+        "https://obo.genaud.net/dhamma-vinaya/chlm/mn/mn.004.chlm.sbb.htm",
+        "https://buddhadust.net/dhamma-vinaya/chlm/mn/mn.063.chlm.sbb.htm",
+        "https://books.google.com/books/about/Further_Dialogues_of_the_Buddha.html?id=HhUR0gEACAAJ"
+      ],
+      "bibliographic_citation": "Majjhima Nikaya. Further Dialogues of the Buddha. Translated by Lord Chalmers. Sacred Books of the Buddhists, Vols. V-VI. London: Humphrey Milford / Oxford University Press, 1926-1927.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "The 1926-1927 editions are public domain in the United States by publication date. Current electronic transcriptions may carry separate site terms; product corpus should rely on the underlying public-domain edition.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-BUD-UDANA-STRONG-1902",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school_or_lineage": "Pali Canon; Khuddaka Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; teachings attributed to the Buddha",
+      "work": "The Udana; or, The Solemn Utterances of the Buddha",
+      "source_type": "TRANSLATION",
+      "original_language": "Pali",
+      "translator": "Dawsonne Melancthon Strong",
+      "edition": "Luzac & Company, 1902",
+      "publication_year": 1902,
+      "publisher": "London: Luzac & Company",
+      "source_urls": [
+        "https://books.google.com/books?id=UhQRAAAAIAAJ",
+        "https://tianmu.org/good-work-library/buddhist/pali/canonical-discourses/udana"
+      ],
+      "bibliographic_citation": "The Udana; or, The Solemn Utterances of the Buddha. Translated by Dawsonne Melancthon Strong. London: Luzac & Company, 1902.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "The 1902 translation is public domain in the United States. Strong's wording is often archaic and should be paired with translation notes or source paraphrases.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-BUD-ITI-MOORE-1908",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school_or_lineage": "Pali Canon; Khuddaka Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; teachings attributed to the Buddha",
+      "work": "Sayings of Buddha: The Iti-Vuttaka",
+      "source_type": "TRANSLATION",
+      "original_language": "Pali",
+      "translator": "Justin Hartley Moore",
+      "edition": "Columbia University Indo-Iranian Series, Vol. V",
+      "publication_year": 1908,
+      "publisher": "New York: Columbia University Press",
+      "source_urls": [
+        "https://openlibrary.org/books/OL24179771M/Sayings_of_Buddha_the_Iti-Vuttaka",
+        "https://commons.wikimedia.org/wiki/File:Sayings_of_Buddha,_the_Iti-Vuttaka;_a_Pali_work_of_the_Buddhist_canon_for_the_first_time_translated_(IA_sayingsofbuddhai00moorrich).pdf"
+      ],
+      "bibliographic_citation": "Sayings of Buddha: The Iti-Vuttaka. Translated by Justin Hartley Moore. Columbia University Indo-Iranian Series, Vol. V. New York: Columbia University Press, 1908.",
+      "rights_status": "PUBLIC_DOMAIN",
+      "rights_notes": "Wikimedia Commons identifies the 1908 edition as public domain in the United States. Passage-level wording must still be checked against the scan before direct quotation.",
+      "review_status": "SOURCE_VERIFIED"
+    },
+    {
+      "source_id": "SRC-BUD-SN-RHYSDAVIDS-WOODWARD-1917-1930",
+      "tradition": "Early Buddhist / Theravada canonical literature",
+      "school_or_lineage": "Pali Canon; Samyutta Nikaya",
+      "author_or_attributed_figure": "Traditional Pali Canon; discourses attributed to the Buddha and disciples",
+      "work": "The Book of the Kindred Sayings (Samyutta Nikaya)",
+      "source_type": "TRANSLATION",
+      "original_language": "Pali",
+      "translator": "C. A. F. Rhys Davids and F. L. Woodward",
+      "edition": "Pali Text Society, five volumes",
+      "publication_year": "1917-1930",
+      "publisher": "Pali Text Society / Oxford University Press",
+      "source_urls": [
+        "https://onlinebooks.library.upenn.edu/webbin/book/lookupname?key=Davids%2C+Caroline+A.+F.+Rhys+%28Caroline+Augusta+Foley+Rhys%29%2C+1857-1942",
+        "https://buddhadust.net/dhamma-vinaya/pts/sn/04_salv/sn04.36.009.wood.pts.htm"
+      ],
+      "bibliographic_citation": "Samyutta Nikaya. The Book of the Kindred Sayings. Translated by C. A. F. Rhys Davids and F. L. Woodward. Pali Text Society, 1917-1930.",
+      "rights_status": "CITATION_ONLY",
+      "rights_notes": "The underlying early volumes are old enough for U.S. public-domain analysis, but the currently consulted PTS-derived electronic transcription asserts commercial rights. This phase therefore stores citation/paraphrase records only from this source pending a clean scan-level rights audit.",
+      "review_status": "SOURCE_VERIFIED"
     }
   ]
 }
