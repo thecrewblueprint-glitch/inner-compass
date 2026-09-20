@@ -3,13 +3,8 @@ name: Inner Compass Web E2E
 on:
   push:
     branches: [main]
-    paths:
-      - "src/**"
-      - "server.ts"
-      - "package.json"
-      - "playwright.config.ts"
-      - "tests/e2e/**"
-      - ".github/workflows/web-e2e.yml"
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -30,11 +25,19 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
-      - name: Enforce production AI policy
+      - name: Enforce zero-runtime-AI policy
         run: python3 tools/eval/check_production_ai_policy.py
+
+      - name: Audit wisdom corpus
+        run: python3 tools/eval/audit_wisdom_corpus.py
 
       - name: TypeScript check
         run: npm run lint
@@ -67,4 +70,59 @@ jobs:
             playwright-report/
             test-results/
             server.log
+          if-no-files-found: warn
+
+  production-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      VITE_INNER_COMPASS_PREVIEW: "false"
+      NODE_ENV: "production"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Build production package
+        run: npm run build
+
+      - name: Start production server
+        run: |
+          npm start > production-server.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:3000/api/health > health.json; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat production-server.log
+          exit 1
+
+      - name: Verify production privacy/provider state
+        run: |
+          python3 - <<'PY'
+          import json
+          h=json.load(open("health.json"))
+          assert h["runtimeAiProviders"] == 0
+          assert h["rawReflectionProductionTransport"] is False
+          assert h["runtime"] == "local-deterministic"
+          print("PASS: production health is local-deterministic with zero runtime AI.")
+          PY
+
+      - name: Upload production logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inner-compass-production-build
+          path: |
+            health.json
+            production-server.log
           if-no-files-found: warn
