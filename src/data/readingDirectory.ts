@@ -15,6 +15,7 @@ export interface ReadingRecord {
   tradition: string;
   school: string | null;
   lineage_or_branch: string | null;
+  branch_coverage: string[];
   record_type: 'PRIMARY_TEXT' | 'COMMENTARY' | 'SCHOLARSHIP' | 'MODERN_INTRODUCTION' | 'CONTEMPORARY_PRACTICE_GUIDE';
   difficulty: 'BEGINNER' | 'INTERMEDIATE' | 'ADVANCED' | 'SPECIALIST';
   primary_topics: string[];
@@ -35,7 +36,7 @@ export interface ReadingRecord {
   bibliographic_citation: string;
   source_quality: string;
   review_status: string;
-  resource_format: 'BOOK' | 'ONLINE_TEXT' | 'WEBSITE' | 'ARTICLE' | 'ARCHIVE' | 'OTHER';
+  resource_format: 'BOOK';
   resource_url: string;
   publisher_or_site: string | null;
   cover_image_url: string | null;
