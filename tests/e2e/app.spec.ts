@@ -4,6 +4,11 @@ import AxeBuilder from '@axe-core/playwright';
 const SAFE_REFLECTION =
   'I feel deeply lonely and disconnected even when surrounded by friends and coworkers.';
 
+const navigateFromHeader = async (page: import('@playwright/test').Page, label: string) => {
+  await page.getByLabel('Open navigation menu').click();
+  await page.getByLabel(`Navigate to ${label}`).click();
+};
+
 test.describe('Inner Compass web app core flow', () => {
   test('loads, reflects locally, saves privately, and navigates core surfaces', async ({ page }) => {
     const consoleErrors: string[] = [];
@@ -57,34 +62,53 @@ test.describe('Inner Compass web app core flow', () => {
     expect(persisted).toContain('REDACTED_PRIVACY_RULE_7');
     expect(persisted).not.toContain(SAFE_REFLECTION);
 
-    await page.getByText(/^Journal(?: \(\d+\))?$/).click();
+    await navigateFromHeader(page, 'Journal (1)');
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
     await page.getByLabel('Open wisdom for category 1').click();
     await expect(page.getByText('SOURCE-LINKED WISDOM LIBRARY')).toBeVisible();
     await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
     await expect(page.getByText(/Exact quotation intentionally withheld/).first()).toBeVisible();
 
-    await page.getByText('Wisdom', { exact: true }).click();
+    await navigateFromHeader(page, 'Wisdom');
     await expect(page.getByText(/71 records/)).toBeVisible();
 
-    await page.getByText('Suggested Reads', { exact: true }).first().click();
+    await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
     await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
 
-    await page.getByText('Privacy', { exact: true }).first().click();
+    await navigateFromHeader(page, 'Privacy');
     await expect(page.getByText('PRIVACY & LOCAL DATA')).toBeVisible();
     await expect(page.getByText('Your reflection stays on this device')).toBeVisible();
 
-    await page.getByText('Taxonomy', { exact: true }).click();
+    await navigateFromHeader(page, 'Taxonomy');
     await expect(page.getByText('All 25 Categories')).toBeVisible();
 
-    await page.getByText('Lifelines 24/7', { exact: true }).click();
+    await navigateFromHeader(page, 'Lifelines 24/7');
     await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
     await expect(page.getByText(/United States resources/)).toBeVisible();
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
     expect(failedAppResponses, `Same-origin HTTP failures: ${failedAppResponses.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
+  });
+
+  test('header navigation stays compact and works on a narrow viewport', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto('/');
+
+    const menuButton = page.getByLabel('Open navigation menu');
+    await expect(menuButton).toBeVisible();
+    await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
+
+    await menuButton.click();
+    await expect(page.getByLabel('Close navigation menu')).toBeVisible();
+    await expect(page.getByLabel('Navigate to Reflect')).toBeVisible();
+    await expect(page.getByLabel('Navigate to Lifelines 24/7')).toBeVisible();
+
+    await page.getByLabel('Navigate to Taxonomy').click();
+    await expect(page.getByText('All 25 Categories')).toBeVisible();
+    await expect(page.getByLabel('Open navigation menu')).toBeVisible();
+    await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
   });
 
   test('internal links connect guidance, reads, wisdom, and categories', async ({ page }) => {
@@ -98,11 +122,11 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByLabel('Open wisdom for category 1').click();
     await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
 
-    await page.getByText('Reflect', { exact: true }).click();
+    await navigateFromHeader(page, 'Reflect');
     await page.getByLabel('Open suggested reads for category 1').click();
     await expect(page.getByText('Showing reads linked to Category #1.')).toBeVisible();
 
-    await page.getByText('Suggested Reads', { exact: true }).first().click();
+    await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
 
     await page.getByText('View details').first().click();
@@ -141,7 +165,7 @@ test.describe('Inner Compass web app core flow', () => {
 
   test('direct taxonomy navigation cannot bypass Category 10 hard ceiling', async ({ page }) => {
     await page.goto('/');
-    await page.getByText('Taxonomy', { exact: true }).click();
+    await navigateFromHeader(page, 'Taxonomy');
     await page.getByText('Substance use', { exact: true }).click();
     await page.getByText('Reflect on this Category →').click();
     await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
@@ -154,7 +178,7 @@ test.describe('Inner Compass web app core flow', () => {
       localStorage.setItem('inner_compass_category_interactions_v1', JSON.stringify({ 1: { count: 1 } }));
     });
     await page.reload();
-    await page.getByText('Privacy', { exact: true }).first().click();
+    await navigateFromHeader(page, 'Privacy');
     await page.getByText('Clear journal', { exact: true }).click();
     expect(await page.evaluate(() => localStorage.getItem('inner_compass_saved_reflections_v1'))).toBe('[]');
     await page.getByText('Clear personalization history', { exact: true }).click();
@@ -164,7 +188,7 @@ test.describe('Inner Compass web app core flow', () => {
   test('back navigation returns exactly one page at a time', async ({ page }) => {
     await page.goto('/');
 
-    await page.getByText('Taxonomy', { exact: true }).click();
+    await navigateFromHeader(page, 'Taxonomy');
     await page.getByText('Loneliness / feeling isolated even around people', { exact: true }).click();
     await page.getByText('Reflect on this Category →', { exact: true }).click();
     await expect(page.getByText('CATEGORY #1')).toBeVisible();
@@ -184,7 +208,7 @@ test.describe('Inner Compass web app core flow', () => {
 
   test('Suggested Reads exposes branch-complete deterministic browsing', async ({ page }) => {
     await page.goto('/');
-    await page.getByText('Suggested Reads', { exact: true }).first().click();
+    await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
 
     await page.getByText('Madhyamaka', { exact: true }).click();
@@ -230,7 +254,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByLabel('Submit Reflection').click();
     await expect(page.getByText('CATEGORY #1')).toBeVisible();
 
-    await page.getByText('Local Diagnostics', { exact: true }).click();
+    await navigateFromHeader(page, 'Local Diagnostics');
     await expect(page.getByText('Debug & Release Data Hub')).toBeVisible();
 
     const rawDebug = await page.evaluate(
@@ -253,14 +277,14 @@ test.describe('Inner Compass web app core flow', () => {
     );
     expect(homeBlocking, JSON.stringify(homeBlocking, null, 2)).toEqual([]);
 
-    await page.getByText('Legal & Safety', { exact: true }).first().click();
+    await navigateFromHeader(page, 'Legal & Safety');
     const legalResults = await new AxeBuilder({ page }).analyze();
     const legalBlocking = legalResults.violations.filter((violation) =>
       ['serious', 'critical'].includes(violation.impact || '')
     );
     expect(legalBlocking, JSON.stringify(legalBlocking, null, 2)).toEqual([]);
 
-    await page.getByText('Lifelines 24/7', { exact: true }).click();
+    await navigateFromHeader(page, 'Lifelines 24/7');
     const safetyResults = await new AxeBuilder({ page }).analyze();
     const safetyBlocking = safetyResults.violations.filter((violation) =>
       ['serious', 'critical'].includes(violation.impact || '')
