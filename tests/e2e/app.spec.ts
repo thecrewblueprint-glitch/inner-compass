@@ -97,7 +97,17 @@ test.describe('Inner Compass web app core flow', () => {
     await page.goto('/');
 
     const menuButton = page.getByLabel('Open navigation menu');
+    const themeButton = page.getByLabel('Open Theme Palette Selector');
     await expect(menuButton).toBeVisible();
+    await expect(themeButton).toBeVisible();
+
+    const menuBox = await menuButton.boundingBox();
+    const themeBox = await themeButton.boundingBox();
+    expect(menuBox).not.toBeNull();
+    expect(themeBox).not.toBeNull();
+    expect(menuBox!.x).toBeGreaterThan(themeBox!.x);
+    expect(375 - (menuBox!.x + menuBox!.width)).toBeLessThanOrEqual(20);
+
     await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
 
     await menuButton.click();
