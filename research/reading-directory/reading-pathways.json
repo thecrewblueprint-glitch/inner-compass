@@ -10,7 +10,7 @@
         "READ-DAO-DE-JING",
         "READ-ANALECTS",
         "READ-GITA",
-        "READ-SEP-ZEN"
+        "READ-ZEN-BEGINNERS-MIND"
       ]
     },
     {
@@ -20,8 +20,8 @@
       "reading_ids": [
         "READ-UPANISHADS",
         "READ-YOGA-SUTRAS",
-        "READ-SEP-ZEN",
-        "READ-JAIN-SEP",
+        "READ-ZEN-BEGINNERS-MIND",
+        "READ-JAINS-DUNDAS",
         "READ-ZHUANGZI"
       ]
     },
@@ -45,7 +45,7 @@
         "READ-ANALECTS",
         "READ-MENCIUS",
         "READ-DHAMMAPADA",
-        "READ-JAIN-SEP",
+        "READ-JAINS-DUNDAS",
         "READ-SENECA-LETTERS"
       ]
     },
