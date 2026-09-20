@@ -86,7 +86,7 @@ test.describe('Inner Compass web app core flow', () => {
 
     await navigateFromHeader(page, 'Journal (1)');
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
-    await page.getByLabel('Open wisdom for category 1').click();
+    await page.getByLabel(/Explore wisdom related to/).click();
     await expect(page.getByText('WISDOM ACROSS TRADITIONS')).toBeVisible();
     await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
     await expect(page.getByText(/summarizes the source instead of reproducing the full passage/).first()).toBeVisible();
