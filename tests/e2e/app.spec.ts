@@ -105,8 +105,10 @@ test.describe('Inner Compass web app core flow', () => {
     const themeBox = await themeButton.boundingBox();
     expect(menuBox).not.toBeNull();
     expect(themeBox).not.toBeNull();
+    expect(themeBox!.x).toBeLessThanOrEqual(20);
     expect(menuBox!.x).toBeGreaterThan(themeBox!.x);
     expect(375 - (menuBox!.x + menuBox!.width)).toBeLessThanOrEqual(20);
+    await expect(themeButton).toContainText('Colors');
 
     await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
 
@@ -119,6 +121,25 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('All 25 Categories')).toBeVisible();
     await expect(page.getByLabel('Open navigation menu')).toBeVisible();
     await expect(page.getByLabel('Navigate to Taxonomy')).toHaveCount(0);
+  });
+
+  test('public shell has clean share metadata', async ({ page }) => {
+    await page.goto('/');
+
+    await expect(page).toHaveTitle('Inner Compass Beta');
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      'href',
+      'https://thecrewblueprint-glitch.github.io/inner-compass/'
+    );
+    await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
+      'content',
+      'https://thecrewblueprint-glitch.github.io/inner-compass/'
+    );
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+      'content',
+      'Inner Compass Beta'
+    );
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index,follow');
   });
 
   test('internal links connect guidance, reads, wisdom, and categories', async ({ page }) => {

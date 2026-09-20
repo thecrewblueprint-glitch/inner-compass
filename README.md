@@ -33,12 +33,17 @@ Current surfaces:
 - **Reflect** — deterministic safety, category matching, clarification, and canonical guidance
 - **Taxonomy** — all 25 problem categories and the three canonical pillars
 - **Wisdom** — 71 research records across audited source traditions; exact direct-quote text is rights-gated
-- **Suggested Reads** — visual curated library with 18 starter books/resources, traditions, pathways, levels, and legal reading links
+- **Suggested Reads** — visual curated library spanning the supported philosophical branches, traditions, pathways, levels, and legal reading links
 - **Journal** — local bookmarks without raw reflection text
 - **Privacy** — personalization toggle and clear-local-data controls
+- **Legal & Safety** — Terms, Privacy, Consumer Health Data, Safety/Crisis, and Accessibility notices
 - **Lifelines** — U.S.-scoped launch resources and safety routing
 
 The current shared release is a **Beta** for adults 18+ in the United States. Public static deployment is supported through GitHub Pages with preview and debug UI disabled.
+
+**Live Beta:** https://thecrewblueprint-glitch.github.io/inner-compass/
+
+The clean Pages URL is canonical. Production assets are content-hashed by Vite, so normal deployments invalidate changed JavaScript/CSS without a share-link query string.
 
 ## Canonical production knowledge base
 
