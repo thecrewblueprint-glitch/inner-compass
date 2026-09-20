@@ -57,7 +57,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
   onOpenCrisis,
 }) => {
   const { theme } = useTheme();
-  const { category, safety, affirmation, synthesis, isFallback } = result;
+  const { category, safety, affirmation, synthesis } = result;
   const isSubstanceHardCeiling = safety?.status === 'SUBSTANCE_HARD_CEILING' || category.category_id === 10;
 
   return (
@@ -133,15 +133,9 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           {category.category_name}
         </Text>
 
-        {isFallback ? (
-          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING (SCHEMA V1.0)</Text>
-          </View>
-        ) : (
-          <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-            <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>STRUCTURED LLM SYNTHESIS (GROUNDED & VALIDATED)</Text>
-          </View>
-        )}
+        <View style={[styles.groundedTag, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.groundedTagText, { color: theme.textMuted }]}>VERIFIED CANONICAL GROUNDING · DETERMINISTIC</Text>
+        </View>
       </View>
 
       {/* Category 10 Substance Hard Ceiling Banner */}
@@ -184,7 +178,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           style={[styles.affirmationText, { color: theme.affirmationText }]}
           {...({ 'data-testid': 'grounded-affirmation-text' } as any)}
         >
-          "{affirmation}"
+          {affirmation}
         </Text>
       </View>
 
@@ -205,7 +199,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
           style={[styles.synthesisText, { color: theme.textPrimary }]}
           {...({ 'data-testid': 'grounded-synthesis-text' } as any)}
         >
-          "{synthesis}"
+          {synthesis}
         </Text>
       </View>
 
