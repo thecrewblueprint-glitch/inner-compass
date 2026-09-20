@@ -498,3 +498,5 @@ const styles = StyleSheet.create({
   previewDetail: { fontSize: 10 },
   content: { flex: 1 },
 });
+
+export default App;
