@@ -78,7 +78,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Privacy by design</Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            Your reflection text is processed on this device. Inner Compass does not send raw reflection text to its servers, AI services, advertising networks, or analytics services.
+            What you type is processed on this device. Inner Compass does not send your reflection text to its servers, AI services, advertising networks, or analytics services.
           </Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
             Optional saved reflections keep only the selected reflection theme and saved content in this browser. You can clear that data from Privacy.
@@ -110,7 +110,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
             pressed && { opacity: 0.85 },
           ]}
           onPress={accept}
-          accessibilityLabel="Confirm adult United States launch eligibility"
+          accessibilityLabel="Confirm age and United States location"
         >
           <Text style={[styles.primaryText, { color: theme.accentText }]}>
             I am 18+ and in the United States · Continue
