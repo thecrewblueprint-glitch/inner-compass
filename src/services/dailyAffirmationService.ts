@@ -100,14 +100,11 @@ const PILLAR_DISPLAY_NAMES: Record<PillarType, string> = {
 };
 
 /**
- * Use a verified quote when the canonical entry contains one. Otherwise use the
- * canonical teaching text as a summary and explicitly mark it as non-quotation.
+ * Product display is summary-first until an exact translation has passed the
+ * separate product-rights promotion gate. Research quote verification alone
+ * does not authorize consumer display.
  */
 function extractQuoteForEntry(entry: KBEntry): { text: string; isVerified: boolean } {
-  if (entry.verified_quote && entry.verified_quote.trim()) {
-    return { text: entry.verified_quote.trim(), isVerified: true };
-  }
-
   return { text: entry.teaching.trim(), isVerified: false };
 }
 
