@@ -37,7 +37,9 @@ const PERSONALIZATION_KEY = 'inner_compass_personalization_enabled_v1';
 const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
 const IS_DIAGNOSTICS_ENABLED =
   import.meta.env.VITE_INNER_COMPASS_DEBUG === 'true' ||
-  (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('debug') === '1');
+  (import.meta.env.DEV &&
+    typeof window !== 'undefined' &&
+    new URLSearchParams(window.location.search).get('debug') === '1');
 
 type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'legal' | 'crisis' | 'diagnostics';
 
