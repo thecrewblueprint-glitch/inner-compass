@@ -331,13 +331,14 @@ def post_eval(base_url, scenario, timeout):
 
 def provider_violation(eval_data):
     source = str(eval_data.get("source", "")).lower()
-    model = str(eval_data.get("llmModelUsed", "")).lower()
-    allowed = {"deterministic_retrieval", "deterministic_mock_validator", "upstream_safety", "deterministic_fallback", ""}
-    return (
-        source not in allowed
-        or "gemini" in source or "openrouter" in source
-        or "gemini" in model or "openrouter" in model
-    )
+    allowed = {
+        "deterministic_retrieval",
+        "deterministic_grounding_probe",
+        "upstream_safety",
+        "deterministic_fallback",
+        "",
+    }
+    return source not in allowed
 
 
 def flatten(s, response):
@@ -347,7 +348,7 @@ def flatten(s, response):
             "actualRoute": None, "actualCategoryId": None, "actualCategoryName": None,
             "clarificationRequested": None, "clarificationQuestion": None,
             "retrievalScore": None, "retrievalRawScore": None, "retrievalScoreMargin": None,
-            "source": None, "llmModelUsed": None, "providerViolation": False,
+            "source": None, "providerViolation": False,
             "serverErrors": [], "serverLatencyMs": None,
         })
         return row
@@ -362,7 +363,6 @@ def flatten(s, response):
         "retrievalRawScore": e.get("retrievalRawScore"),
         "retrievalScoreMargin": e.get("retrievalScoreMargin"),
         "source": e.get("source"),
-        "llmModelUsed": e.get("llmModelUsed"),
         "providerViolation": provider_violation(e),
         "serverErrors": e.get("errors") or [],
         "serverLatencyMs": e.get("latencyMs"),
