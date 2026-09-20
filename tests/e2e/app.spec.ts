@@ -71,7 +71,7 @@ test.describe('Inner Compass privacy-first web flow', () => {
     await expect(page.getByText(/Personalized \(1 Theme\)/)).toBeVisible();
 
     const interactions = await page.evaluate(
-      () => localStorage.getItem('inner_compass_category_interactions_v1') || ''
+      () => sessionStorage.getItem('inner_compass_session_category_interactions_v1') || ''
     );
     expect(interactions).toContain('"1"');
     expect(interactions).toContain('reflection');
@@ -126,15 +126,17 @@ test.describe('Inner Compass privacy-first web flow', () => {
 
     await page.evaluate(() => {
       localStorage.setItem('inner_compass_saved_reflections_v1', '[{"categoryId":1}]');
-      localStorage.setItem('inner_compass_category_interactions_v1', '{"1":{"count":1}}');
+      sessionStorage.setItem('inner_compass_session_category_interactions_v1', '{"1":{"count":1}}');
     });
 
     await page.getByLabel('Clear all Inner Compass local data').click();
 
     await expect(page.getByText('Before you continue')).toBeVisible();
-    const remainingKeys = await page.evaluate(() =>
-      Object.keys(localStorage).filter((key) => key.startsWith('inner_compass_'))
-    );
-    expect(remainingKeys).toEqual([]);
+    const remaining = await page.evaluate(() => ({
+      local: Object.keys(localStorage).filter((key) => key.startsWith('inner_compass_')),
+      session: Object.keys(sessionStorage).filter((key) => key.startsWith('inner_compass_')),
+    }));
+    expect(remaining.local).toEqual([]);
+    expect(remaining.session).toEqual([]);
   });
 });
