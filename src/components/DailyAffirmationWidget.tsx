@@ -103,9 +103,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
 
   const handleCopy = () => {
     try {
-      const sourceBlock = item.isVerifiedQuote
-        ? `"${item.quoteText}"\n— ${item.author}, ${item.sourceWork}`
-        : `Teaching summary (not a direct quote):\n${item.quoteText}\nSource context: ${item.author}, ${item.sourceWork}`;
+      const sourceBlock = `Source-linked teaching summary (not a direct quote):\n${item.quoteText}\nSource context: ${item.author}, ${item.sourceWork}`;
       const textToCopy = `${sourceBlock}\n\nToday's Canonical Reflection:\n${item.dailyAffirmation}`;
       if (typeof navigator !== 'undefined' && navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy);
@@ -216,18 +214,18 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
             ]}
           >
             <Text style={[styles.verifiedPillText, { color: theme.textSecondary }]}>
-              {item.isVerifiedQuote ? '✓ Verified Source Quote' : 'Teaching Summary · Not a Direct Quote'}
+              Source-Linked Summary · Direct Quote Display Pending Rights Review
             </Text>
           </View>
         </View>
 
         <Text style={[styles.quoteText, { color: theme.quoteText }]}>
-          {item.isVerifiedQuote ? `"${item.quoteText}"` : item.quoteText}
+          {item.quoteText}
         </Text>
 
         <View style={styles.attributionRow}>
           <Text style={[styles.authorName, { color: theme.textPrimary }]}>
-            {item.isVerifiedQuote ? `— ${item.author}` : `Source context: ${item.author}`}
+            { `Source context: ${item.author}` }
           </Text>
           <Text style={[styles.sourceWork, { color: theme.textSecondary }]}>
             {item.sourceWork}
@@ -270,7 +268,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
             ]}
             onPress={handleShuffle}
             disabled={isRefreshing}
-            accessibilityLabel="Shuffle Affirmation"
+            accessibilityLabel="Show another contemplation"
             {...({ 'data-testid': 'shuffle-affirmation-button' } as any)}
           >
             {isRefreshing ? (
@@ -290,7 +288,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
               pressed && { opacity: 0.75 },
             ]}
             onPress={handleCopy}
-            accessibilityLabel="Copy Affirmation"
+            accessibilityLabel="Copy contemplation"
           >
             <Text
               style={[
