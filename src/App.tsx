@@ -435,6 +435,8 @@ const AppContent: React.FC = () => {
         {currentTab === 'taxonomy' && (
           <TaxonomyBrowserScreen
             onSelectCategory={(category) => handleSelectCategory(category, 'taxonomy_view')}
+            onOpenWisdomForCategory={openWisdomForCategory}
+            onOpenReadsForCategory={openReadsForCategory}
           />
         )}
 
