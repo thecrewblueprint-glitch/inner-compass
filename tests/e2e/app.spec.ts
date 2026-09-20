@@ -144,4 +144,45 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByText('Clear personalization history', { exact: true }).click();
     expect(await page.evaluate(() => localStorage.getItem('inner_compass_category_interactions_v1'))).toBeNull();
   });
+
+  test('back navigation returns exactly one page at a time', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByText('Taxonomy', { exact: true }).click();
+    await page.getByText('Loneliness / feeling isolated even around people', { exact: true }).click();
+    await page.getByText('Reflect on this Category →', { exact: true }).click();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+    await page.getByLabel('Open wisdom for category 1').click();
+    await expect(page.getByText('Showing wisdom linked to Category #1.')).toBeVisible();
+
+    await page.getByLabel('Go back one page').click();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+
+    await page.getByLabel('Go back one page').click();
+    await expect(page.getByText('All 25 Categories')).toBeVisible();
+
+    await page.getByLabel('Go back one page').click();
+    await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
+  });
+
+
+  test('Suggested Reads exposes branch-complete deterministic browsing', async ({ page }) => {
+    await page.goto('/');
+    await page.getByText('Suggested Reads', { exact: true }).first().click();
+    await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
+
+    await page.getByText('Madhyamaka', { exact: true }).click();
+    await expect(page.getByText('The Fundamental Wisdom of the Middle Way', { exact: true })).toBeVisible();
+
+    await page.getByText('Madhyamaka', { exact: true }).click();
+    await page.getByText('All branches', { exact: true }).click();
+    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
+    await expect(page.getByText('Kukai: Major Works', { exact: true })).toBeVisible();
+
+    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
+    await page.getByText('All branches', { exact: true }).click();
+    await page.getByText('Sikh philosophy / theology', { exact: true }).click();
+    await expect(page.getByText('Sikhism: A Very Short Introduction', { exact: true })).toBeVisible();
+  });
+
 });

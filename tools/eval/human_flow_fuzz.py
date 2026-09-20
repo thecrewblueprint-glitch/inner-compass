@@ -3,7 +3,7 @@
 Inner Compass Human-Like Flow Fuzz Harness
 
 Generates thousands of deterministic, human-like test entries; exercises only
-/api/eval/guidance with mode=deterministic and skipGemini=true; records routing,
+/api/eval/guidance with the deterministic local evaluation endpoint; records routing,
 classification, clarification, safety, latency, errors, and correction signals.
 
 External model cost: ZERO.
@@ -306,7 +306,7 @@ def post_eval(base_url, scenario, timeout):
         "problem": scenario.text,
         "fixtureId": scenario.scenario_id,
         "mode": "deterministic",
-        "skipGemini": True,
+        "skipexternal model": True,
     }
     if scenario.expected_category_id is not None:
         payload["expectedCategoryId"] = scenario.expected_category_id
@@ -331,13 +331,14 @@ def post_eval(base_url, scenario, timeout):
 
 def provider_violation(eval_data):
     source = str(eval_data.get("source", "")).lower()
-    model = str(eval_data.get("llmModelUsed", "")).lower()
-    allowed = {"deterministic_retrieval", "deterministic_mock_validator", "upstream_safety", "deterministic_fallback", ""}
-    return (
-        source not in allowed
-        or "gemini" in source or "openrouter" in source
-        or "gemini" in model or "openrouter" in model
-    )
+    allowed = {
+        "deterministic_retrieval",
+        "deterministic_grounding_probe",
+        "upstream_safety",
+        "deterministic_fallback",
+        "",
+    }
+    return source not in allowed
 
 
 def flatten(s, response):
@@ -347,7 +348,7 @@ def flatten(s, response):
             "actualRoute": None, "actualCategoryId": None, "actualCategoryName": None,
             "clarificationRequested": None, "clarificationQuestion": None,
             "retrievalScore": None, "retrievalRawScore": None, "retrievalScoreMargin": None,
-            "source": None, "llmModelUsed": None, "providerViolation": False,
+            "source": None, "providerViolation": False,
             "serverErrors": [], "serverLatencyMs": None,
         })
         return row
@@ -362,7 +363,6 @@ def flatten(s, response):
         "retrievalRawScore": e.get("retrievalRawScore"),
         "retrievalScoreMargin": e.get("retrievalScoreMargin"),
         "source": e.get("source"),
-        "llmModelUsed": e.get("llmModelUsed"),
         "providerViolation": provider_violation(e),
         "serverErrors": e.get("errors") or [],
         "serverLatencyMs": e.get("latencyMs"),
@@ -682,7 +682,7 @@ def run(args):
         "tools/eval/results/human-flow-" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     )
     print(f"Running {len(scenarios):,} scenarios with {args.workers} workers.")
-    print("Provider policy: ZERO Gemini / ZERO OpenRouter.")
+    print("Provider policy: ZERO external model / ZERO external provider.")
     started = time.perf_counter()
     rows = [None]*len(scenarios)
 
@@ -706,7 +706,7 @@ def run(args):
     summary.update({
         "seed":args.seed, "workers":args.workers, "fixtureFile":args.fixtures,
         "scenarioGeneration":"deterministic-template-perturbation",
-        "providerPolicy":"deterministic-only; skipGemini=true; no OpenRouter path",
+        "providerPolicy":"deterministic-only; skipexternal model=true; no external provider path",
         "elapsedSeconds":round(time.perf_counter()-started,2),
     })
     write_outputs(results_dir,scenarios,rows,summary)

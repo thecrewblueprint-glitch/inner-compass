@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "traditions": [
     {
       "id": "stoicism",
@@ -13,50 +13,54 @@
       "note": "Western Hellenistic philosophy; included for comparison, not classified as Eastern."
     },
     {
-      "id": "early-buddhism",
-      "region": "South Asia",
-      "name": "Early Buddhist / Nikaya traditions",
+      "id": "buddhism",
+      "region": "South, Central, and East Asia",
+      "name": "Buddhist traditions",
       "kind": "religious-philosophical",
       "branches": [
-        "Pali Canon",
-        "Theravada textual tradition"
+        "Early Buddhist / Nikaya sources",
+        "Theravada",
+        "Mahayana",
+        "Madhyamaka",
+        "Yogacara",
+        "Zen / Chan",
+        "Korean Seon",
+        "Pure Land",
+        "Tibetan Buddhism / Vajrayana",
+        "Dzogchen",
+        "Mahamudra"
       ],
-      "note": "Keep early canonical material distinct from later Buddhist schools."
+      "note": "Branches are kept distinct; no single Buddhist school is treated as representative of all Buddhism."
     },
     {
-      "id": "mahayana-zen",
-      "region": "East Asia",
-      "name": "Mahayana / Chan / Zen",
-      "kind": "religious-philosophical",
-      "branches": [
-        "Chan",
-        "Zen",
-        "Seon"
-      ],
-      "note": "Zen is one Buddhist tradition, not a synonym for all Japanese or Buddhist philosophy."
-    },
-    {
-      "id": "hindu-philosophy",
+      "id": "indian-philosophy",
       "region": "South Asia",
       "name": "Hindu / Indian philosophical traditions",
       "kind": "religious-philosophical",
       "branches": [
-        "Upanishadic traditions",
-        "Vedanta",
+        "Bhagavad Gita",
+        "Principal Upanishads",
+        "Yoga Sutras",
+        "Advaita Vedanta",
+        "Vishishtadvaita Vedanta",
+        "Dvaita Vedanta",
+        "Samkhya",
         "Classical Yoga",
-        "Bhagavad Gita traditions"
+        "Nyaya",
+        "Vaisheshika",
+        "Mimamsa"
       ],
-      "note": "Do not collapse Vedanta, Yoga, Samkhya, and other schools into one generic metaphysics."
+      "note": "Vedanta, Yoga, Samkhya, Nyaya, Vaisheshika, and Mimamsa remain distinct schools even when a sourcebook covers several."
     },
     {
       "id": "daoism",
       "region": "China",
-      "name": "Classical Daoism",
+      "name": "Daoist traditions",
       "kind": "philosophy-and-religious-tradition",
       "branches": [
         "Daodejing tradition",
         "Zhuangzi tradition",
-        "later religious Daoism"
+        "later philosophical / religious Daoism"
       ],
       "note": "Classical texts and later religious Daoism are related but not identical."
     },
@@ -68,21 +72,46 @@
       "branches": [
         "Classical Confucianism",
         "Mencian tradition",
-        "later Neo-Confucian traditions"
+        "Xunzi tradition",
+        "Great Learning",
+        "Doctrine of the Mean",
+        "Neo-Confucianism"
       ],
-      "note": "Do not reduce Confucian self-cultivation to generic productivity."
+      "note": "Confucian self-cultivation is not reduced to generic productivity or self-help."
     },
     {
       "id": "jainism",
       "region": "South Asia",
-      "name": "Jaina philosophy",
+      "name": "Jain traditions",
       "kind": "religious-philosophical",
       "branches": [
         "Digambara",
         "Svetambara",
-        "cross-sectarian philosophical scholarship"
+        "Cross-sectarian Jain philosophy"
       ],
-      "note": "Core themes include nonviolence, non-attachment, and many-sidedness."
+      "note": "Core themes include nonviolence, non-attachment, and many-sidedness; sectarian distinctions remain explicit."
+    },
+    {
+      "id": "japanese",
+      "region": "Japan",
+      "name": "Japanese philosophical and religious traditions",
+      "kind": "philosophy-and-religious-traditions",
+      "branches": [
+        "Shingon / esoteric Buddhism",
+        "Shinto philosophical / religious studies",
+        "Kyoto School"
+      ],
+      "note": "Zen and Pure Land are represented in the Buddhist hierarchy; these branches cover additional Japanese traditions."
+    },
+    {
+      "id": "sikh",
+      "region": "Punjab / South Asia",
+      "name": "Sikh philosophy and theology",
+      "kind": "religious-philosophical",
+      "branches": [
+        "Sikh philosophy / theology"
+      ],
+      "note": "Included as a distinct South Asian tradition rather than folded into Hindu or generic Eastern philosophy."
     },
     {
       "id": "epicureanism",

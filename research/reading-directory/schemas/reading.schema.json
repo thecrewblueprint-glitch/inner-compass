@@ -13,7 +13,11 @@
     "rights_status",
     "review_status",
     "resource_format",
-    "resource_url"
+    "resource_url",
+    "branch_coverage",
+    "cover_image_url",
+    "cover_image_source",
+    "cover_image_alt"
   ],
   "properties": {
     "reading_id": {
@@ -182,12 +186,7 @@
     },
     "resource_format": {
       "enum": [
-        "BOOK",
-        "ONLINE_TEXT",
-        "WEBSITE",
-        "ARTICLE",
-        "ARCHIVE",
-        "OTHER"
+        "BOOK"
       ]
     },
     "resource_url": {
@@ -200,25 +199,32 @@
       ]
     },
     "cover_image_url": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^https://"
     },
     "cover_image_source": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string",
+      "minLength": 1
     },
     "cover_image_rights_status": {
       "type": "string"
     },
     "cover_image_alt": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "fallback_visual_style": {
       "type": "string"
+    },
+    "branch_coverage": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     }
   },
   "additionalProperties": false

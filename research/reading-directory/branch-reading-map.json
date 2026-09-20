@@ -1,0 +1,386 @@
+{
+  "schema_version": "1.0",
+  "branches": [
+    {
+      "tradition_id": "stoicism",
+      "tradition": "Stoicism",
+      "region": "Mediterranean / Roman world",
+      "branch": "Greek Stoicism",
+      "reading_ids": [
+        "READ-HELLENISTIC-PHILOSOPHERS"
+      ]
+    },
+    {
+      "tradition_id": "stoicism",
+      "tradition": "Stoicism",
+      "region": "Mediterranean / Roman world",
+      "branch": "Roman Stoicism",
+      "reading_ids": [
+        "READ-MARCUS-MEDITATIONS",
+        "READ-EPICTETUS-HANDBOOK",
+        "READ-SENECA-LETTERS"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Early Buddhist / Nikaya sources",
+      "reading_ids": [
+        "READ-DHAMMAPADA",
+        "READ-SUTTA-NIPATA",
+        "READ-BUDDHA-WORDS"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Theravada",
+      "reading_ids": [
+        "READ-DHAMMAPADA",
+        "READ-SUTTA-NIPATA",
+        "READ-BUDDHA-WORDS"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Mahayana",
+      "reading_ids": [
+        "READ-MUMONKAN",
+        "READ-ZEN-BEGINNERS-MIND",
+        "READ-MAHAYANA-WILLIAMS"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Madhyamaka",
+      "reading_ids": [
+        "READ-MADHYAMAKA-GARFIELD"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Yogacara",
+      "reading_ids": [
+        "READ-YOGACARA-LIVING"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Zen / Chan",
+      "reading_ids": [
+        "READ-MUMONKAN",
+        "READ-ZEN-BEGINNERS-MIND",
+        "READ-SEON-CHINUL"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Korean Seon",
+      "reading_ids": [
+        "READ-SEON-CHINUL"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Pure Land",
+      "reading_ids": [
+        "READ-PURE-LAND-UNNO"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Tibetan Buddhism / Vajrayana",
+      "reading_ids": [
+        "READ-TIBETAN-WORLD"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Dzogchen",
+      "reading_ids": [
+        "READ-DZOGCHEN-CRYSTAL"
+      ]
+    },
+    {
+      "tradition_id": "buddhism",
+      "tradition": "Buddhist traditions",
+      "region": "South, Central, and East Asia",
+      "branch": "Mahamudra",
+      "reading_ids": [
+        "READ-MAHAMUDRA-MOONLIGHT"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Bhagavad Gita",
+      "reading_ids": [
+        "READ-GITA"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Principal Upanishads",
+      "reading_ids": [
+        "READ-UPANISHADS"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Yoga Sutras",
+      "reading_ids": [
+        "READ-YOGA-SUTRAS"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Advaita Vedanta",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Vishishtadvaita Vedanta",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Dvaita Vedanta",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Samkhya",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Classical Yoga",
+      "reading_ids": [
+        "READ-YOGA-SUTRAS"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Nyaya",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Vaisheshika",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "indian-philosophy",
+      "tradition": "Hindu / Indian philosophical traditions",
+      "region": "South Asia",
+      "branch": "Mimamsa",
+      "reading_ids": [
+        "READ-INDIAN-SOURCEBOOK"
+      ]
+    },
+    {
+      "tradition_id": "daoism",
+      "tradition": "Daoist traditions",
+      "region": "China",
+      "branch": "Daodejing tradition",
+      "reading_ids": [
+        "READ-DAO-DE-JING"
+      ]
+    },
+    {
+      "tradition_id": "daoism",
+      "tradition": "Daoist traditions",
+      "region": "China",
+      "branch": "Zhuangzi tradition",
+      "reading_ids": [
+        "READ-ZHUANGZI"
+      ]
+    },
+    {
+      "tradition_id": "daoism",
+      "tradition": "Daoist traditions",
+      "region": "China",
+      "branch": "later philosophical / religious Daoism",
+      "reading_ids": [
+        "READ-DAOISM-MILLER"
+      ]
+    },
+    {
+      "tradition_id": "confucianism",
+      "tradition": "Confucian traditions",
+      "region": "China / East Asia",
+      "branch": "Classical Confucianism",
+      "reading_ids": [
+        "READ-ANALECTS",
+        "READ-GREAT-LEARNING-MEAN",
+        "READ-CONFUCIUS-SCHUMAN"
+      ]
+    },
+    {
+      "tradition_id": "confucianism",
+      "tradition": "Confucian traditions",
+      "region": "China / East Asia",
+      "branch": "Mencian tradition",
+      "reading_ids": [
+        "READ-MENCIUS"
+      ]
+    },
+    {
+      "tradition_id": "confucianism",
+      "tradition": "Confucian traditions",
+      "region": "China / East Asia",
+      "branch": "Xunzi tradition",
+      "reading_ids": [
+        "READ-XUNZI-HUTTON"
+      ]
+    },
+    {
+      "tradition_id": "confucianism",
+      "tradition": "Confucian traditions",
+      "region": "China / East Asia",
+      "branch": "Great Learning",
+      "reading_ids": [
+        "READ-GREAT-LEARNING-MEAN"
+      ]
+    },
+    {
+      "tradition_id": "confucianism",
+      "tradition": "Confucian traditions",
+      "region": "China / East Asia",
+      "branch": "Doctrine of the Mean",
+      "reading_ids": [
+        "READ-GREAT-LEARNING-MEAN"
+      ]
+    },
+    {
+      "tradition_id": "confucianism",
+      "tradition": "Confucian traditions",
+      "region": "China / East Asia",
+      "branch": "Neo-Confucianism",
+      "reading_ids": [
+        "READ-CONFUCIANISM-YAO"
+      ]
+    },
+    {
+      "tradition_id": "jainism",
+      "tradition": "Jain traditions",
+      "region": "South Asia",
+      "branch": "Digambara",
+      "reading_ids": [
+        "READ-JAINS-DUNDAS"
+      ]
+    },
+    {
+      "tradition_id": "jainism",
+      "tradition": "Jain traditions",
+      "region": "South Asia",
+      "branch": "Svetambara",
+      "reading_ids": [
+        "READ-JAINS-DUNDAS"
+      ]
+    },
+    {
+      "tradition_id": "jainism",
+      "tradition": "Jain traditions",
+      "region": "South Asia",
+      "branch": "Cross-sectarian Jain philosophy",
+      "reading_ids": [
+        "READ-JAINS-DUNDAS"
+      ]
+    },
+    {
+      "tradition_id": "japanese",
+      "tradition": "Japanese philosophical and religious traditions",
+      "region": "Japan",
+      "branch": "Shingon / esoteric Buddhism",
+      "reading_ids": [
+        "READ-KUKAI-MAJOR-WORKS"
+      ]
+    },
+    {
+      "tradition_id": "japanese",
+      "tradition": "Japanese philosophical and religious traditions",
+      "region": "Japan",
+      "branch": "Shinto philosophical / religious studies",
+      "reading_ids": [
+        "READ-SHINTO-KAMI-WAY"
+      ]
+    },
+    {
+      "tradition_id": "japanese",
+      "tradition": "Japanese philosophical and religious traditions",
+      "region": "Japan",
+      "branch": "Kyoto School",
+      "reading_ids": [
+        "READ-NISHIDA-INQUIRY"
+      ]
+    },
+    {
+      "tradition_id": "sikh",
+      "tradition": "Sikh philosophy and theology",
+      "region": "Punjab / South Asia",
+      "branch": "Sikh philosophy / theology",
+      "reading_ids": [
+        "READ-SIKHISM-NESBITT"
+      ]
+    },
+    {
+      "tradition_id": "epicureanism",
+      "tradition": "Epicureanism",
+      "region": "Mediterranean",
+      "branch": "Epicurus and later Epicurean tradition",
+      "reading_ids": [
+        "READ-EPICURUS"
+      ]
+    }
+  ]
+}

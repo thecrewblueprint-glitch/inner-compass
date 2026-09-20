@@ -17,6 +17,7 @@ import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
 import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
+import { LaunchGate, LAUNCH_ATTESTATION_KEY } from './components/LaunchGate';
 import { evaluateSafetyUpstream } from './safety/safetyRouter';
 import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
@@ -29,10 +30,33 @@ import { recordCategoryInteraction } from './services/dailyAffirmationService';
 const STORAGE_KEY = 'inner_compass_saved_reflections_v1';
 const INTERACTION_KEY = 'inner_compass_category_interactions_v1';
 const PERSONALIZATION_KEY = 'inner_compass_personalization_enabled_v1';
-const AGE_KEY = 'inner_compass_age_confirmed_v1';
 const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
 
 type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'crisis';
+
+type CrisisAlert = {
+  reason?: string;
+  safetyNotes?: string[];
+} | null;
+
+type WisdomLinkContext = { categoryId?: number; recordId?: string } | null;
+type ReadsLinkContext = { categoryId?: number; wisdomRecordId?: string } | null;
+
+interface NavigationState {
+  tab: AppTab;
+  guidanceResult: GuidanceResult | null;
+  crisisAlert: CrisisAlert;
+  wisdomLinkContext: WisdomLinkContext;
+  readsLinkContext: ReadsLinkContext;
+}
+
+const ROOT_NAVIGATION: NavigationState = {
+  tab: 'reflect',
+  guidanceResult: null,
+  crisisAlert: null,
+  wisdomLinkContext: null,
+  readsLinkContext: null,
+};
 
 const getCategoryAffirmation = (categoryId: number, fallback: string): string => {
   const candidate = WISDOM_AFFIRMATIONS.find(
@@ -45,20 +69,28 @@ const getCategoryAffirmation = (categoryId: number, fallback: string): string =>
 
 const AppContent: React.FC = () => {
   const { theme } = useTheme();
-  const [currentTab, setCurrentTab] = useState<AppTab>('reflect');
-  const [guidanceResult, setGuidanceResult] = useState<GuidanceResult | null>(null);
-  const [crisisAlert, setCrisisAlert] = useState<{ reason?: string; safetyNotes?: string[] } | null>(null);
+  const [navigationStack, setNavigationStack] = useState<NavigationState[]>([ROOT_NAVIGATION]);
   const [isLoading, setIsLoading] = useState(false);
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
-  const [wisdomLinkContext, setWisdomLinkContext] = useState<{ categoryId?: number; recordId?: string } | null>(null);
-  const [readsLinkContext, setReadsLinkContext] = useState<{ categoryId?: number; wisdomRecordId?: string } | null>(null);
 
-  const [ageConfirmed, setAgeConfirmed] = useState(() => {
+  const currentNavigation = navigationStack[navigationStack.length - 1];
+  const currentTab = currentNavigation.tab;
+  const guidanceResult = currentNavigation.guidanceResult;
+  const crisisAlert = currentNavigation.crisisAlert;
+  const wisdomLinkContext = currentNavigation.wisdomLinkContext;
+  const readsLinkContext = currentNavigation.readsLinkContext;
+  const canGoBack = navigationStack.length > 1;
+
+  const [launchAccepted, setLaunchAccepted] = useState(() => {
     if (IS_PREVIEW_MODE) return true;
     try {
-      return typeof localStorage !== 'undefined' && localStorage.getItem(AGE_KEY) === 'true';
+      if (typeof localStorage === 'undefined') return false;
+      const raw = localStorage.getItem(LAUNCH_ATTESTATION_KEY);
+      if (!raw) return false;
+      const parsed = JSON.parse(raw);
+      return parsed?.version === 1 && parsed?.adult === true && parsed?.us === true;
     } catch {
       return false;
     }
@@ -100,6 +132,51 @@ const AppContent: React.FC = () => {
     }
   }, [savedReflections]);
 
+  const pushNavigation = (next: NavigationState) => {
+    setNavigationStack((previous) => [...previous, next]);
+  };
+
+  const navigateBack = () => {
+    setNavigationStack((previous) =>
+      previous.length > 1 ? previous.slice(0, -1) : previous
+    );
+  };
+
+  const navigateToTab = (tab: AppTab) => {
+    setNavigationStack((previous) => {
+      const current = previous[previous.length - 1];
+      const isSameRootView =
+        current.tab === tab &&
+        current.guidanceResult === null &&
+        current.crisisAlert === null &&
+        current.wisdomLinkContext === null &&
+        current.readsLinkContext === null;
+
+      if (isSameRootView) return previous;
+
+      // Tabs restore the most recent page in that section when it exists.
+      // This preserves a guidance result when the user follows a Wisdom/Reads
+      // cross-link and then returns to Reflect, while Back still walks the
+      // page history one state at a time.
+      for (let index = previous.length - 2; index >= 0; index -= 1) {
+        if (previous[index].tab === tab) {
+          return previous.slice(0, index + 1);
+        }
+      }
+
+      return [
+        ...previous,
+        {
+          tab,
+          guidanceResult: null,
+          crisisAlert: null,
+          wisdomLinkContext: null,
+          readsLinkContext: null,
+        },
+      ];
+    });
+  };
+
   const trackCategoryInteraction = (
     categoryId: number,
     source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample'
@@ -110,10 +187,14 @@ const AppContent: React.FC = () => {
   };
 
   const routeSafety = (reason?: string, safetyNotes?: string[]) => {
-    setCrisisAlert({ reason, safetyNotes });
-    setGuidanceResult(null);
     setClarificationPrompt(null);
-    setCurrentTab('crisis');
+    pushNavigation({
+      tab: 'crisis',
+      guidanceResult: null,
+      crisisAlert: { reason, safetyNotes },
+      wisdomLinkContext: null,
+      readsLinkContext: null,
+    });
   };
 
   const makeGuidance = (category: Category, safety: ReturnType<typeof evaluateSafetyUpstream>): GuidanceResult => {
@@ -126,6 +207,21 @@ const AppContent: React.FC = () => {
       synthesis: category.synthesis_note,
       guidanceSource: 'canonical_deterministic',
     };
+  };
+
+  const openGuidance = (
+    category: Category,
+    safety: ReturnType<typeof evaluateSafetyUpstream>,
+    source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample'
+  ) => {
+    pushNavigation({
+      tab: 'reflect',
+      guidanceResult: makeGuidance(category, safety),
+      crisisAlert: null,
+      wisdomLinkContext: null,
+      readsLinkContext: null,
+    });
+    trackCategoryInteraction(category.category_id, source);
   };
 
   const handleSubmitProblem = async (
@@ -155,17 +251,10 @@ const AppContent: React.FC = () => {
           retrieval.clarificationQuestion ||
             'Could you add one concrete detail about what feels most difficult right now?'
         );
-        setGuidanceResult(null);
-        setCrisisAlert(null);
-        setCurrentTab('reflect');
         return;
       }
 
-      const result = makeGuidance(retrieval.category, safety);
-      setGuidanceResult(result);
-      setCrisisAlert(null);
-      setCurrentTab('reflect');
-      trackCategoryInteraction(retrieval.category.category_id, 'reflection');
+      openGuidance(retrieval.category, safety, 'reflection');
     } finally {
       setIsLoading(false);
     }
@@ -191,10 +280,7 @@ const AppContent: React.FC = () => {
       return;
     }
 
-    setGuidanceResult(makeGuidance(category, safety));
-    setCrisisAlert(null);
-    setCurrentTab('reflect');
-    trackCategoryInteraction(category.category_id, source);
+    openGuidance(category, safety, source);
   };
 
   const handleSelectCategoryId = (categoryId: number) => {
@@ -203,23 +289,43 @@ const AppContent: React.FC = () => {
   };
 
   const openWisdomForCategory = (categoryId: number) => {
-    setWisdomLinkContext({ categoryId });
-    setCurrentTab('wisdom');
+    pushNavigation({
+      tab: 'wisdom',
+      guidanceResult: null,
+      crisisAlert: null,
+      wisdomLinkContext: { categoryId },
+      readsLinkContext: null,
+    });
   };
 
   const openWisdomRecord = (recordId: string) => {
-    setWisdomLinkContext({ recordId });
-    setCurrentTab('wisdom');
+    pushNavigation({
+      tab: 'wisdom',
+      guidanceResult: null,
+      crisisAlert: null,
+      wisdomLinkContext: { recordId },
+      readsLinkContext: null,
+    });
   };
 
   const openReadsForCategory = (categoryId: number) => {
-    setReadsLinkContext({ categoryId });
-    setCurrentTab('reads');
+    pushNavigation({
+      tab: 'reads',
+      guidanceResult: null,
+      crisisAlert: null,
+      wisdomLinkContext: null,
+      readsLinkContext: { categoryId },
+    });
   };
 
   const openReadsForWisdomRecord = (recordId: string) => {
-    setReadsLinkContext({ wisdomRecordId: recordId });
-    setCurrentTab('reads');
+    pushNavigation({
+      tab: 'reads',
+      guidanceResult: null,
+      crisisAlert: null,
+      wisdomLinkContext: null,
+      readsLinkContext: { wisdomRecordId: recordId },
+    });
   };
 
   const handleSaveReflection = (category: Category, affirmation: string) => {
@@ -276,7 +382,8 @@ const AppContent: React.FC = () => {
     setSavedReflections([]);
     setPersonalizationEnabled(true);
     setDailyInteractionTimestamp(Date.now());
-    if (!IS_PREVIEW_MODE) setAgeConfirmed(false);
+    setNavigationStack([ROOT_NAVIGATION]);
+    if (!IS_PREVIEW_MODE) setLaunchAccepted(false);
   };
 
   const isCurrentCategorySaved = Boolean(
@@ -284,32 +391,8 @@ const AppContent: React.FC = () => {
       savedReflections.some((item) => item.categoryId === guidanceResult.category.category_id)
   );
 
-  if (!ageConfirmed) {
-    return (
-      <SafeAreaView style={[styles.root, styles.centered, { backgroundColor: theme.canvas }]}>
-        <View style={[styles.ageCard, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
-          <Text style={styles.ageIcon}>🧭</Text>
-          <Text style={[styles.ageTitle, { color: theme.textPrimary }]}>Inner Compass</Text>
-          <Text style={[styles.ageText, { color: theme.textSecondary }]}>
-            The initial public launch is intended for adults age 18 and older in the United States.
-          </Text>
-          <Pressable
-            accessibilityLabel="Confirm age 18 or older"
-            onPress={() => {
-              try {
-                localStorage.setItem(AGE_KEY, 'true');
-              } catch {
-                // Local storage may be unavailable.
-              }
-              setAgeConfirmed(true);
-            }}
-            style={[styles.ageButton, { backgroundColor: theme.accentPrimary }]}
-          >
-            <Text style={[styles.ageButtonText, { color: theme.accentText }]}>I am 18 or older</Text>
-          </Pressable>
-        </View>
-      </SafeAreaView>
-    );
+  if (!launchAccepted) {
+    return <LaunchGate onAccepted={() => setLaunchAccepted(true)} />;
   }
 
   const tabs: { id: AppTab; label: string }[] = [
@@ -340,6 +423,16 @@ const AppContent: React.FC = () => {
         </View>
 
         <View style={styles.navRightSection}>
+          {canGoBack && (
+            <Pressable
+              onPress={navigateBack}
+              accessibilityLabel="Go back one page"
+              style={[styles.backButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+            >
+              <Text style={[styles.backButtonText, { color: theme.textPrimary }]}>← Back</Text>
+            </Pressable>
+          )}
+
           <Pressable
             onPress={() => setThemePickerVisible(true)}
             accessibilityLabel="Open Theme Palette Selector"
@@ -355,12 +448,7 @@ const AppContent: React.FC = () => {
               return (
                 <Pressable
                   key={tab.id}
-                  onPress={() => {
-                    if (tab.id === 'crisis') setCrisisAlert(null);
-                    if (tab.id === 'wisdom') setWisdomLinkContext(null);
-                    if (tab.id === 'reads') setReadsLinkContext(null);
-                    setCurrentTab(tab.id);
-                  }}
+                  onPress={() => navigateToTab(tab.id)}
                   style={[
                     styles.tabButton,
                     {
@@ -412,13 +500,13 @@ const AppContent: React.FC = () => {
           (guidanceResult ? (
             <GuidanceScreen
               result={guidanceResult}
-              onBack={() => setGuidanceResult(null)}
+              onBack={navigateBack}
               onOpenPractice={(category, entry) =>
                 setPracticeModal({ visible: true, category, entry })
               }
               onSaveReflection={handleSaveReflection}
               isSaved={isCurrentCategorySaved}
-              onOpenCrisis={() => setCurrentTab('crisis')}
+              onOpenCrisis={() => routeSafety()}
               onOpenWisdom={openWisdomForCategory}
               onOpenReads={openReadsForCategory}
             />
@@ -483,10 +571,7 @@ const AppContent: React.FC = () => {
           <CrisisScreen
             reason={crisisAlert?.reason}
             safetyNotes={crisisAlert?.safetyNotes}
-            onDismiss={() => {
-              setCrisisAlert(null);
-              setCurrentTab('reflect');
-            }}
+            onDismiss={navigateBack}
           />
         )}
       </View>
@@ -528,6 +613,8 @@ const styles = StyleSheet.create({
   brandTitle: { fontSize: 15, fontWeight: '800', letterSpacing: 0.8 },
   brandSubtitle: { fontSize: 10, marginTop: 1 },
   navRightSection: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 9 },
+  backButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
+  backButtonText: { fontSize: 11, fontWeight: '800' },
   themeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
   themeButtonText: { fontSize: 11, fontWeight: '700' },
   tabsRow: { flexDirection: 'row', alignItems: 'center', flexWrap: 'wrap', gap: 6 },
