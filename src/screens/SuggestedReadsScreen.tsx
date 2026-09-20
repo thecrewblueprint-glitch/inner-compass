@@ -1,0 +1,251 @@
+import React, { useMemo, useState } from 'react';
+import {
+  Image,
+  Linking,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import { useTheme } from '../theme';
+import { READING_PATHWAYS, READING_RECORDS } from '../data/readingDirectory';
+
+const COVER_MARKS: Record<string, string> = {
+  Stoicism: 'Σ',
+  'Early Buddhist / Theravada canonical literature': '☸',
+  'Zen Buddhism': '◯',
+  'Hindu philosophical traditions': 'ॐ',
+  'Upanishadic / Vedantic source tradition': 'ॐ',
+  'Yoga philosophy': 'ॐ',
+  'Classical Daoism': '道',
+  Confucianism: '仁',
+  'Jaina philosophy': 'अ',
+  Epicureanism: 'Ε',
+};
+
+export const SuggestedReadsScreen: React.FC = () => {
+  const { theme } = useTheme();
+  const [query, setQuery] = useState('');
+  const [tradition, setTradition] = useState('ALL');
+  const [difficulty, setDifficulty] = useState('ALL');
+  const [pathway, setPathway] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const traditions = useMemo(
+    () => Array.from(new Set(READING_RECORDS.map((record) => record.tradition))).sort(),
+    []
+  );
+
+  const selectedPathway = READING_PATHWAYS.find((p) => p.pathway_id === pathway);
+
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    const pathwayIds = selectedPathway ? new Set(selectedPathway.reading_ids) : null;
+
+    return READING_RECORDS.filter((record) => {
+      if (tradition !== 'ALL' && record.tradition !== tradition) return false;
+      if (difficulty !== 'ALL' && record.difficulty !== difficulty) return false;
+      if (pathwayIds && !pathwayIds.has(record.reading_id)) return false;
+      if (!q) return true;
+      return [
+        record.title,
+        record.author_or_attributed_author,
+        record.tradition,
+        record.school || '',
+        record.region,
+        record.why_read_it,
+        ...record.primary_topics,
+        ...record.metaphysical_topics,
+        ...record.ethical_topics,
+      ].join(' ').toLowerCase().includes(q);
+    });
+  }, [query, tradition, difficulty, selectedPathway]);
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.hero}>
+        <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>CURATED DIGITAL LIBRARY</Text>
+        </View>
+        <Text style={[styles.title, { color: theme.textPrimary }]}>Suggested Reads</Text>
+        <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
+          Explore primary texts and scholarship by tradition, branch, theme, and reading level. No generated recommendations are required.
+        </Text>
+      </View>
+
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.pathways}>
+        <Pressable
+          onPress={() => setPathway(null)}
+          style={[styles.pathwayCard, { backgroundColor: pathway === null ? theme.accentPrimary : theme.card, borderColor: pathway === null ? theme.accentPrimary : theme.cardBorder }]}
+        >
+          <Text style={[styles.pathwayTitle, { color: pathway === null ? theme.accentText : theme.textPrimary }]}>Browse all</Text>
+          <Text style={[styles.pathwayDesc, { color: pathway === null ? theme.accentText : theme.textSecondary }]}>Entire audited starter collection</Text>
+        </Pressable>
+        {READING_PATHWAYS.map((item) => (
+          <Pressable
+            key={item.pathway_id}
+            onPress={() => setPathway(item.pathway_id)}
+            style={[styles.pathwayCard, { backgroundColor: pathway === item.pathway_id ? theme.accentPrimary : theme.card, borderColor: pathway === item.pathway_id ? theme.accentPrimary : theme.cardBorder }]}
+          >
+            <Text style={[styles.pathwayTitle, { color: pathway === item.pathway_id ? theme.accentText : theme.textPrimary }]}>{item.title}</Text>
+            <Text numberOfLines={2} style={[styles.pathwayDesc, { color: pathway === item.pathway_id ? theme.accentText : theme.textSecondary }]}>{item.description}</Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+
+      <TextInput
+        value={query}
+        onChangeText={setQuery}
+        placeholder="Search books, traditions, authors, themes…"
+        placeholderTextColor={theme.textMuted}
+        accessibilityLabel="Search Suggested Reads"
+        style={[styles.search, { color: theme.textPrimary, backgroundColor: theme.inputBg, borderColor: theme.inputBorder }]}
+      />
+
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+        {['ALL', ...traditions].map((item) => (
+          <Pressable
+            key={item}
+            onPress={() => setTradition(item)}
+            style={[styles.chip, { backgroundColor: tradition === item ? theme.accentPrimary : theme.badgeBg, borderColor: tradition === item ? theme.accentPrimary : theme.badgeBorder }]}
+          >
+            <Text style={{ color: tradition === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+              {item === 'ALL' ? 'All traditions' : item}
+            </Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+        {['ALL', 'BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'SPECIALIST'].map((item) => (
+          <Pressable
+            key={item}
+            onPress={() => setDifficulty(item)}
+            style={[styles.chip, { backgroundColor: difficulty === item ? theme.accentPrimary : theme.badgeBg, borderColor: difficulty === item ? theme.accentPrimary : theme.badgeBorder }]}
+          >
+            <Text style={{ color: difficulty === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+              {item === 'ALL' ? 'All levels' : item}
+            </Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+
+      <Text style={[styles.count, { color: theme.textMuted }]}>{filtered.length} suggested reads</Text>
+
+      <View style={styles.grid}>
+        {filtered.map((record) => {
+          const isExpanded = expandedId === record.reading_id;
+          const isWebsite = ['WEBSITE', 'ARTICLE', 'ARCHIVE'].includes(record.resource_format);
+          return (
+            <View
+              key={record.reading_id}
+              style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder, shadowColor: theme.cardShadow }]}
+            >
+              <View style={styles.cardLead}>
+                {record.cover_image_url ? (
+                  <Image source={{ uri: record.cover_image_url }} accessibilityLabel={record.cover_image_alt} style={styles.cover} />
+                ) : (
+                  <View style={[styles.cover, styles.fallbackCover, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+                    <Text style={[styles.coverMark, { color: theme.accentPrimary }]}>
+                      {isWebsite ? '↗' : (COVER_MARKS[record.tradition] || '✦')}
+                    </Text>
+                    <Text numberOfLines={3} style={[styles.coverTitle, { color: theme.textPrimary }]}>{record.title}</Text>
+                    <Text numberOfLines={2} style={[styles.coverAuthor, { color: theme.textMuted }]}>{record.author_or_attributed_author}</Text>
+                  </View>
+                )}
+
+                <View style={styles.cardInfo}>
+                  <View style={styles.badgeRow}>
+                    <View style={[styles.miniBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+                      <Text style={[styles.miniBadgeText, { color: theme.badgeText }]}>{record.record_type.replaceAll('_', ' ')}</Text>
+                    </View>
+                    <View style={[styles.miniBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
+                      <Text style={[styles.miniBadgeText, { color: theme.badgeText }]}>{record.difficulty}</Text>
+                    </View>
+                  </View>
+
+                  <Text style={[styles.bookTitle, { color: theme.textPrimary }]}>{record.title}</Text>
+                  <Text style={[styles.author, { color: theme.textSecondary }]}>{record.author_or_attributed_author}</Text>
+                  <Text style={[styles.tradition, { color: theme.accentPrimary }]}>{record.tradition}</Text>
+
+                  <Text style={[styles.why, { color: theme.textSecondary }]} numberOfLines={isExpanded ? undefined : 3}>
+                    {record.why_read_it}
+                  </Text>
+
+                  <View style={styles.actions}>
+                    <Pressable onPress={() => setExpandedId(isExpanded ? null : record.reading_id)}>
+                      <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{isExpanded ? 'Less detail' : 'View details'}</Text>
+                    </Pressable>
+                    <Pressable onPress={() => Linking.openURL(record.resource_url)}>
+                      <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{isWebsite ? 'Read online ↗' : 'Open reading ↗'}</Text>
+                    </Pressable>
+                  </View>
+                </View>
+              </View>
+
+              {isExpanded && (
+                <View style={[styles.detail, { borderTopColor: theme.cardBorder }]}>
+                  <Detail label="Tradition / branch" value={[record.tradition, record.school, record.lineage_or_branch].filter(Boolean).join(' · ')} color={theme.textPrimary} muted={theme.textMuted} />
+                  <Detail label="Historical context" value={record.historical_context} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="What it is not" value={record.what_it_is_not} color={theme.textSecondary} muted={theme.textMuted} />
+                  {record.translation_notes && <Detail label="Translation / edition" value={record.translation_notes} color={theme.textSecondary} muted={theme.textMuted} />}
+                  <Detail label="Interpretive cautions" value={record.interpretive_cautions.join(' • ')} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="Related categories" value={record.related_inner_compass_categories.map((id) => `#${id}`).join(', ')} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="Rights" value={record.public_domain_available ? 'Public-domain/open reading available' : record.rights_status} color={theme.textSecondary} muted={theme.textMuted} />
+                </View>
+              )}
+            </View>
+          );
+        })}
+      </View>
+    </ScrollView>
+  );
+};
+
+const Detail = ({ label, value, color, muted }: { label: string; value: string; color: string; muted: string }) => (
+  <View style={styles.detailRow}>
+    <Text style={[styles.detailLabel, { color: muted }]}>{label}</Text>
+    <Text style={[styles.detailValue, { color }]}>{value}</Text>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: { padding: 20, paddingBottom: 70, maxWidth: 1050, width: '100%', alignSelf: 'center' },
+  hero: { alignItems: 'center', marginBottom: 18, paddingTop: 8 },
+  badge: { borderWidth: 1, borderRadius: 20, paddingHorizontal: 12, paddingVertical: 5, marginBottom: 10 },
+  badgeText: { fontSize: 10, fontWeight: '800', letterSpacing: 0.8 },
+  title: { fontSize: 30, fontWeight: '700', fontFamily: 'serif', marginBottom: 8 },
+  subtitle: { fontSize: 14, lineHeight: 21, maxWidth: 700, textAlign: 'center' },
+  pathways: { gap: 10, paddingVertical: 4, paddingRight: 20, marginBottom: 12 },
+  pathwayCard: { width: 220, minHeight: 92, borderWidth: 1, borderRadius: 15, padding: 13 },
+  pathwayTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
+  pathwayDesc: { fontSize: 11, lineHeight: 16 },
+  search: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 14, marginBottom: 8 },
+  filters: { gap: 7, paddingVertical: 4, paddingRight: 20 },
+  chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 11, paddingVertical: 6 },
+  count: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5, marginVertical: 12 },
+  grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, alignItems: 'flex-start' },
+  card: { width: 500, maxWidth: '100%', borderWidth: 1, borderRadius: 17, padding: 15, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.04, shadowRadius: 8 },
+  cardLead: { flexDirection: 'row', gap: 15 },
+  cover: { width: 118, height: 168, borderRadius: 10 },
+  fallbackCover: { borderWidth: 1, padding: 10, justifyContent: 'space-between', overflow: 'hidden' },
+  coverMark: { fontSize: 35, fontWeight: '700', textAlign: 'center', marginTop: 10 },
+  coverTitle: { fontSize: 13, fontWeight: '800', lineHeight: 17, textAlign: 'center' },
+  coverAuthor: { fontSize: 9, lineHeight: 12, textAlign: 'center' },
+  cardInfo: { flex: 1, minWidth: 0 },
+  badgeRow: { flexDirection: 'row', gap: 6, flexWrap: 'wrap', marginBottom: 7 },
+  miniBadge: { borderWidth: 1, borderRadius: 6, paddingHorizontal: 7, paddingVertical: 3 },
+  miniBadgeText: { fontSize: 8, fontWeight: '800', letterSpacing: 0.4 },
+  bookTitle: { fontSize: 19, fontWeight: '800', lineHeight: 23 },
+  author: { fontSize: 12, marginTop: 3 },
+  tradition: { fontSize: 11, fontWeight: '800', marginTop: 4 },
+  why: { fontSize: 13, lineHeight: 19, marginTop: 9 },
+  actions: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, marginTop: 12 },
+  actionText: { fontSize: 11, fontWeight: '800' },
+  detail: { borderTopWidth: 1, marginTop: 14, paddingTop: 12, gap: 10 },
+  detailRow: { gap: 3 },
+  detailLabel: { fontSize: 9, textTransform: 'uppercase', letterSpacing: 0.6, fontWeight: '800' },
+  detailValue: { fontSize: 12, lineHeight: 18 },
+});
