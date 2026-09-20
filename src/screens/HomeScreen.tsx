@@ -71,11 +71,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Header Banner */}
       <View style={styles.header}>
         <View style={[styles.badge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-          <Text style={[styles.badgeText, { color: theme.badgeText }]}>CLINICAL WISDOM TAXONOMY V1.0</Text>
+          <Text style={[styles.badgeText, { color: theme.badgeText }]}>DETERMINISTIC REFLECTION TAXONOMY V1.0</Text>
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>What is weighing on your heart?</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Share an honest reflection. Your input is matched deterministically to 25 verified clinical-wisdom categories grounded in Eastern philosophy, Jungian shadow work, and evidence-based psychology.
+          Share an honest reflection. Your text stays on this device and is matched deterministically to one of 25 reflection themes with sourced philosophical and psychology-informed educational material. The match is not a diagnosis.
         </Text>
       </View>
 
@@ -196,7 +196,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           {isLoading ? (
             <ActivityIndicator color={theme.accentText} size="small" />
           ) : (
-            <Text style={[styles.submitButtonText, { color: theme.accentText }]}>Receive Grounded Guidance</Text>
+            <Text style={[styles.submitButtonText, { color: theme.accentText }]}>Explore Sourced Reflection</Text>
           )}
         </Pressable>
       </View>
@@ -234,7 +234,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
       {/* Safety and Privacy Notice */}
       <View style={[styles.privacyNote, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.privacyNoteText, { color: theme.textMuted }]}>
-          Privacy Assurance: In strict adherence to Rule 7, raw reflection text is never persisted or logged. Acute crisis and safety boundaries trigger deterministic redirection upstream.
+          Privacy: raw reflection text is processed locally on this device and is not saved in the journal or sent to an Inner Compass server or AI provider. Some topics are outside this tool's reflection scope and are redirected to human support.
         </Text>
       </View>
     </ScrollView>
