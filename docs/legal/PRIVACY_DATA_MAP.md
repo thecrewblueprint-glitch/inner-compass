@@ -26,11 +26,13 @@ Stored:
 Not stored:
 - raw reflection text.
 
-### Local personalization
+### Session personalization
 
-The app may store category IDs and interaction types locally so daily content can draw from categories the user has explored.
+Ordinary category IDs and interaction types are stored in browser session storage only so daily content can reflect categories explored during the current session.
 
-No server receives this information.
+They expire with the browser session and are not intentionally sent to any server.
+
+If the user explicitly bookmarks a category, that bookmarked category-level record may persist in local storage until the user deletes it.
 
 ### Launch attestation
 
@@ -71,7 +73,7 @@ The production app must not place reflection text in:
 ## Local storage keys
 
 - `inner_compass_saved_reflections_v1`
-- `inner_compass_category_interactions_v1`
+- `inner_compass_session_category_interactions_v1` (session storage only)
 - adult/U.S. launch attestation key
 - theme/UI preference keys as implemented
 
@@ -79,7 +81,7 @@ The production app must not place reflection text in:
 
 Required:
 - clear saved reflections;
-- clear interaction personalization;
+- clear session personalization;
 - clear launch attestation;
 - one-action Clear All Local Data.
 
