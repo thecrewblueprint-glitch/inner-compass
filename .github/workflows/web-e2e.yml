@@ -42,6 +42,12 @@ jobs:
       - name: Audit Suggested Reads directory
         run: npm run audit:reads
 
+      - name: Audit safety and contextual routing
+        run: npm run audit:safety
+
+      - name: Audit production release contract
+        run: npm run audit:release
+
       - name: TypeScript check
         run: npm run lint
 
@@ -94,6 +100,9 @@ jobs:
       - name: Install dependencies
         run: npm install --legacy-peer-deps --include=dev
 
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Build production package
         run: npm run build
 
@@ -117,7 +126,11 @@ jobs:
           assert h["externalDecisionProviders"] == 0
           assert h["rawReflectionProductionTransport"] is False
           assert h["runtime"] == "local-deterministic"
-          print("PASS: production health is local-deterministic with zero external decision providers.")
+          assert h["remoteDiagnosticsTransport"] is False
+          assert h["supportedLanguage"] == "en-US"
+          assert h["minimumAge"] == 18
+          assert h["releaseTier"] == "CONTROLLED_BETA"
+          print("PASS: production health is local-deterministic, local-diagnostics-only, and correctly blocked to controlled beta without public-launch configuration.")
           PY
 
       - name: Upload production logs

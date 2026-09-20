@@ -9,6 +9,7 @@ interface PrivacyScreenProps {
   onClearJournal: () => void;
   onClearPersonalization: () => void;
   onClearAllLocalData: () => void;
+  onOpenLegal?: () => void;
 }
 
 export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
@@ -18,6 +19,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
   onClearJournal,
   onClearPersonalization,
   onClearAllLocalData,
+  onOpenLegal,
 }) => {
   const { theme } = useTheme();
 
@@ -37,7 +39,8 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
         <Text style={[styles.cardTitle, { color: theme.textPrimary }]}>What is stored locally</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Bookmarked category summaries and affirmations: {savedCount}</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Privacy-safe category interaction counts used for optional personalization</Text>
-        <Text style={[styles.item, { color: theme.textSecondary }]}>• Theme preference and launch-age confirmation</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Theme preference and adult/U.S. launch attestation</Text>
+        <Text style={[styles.item, { color: theme.textSecondary }]}>• Privacy-safe local diagnostics when generated (no raw reflection text)</Text>
         <Text style={[styles.item, { color: theme.textSecondary }]}>• Raw reflection text: not persisted</Text>
       </View>
 
@@ -70,8 +73,18 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
       <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Launch scope</Text>
         <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-          This product is research-informed reflective guidance, not therapy, diagnosis, medical care, legal advice, or emergency response. The initial public launch is intended for adults 18+ in the United States.
+          This product is research-informed reflective guidance, not therapy, diagnosis, medical care, legal advice, or emergency response. The current release is for adults 18+ in the United States and supports English only.
         </Text>
+        {onOpenLegal && (
+          <Pressable
+            onPress={onOpenLegal}
+            accessibilityRole="link"
+            accessibilityLabel="Review legal and safety notices"
+            style={[styles.legalButton, { borderColor: theme.badgeBorder }]}
+          >
+            <Text style={[styles.actionText, { color: theme.accentPrimary }]}>Review legal & safety notices</Text>
+          </Pressable>
+        )}
       </View>
     </ScrollView>
   );
@@ -107,4 +120,5 @@ const styles = StyleSheet.create({
   notice: { borderWidth: 1, borderRadius: 14, padding: 15 },
   noticeTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
   noticeText: { fontSize: 12, lineHeight: 18 },
+  legalButton: { marginTop: 10, borderTopWidth: 1, paddingTop: 10 },
 });

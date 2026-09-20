@@ -12,7 +12,9 @@
     "test:e2e": "playwright test",
     "audit:wisdom": "python3 tools/eval/audit_wisdom_corpus.py",
     "audit:deterministic": "python3 tools/eval/check_deterministic_only_policy.py",
-    "audit:reads": "python3 tools/eval/audit_reading_directory.py"
+    "audit:reads": "python3 tools/eval/audit_reading_directory.py",
+    "audit:safety": "tsx tools/eval/safety_matrix.ts",
+    "audit:release": "python3 tools/eval/audit_release_readiness.py"
   },
   "dependencies": {
     "express": "^4.21.2",
@@ -36,6 +38,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "vite": "^6.1.0",
-    "@playwright/test": "1.63.0"
+    "@playwright/test": "1.63.0",
+    "@axe-core/playwright": "^4.10.2"
   }
 }

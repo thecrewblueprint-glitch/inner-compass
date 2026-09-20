@@ -306,7 +306,6 @@ def post_eval(base_url, scenario, timeout):
         "problem": scenario.text,
         "fixtureId": scenario.scenario_id,
         "mode": "deterministic",
-        "skipexternal model": True,
     }
     if scenario.expected_category_id is not None:
         payload["expectedCategoryId"] = scenario.expected_category_id
@@ -349,6 +348,8 @@ def flatten(s, response):
             "clarificationRequested": None, "clarificationQuestion": None,
             "retrievalScore": None, "retrievalRawScore": None, "retrievalScoreMargin": None,
             "source": None, "providerViolation": False,
+            "safetyStatus": None, "safetyMatchedRule": None, "safetyConfidence": None,
+            "safetyBlocked": None,
             "serverErrors": [], "serverLatencyMs": None,
         })
         return row
@@ -364,6 +365,10 @@ def flatten(s, response):
         "retrievalScoreMargin": e.get("retrievalScoreMargin"),
         "source": e.get("source"),
         "providerViolation": provider_violation(e),
+        "safetyStatus": (e.get("safety") or {}).get("status"),
+        "safetyMatchedRule": (e.get("safety") or {}).get("matchedRule"),
+        "safetyConfidence": (e.get("safety") or {}).get("confidence"),
+        "safetyBlocked": bool((e.get("safety") or {}).get("blockedFromWisdomMatching")),
         "serverErrors": e.get("errors") or [],
         "serverLatencyMs": e.get("latencyMs"),
     })
@@ -470,6 +475,11 @@ def compute_metrics(rows):
 
     correction_counts = Counter(r["correctionKind"] for r in rows)
     severity_counts = Counter(r["severity"] for r in rows)
+    safety_rule_counts = Counter(
+        r.get("safetyMatchedRule") or "none"
+        for r in rows
+        if r.get("safetyStatus") and r.get("safetyStatus") != "SAFE"
+    )
     latencies = [r["latencyMsClient"] for r in rows if isinstance(r.get("latencyMsClient"), (int,float))]
     confusion = Counter(
         (r.get("expected_category_id"), r.get("actualCategoryId"))
@@ -492,6 +502,9 @@ def compute_metrics(rows):
         "criticalFalseSafeCount": correction_counts.get("critical_false_safe", 0),
         "unexpectedSafetyRedirectCount": correction_counts.get("unexpected_safety_redirect", 0),
         "providerViolationCount": correction_counts.get("external_provider_used", 0),
+        "safetyReviewRedirectCount": sum(1 for r in rows if r.get("actualRoute") == "SAFETY_REVIEW_REDIRECT"),
+        "safetyRuleCounts": dict(safety_rule_counts),
+        "safetyBlockedOrdinaryWisdomCount": sum(1 for r in rows if r.get("safetyBlocked")),
         "requestErrorCount": correction_counts.get("request_error", 0),
         "serverReportedErrorCount": correction_counts.get("server_reported_error", 0),
         "correctionCounts": dict(correction_counts),
@@ -600,6 +613,8 @@ def markdown_report(summary, rows, fmap, edges):
         f"- Low-evidence clarification catch: **{summary['lowEvidenceClarificationCatchRate']}%**",
         f"- Multi-issue blend clarification: **{summary['blendClarificationRate']}%**",
         f"- Safety route pass: **{summary['safetyRoutePassRate']}%**",
+        f"- Precautionary safety-review redirects: **{summary['safetyReviewRedirectCount']}**",
+        f"- Safety-blocked ordinary wisdom: **{summary['safetyBlockedOrdinaryWisdomCount']}**",
         f"- Critical false-safes: **{summary['criticalFalseSafeCount']}**",
         f"- External provider violations: **{summary['providerViolationCount']}**","",
         "## Runtime flow","", fence+"mermaid", fmap.rstrip(), fence,"",
@@ -632,6 +647,7 @@ def html_report(summary, rows):
 <div class="card">Ambiguity catch<div class="big">{summary['ambiguityClarificationCatchRate']}%</div></div>
 <div class="card">Low-evidence catch<div class="big">{summary['lowEvidenceClarificationCatchRate']}%</div></div>
 <div class="card">Safety pass<div class="big">{summary['safetyRoutePassRate']}%</div></div>
+<div class="card">Safety review<div class="big">{summary['safetyReviewRedirectCount']}</div></div>
 <div class="card">False-safes<div class="big">{summary['criticalFalseSafeCount']}</div></div></div>
 <h2>Correction signals</h2><table><tr><th>Signal</th><th>Count</th></tr>{table}</table></body></html>"""
 

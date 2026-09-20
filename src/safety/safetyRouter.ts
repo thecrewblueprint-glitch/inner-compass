@@ -1,33 +1,42 @@
 import { EmergencyResource, SafetyRoutingResult } from '../types';
 
 /**
- * Phase 2: Upstream Deterministic Safety Router
- * Strictly executes before any ordinary wisdom retrieval or LLM call.
- * Enforces:
- * 1. Immediate Crisis / Suicide / Self-Harm static redirect
- * 2. Category 5 abuse boundary (IPV never reaches conflict/staying material)
- * 3. Category 10 substance use hard ceiling (cannot produce wisdom-only)
- * 4. Category 21 moral injury escalation
- * 5. Category 24 sudden/recent-onset anhedonia escalation
+ * Deterministic upstream safety router.
+ *
+ * Contract:
+ * - runs before ordinary retrieval;
+ * - normalizes punctuation/case/spacing;
+ * - high-confidence safety matches redirect immediately;
+ * - ambiguous safety language fails closed to SAFETY_REVIEW_REDIRECT;
+ * - no raw reflection text is logged or returned as diagnostics;
+ * - current supported language is English.
  */
 
 export const EMERGENCY_RESOURCES: Record<string, EmergencyResource> = {
+  emergencyServices: {
+    name: 'Emergency Services',
+    contact: 'Call 911 for immediate danger',
+    tel: 'tel:911',
+    url: 'https://www.911.gov',
+    description: 'United States emergency response for immediate danger or a life-threatening emergency.',
+    badge: 'Immediate danger',
+  },
   suicideLifeline: {
     name: '988 Suicide & Crisis Lifeline',
     contact: 'Call or text 988',
     tel: 'tel:988',
     sms: 'sms:988',
     url: 'https://988lifeline.org',
-    description: 'Free, confidential support available 24/7 across the United States. Immediate human crisis counseling.',
-    badge: 'Immediate 24/7',
+    description: 'United States crisis support available 24/7.',
+    badge: '24/7 crisis support',
   },
   crisisTextLine: {
     name: 'Crisis Text Line',
     contact: 'Text HOME to 741741',
     sms: 'sms:741741?body=HOME',
     url: 'https://www.crisistextline.org',
-    description: 'Free 24/7 crisis counseling via text message for any painful emotional struggle.',
-    badge: 'Text 24/7',
+    description: 'Crisis counseling by text.',
+    badge: 'Text support',
   },
   domesticViolenceHotline: {
     name: 'National Domestic Violence Hotline',
@@ -35,171 +44,225 @@ export const EMERGENCY_RESOURCES: Record<string, EmergencyResource> = {
     tel: 'tel:18007997233',
     sms: 'sms:88788?body=START',
     url: 'https://www.thehotline.org',
-    description: 'Confidential support, safety planning, and resources for individuals experiencing relationship abuse or threats.',
-    badge: 'Safety & DV',
+    description: 'Support and safety resources for relationship abuse or threats.',
+    badge: 'Relationship safety',
   },
   samhsaHelpline: {
     name: 'SAMHSA National Helpline',
     contact: '1-800-662-4357 (HELP)',
     tel: 'tel:18006624357',
-    url: 'https://www.samhsa.gov/find-help/national-helpline',
-    description: 'Confidential treatment referral and information for substance use disorders and mental health services.',
-    badge: 'Medical & Treatment',
+    url: 'https://www.samhsa.gov/find-help/helplines/national-helpline',
+    description: 'Treatment referral and information for mental health and substance-use services.',
+    badge: 'Treatment referral',
   },
   community211: {
     name: '211 Community Resources',
     contact: 'Call 211',
     tel: 'tel:211',
     url: 'https://www.211.org',
-    description: 'Connect with local emergency housing, food assistance, legal aid, and essential social support.',
-    badge: 'Essential Aid',
+    description: 'Local housing, food, legal-aid, and community-resource connections.',
+    badge: 'Community support',
   },
   rainnHotline: {
     name: 'RAINN National Sexual Assault Hotline',
-    contact: '1-800-656-4673',
+    contact: '1-800-656-4673 or text HOPE to 64673',
     tel: 'tel:18006564673',
-    url: 'https://www.rainn.org',
-    description: 'Confidential 24/7 specialized support for survivors of sexual assault and abuse.',
-    badge: 'Confidential Support',
+    sms: 'sms:64673?body=HOPE',
+    url: 'https://rainn.org/hotline',
+    description: 'Confidential support for sexual assault and abuse.',
+    badge: 'Confidential support',
   },
 };
 
-// Immediate suicide, self-harm, or active life-threatening crisis patterns
-const IMMEDIATE_CRISIS_REGEX = /\b(suicid(e|al)|kill\s+(my\s*self|me)|end(?:ing)?\s+(my\s*life|it\s*all)|want\s+to\s+die|wish\s+I\s+were\s+dead|better\s+off\s+dead|no\s+reason\s+to\s+live|cutting\s+my\s*self|self[- ]harm|overdose\s+on\s+pills|hang\s+my\s*self|shoot\s+my\s*self|take\s+all\s+my\s+pills)\b/i;
+export const normalizeSafetyText = (input: string): string =>
+  input
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[’‘]/g, "'")
+    .replace(/[^a-z0-9'\s-]/g, ' ')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
-// Intimate partner violence and relationship abuse patterns (Category 5 Abuse Boundary)
-const IPV_ABUSE_REGEX = /\b(domestic\s+violence|intimate\s+partner\s+violence|hits?\s+me|beat(s)?\s+me|chok(e|ed|es)\s+me|punch(ed|es)?\s+me|threaten(ed|s)?\s+to\s+hurt\s+me|physical\s+(abuse|violence)|abusive\s+(relationship|partner|spouse|husband|wife|boyfriend|girlfriend)|violent\s+(partner|spouse|husband|wife|boyfriend|girlfriend)|scared\s+(he|she|they)\s+will\s+kill\s+me|sexual\s+assault|coercive\s+control|battered)\b/i;
+const DIRECT_CRISIS_PATTERNS = [
+  /\b(i am|im|i'm|feeling)\s+suicidal\b/,
+  /\b(end|ending)\s+my\s+life\b/,
+  /\b(kill|hurt)\s+myself\b/,
+  /\b(want to die|wish i were dead|no reason to live)\b/,
+  /\b(i|im|i'm)\s+(not safe|unsafe)\s+(with myself|alone)\b/,
+];
 
-// Substance use patterns (Category 10 Hard Ceiling)
-const SUBSTANCE_USE_REGEX = /\b(substance\s+use|substance\s+(addiction|dependence)|chemical\s+dependency|alcohol(ic|ism)?|alcohol\s+addiction|drug\s+addiction|drinking\s+too\s+much|urges?\s+to\s+drink|cravings?\s+for\s+alcohol|blackout|detox|withdrawal|relapse(d)?|cocaine|heroin|fentanyl|meth|opioid(s)?|benzos?|binge\s+drinking|sober|sobriety)\b/i;
+const PRECAUTIONARY_SAFETY_PATTERNS = [
+  /\b(suicid(?:e|al)|self harm|hurt myself|can't go on|cannot go on|not safe with myself)\b/,
+  /\b(thoughts? of (dying|death)|thinking about (dying|death))\b/,
+];
 
-// Category 21: Moral-injury-adjacent guilt patterns (suicide risk link)
-const MORAL_INJURY_GUILT_REGEX = /\b((patient|child|someone|somebody|person)\s+died\s+because\s+of\s+me|my\s+mistake\s+killed|I\s+killed\s+someone|caused\s+(someone's\s+death|fatal|catastrophic\s+harm)|don't\s+deserve\s+to\s+(live|survive|be\s+alive)|blood\s+on\s+my\s+hands|cannot\s+be\s+forgiven\s+for\s+taking\s+a\s+life|grave\s+transgression\s+in\s+combat|moral\s+injury.*(killed|catastrophic\s+harm|lives?\s+destroyed|cannot\s+live\s+with)|(?:killed|catastrophic\s+harm|lives?\s+destroyed).*moral\s+injury)\b/i;
+const SAFETY_NEGATION_OR_CONTEXT = [
+  /\b(not|never|no longer)\s+(suicidal|going to hurt myself|thinking of dying)\b/,
+  /\b(friend|partner|relative|someone)\s+.*\b(suicidal|self harm)\b/,
+  /\b(history of|used to)\s+.*\b(suicidal|self harm)\b/,
+];
 
-// Category 24: Sudden / recent-onset anhedonia patterns
-const SUDDEN_ANHEDONIA_REGEX = /\b((sudden(ly)?|recent(ly)?|just\s+started|this\s+week|over\s+the\s+last\s+few\s+days|out\s+of\s+nowhere)\s+.*(no\s+joy|loss\s+of\s+joy|lost\s+all\s+pleasure|all\s+pleasure\s+(vanished|disappeared)|can't\s+feel\s+anything|completely\s+numb|everything\s+went\s+blank|anhedonia)|(no\s+joy|loss\s+of\s+joy|lost\s+all\s+pleasure|all\s+pleasure\s+(vanished|disappeared)|can't\s+feel\s+anything|everything\s+went\s+blank)\s+.*(sudden(ly)?|recent(ly)?|just\s+started|this\s+week|over\s+the\s+last\s+few\s+days|out\s+of\s+nowhere|two\s+weeks\s+ago))\b/i;
+const IPV_ABUSE_PATTERNS = [
+  /\b(domestic violence|intimate partner violence|physical abuse|coercive control|abusive relationship)\b/,
+  /\b(partner|spouse|boyfriend|girlfriend|husband|wife)\s+.*\b(hit|hits|hurt|threaten|threatened|violent|abuse|abusive)\b/,
+  /\bsexual assault\b/,
+];
+
+const SUBSTANCE_PATTERNS = [
+  /\b(substance use|drug addiction|alcohol addiction|chemical dependency|withdrawal|detox|relapse|overdose)\b/,
+  /\b(craving|cravings|urge|urges)\s+.*\b(alcohol|drugs?|opioids?|drink|drinking)\b/,
+  /\b(alcohol|drugs?|opioids?|drink|drinking)\s+.*\b(craving|cravings|urge|urges|sober|sobriety|relapse)\b/,
+  /\bdrinking\s+.*\b(escape|numb|sober|sobriety)\b/,
+];
+
+const MORAL_INJURY_PATTERNS = [
+  /\b(moral injury|blood on my hands|dont deserve to live|don't deserve to live)\b/,
+  /\b(my mistake|because of me)\s+.*\b(died|fatal|catastrophic harm)\b/,
+];
+
+const SUDDEN_ANHEDONIA_PATTERNS = [
+  /\b(sudden|suddenly|recent|recently|just started|this week|over the last few days|two weeks ago|out of nowhere)\b.*\b(no joy|loss of joy|lost all pleasure|all pleasure vanished|completely numb|everything went blank|anhedonia)\b/,
+  /\b(no joy|loss of joy|lost all pleasure|all pleasure vanished|completely numb|everything went blank|anhedonia)\b.*\b(sudden|suddenly|recent|recently|just started|this week|over the last few days|two weeks ago|out of nowhere)\b/,
+];
+
+const testAny = (text: string, patterns: RegExp[]) => patterns.some((pattern) => pattern.test(text));
+
+const levenshtein = (a: string, b: string): number => {
+  const rows = b.length + 1;
+  const cols = a.length + 1;
+  const matrix = Array.from({ length: rows }, () => Array(cols).fill(0));
+  for (let i = 0; i < rows; i += 1) matrix[i][0] = i;
+  for (let j = 0; j < cols; j += 1) matrix[0][j] = j;
+  for (let i = 1; i < rows; i += 1) {
+    for (let j = 1; j < cols; j += 1) {
+      matrix[i][j] = Math.min(
+        matrix[i - 1][j] + 1,
+        matrix[i][j - 1] + 1,
+        matrix[i - 1][j - 1] + (b[i - 1] === a[j - 1] ? 0 : 1)
+      );
+    }
+  }
+  return matrix[rows - 1][cols - 1];
+};
+
+const fuzzyCriticalToken = (text: string): boolean => {
+  const targets = ['suicide', 'suicidal'];
+  const words = text.split(' ').filter((word) => word.length >= 6);
+  return words.some((word) =>
+    targets.some((target) =>
+      Math.abs(word.length - target.length) <= 1 && levenshtein(word, target) <= 1
+    )
+  );
+};
+
+const safe = (): SafetyRoutingResult => ({
+  status: 'SAFE',
+  isTriggered: false,
+  safetyNotes: [],
+  emergencyResources: [],
+  blockedFromWisdomMatching: false,
+});
 
 export function evaluateSafetyUpstream(problemText: string): SafetyRoutingResult {
-  if (!problemText || !problemText.trim()) {
+  if (!problemText || !problemText.trim()) return safe();
+
+  const text = normalizeSafetyText(problemText);
+
+  if (testAny(text, SAFETY_NEGATION_OR_CONTEXT)) {
     return {
-      status: 'SAFE',
-      isTriggered: false,
-      safetyNotes: [],
-      emergencyResources: [],
-      blockedFromWisdomMatching: false,
+      status: 'SAFETY_REVIEW_REDIRECT',
+      isTriggered: true,
+      reason: 'Safety-related language was detected, but the context appears indirect, historical, negated, or unclear. Ordinary reflection is paused as a precaution.',
+      safetyNotes: ['The current release uses deterministic English-language safety rules.', 'If the safety resources are not relevant, return and rephrase without ambiguous safety language.'],
+      emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.community211],
+      blockedFromWisdomMatching: true,
+      matchedRule: 'precautionary_context_signal',
+      confidence: 'precautionary',
     };
   }
 
-  const text = problemText.trim();
-
-  // 1. Immediate Crisis / Suicide / Self-Harm check (Highest Priority)
-  if (IMMEDIATE_CRISIS_REGEX.test(text)) {
+  if (testAny(text, DIRECT_CRISIS_PATTERNS)) {
     return {
       status: 'CRISIS_REDIRECT',
       isTriggered: true,
-      reason: 'Immediate safety or self-harm concern detected. Contemplative wisdom is suspended to connect you directly with human crisis support.',
-      safetyNotes: [
-        'Active suicidal ideation and acute crises are strictly outside the v1.0 scope of Inner Compass.',
-        'Please reach out immediately to 24/7 dedicated professional lifelines.',
-      ],
-      emergencyResources: [
-        EMERGENCY_RESOURCES.suicideLifeline,
-        EMERGENCY_RESOURCES.crisisTextLine,
-        EMERGENCY_RESOURCES.community211,
-      ],
+      reason: 'Immediate safety language was detected. Ordinary reflection is paused so human crisis support is easier to reach.',
+      safetyNotes: ['Inner Compass is not an emergency service.', 'Use immediate human support when safety may be at risk.'],
+      emergencyResources: [EMERGENCY_RESOURCES.emergencyServices, EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine],
       blockedFromWisdomMatching: true,
+      matchedRule: 'direct_crisis_signal',
+      confidence: 'high',
     };
   }
 
-  // 2. Category 5 Abuse Boundary: IPV / Domestic Violence
-  // RULE: The category-5 abuse boundary must never reach conflict/relationship-staying material.
-  if (IPV_ABUSE_REGEX.test(text)) {
+  if (fuzzyCriticalToken(text) || testAny(text, PRECAUTIONARY_SAFETY_PATTERNS)) {
+    return {
+      status: 'SAFETY_REVIEW_REDIRECT',
+      isTriggered: true,
+      reason: 'Safety-related language was detected, but the context is not clear enough for ordinary reflection. Ordinary wisdom is paused as a precaution.',
+      safetyNotes: ['The current release uses deterministic English-language safety rules.', 'If the safety resources are not relevant, return and rephrase without ambiguous safety language.'],
+      emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.community211],
+      blockedFromWisdomMatching: true,
+      matchedRule: 'precautionary_safety_signal',
+      confidence: 'precautionary',
+    };
+  }
+
+  if (testAny(text, IPV_ABUSE_PATTERNS)) {
     return {
       status: 'ABUSE_REDIRECT',
       isTriggered: true,
-      reason: 'Physical abuse, domestic violence, or intimate partner threats detected. Relationship-conflict teachings (such as staying with difficulty) must never be applied to abusive environments.',
-      safetyNotes: [
-        'Taxonomy Safety Carve-out: Category 5 excludes intimate partner violence.',
-        'Lojong slogans and conflict patience apply only to safe, reciprocal relationships, never abusive situations where your physical or psychological safety is at risk.',
-      ],
-      emergencyResources: [
-        EMERGENCY_RESOURCES.domesticViolenceHotline,
-        EMERGENCY_RESOURCES.rainnHotline,
-        EMERGENCY_RESOURCES.suicideLifeline,
-      ],
+      reason: 'Relationship-abuse or violence language was detected. Ordinary conflict guidance is blocked in favor of specialized human support.',
+      safetyNotes: ['Inner Compass does not apply ordinary relationship-patience guidance to abusive or threatening situations.'],
+      emergencyResources: [EMERGENCY_RESOURCES.domesticViolenceHotline, EMERGENCY_RESOURCES.rainnHotline, EMERGENCY_RESOURCES.emergencyServices],
       blockedFromWisdomMatching: true,
+      matchedRule: 'relationship_abuse_boundary',
+      confidence: 'high',
     };
   }
 
-  // 3. Category 21 Moral-Injury-Adjacent Guilt Escalation
-  // RULE: Self-condemnation tied to real/perceived serious harm/fatality carries acute suicide risk.
-  if (MORAL_INJURY_GUILT_REGEX.test(text)) {
+  if (testAny(text, MORAL_INJURY_PATTERNS)) {
     return {
       status: 'ESCALATION_REDIRECT',
       isTriggered: true,
-      reason: 'Moral-injury-adjacent presentation detected. Deep self-condemnation tied to catastrophic harm carries documented escalation risk requiring professional human care.',
-      safetyNotes: [
-        'Category 21 Escalation Rule: Moral-injury-adjacent guilt is linked to acute suicide risk.',
-        'This presentation is routed away from ordinary philosophical self-forgiveness and toward dedicated crisis/clinical support.',
-      ],
-      emergencyResources: [
-        EMERGENCY_RESOURCES.suicideLifeline,
-        EMERGENCY_RESOURCES.crisisTextLine,
-        EMERGENCY_RESOURCES.samhsaHelpline,
-      ],
+      reason: 'Severe guilt or moral-injury language was detected. Ordinary self-forgiveness content is paused in favor of human support.',
+      safetyNotes: ['This presentation is outside the ordinary reflection route.'],
+      emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.crisisTextLine, EMERGENCY_RESOURCES.samhsaHelpline],
       blockedFromWisdomMatching: true,
       suggestedCategoryId: 21,
+      matchedRule: 'moral_injury_escalation',
+      confidence: 'high',
     };
   }
 
-  // 4. Category 24 Sudden/Recent-Onset Anhedonia Escalation
-  // RULE: State/recent-onset anhedonia independently predicts acute suicidality.
-  if (SUDDEN_ANHEDONIA_REGEX.test(text)) {
+  if (testAny(text, SUDDEN_ANHEDONIA_PATTERNS)) {
     return {
       status: 'ESCALATION_REDIRECT',
       isTriggered: true,
-      reason: 'Sudden or recent-onset loss of pleasure and joy detected. Acute onset anhedonia is an independent clinical risk marker requiring proactive clinical evaluation.',
-      safetyNotes: [
-        'Category 24 Escalation Rule: Recent-onset anhedonia predicts acute crisis risk separate from baseline low mood.',
-        'Philosophy content is reserved for chronic, low-grade reflection. Acute presentations require professional evaluation.',
-      ],
-      emergencyResources: [
-        EMERGENCY_RESOURCES.suicideLifeline,
-        EMERGENCY_RESOURCES.crisisTextLine,
-        EMERGENCY_RESOURCES.samhsaHelpline,
-      ],
+      reason: 'A sudden or recent severe loss-of-pleasure pattern was detected. Ordinary philosophical reflection is paused in favor of prompt human evaluation.',
+      safetyNotes: ['Acute changes in functioning are outside the ordinary reflection route.'],
+      emergencyResources: [EMERGENCY_RESOURCES.suicideLifeline, EMERGENCY_RESOURCES.samhsaHelpline, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,
       suggestedCategoryId: 24,
+      matchedRule: 'acute_anhedonia_escalation',
+      confidence: 'high',
     };
   }
 
-  // 5. Category 10 Substance Use Hard Ceiling
-  // RULE: Category 10 may not produce wisdom-only.
-  if (SUBSTANCE_USE_REGEX.test(text)) {
+  if (testAny(text, SUBSTANCE_PATTERNS)) {
     return {
       status: 'SUBSTANCE_HARD_CEILING',
       isTriggered: true,
-      reason: 'Substance use or chemical dependency detected. Category 10 operates under a strict hard ceiling: physiological withdrawal and overdose risks mean philosophy can never stand alone.',
-      safetyNotes: [
-        'Category 10 Hard Ceiling: Real overdose and withdrawal mortality risks exist.',
-        'Philosophical reflection is only an adjunct for meaning and affect-regulation in recovery, never a substitute for medical detoxification or crisis intervention.',
-      ],
-      emergencyResources: [
-        EMERGENCY_RESOURCES.samhsaHelpline,
-        EMERGENCY_RESOURCES.suicideLifeline,
-        EMERGENCY_RESOURCES.community211,
-      ],
+      reason: 'Substance-use language was detected. Category 10 has a hard ceiling: ordinary wisdom cannot be presented as stand-alone guidance.',
+      safetyNotes: ['Use appropriate human or medical support for substance-related risk.'],
+      emergencyResources: [EMERGENCY_RESOURCES.samhsaHelpline, EMERGENCY_RESOURCES.emergencyServices, EMERGENCY_RESOURCES.community211],
       blockedFromWisdomMatching: true,
       suggestedCategoryId: 10,
+      matchedRule: 'substance_hard_ceiling',
+      confidence: 'high',
     };
   }
 
-  // Default: Safe for ordinary retrieval
-  return {
-    status: 'SAFE',
-    isTriggered: false,
-    safetyNotes: [],
-    emergencyResources: [],
-    blockedFromWisdomMatching: false,
-  };
+  return safe();
 }

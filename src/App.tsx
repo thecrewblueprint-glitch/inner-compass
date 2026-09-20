@@ -15,28 +15,36 @@ import { SavedJournalScreen } from './screens/SavedJournalScreen';
 import { WisdomLibraryScreen } from './screens/WisdomLibraryScreen';
 import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
+import { LegalScreen, LegalDocumentKey } from './screens/LegalScreen';
+import { DiagnosticsScreen } from './screens/DiagnosticsScreen';
 import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
+import { AppErrorBoundary } from './components/AppErrorBoundary';
 import { LaunchGate, LAUNCH_ATTESTATION_KEY } from './components/LaunchGate';
 import { evaluateSafetyUpstream } from './safety/safetyRouter';
 import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
 import { getCategoryById } from './knowledgeBase/kbLoader';
 import { WISDOM_AFFIRMATIONS } from './data/wisdomLibrary';
-import { Category, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
+import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
 import { ThemeProvider, useTheme } from './theme';
 import { recordCategoryInteraction } from './services/dailyAffirmationService';
+import { installGlobalDebugHooks, recordDebugEvent } from './debug/debugStore';
 
 const STORAGE_KEY = 'inner_compass_saved_reflections_v1';
 const INTERACTION_KEY = 'inner_compass_category_interactions_v1';
 const PERSONALIZATION_KEY = 'inner_compass_personalization_enabled_v1';
 const IS_PREVIEW_MODE = import.meta.env.VITE_INNER_COMPASS_PREVIEW === 'true';
+const IS_DIAGNOSTICS_ENABLED =
+  import.meta.env.VITE_INNER_COMPASS_DEBUG === 'true' ||
+  (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('debug') === '1');
 
-type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'crisis';
+type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'legal' | 'crisis' | 'diagnostics';
 
 type CrisisAlert = {
   reason?: string;
   safetyNotes?: string[];
+  resources?: EmergencyResource[];
 } | null;
 
 type WisdomLinkContext = { categoryId?: number; recordId?: string } | null;
@@ -74,6 +82,7 @@ const AppContent: React.FC = () => {
   const [clarificationPrompt, setClarificationPrompt] = useState<string | null>(null);
   const [themePickerVisible, setThemePickerVisible] = useState(false);
   const [dailyInteractionTimestamp, setDailyInteractionTimestamp] = useState(0);
+  const [legalDocument, setLegalDocument] = useState<LegalDocumentKey>('privacy');
 
   const currentNavigation = navigationStack[navigationStack.length - 1];
   const currentTab = currentNavigation.tab;
@@ -82,6 +91,15 @@ const AppContent: React.FC = () => {
   const wisdomLinkContext = currentNavigation.wisdomLinkContext;
   const readsLinkContext = currentNavigation.readsLinkContext;
   const canGoBack = navigationStack.length > 1;
+
+  useEffect(() => {
+    recordDebugEvent('navigation', {
+      tab: currentTab,
+      depth: navigationStack.length,
+      hasGuidance: Boolean(guidanceResult),
+      hasCrisis: Boolean(crisisAlert),
+    });
+  }, [currentTab, navigationStack.length, guidanceResult, crisisAlert]);
 
   const [launchAccepted, setLaunchAccepted] = useState(() => {
     if (IS_PREVIEW_MODE) return true;
@@ -132,6 +150,11 @@ const AppContent: React.FC = () => {
     }
   }, [savedReflections]);
 
+  useEffect(() => {
+    recordDebugEvent('app_start', { preview: IS_PREVIEW_MODE, diagnostics: IS_DIAGNOSTICS_ENABLED });
+    return installGlobalDebugHooks();
+  }, []);
+
   const pushNavigation = (next: NavigationState) => {
     setNavigationStack((previous) => [...previous, next]);
   };
@@ -177,6 +200,11 @@ const AppContent: React.FC = () => {
     });
   };
 
+  const openLegalDocument = (document: LegalDocumentKey) => {
+    setLegalDocument(document);
+    navigateToTab('legal');
+  };
+
   const trackCategoryInteraction = (
     categoryId: number,
     source: 'reflection' | 'saved' | 'taxonomy_view' | 'sample'
@@ -186,12 +214,17 @@ const AppContent: React.FC = () => {
     setDailyInteractionTimestamp(Date.now());
   };
 
-  const routeSafety = (reason?: string, safetyNotes?: string[]) => {
+  const routeSafety = (reason?: string, safetyNotes?: string[], resources?: EmergencyResource[]) => {
     setClarificationPrompt(null);
+    recordDebugEvent('safety_route', {
+      status: 'manual_or_routed',
+      blocked: true,
+      resourceCount: resources?.length || 0,
+    });
     pushNavigation({
       tab: 'crisis',
       guidanceResult: null,
-      crisisAlert: { reason, safetyNotes },
+      crisisAlert: { reason, safetyNotes, resources },
       wisdomLinkContext: null,
       readsLinkContext: null,
     });
@@ -232,11 +265,23 @@ const AppContent: React.FC = () => {
     setClarificationPrompt(null);
 
     try {
+      recordDebugEvent('reflection_submit', {
+        chars: problemText.length,
+        words: problemText.trim().split(/\s+/).filter(Boolean).length,
+        preferredRoot: preferredRoot || 'none',
+      });
+
       // Raw reflection text is processed only in this browser execution path.
       const safety = evaluateSafetyUpstream(problemText);
+      recordDebugEvent('safety_route', {
+        status: safety.status,
+        blocked: safety.blockedFromWisdomMatching,
+        rule: safety.matchedRule || 'none',
+        confidence: safety.confidence || 'none',
+      });
 
       if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
-        routeSafety(safety.reason, safety.safetyNotes);
+        routeSafety(safety.reason, safety.safetyNotes, safety.emergencyResources);
         return;
       }
 
@@ -247,6 +292,11 @@ const AppContent: React.FC = () => {
       );
 
       if (retrieval.needsClarification) {
+        recordDebugEvent('clarification', {
+          categoryId: retrieval.category.category_id,
+          score: retrieval.score,
+          margin: retrieval.scoreMargin ?? 0,
+        });
         setClarificationPrompt(
           retrieval.clarificationQuestion ||
             'Could you add one concrete detail about what feels most difficult right now?'
@@ -254,6 +304,11 @@ const AppContent: React.FC = () => {
         return;
       }
 
+      recordDebugEvent('guidance', {
+        categoryId: retrieval.category.category_id,
+        score: retrieval.score,
+        source: 'reflection',
+      });
       openGuidance(retrieval.category, safety, 'reflection');
     } finally {
       setIsLoading(false);
@@ -269,14 +324,15 @@ const AppContent: React.FC = () => {
       const safety = evaluateSafetyUpstream('substance use');
       routeSafety(
         safety.reason || 'Substance-use guidance has a hard safety ceiling.',
-        safety.safetyNotes
+        safety.safetyNotes,
+        safety.emergencyResources
       );
       return;
     }
 
     const safety = evaluateSafetyUpstream(category.category_name);
     if (safety.blockedFromWisdomMatching || safety.status === 'SUBSTANCE_HARD_CEILING') {
-      routeSafety(safety.reason, safety.safetyNotes);
+      routeSafety(safety.reason, safety.safetyNotes, safety.emergencyResources);
       return;
     }
 
@@ -402,7 +458,9 @@ const AppContent: React.FC = () => {
     { id: 'reads', label: 'Suggested Reads' },
     { id: 'journal', label: `Journal${savedReflections.length ? ` (${savedReflections.length})` : ''}` },
     { id: 'privacy', label: 'Privacy' },
+    { id: 'legal', label: 'Legal & Safety' },
     { id: 'crisis', label: 'Lifelines 24/7' },
+    ...(IS_DIAGNOSTICS_ENABLED ? [{ id: 'diagnostics' as AppTab, label: 'Local Diagnostics' }] : []),
   ];
 
   return (
@@ -517,6 +575,9 @@ const AppContent: React.FC = () => {
               isLoading={isLoading}
               clarificationPrompt={clarificationPrompt}
               dailyInteractionTimestamp={dailyInteractionTimestamp}
+              onOpenLegal={() => openLegalDocument('terms')}
+              onOpenHealthData={() => openLegalDocument('health-data')}
+              onOpenCrisis={() => navigateToTab('crisis')}
             />
           ))}
 
@@ -564,16 +625,32 @@ const AppContent: React.FC = () => {
             onClearJournal={() => setSavedReflections([])}
             onClearPersonalization={clearPersonalization}
             onClearAllLocalData={clearAllLocalData}
+            onOpenLegal={() => openLegalDocument('privacy')}
           />
         )}
+
+        {currentTab === 'legal' && <LegalScreen initialDocument={legalDocument} />}
+
+        {currentTab === 'diagnostics' && IS_DIAGNOSTICS_ENABLED && <DiagnosticsScreen />}
 
         {currentTab === 'crisis' && (
           <CrisisScreen
             reason={crisisAlert?.reason}
             safetyNotes={crisisAlert?.safetyNotes}
+            resources={crisisAlert?.resources}
             onDismiss={navigateBack}
           />
         )}
+      </View>
+
+      <View style={[styles.footer, { backgroundColor: theme.topBar, borderTopColor: theme.topBarBorder }]}>
+        <Text style={[styles.footerText, { color: theme.textMuted }]}>18+ · U.S. · English only · General-wellness reflection</Text>
+        <View style={styles.footerLinks}>
+          <Pressable accessibilityRole="link" onPress={() => openLegalDocument('terms')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Legal & Safety</Text></Pressable>
+          <Pressable accessibilityRole="link" onPress={() => openLegalDocument('health-data')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Consumer Health Data Policy</Text></Pressable>
+          <Pressable accessibilityRole="link" onPress={() => navigateToTab('privacy')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Privacy</Text></Pressable>
+          <Pressable accessibilityRole="link" onPress={() => navigateToTab('crisis')}><Text style={[styles.footerLink, { color: theme.crisisAccent }]}>Lifelines</Text></Pressable>
+        </View>
       </View>
 
       <PracticeModalRN
@@ -592,9 +669,11 @@ const AppContent: React.FC = () => {
 };
 
 export const App: React.FC = () => (
-  <ThemeProvider>
-    <AppContent />
-  </ThemeProvider>
+  <AppErrorBoundary>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  </AppErrorBoundary>
 );
 
 const styles = StyleSheet.create({
@@ -624,6 +703,10 @@ const styles = StyleSheet.create({
   previewText: { fontSize: 10, fontWeight: '900', letterSpacing: 0.6 },
   previewDetail: { fontSize: 10 },
   content: { flex: 1 },
+  footer: { borderTopWidth: 1, paddingHorizontal: 16, paddingVertical: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 8 },
+  footerText: { fontSize: 9, fontWeight: '700' },
+  footerLinks: { flexDirection: 'row', gap: 12, flexWrap: 'wrap' },
+  footerLink: { fontSize: 10, fontWeight: '800' },
 });
 
 export default App;

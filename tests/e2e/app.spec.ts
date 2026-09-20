@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 const SAFE_REFLECTION =
   'I feel deeply lonely and disconnected even when surrounded by friends and coworkers.';
@@ -8,17 +9,31 @@ test.describe('Inner Compass web app core flow', () => {
     const consoleErrors: string[] = [];
     const pageErrors: string[] = [];
     const guidanceRequests: string[] = [];
+    const failedAppResponses: string[] = [];
 
     page.on('console', (msg) => {
-      if (msg.type() === 'error') consoleErrors.push(msg.text());
+      if (
+        msg.type() === 'error' &&
+        !msg.text().includes('Failed to load resource: the server responded with a status of 404')
+      ) {
+        consoleErrors.push(msg.text());
+      }
     });
     page.on('pageerror', (err) => pageErrors.push(err.message));
     page.on('request', (request) => {
       if (request.url().includes('/api/guidance')) guidanceRequests.push(request.url());
     });
+    page.on('response', (response) => {
+      if (
+        response.status() >= 400 &&
+        response.url().startsWith('http://127.0.0.1:3000')
+      ) {
+        failedAppResponses.push(`${response.status()} ${response.url()}`);
+      }
+    });
 
     await page.goto('/');
-    await expect(page.getByText('INNER COMPASS')).toBeVisible();
+    await expect(page.getByText('INNER COMPASS', { exact: true })).toBeVisible();
     await expect(page.getByText('PREVIEW MODE ACTIVE')).toBeVisible();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
     await expect(page.getByText('Daily Wisdom & Reflection')).toBeVisible();
@@ -56,7 +71,7 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
     await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
 
-    await page.getByText('Privacy', { exact: true }).click();
+    await page.getByText('Privacy', { exact: true }).first().click();
     await expect(page.getByText('PRIVACY & LOCAL DATA')).toBeVisible();
     await expect(page.getByText('Your reflection stays on this device')).toBeVisible();
 
@@ -65,9 +80,10 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.getByText('Lifelines 24/7', { exact: true }).click();
     await expect(page.getByText('DEDICATED SAFETY & CRISIS ROUTING')).toBeVisible();
-    await expect(page.getByText(/United States launch resources/)).toBeVisible();
+    await expect(page.getByText(/United States resources/)).toBeVisible();
 
     expect(pageErrors, `Uncaught page errors: ${pageErrors.join(' | ')}`).toEqual([]);
+    expect(failedAppResponses, `Same-origin HTTP failures: ${failedAppResponses.join(' | ')}`).toEqual([]);
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
   });
 
@@ -138,7 +154,7 @@ test.describe('Inner Compass web app core flow', () => {
       localStorage.setItem('inner_compass_category_interactions_v1', JSON.stringify({ 1: { count: 1 } }));
     });
     await page.reload();
-    await page.getByText('Privacy', { exact: true }).click();
+    await page.getByText('Privacy', { exact: true }).first().click();
     await page.getByText('Clear journal', { exact: true }).click();
     expect(await page.evaluate(() => localStorage.getItem('inner_compass_saved_reflections_v1'))).toBe('[]');
     await page.getByText('Clear personalization history', { exact: true }).click();
@@ -183,6 +199,73 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByText('All branches', { exact: true }).click();
     await page.getByText('Sikh philosophy / theology', { exact: true }).click();
     await expect(page.getByText('Sikhism: A Very Short Introduction', { exact: true })).toBeVisible();
+  });
+
+
+  test('legal center is prominent and exposes the separate consumer health data policy', async ({ page }) => {
+    await page.goto('/');
+
+    await expect(page.getByText(/18\+ · United States · English only/).first()).toBeVisible();
+
+    await page.getByText('Consumer Health Data Policy', { exact: true }).first().click();
+    await expect(page.getByText('LEGAL & SAFETY CENTER')).toBeVisible();
+    await expect(page.getByText('Consumer Health Data Privacy Policy', { exact: true }).first()).toBeVisible();
+    await expect(page.getByText(/Collection by the operator/)).toBeVisible();
+
+    await page.getByText('Terms of Use', { exact: true }).first().click();
+    await expect(page.getByText('Not professional care', { exact: true })).toBeVisible();
+
+    await page.getByText('Safety & Crisis Notice', { exact: true }).first().click();
+    await expect(page.getByText('Detection limits', { exact: true })).toBeVisible();
+
+    await page.getByText('Accessibility Statement', { exact: true }).first().click();
+    await expect(page.getByText(/WCAG 2.2 Level AA/)).toBeVisible();
+  });
+
+  test('local diagnostics records route metadata without retaining raw reflection text', async ({ page }) => {
+    await page.goto('/?debug=1');
+
+    const input = page.getByRole('textbox', { name: 'Problem Input' });
+    await input.fill(SAFE_REFLECTION);
+    await page.getByLabel('Submit Reflection').click();
+    await expect(page.getByText('CATEGORY #1')).toBeVisible();
+
+    await page.getByText('Local Diagnostics', { exact: true }).click();
+    await expect(page.getByText('Debug & Release Data Hub')).toBeVisible();
+
+    const rawDebug = await page.evaluate(
+      () => localStorage.getItem('inner_compass_debug_events_v1') || ''
+    );
+    expect(rawDebug).not.toContain(SAFE_REFLECTION);
+    expect(rawDebug).toContain('reflection_submit');
+    expect(rawDebug).toContain('guidance');
+
+    await page.getByLabel('Clear local diagnostics').click();
+    expect(await page.evaluate(() => localStorage.getItem('inner_compass_debug_events_v1'))).toBeNull();
+  });
+
+  test('critical user-facing surfaces have no serious or critical automated accessibility violations', async ({ page }) => {
+    await page.goto('/');
+
+    const homeResults = await new AxeBuilder({ page }).analyze();
+    const homeBlocking = homeResults.violations.filter((violation) =>
+      ['serious', 'critical'].includes(violation.impact || '')
+    );
+    expect(homeBlocking, JSON.stringify(homeBlocking, null, 2)).toEqual([]);
+
+    await page.getByText('Legal & Safety', { exact: true }).first().click();
+    const legalResults = await new AxeBuilder({ page }).analyze();
+    const legalBlocking = legalResults.violations.filter((violation) =>
+      ['serious', 'critical'].includes(violation.impact || '')
+    );
+    expect(legalBlocking, JSON.stringify(legalBlocking, null, 2)).toEqual([]);
+
+    await page.getByText('Lifelines 24/7', { exact: true }).click();
+    const safetyResults = await new AxeBuilder({ page }).analyze();
+    const safetyBlocking = safetyResults.violations.filter((violation) =>
+      ['serious', 'critical'].includes(violation.impact || '')
+    );
+    expect(safetyBlocking, JSON.stringify(safetyBlocking, null, 2)).toEqual([]);
   });
 
 });
