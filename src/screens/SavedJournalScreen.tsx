@@ -31,7 +31,7 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Bookmarked Wisdom & Affirmations</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Review your grounded philosophical reflections and affirmations. Stored on this device without raw problem text.
+          Review the reflections and affirmations you chose to save. Your original reflection text is not stored here.
         </Text>
       </View>
 
@@ -72,7 +72,7 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
               >
                 <View style={styles.cardHeader}>
                   <View style={[styles.catIdBadge, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
-                    <Text style={[styles.catIdText, { color: theme.badgeText }]}>CATEGORY #{item.categoryId}</Text>
+                    <Text style={[styles.catIdText, { color: theme.badgeText }]}>REFLECTION THEME</Text>
                   </View>
                   <Text style={[styles.dateText, { color: theme.textMuted }]}>{dateStr}</Text>
                 </View>
@@ -103,9 +103,9 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
                   <Pressable
                     style={({ pressed }) => [styles.viewButton, pressed && { opacity: 0.75 }]}
                     onPress={() => onOpenWisdomForCategory(item.categoryId)}
-                    accessibilityLabel={`Open wisdom for category ${item.categoryId}`}
+                    accessibilityLabel={`Explore wisdom related to ${item.categoryName}`}
                   >
-                    <Text style={[styles.viewButtonText, { color: theme.accentPrimary }]}>View Sourced Teachings →</Text>
+                    <Text style={[styles.viewButtonText, { color: theme.accentPrimary }]}>Explore Related Wisdom →</Text>
                   </Pressable>
 
                   <Pressable
