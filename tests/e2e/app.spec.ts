@@ -70,8 +70,8 @@ test.describe('Inner Compass web app core flow', () => {
     await input.fill(SAFE_REFLECTION);
     await page.getByLabel('Submit Reflection').click();
 
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
-    await expect(page.getByTestId('grounded-affirmation-card')).toBeVisible();
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
+    await expect(page.getByText('REFLECTION', { exact: true })).toBeVisible();
     await expect(page.getByText('RESEARCH-INFORMED REFLECTION')).toBeVisible();
     expect(guidanceRequests).toEqual([]);
 
@@ -197,7 +197,7 @@ test.describe('Inner Compass web app core flow', () => {
     const input = page.getByRole('textbox', { name: 'Problem Input' });
     await input.fill(SAFE_REFLECTION);
     await page.getByLabel('Submit Reflection').click();
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
 
     await page.getByLabel('Open wisdom for category 1').click();
     await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
@@ -266,15 +266,15 @@ test.describe('Inner Compass web app core flow', () => {
       )
     ).toBeVisible();
 
-    await expect(page.getByTestId('grounded-affirmation-card')).toHaveCount(0);
+    await expect(page.getByText('REFLECTION', { exact: true })).toHaveCount(0);
 
     await input.fill(
       'I feel like everything is changing and slipping away from my hands. I am grieving because someone close to me passed away.'
     );
     await page.getByLabel('Submit Reflection').click();
 
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
-    await expect(page.getByTestId('grounded-affirmation-card')).toBeVisible();
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
+    await expect(page.getByText('REFLECTION', { exact: true })).toBeVisible();
   });
 
   test('direct taxonomy navigation cannot bypass Category 10 hard ceiling', async ({ page }) => {
@@ -305,12 +305,12 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Taxonomy');
     await page.getByText('Loneliness / feeling isolated even around people', { exact: true }).click();
     await page.getByText('Reflect on this Category →', { exact: true }).click();
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
     await page.getByLabel('Open wisdom for category 1').click();
     await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
 
     await page.getByLabel('Go back one page').click();
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
 
     await page.getByLabel('Go back one page').click();
     await expect(page.getByText('All 25 Categories')).toBeVisible();
@@ -366,7 +366,7 @@ test.describe('Inner Compass web app core flow', () => {
     const input = page.getByRole('textbox', { name: 'Problem Input' });
     await input.fill(SAFE_REFLECTION);
     await page.getByLabel('Submit Reflection').click();
-    await expect(page.getByTestId('guidance-category-card')).toBeVisible();
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
 
     await navigateFromHeader(page, 'Local Diagnostics');
     await expect(page.getByText('Debug & Release Data Hub')).toBeVisible();
