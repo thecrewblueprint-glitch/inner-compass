@@ -51,9 +51,14 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
   const { theme } = useTheme();
   const [query, setQuery] = useState('');
   const [tradition, setTradition] = useState('ALL');
+  const [branchFilter, setBranchFilter] = useState('ALL');
+  const [region, setRegion] = useState('ALL');
+  const [recordType, setRecordType] = useState('ALL');
   const [difficulty, setDifficulty] = useState('ALL');
+  const [openAccessOnly, setOpenAccessOnly] = useState(false);
   const [pathway, setPathway] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [failedCovers, setFailedCovers] = useState<Record<string, boolean>>({});
   const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
   const [linkedWisdomRecordId, setLinkedWisdomRecordId] = useState<string | null>(initialWisdomRecordId);
 
@@ -66,6 +71,18 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
     () => Array.from(new Set(READING_RECORDS.map((record) => record.tradition))).sort(),
     []
   );
+  const branches = useMemo(
+    () => Array.from(new Set(READING_RECORDS.flatMap((record) => record.branch_coverage))).sort(),
+    []
+  );
+  const regions = useMemo(
+    () => Array.from(new Set(READING_RECORDS.map((record) => record.region))).sort(),
+    []
+  );
+  const recordTypes = useMemo(
+    () => Array.from(new Set(READING_RECORDS.map((record) => record.record_type))).sort(),
+    []
+  );
 
   const selectedPathway = READING_PATHWAYS.find((p) => p.pathway_id === pathway);
 
@@ -75,7 +92,11 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
 
     return READING_RECORDS.filter((record) => {
       if (tradition !== 'ALL' && record.tradition !== tradition) return false;
+      if (branchFilter !== 'ALL' && !record.branch_coverage.includes(branchFilter)) return false;
+      if (region !== 'ALL' && record.region !== region) return false;
+      if (recordType !== 'ALL' && record.record_type !== recordType) return false;
       if (difficulty !== 'ALL' && record.difficulty !== difficulty) return false;
+      if (openAccessOnly && !record.public_domain_available && !record.open_access_url) return false;
       if (pathwayIds && !pathwayIds.has(record.reading_id)) return false;
       if (linkedCategoryId && !record.related_inner_compass_categories.includes(linkedCategoryId)) return false;
       if (linkedWisdomRecordId && !record.related_wisdom_record_ids.includes(linkedWisdomRecordId)) return false;
@@ -85,6 +106,8 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         record.author_or_attributed_author,
         record.tradition,
         record.school || '',
+        record.lineage_or_branch || '',
+        ...record.branch_coverage,
         record.region,
         record.why_read_it,
         ...record.primary_topics,
@@ -92,7 +115,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         ...record.ethical_topics,
       ].join(' ').toLowerCase().includes(q);
     });
-  }, [query, tradition, difficulty, selectedPathway, linkedCategoryId, linkedWisdomRecordId]);
+  }, [query, tradition, branchFilter, region, recordType, difficulty, openAccessOnly, selectedPathway, linkedCategoryId, linkedWisdomRecordId]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -165,6 +188,52 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         ))}
       </ScrollView>
 
+      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Branch / school</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+        {['ALL', ...branches].map((item) => (
+          <Pressable
+            key={item}
+            onPress={() => setBranchFilter(item)}
+            style={[styles.chip, { backgroundColor: branchFilter === item ? theme.accentPrimary : theme.badgeBg, borderColor: branchFilter === item ? theme.accentPrimary : theme.badgeBorder }]}
+          >
+            <Text style={{ color: branchFilter === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+              {item === 'ALL' ? 'All branches' : item}
+            </Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+
+      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Region</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+        {['ALL', ...regions].map((item) => (
+          <Pressable
+            key={item}
+            onPress={() => setRegion(item)}
+            style={[styles.chip, { backgroundColor: region === item ? theme.accentPrimary : theme.badgeBg, borderColor: region === item ? theme.accentPrimary : theme.badgeBorder }]}
+          >
+            <Text style={{ color: region === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+              {item === 'ALL' ? 'All regions' : item}
+            </Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+
+      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Book type</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+        {['ALL', ...recordTypes].map((item) => (
+          <Pressable
+            key={item}
+            onPress={() => setRecordType(item)}
+            style={[styles.chip, { backgroundColor: recordType === item ? theme.accentPrimary : theme.badgeBg, borderColor: recordType === item ? theme.accentPrimary : theme.badgeBorder }]}
+          >
+            <Text style={{ color: recordType === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+              {item === 'ALL' ? 'All book types' : item.replaceAll('_', ' ')}
+            </Text>
+          </Pressable>
+        ))}
+      </ScrollView>
+
+      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Reading level / access</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
         {['ALL', 'BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'SPECIALIST'].map((item) => (
           <Pressable
@@ -177,6 +246,16 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
             </Text>
           </Pressable>
         ))}
+        <Pressable
+          onPress={() => setOpenAccessOnly((value) => !value)}
+          accessibilityRole="button"
+          accessibilityState={{ selected: openAccessOnly }}
+          style={[styles.chip, { backgroundColor: openAccessOnly ? theme.accentPrimary : theme.badgeBg, borderColor: openAccessOnly ? theme.accentPrimary : theme.badgeBorder }]}
+        >
+          <Text style={{ color: openAccessOnly ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+            Public-domain / open access
+          </Text>
+        </Pressable>
       </ScrollView>
 
       <Text style={[styles.count, { color: theme.textMuted }]}>{filtered.length} suggested reads</Text>
@@ -184,19 +263,24 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
       <View style={styles.grid}>
         {filtered.map((record) => {
           const isExpanded = expandedId === record.reading_id;
-          const isWebsite = ['WEBSITE', 'ARTICLE', 'ARCHIVE'].includes(record.resource_format);
+          const coverFailed = Boolean(failedCovers[record.reading_id]);
           return (
             <View
               key={record.reading_id}
               style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder, shadowColor: theme.cardShadow }]}
             >
               <View style={styles.cardLead}>
-                {record.cover_image_url ? (
-                  <Image source={{ uri: record.cover_image_url }} accessibilityLabel={record.cover_image_alt} style={styles.cover} />
+                {record.cover_image_url && !coverFailed ? (
+                  <Image
+                    source={{ uri: record.cover_image_url }}
+                    accessibilityLabel={record.cover_image_alt}
+                    style={styles.cover}
+                    onError={() => setFailedCovers((current) => ({ ...current, [record.reading_id]: true }))}
+                  />
                 ) : (
                   <View style={[styles.cover, styles.fallbackCover, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
                     <Text style={[styles.coverMark, { color: theme.accentPrimary }]}>
-                      {isWebsite ? '↗' : (COVER_MARKS[record.tradition] || '✦')}
+                      {COVER_MARKS[record.tradition] || '✦'}
                     </Text>
                     <Text numberOfLines={3} style={[styles.coverTitle, { color: theme.textPrimary }]}>{record.title}</Text>
                     <Text numberOfLines={2} style={[styles.coverAuthor, { color: theme.textMuted }]}>{record.author_or_attributed_author}</Text>
@@ -226,7 +310,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
                       <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{isExpanded ? 'Less detail' : 'View details'}</Text>
                     </Pressable>
                     <Pressable onPress={() => openExternalUrl(record.resource_url)}>
-                      <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{isWebsite ? 'Read online ↗' : 'Open reading ↗'}</Text>
+                      <Text style={[styles.actionText, { color: theme.accentPrimary }]}>Open book ↗</Text>
                     </Pressable>
                   </View>
                 </View>
@@ -235,6 +319,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
               {isExpanded && (
                 <View style={[styles.detail, { borderTopColor: theme.cardBorder }]}>
                   <Detail label="Tradition / branch" value={[record.tradition, record.school, record.lineage_or_branch].filter(Boolean).join(' · ')} color={theme.textPrimary} muted={theme.textMuted} />
+                  <Detail label="Branch coverage" value={record.branch_coverage.join(' · ')} color={theme.textSecondary} muted={theme.textMuted} />
                   <Detail label="Historical context" value={record.historical_context} color={theme.textSecondary} muted={theme.textMuted} />
                   <Detail label="What it is not" value={record.what_it_is_not} color={theme.textSecondary} muted={theme.textMuted} />
                   {record.translation_notes && <Detail label="Translation / edition" value={record.translation_notes} color={theme.textSecondary} muted={theme.textMuted} />}
@@ -273,7 +358,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
                       </View>
                     </View>
                   )}
-                  <Detail label="Rights" value={record.public_domain_available ? 'Public-domain/open reading available' : record.rights_status} color={theme.textSecondary} muted={theme.textMuted} />
+                  <Detail label="Access / rights" value={record.public_domain_available || record.open_access_url ? 'Public-domain/open-access option recorded' : record.rights_status} color={theme.textSecondary} muted={theme.textMuted} />
                 </View>
               )}
             </View>
@@ -306,6 +391,7 @@ const styles = StyleSheet.create({
   pathwayTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
   pathwayDesc: { fontSize: 11, lineHeight: 16 },
   search: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 14, paddingVertical: 12, fontSize: 14, marginBottom: 8 },
+  filterLabel: { fontSize: 9, fontWeight: '800', letterSpacing: 0.6, textTransform: 'uppercase', marginTop: 8, marginBottom: 1 },
   filters: { gap: 7, paddingVertical: 4, paddingRight: 20 },
   chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 11, paddingVertical: 6 },
   count: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5, marginVertical: 12 },
