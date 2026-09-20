@@ -68,7 +68,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
     <ScrollView contentContainerStyle={[styles.center, { backgroundColor: theme.canvas }]}>
       <View style={[styles.card, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
         <Text style={[styles.eyebrow, { color: theme.accentPrimary }]}>
-          INNER COMPASS · {getReleaseTier() === 'PUBLIC_RELEASE' ? 'PUBLIC U.S. RELEASE' : 'CONTROLLED U.S. BETA'}
+          INNER COMPASS · {getReleaseTier() === 'PUBLIC_RELEASE' ? 'U.S. RELEASE' : 'U.S. EARLY ACCESS'}
         </Text>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Before you continue</Text>
 
@@ -79,7 +79,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Privacy by design</Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            Your reflection text is processed locally on this device by deterministic rules. The production app does not send raw reflection text to an Inner Compass server or AI provider.
+            Your reflection text is processed on this device. Inner Compass does not send raw reflection text to its servers, AI services, advertising networks, or analytics services.
           </Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
             Optional saved reflections store only category-level information locally in this browser. You can clear that local data from About & Privacy.
@@ -132,7 +132,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         </Pressable>
 
         <Text style={[styles.finePrint, { color: theme.textMuted }]}>
-          This gate stores only a local eligibility attestation. It does not request your birthdate, exact age, or precise location. Continuing acknowledges that the notices are available; it does not convert a controlled beta into a counsel-approved public release.
+          This stores only a local eligibility confirmation. It does not request or store your birthdate, exact age, or precise location.
         </Text>
       </View>
     </ScrollView>
