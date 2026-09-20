@@ -135,3 +135,65 @@
 - Permitted research role: Translation comparison/context reference only where needed.
 - Review status: EXCLUDED_FROM_PRODUCT_CORPUS_BY_EDITORIAL_POLICY.
 
+## Phase 3 — Classical Daoism
+
+### [TR-DAO-001] Daodejing 48 — wuwei
+- Tradition: Classical Daoism
+- Work: Daodejing
+- Passage locator: chapter 48
+- Translation A: James Legge — “doing nothing (on purpose)”
+- Material issue: wuwei is one of the most contested Daoist terms. Literal “doing nothing” can falsely imply passivity or neglect.
+- Research decision: store the teaching as SOURCE_PARAPHRASE, not a one-line direct quote.
+- Product treatment: explain non-forcing/uncontrived action contextually; never use as a reason to ignore urgent practical tasks.
+- Review status: SOURCE_VERIFIED; independent promotion audit pending.
+
+### [TR-DAO-002] Daodejing 8 — water
+- Tradition: Classical Daoism
+- Work: Daodejing
+- Passage locator: chapter 8
+- Translation A: James Legge — “The highest excellence is like (that of) water.”
+- Material issue: the larger water image combines benefit, low position, non-contention, place, stillness, skill, and timing; reducing it to “be passive” is inaccurate.
+- Research decision: retain the short verified quote, with full context notes.
+- Product treatment: adaptability/non-contention with explicit boundary protection.
+- Review status: SOURCE_VERIFIED.
+
+### [TR-DAO-003] Daodejing 33 — self-knowledge
+- Tradition: Classical Daoism
+- Work: Daodejing
+- Passage locator: chapter 33
+- Translation A: Legge — “He who knows himself is intelligent. He who overcomes himself is mighty.”
+- Material issue: “intelligent” and “overcomes himself” are Victorian choices; modern translations differ around illumination/wisdom and self-mastery.
+- Product treatment: self-knowledge/self-mastery, not self-rejection.
+- Review status: SOURCE_VERIFIED.
+
+### [TR-DAO-004] Daodejing authorship
+- Modern scholarship does not securely treat the received Daodejing as a single-authored work by one historical Laozi.
+- Research decision: records say “Laozi (traditional attribution); received text is composite.”
+- Product treatment: display traditional attribution without presenting disputed biography as settled fact.
+- Context source: Stanford Encyclopedia of Philosophy, Laozi.
+- Review status: SOURCE_VERIFIED.
+
+### [TR-DAO-005] Zhuangzi authorship layers
+- The received Zhuangzi has 33 chapters divided into Inner, Outer, and Miscellaneous groups.
+- Modern scholarship treats the text as multi-authored; even authorship of the Inner Chapters remains a historical hypothesis.
+- Research decision: every record identifies its textual layer. Outer Chapter 20 is not attributed directly to historical Zhuang Zhou.
+- Context source: Stanford Encyclopedia of Philosophy, Zhuangzi.
+- Review status: SOURCE_VERIFIED.
+
+### [TR-DAO-006] Zhuangzi chapter 1 — “no self / no merit / no fame”
+- Legge's phrase is philosophically dense and easy to misread as ego annihilation or Buddhist anatta.
+- Research decision: store as a sourced paraphrase focused on reduced fixation on fame/merit/self, not as a product direct quote.
+- Review status: SOURCE_VERIFIED.
+
+### [TR-DAO-007] Zhuangzi butterfly dream
+- The passage concerns perspective and the “transformation of things.”
+- Research boundary: do not simplify it to “reality is a dream,” and do not surface it for destabilizing reality-testing symptoms.
+- Record type: SOURCE_PARAPHRASE.
+- Review status: SOURCE_VERIFIED.
+
+### [TR-DAO-008] Zhuangzi “usefulness of uselessness”
+- The received text repeatedly destabilizes conventional judgments of usefulness.
+- Research boundary: this is not a general command to avoid work or responsibility.
+- Product use: challenge global worth/productivity judgments while keeping concrete responsibilities visible.
+- Review status: SOURCE_VERIFIED.
+
