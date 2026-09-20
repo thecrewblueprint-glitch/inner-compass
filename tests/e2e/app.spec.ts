@@ -163,4 +163,24 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
   });
 
+
+  test('Suggested Reads exposes branch-complete deterministic browsing', async ({ page }) => {
+    await page.goto('/');
+    await page.getByText('Suggested Reads', { exact: true }).first().click();
+    await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
+
+    await page.getByText('Madhyamaka', { exact: true }).click();
+    await expect(page.getByText('The Fundamental Wisdom of the Middle Way', { exact: true })).toBeVisible();
+
+    await page.getByText('Madhyamaka', { exact: true }).click();
+    await page.getByText('All branches', { exact: true }).click();
+    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
+    await expect(page.getByText('Kukai: Major Works', { exact: true })).toBeVisible();
+
+    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
+    await page.getByText('All branches', { exact: true }).click();
+    await page.getByText('Sikh philosophy / theology', { exact: true }).click();
+    await expect(page.getByText('Sikhism: A Very Short Introduction', { exact: true })).toBeVisible();
+  });
+
 });
