@@ -1,15 +1,73 @@
 # Inner Compass
 
-A mobile app that helps someone break down a problem they're facing and responds with real, sourced wisdom guidance plus an affirmation — drawing on Eastern philosophy, Jungian shadow work, and evidence-based psychology, not generic self-help or fabricated quotes. Guidance is retrieval-augmented: an LLM matches a user's problem to a curated, human/research-verified knowledge base of real teachings, and only phrases the response using that grounded content rather than generating content from its own training-data memory.
+Inner Compass is a **web-based, deterministic guided-reflection product**. A user's reflection is processed locally in the browser, matched to one of 25 reflection themes, and answered with curated canonical material. The production app does not require an LLM, AI provider, cloud account, or reflection backend.
 
-## Status
+## Current architecture
 
-Pre-MVP. The problem taxonomy is refined to v1.0 (see [`docs/TAXONOMY_V1.0.md`](docs/TAXONOMY_V1.0.md)), validated against real clinical/psychological literature (see [`docs/CLINICAL_KB_V1.0.md`](docs/CLINICAL_KB_V1.0.md)), and mapped to sourced wisdom content across three pillars (see [`docs/WISDOM_MAPPING_V1.0.md`](docs/WISDOM_MAPPING_V1.0.md)). That mapping is now structured into a retrieval-ready knowledge base — 25 categories × 3 sourced entries each (see [`content/knowledge-base/`](content/knowledge-base/), schema in [`docs/KB_SCHEMA_V1.md`](docs/KB_SCHEMA_V1.md)). Next step: the MVP app itself (React Native + Firebase + retrieval matching).
+```text
+Reflection text
+  -> local deterministic safety/scope router
+  -> local deterministic 25-category classifier
+  -> uncertainty / multi-issue gate
+  -> local canonical KB retrieval
+  -> deterministic synthesis
+  -> display
+```
 
-See [`ROADMAP.md`](ROADMAP.md) for the full build plan.
+### Privacy-by-design v1
 
-## Planned stack
+- raw reflection text stays on the device;
+- raw reflection text is not persisted;
+- journal bookmarks store category-level material only;
+- no production AI provider;
+- no behavioral advertising;
+- no third-party analytics or session replay;
+- no account or cloud-journal sync;
+- no connected health/wearable data;
+- initial public launch is 18+ and U.S.-only.
 
-- **App:** React Native
-- **LLM:** OpenRouter (free-tier model) — for matching + phrasing only, not content generation
-- **Backend/storage:** Firebase
+See `docs/legal/COMPLIANCE_ARCHITECTURE_2026.md` and Issue #8 for the launch gate.
+
+## Knowledge base
+
+The production canonical KB contains 25 categories x 3 pillars = 75 entries. The separate `research/wisdom-corpus/` area is a staging corpus and is **not automatically promoted into the product**.
+
+Research records distinguish:
+
+1. verified direct quotations;
+2. source paraphrases;
+3. original Inner Compass affirmations.
+
+Direct quotations are withheld from production display until the exact translation/edition receives explicit product-display rights approval.
+
+## Testing
+
+The production build is static Vite.
+
+Synthetic deterministic regression testing uses `tools/eval/deterministic_eval_server.ts`, which is not part of the production build.
+
+Key checks:
+- deterministic baselines;
+- uncertainty gate;
+- 12,000-scenario human-flow fuzz;
+- browser E2E;
+- zero-network / zero-runtime-AI production policy.
+
+## Product scope
+
+Inner Compass is designed as a **general-wellness and educational reflection tool**. It is not medical care, psychotherapy, diagnosis, treatment, clinical decision support, or an emergency service.
+
+## Build
+
+```bash
+npm install --legacy-peer-deps
+npm run lint
+npm run build
+npm run dev
+```
+
+Developer-only deterministic evaluation server:
+
+```bash
+npm run dev:eval
+```
