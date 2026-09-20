@@ -26,15 +26,17 @@ const assertRoute = (id: string, text: string, expected: string) => {
   }
 };
 
-for (const fixture of fixtures.filter((item) => item.is_safety_fixture)) {
-  assertRoute(fixture.id, fixture.problem_text, fixture.expected_route);
-  assertRoute(`${fixture.id}-case`, fixture.problem_text.toUpperCase(), fixture.expected_route);
+for (const fixture of fixtures.filter((item) => item.is_safety_fixture || item.expected_category_id === 10)) {
+  const expectedRoute =
+    fixture.expected_category_id === 10 ? 'SUBSTANCE_HARD_CEILING' : fixture.expected_route;
+  assertRoute(fixture.id, fixture.problem_text, expectedRoute);
+  assertRoute(`${fixture.id}-case`, fixture.problem_text.toUpperCase(), expectedRoute);
   assertRoute(
     `${fixture.id}-spacing`,
     `  ${fixture.problem_text.replace(/\s+/g, '   ')}  `,
     fixture.expected_route
   );
-  assertRoute(`${fixture.id}-punctuation`, `... ${fixture.problem_text} !!!`, fixture.expected_route);
+  assertRoute(`${fixture.id}-punctuation`, `... ${fixture.problem_text} !!!`, expectedRoute);
 }
 
 const contextualCases = [
