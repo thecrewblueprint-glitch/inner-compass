@@ -1,24 +1,66 @@
 #!/usr/bin/env python3
+"""Fail closed if production reintroduces reflection networking or AI providers."""
+
+import json
 from pathlib import Path
 
-openrouter = Path("server/openrouter.ts").read_text()
-server = Path("server.ts").read_text()
-app = Path("src/App.tsx").read_text()
-gitignore = Path(".gitignore").read_text()
+ROOT = Path(".")
+SRC = ROOT / "src"
+PACKAGE = json.loads((ROOT / "package.json").read_text())
+ENV_EXAMPLE = (ROOT / ".env.example").read_text()
 
-assert "OPENROUTER_FREE_MODEL = 'openrouter/free'" in openrouter, "Production model is not locked to openrouter/free"
-assert "google/gemini-2.0-flash-001" not in openrouter, "Paid/explicit Gemini OpenRouter model reintroduced"
-assert "model: OPENROUTER_FREE_MODEL" in openrouter, "OpenRouter request is not using the free-only model constant"
+FORBIDDEN_DEPENDENCIES = {
+    "@google/genai",
+    "openai",
+    "@anthropic-ai/sdk",
+}
 
-guidance_start = server.index("// Primary Guidance Endpoint")
-eval_start = server.index("TEST-ONLY EVALUATION ENDPOINT")
-guidance = server[guidance_start:eval_start]
+deps = PACKAGE.get("dependencies", {})
+for name in FORBIDDEN_DEPENDENCIES:
+    assert name not in deps, f"Forbidden production AI dependency present: {name}"
 
-assert "callStructuredPhrasing" in guidance, "Production guidance no longer uses the guarded OpenRouter phrasing adapter"
-assert "getGeminiClient()" not in guidance, "Production Gemini fallback reintroduced"
-assert "openrouter_free" in guidance, "Production AI mode is not explicitly free-only"
-assert "|| true" not in app, "Forced preview mode reintroduced"
-assert "blockedFromWisdomMatching" in app, "Client fallback no longer respects deterministic safety blocking"
-assert ".env" in gitignore, "Local environment files are not ignored"
+assert not (ROOT / "server.ts").exists(), "Production server.ts must not exist"
+assert not (ROOT / "server" / "openrouter.ts").exists(), "OpenRouter runtime adapter must not exist"
 
-print("PASS: production AI policy is deterministic-first, fail-closed, and OpenRouter-free-only.")
+build_script = PACKAGE.get("scripts", {}).get("build", "")
+assert build_script.strip() == "vite build", "Production build must remain static Vite only"
+
+provider_tokens = (
+    "OPENROUTER_API_KEY",
+    "GEMINI_API_KEY",
+    "INNER_COMPASS_AI_MODE",
+    "openrouter.ai",
+    "@google/genai",
+)
+for token in provider_tokens:
+    assert token not in ENV_EXAMPLE, f"Provider configuration reintroduced in .env.example: {token}"
+
+production_source = ""
+for path in sorted(SRC.rglob("*")):
+    if path.suffix in {".ts", ".tsx", ".js", ".jsx"} and path.is_file():
+        production_source += f"\n// FILE: {path}\n" + path.read_text(errors="ignore")
+
+for token in (
+    "/api/guidance",
+    "/api/eval/guidance",
+    "OPENROUTER_API_KEY",
+    "GEMINI_API_KEY",
+    "openrouter.ai",
+    "@google/genai",
+):
+    assert token not in production_source, f"Forbidden production provider/API token found: {token}"
+
+# v1 is intentionally network-free inside application source. Static assets are
+# delivered by the host; reflection logic must not originate network requests.
+assert "fetch(" not in production_source, "Production src/ contains fetch(); local-only invariant violated"
+assert "XMLHttpRequest" not in production_source, "Production src/ contains XMLHttpRequest"
+assert "navigator.sendBeacon" not in production_source, "Production src/ contains sendBeacon"
+assert "new WebSocket" not in production_source, "Production src/ contains WebSocket"
+
+app = (SRC / "App.tsx").read_text()
+assert "evaluateSafetyUpstream(problemText)" in app, "Local deterministic safety routing missing"
+assert "retrieveGroundedGuidance(" in app, "Local deterministic classification/retrieval missing"
+assert "LAUNCH_ATTESTATION_KEY" in app, "Adult/U.S. launch gate not wired into app"
+assert "About & Privacy" in app, "Privacy surface not present in app navigation"
+
+print("PASS: production is static, deterministic, provider-free, and raw-reflection network-free.")
