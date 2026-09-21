@@ -589,7 +589,7 @@ const AppContent: React.FC = () => {
         <View style={[styles.previewBanner, { backgroundColor: theme.card, borderBottomColor: theme.cardBorder }]}>
           <Text style={[styles.previewText, { color: theme.accentPrimary }]}>● BETA PREVIEW</Text>
           <Text style={[styles.previewDetail, { color: theme.textSecondary }]}>
-            Reflection · Wisdom Library · Suggested Reads
+            Reflection · Wisdom Archive · Suggested Reads
           </Text>
         </View>
       )}
