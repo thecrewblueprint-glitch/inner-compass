@@ -461,7 +461,7 @@ const AppContent: React.FC = () => {
           <Pressable
             onPress={() => setThemePickerVisible(true)}
             accessibilityRole="button"
-            accessibilityLabel={`Theme: ${theme.name}. Click to change atmosphere.`}
+            accessibilityLabel={`Open Colors. Theme: ${theme.name}. Click to change atmosphere.`}
             style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
           >
             <View style={styles.themeButtonContent}>
