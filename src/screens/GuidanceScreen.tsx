@@ -142,6 +142,7 @@ export const GuidanceScreen: React.FC<GuidanceScreenProps> = ({
         <Text style={[styles.sectionLabel, { color: theme.affirmationLabel }]}>POSITIVE AFFIRMATION</Text>
         <Text
           style={[styles.affirmationText, { color: theme.affirmationText }]}
+          accessibilityLabel="Reflection affirmation"
           {...({ 'data-testid': 'grounded-affirmation-text' } as any)}
         >
           {wisdom.affirmation}
