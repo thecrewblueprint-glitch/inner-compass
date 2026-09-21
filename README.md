@@ -32,8 +32,8 @@ Current surfaces:
 
 - **Reflect** — deterministic safety, category matching, clarification, and canonical guidance
 - **Taxonomy** — all 25 problem categories and the three canonical pillars
-- **Wisdom** — 71 research records across audited source traditions; exact direct-quote text is rights-gated
-- **Suggested Reads** — visual curated library spanning the supported philosophical branches, traditions, pathways, levels, and legal reading links
+- **Wisdom** — a searchable 25-theme reflection archive of source-passage summaries, positive affirmations, and practical category guidance; exact quotation display remains rights-gated
+- **Suggested Reads** — the deeper knowledge library for books, primary texts, scholarship, philosophical branches, traditions, historical context, pathways, and legal reading links
 - **Journal** — local bookmarks without raw reflection text
 - **Privacy** — personalization toggle and clear-local-data controls
 - **Legal & Safety** — Terms, Privacy, Consumer Health Data, Safety/Crisis, and Accessibility notices

@@ -97,12 +97,45 @@ export interface RetrievalMatch {
   clarificationQuestion?: string;
 }
 
+export interface WisdomPassage {
+  recordId: string;
+  tradition: string;
+  author: string;
+  work: string;
+  section: string | null;
+  summary: string;
+  sourceUrl: string | null;
+  rightsStatus: string;
+  displayMode: 'SOURCE_SUMMARY' | 'APPROVED_PASSAGE';
+}
+
+export interface WisdomGuidancePoint {
+  id: string;
+  lens: string;
+  sourceAuthor: string;
+  sourceWork: string;
+  teaching: string;
+  practice: string | null;
+}
+
+export interface WisdomArchiveEntry {
+  categoryId: number;
+  categoryName: string;
+  existentialRoots: ExistentialRoot[];
+  affirmationId: string | null;
+  affirmation: string;
+  guidanceSummary: string;
+  passages: WisdomPassage[];
+  guidancePoints: WisdomGuidancePoint[];
+}
+
 export interface GuidanceResult {
   category: Category;
   safety: SafetyRoutingResult;
   grounding?: GroundingValidationResult;
   affirmation: string;
   synthesis: string;
+  wisdom: WisdomArchiveEntry;
   guidanceSource?: 'canonical_deterministic';
 }
 

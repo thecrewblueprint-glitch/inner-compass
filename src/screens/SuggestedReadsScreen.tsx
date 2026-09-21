@@ -133,7 +133,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Suggested Reads</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Explore primary texts and scholarship by tradition, branch, theme, and reading level.
+          Go deeper into the books, primary texts, scholarship, traditions, branches, history, and study context behind the Wisdom Archive.
         </Text>
       </View>
 

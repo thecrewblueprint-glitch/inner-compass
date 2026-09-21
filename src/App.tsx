@@ -17,7 +17,6 @@ import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
 import { LegalScreen, LegalDocumentKey } from './screens/LegalScreen';
 import { DiagnosticsScreen } from './screens/DiagnosticsScreen';
-import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
 import { AppErrorBoundary } from './components/AppErrorBoundary';
 import { LaunchGate, LAUNCH_ATTESTATION_KEY } from './components/LaunchGate';
@@ -25,8 +24,8 @@ import { evaluateSafetyUpstream } from './safety/safetyRouter';
 import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
 import { getCategoryById } from './knowledgeBase/kbLoader';
-import { WISDOM_AFFIRMATIONS } from './data/wisdomLibrary';
-import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
+import { getWisdomArchiveEntry } from './data/wisdomArchive';
+import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, SavedReflection } from './types';
 import { ThemeProvider, useTheme } from './theme';
 import { recordCategoryInteraction } from './services/dailyAffirmationService';
 import { installGlobalDebugHooks, recordDebugEvent } from './debug/debugStore';
@@ -66,15 +65,6 @@ const ROOT_NAVIGATION: NavigationState = {
   crisisAlert: null,
   wisdomLinkContext: null,
   readsLinkContext: null,
-};
-
-const getCategoryAffirmation = (categoryId: number, fallback: string): string => {
-  const candidate = WISDOM_AFFIRMATIONS.find(
-    (item) =>
-      item.category_id === categoryId &&
-      ['CATEGORY_VERIFIED', 'APPROVED', 'SOURCE_LINKED'].includes(item.review_status)
-  );
-  return candidate?.text || fallback;
 };
 
 const AppContent: React.FC = () => {
@@ -136,12 +126,6 @@ const AppContent: React.FC = () => {
     }
     return [];
   });
-
-  const [practiceModal, setPracticeModal] = useState<{
-    visible: boolean;
-    category: Category | null;
-    entry: KBEntry | null;
-  }>({ visible: false, category: null, entry: null });
 
   useEffect(() => {
     try {
@@ -235,12 +219,14 @@ const AppContent: React.FC = () => {
 
   const makeGuidance = (category: Category, safety: ReturnType<typeof evaluateSafetyUpstream>): GuidanceResult => {
     const grounding = validateGrounding(null, category);
+    const wisdom = getWisdomArchiveEntry(category.category_id);
     return {
       category,
       safety,
       grounding,
-      affirmation: getCategoryAffirmation(category.category_id, category.synthesis_note),
-      synthesis: category.synthesis_note,
+      affirmation: wisdom.affirmation,
+      synthesis: wisdom.guidanceSummary,
+      wisdom,
       guidanceSource: 'canonical_deterministic',
     };
   };
@@ -603,7 +589,7 @@ const AppContent: React.FC = () => {
         <View style={[styles.previewBanner, { backgroundColor: theme.card, borderBottomColor: theme.cardBorder }]}>
           <Text style={[styles.previewText, { color: theme.accentPrimary }]}>● BETA PREVIEW</Text>
           <Text style={[styles.previewDetail, { color: theme.textSecondary }]}>
-            Reflection · Wisdom Library · Suggested Reads
+            Reflection · Wisdom Archive · Suggested Reads
           </Text>
         </View>
       )}
@@ -614,9 +600,6 @@ const AppContent: React.FC = () => {
             <GuidanceScreen
               result={guidanceResult}
               onBack={navigateBack}
-              onOpenPractice={(category, entry) =>
-                setPracticeModal({ visible: true, category, entry })
-              }
               onSaveReflection={handleSaveReflection}
               isSaved={isCurrentCategorySaved}
               onOpenCrisis={() => routeSafety()}
@@ -649,7 +632,7 @@ const AppContent: React.FC = () => {
             initialCategoryId={wisdomLinkContext?.categoryId ?? null}
             initialRecordId={wisdomLinkContext?.recordId ?? null}
             onSelectCategoryId={handleSelectCategoryId}
-            onOpenSuggestedReads={openReadsForWisdomRecord}
+            onOpenSuggestedReads={openReadsForCategory}
           />
         )}
 
@@ -707,13 +690,6 @@ const AppContent: React.FC = () => {
           <Pressable accessibilityRole="link" onPress={() => navigateToTab('crisis')}><Text style={[styles.footerLink, { color: theme.crisisAccent }]}>Lifelines</Text></Pressable>
         </View>
       </View>
-
-      <PracticeModalRN
-        visible={practiceModal.visible}
-        category={practiceModal.category}
-        entry={practiceModal.entry}
-        onClose={() => setPracticeModal({ visible: false, category: null, entry: null })}
-      />
 
       <ThemePickerModal
         visible={themePickerVisible}
