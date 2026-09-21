@@ -1,0 +1,32 @@
+name: Inner Compass Wisdom Retrieval Regression
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/data/wisdomArchive.ts"
+      - "src/data/wisdomLibrary.ts"
+      - "content/knowledge-base/**"
+      - "research/wisdom-corpus/**"
+      - "tools/eval/audit_wisdom_retrieval.py"
+      - ".github/workflows/wisdom-retrieval-regression.yml"
+  workflow_dispatch:
+
+jobs:
+  wisdom-retrieval-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit deterministic Wisdom retrieval chain
+        run: python3 tools/eval/audit_wisdom_retrieval.py
+      - name: Upload correction map
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: inner-compass-wisdom-retrieval-regression
+          path: tools/eval/results/wisdom-retrieval/
+          if-no-files-found: warn
