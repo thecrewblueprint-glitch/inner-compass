@@ -8,6 +8,7 @@ import {
   Text,
   TextInput,
   View,
+  Platform,
 } from 'react-native';
 import { useTheme } from '../theme';
 import { READING_PATHWAYS, READING_RECORDS } from '../data/readingDirectory';
@@ -67,6 +68,8 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
   const [pathway, setPathway] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showMoreFilters, setShowMoreFilters] = useState(false);
+  const [traditionMenuOpen, setTraditionMenuOpen] = useState(false);
+  const [branchMenuOpen, setBranchMenuOpen] = useState(false);
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 12;
   const [failedCovers, setFailedCovers] = useState<Record<string, boolean>>({});
@@ -183,42 +186,84 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         </Text>
 
         <Text style={[styles.filterLabel, { color: theme.textMuted }]}>School of thought / tradition</Text>
-        <View style={styles.filters}>
-          {['ALL', ...traditions].map((item) => (
-            <Pressable
-              key={item}
-              onPress={() => {
-                setTradition(item);
-                setBranchFilter('ALL');
-              }}
-              accessibilityRole="button"
-              accessibilityState={{ selected: tradition === item }}
-              style={[styles.schoolChip, { backgroundColor: tradition === item ? theme.accentPrimary : theme.badgeBg, borderColor: tradition === item ? theme.accentPrimary : theme.badgeBorder }]}
-            >
-              <Text style={{ color: tradition === item ? theme.accentText : theme.badgeText, fontWeight: '800', fontSize: 12 }}>
-                {item === 'ALL' ? 'Explore everything' : item}
-              </Text>
-            </Pressable>
-          ))}
+        <View style={styles.dropdownWrap}>
+          <Pressable
+            onPress={() => {
+              setTraditionMenuOpen((open) => !open);
+              setBranchMenuOpen(false);
+            }}
+            accessibilityRole="button"
+            accessibilityLabel="Choose a school of thought or tradition"
+            accessibilityState={{ expanded: traditionMenuOpen }}
+            style={[styles.dropdownButton, { backgroundColor: theme.inputBg, borderColor: theme.inputBorder }]}
+          >
+            <Text numberOfLines={1} style={[styles.dropdownValue, { color: theme.textPrimary }]}>
+              {tradition === 'ALL' ? 'Explore everything' : tradition}
+            </Text>
+            <Text style={[styles.dropdownChevron, { color: theme.textMuted }]}>{traditionMenuOpen ? '▲' : '▼'}</Text>
+          </Pressable>
+          {traditionMenuOpen && (
+            <View style={[styles.dropdownMenu, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
+              {['ALL', ...traditions].map((item) => (
+                <Pressable
+                  key={item}
+                  onPress={() => {
+                    setTradition(item);
+                    setBranchFilter('ALL');
+                    setTraditionMenuOpen(false);
+                  }}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: tradition === item }}
+                  style={[styles.dropdownOption, tradition === item && { backgroundColor: theme.badgeBg }]}
+                >
+                  <Text style={[styles.dropdownOptionText, { color: tradition === item ? theme.accentPrimary : theme.textPrimary }]}>
+                    {item === 'ALL' ? 'Explore everything' : item}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          )}
         </View>
 
         {tradition !== 'ALL' && branches.some((item) => READING_RECORDS.some((record) => record.tradition === tradition && record.branch_coverage.includes(item))) && (
           <>
-            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Schools / branches within {tradition}</Text>
-            <View style={styles.filters}>
-              {['ALL', ...branches.filter((item) => READING_RECORDS.some((record) => record.tradition === tradition && record.branch_coverage.includes(item)))].map((item) => (
-                <Pressable
-                  key={item}
-                  onPress={() => setBranchFilter(item)}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: branchFilter === item }}
-                  style={[styles.chip, { backgroundColor: branchFilter === item ? theme.accentPrimary : theme.badgeBg, borderColor: branchFilter === item ? theme.accentPrimary : theme.badgeBorder }]}
-                >
-                  <Text style={{ color: branchFilter === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-                    {item === 'ALL' ? 'All branches' : item}
-                  </Text>
-                </Pressable>
-              ))}
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>School / branch</Text>
+            <View style={styles.dropdownWrap}>
+              <Pressable
+                onPress={() => {
+                  setBranchMenuOpen((open) => !open);
+                  setTraditionMenuOpen(false);
+                }}
+                accessibilityRole="button"
+                accessibilityLabel={`Choose a school or branch within ${tradition}`}
+                accessibilityState={{ expanded: branchMenuOpen }}
+                style={[styles.dropdownButton, { backgroundColor: theme.inputBg, borderColor: theme.inputBorder }]}
+              >
+                <Text numberOfLines={1} style={[styles.dropdownValue, { color: theme.textPrimary }]}>
+                  {branchFilter === 'ALL' ? 'All branches' : branchFilter}
+                </Text>
+                <Text style={[styles.dropdownChevron, { color: theme.textMuted }]}>{branchMenuOpen ? '▲' : '▼'}</Text>
+              </Pressable>
+              {branchMenuOpen && (
+                <View style={[styles.dropdownMenu, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
+                  {['ALL', ...branches.filter((item) => READING_RECORDS.some((record) => record.tradition === tradition && record.branch_coverage.includes(item)))].map((item) => (
+                    <Pressable
+                      key={item}
+                      onPress={() => {
+                        setBranchFilter(item);
+                        setBranchMenuOpen(false);
+                      }}
+                      accessibilityRole="button"
+                      accessibilityState={{ selected: branchFilter === item }}
+                      style={[styles.dropdownOption, branchFilter === item && { backgroundColor: theme.badgeBg }]}
+                    >
+                      <Text style={[styles.dropdownOptionText, { color: branchFilter === item ? theme.accentPrimary : theme.textPrimary }]}>
+                        {item === 'ALL' ? 'All branches' : item}
+                      </Text>
+                    </Pressable>
+                  ))}
+                </View>
+              )}
             </View>
           </>
         )}
@@ -478,6 +523,13 @@ const styles = StyleSheet.create({
   discoveryActions: { flexDirection: 'row', gap: 18, marginTop: 8 },
   advancedFilters: { borderTopWidth: 1, marginTop: 12, paddingTop: 8 },
   schoolChip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 8 },
+  dropdownWrap: { position: 'relative', zIndex: 20, marginBottom: 8 },
+  dropdownButton: { minHeight: 44, borderWidth: 1, borderRadius: 12, paddingHorizontal: 13, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  dropdownValue: { flex: 1, fontSize: 13, fontWeight: '700' },
+  dropdownChevron: { fontSize: 10, fontWeight: '800' },
+  dropdownMenu: { borderWidth: 1, borderRadius: 12, marginTop: 5, maxHeight: 290, overflow: 'auto' as any, ...Platform.select({ web: { boxShadow: '0 8px 24px rgba(0,0,0,0.12)' } as any, default: {} }) },
+  dropdownOption: { paddingHorizontal: 13, paddingVertical: 11 },
+  dropdownOptionText: { fontSize: 12, fontWeight: '700' },
   pathways: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingVertical: 4, marginBottom: 12 },
   pathwayCard: { width: 220, maxWidth: '100%', minHeight: 92, borderWidth: 1, borderRadius: 15, padding: 13 },
   pathwayTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
