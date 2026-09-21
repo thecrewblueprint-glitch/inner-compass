@@ -17,7 +17,6 @@ import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
 import { LegalScreen, LegalDocumentKey } from './screens/LegalScreen';
 import { DiagnosticsScreen } from './screens/DiagnosticsScreen';
-import { PracticeModalRN } from './components/PracticeModalRN';
 import { ThemePickerModal } from './components/ThemePickerModal';
 import { AppErrorBoundary } from './components/AppErrorBoundary';
 import { LaunchGate, LAUNCH_ATTESTATION_KEY } from './components/LaunchGate';
@@ -26,7 +25,7 @@ import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
 import { getCategoryById } from './knowledgeBase/kbLoader';
 import { getWisdomArchiveEntry } from './data/wisdomArchive';
-import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
+import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, SavedReflection } from './types';
 import { ThemeProvider, useTheme } from './theme';
 import { recordCategoryInteraction } from './services/dailyAffirmationService';
 import { installGlobalDebugHooks, recordDebugEvent } from './debug/debugStore';
@@ -127,12 +126,6 @@ const AppContent: React.FC = () => {
     }
     return [];
   });
-
-  const [practiceModal, setPracticeModal] = useState<{
-    visible: boolean;
-    category: Category | null;
-    entry: KBEntry | null;
-  }>({ visible: false, category: null, entry: null });
 
   useEffect(() => {
     try {
@@ -607,9 +600,6 @@ const AppContent: React.FC = () => {
             <GuidanceScreen
               result={guidanceResult}
               onBack={navigateBack}
-              onOpenPractice={(category, entry) =>
-                setPracticeModal({ visible: true, category, entry })
-              }
               onSaveReflection={handleSaveReflection}
               isSaved={isCurrentCategorySaved}
               onOpenCrisis={() => routeSafety()}
@@ -642,7 +632,7 @@ const AppContent: React.FC = () => {
             initialCategoryId={wisdomLinkContext?.categoryId ?? null}
             initialRecordId={wisdomLinkContext?.recordId ?? null}
             onSelectCategoryId={handleSelectCategoryId}
-            onOpenSuggestedReads={openReadsForWisdomRecord}
+            onOpenSuggestedReads={openReadsForCategory}
           />
         )}
 
@@ -700,13 +690,6 @@ const AppContent: React.FC = () => {
           <Pressable accessibilityRole="link" onPress={() => navigateToTab('crisis')}><Text style={[styles.footerLink, { color: theme.crisisAccent }]}>Lifelines</Text></Pressable>
         </View>
       </View>
-
-      <PracticeModalRN
-        visible={practiceModal.visible}
-        category={practiceModal.category}
-        entry={practiceModal.entry}
-        onClose={() => setPracticeModal({ visible: false, category: null, entry: null })}
-      />
 
       <ThemePickerModal
         visible={themePickerVisible}
