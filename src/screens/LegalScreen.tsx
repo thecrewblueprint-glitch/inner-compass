@@ -116,13 +116,13 @@ const P = ({ children }: { children: React.ReactNode }) => {
 const Terms = () => (
   <View style={styles.body}>
     <H>Terms of Use</H>
-    <P>Inner Compass is an English-only, United States general-wellness reflection product for adults age 18 or older. It provides research-informed educational and reflective content.</P>
+    <P>Inner Compass is an English-only, United States general-wellness reflection product for adults age 18 or older. It provides research-informed educational and reflective content for consideration.</P>
     <H>Not professional care</H>
-    <P>Inner Compass is not therapy, psychotherapy, diagnosis, medical treatment, legal advice, financial advice, or an emergency-response service. It does not determine the correct life decision for you.</P>
+    <P>Inner Compass is not therapy, psychotherapy, diagnosis, medical treatment, legal advice, financial advice, or an emergency-response service. It does not assess your mental-health status, establish a professional relationship, or determine the correct life decision for you.</P>
     <H>Your use</H>
-    <P>You remain responsible for your choices and for seeking qualified professional or emergency help when appropriate. Do not use Inner Compass to delay urgent human help.</P>
+    <P>You remain responsible for your choices. The app's category matches, affirmations, source summaries, and practices are informational reflection aids, not individualized professional recommendations. Seek qualified professional or emergency help when appropriate. Do not use Inner Compass to delay urgent human help.</P>
     <H>Safety limitations</H>
-    <P>The app uses automated safety checks to pause ordinary reflection when safety-related language is detected. Automated checks cannot recognize every possible phrase or context.</P>
+    <P>The app uses deterministic text-matching safety checks to pause ordinary reflection when supported safety-related language is detected. These checks are not a clinical assessment, risk evaluation, or monitoring service and cannot recognize every possible phrase or context.</P>
     <H>Availability and changes</H>
     <P>Features, research sources, links, and availability may change. Third-party resources are controlled by their providers and are not operated by Inner Compass.</P>
     <H>Intellectual property</H>
@@ -135,7 +135,7 @@ const Terms = () => (
 const Privacy = () => (
   <View style={styles.body}>
     <H>Privacy Notice</H>
-    <P>Your reflection text is processed in your browser on this device. Inner Compass is designed not to send that text to its servers, AI services, advertising networks, or analytics services.</P>
+    <P>Your reflection text is processed in your browser on this device. In the current Beta, Inner Compass does not intentionally send that text to its servers, AI services, advertising networks, or analytics services.</P>
     <H>Local browser data</H>
     <P>The app may store saved reflection themes, affirmations, personalization counts, color settings, eligibility confirmation, and basic reliability information in your browser. Your original reflection text is not intentionally saved.</P>
     <H>On-device app information</H>
@@ -145,7 +145,7 @@ const Privacy = () => (
     <H>Retention and deletion</H>
     <P>Data stored in your browser remains until you or your browser removes it. The Privacy screen provides controls to clear saved reflections, personalization history, or all Inner Compass data on this device.</P>
     <H>No sale or targeted advertising</H>
-    <P>This Beta does not sell personal data, use reflection data for targeted advertising, or include third-party advertising or behavioral analytics.</P>
+    <P>In the current Beta, Inner Compass does not sell personal data, use reflection data for targeted advertising, or include third-party advertising or behavioral analytics.</P>
   </View>
 );
 
@@ -170,9 +170,9 @@ const HealthData = () => (
 const Safety = () => (
   <View style={styles.body}>
     <H>Safety & Crisis Notice</H>
-    <P>Inner Compass is not an emergency service. Automated safety checks run before ordinary reflection guidance and may pause the normal experience when safety-related language is detected.</P>
+    <P>Inner Compass is not an emergency service. Deterministic text-matching safety checks run before ordinary reflection guidance and may pause the normal experience when supported safety-related language is detected. They do not assess or monitor a person's safety status.</P>
     <H>Detection limits</H>
-    <P>This Beta supports English only. Automated safety checks are tested, but no text-matching system can recognize every phrase, spelling, context, or meaning.</P>
+    <P>This Beta supports English only. The safety checks are tested against defined scenarios, but no text-matching system can recognize every phrase, spelling, context, or meaning. A normal reflection result does not mean a situation has been assessed as safe.</P>
     <H>When context is unclear</H>
     <P>When safety-related language is unclear, Inner Compass may show support options instead of ordinary reflection content.</P>
     <H>Immediate human help</H>
