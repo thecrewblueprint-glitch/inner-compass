@@ -72,13 +72,13 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         <Text style={[styles.title, { color: theme.textPrimary }]}>Before you continue</Text>
 
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          Inner Compass is a general-wellness and guided-reflection product. It does not diagnose, treat, cure, mitigate, or prevent any medical or mental-health condition.
+          Inner Compass is a general-wellness reflection and educational product. It does not diagnose, treat, cure, mitigate, or prevent any medical or mental-health condition, assess your mental-health status, or provide individualized professional advice.
         </Text>
 
         <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
           <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Privacy by design</Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-            What you type is processed on this device. Inner Compass does not send your reflection text to its servers, AI services, advertising networks, or analytics services.
+            What you type is processed on this device. In the current Beta, Inner Compass does not intentionally send your reflection text to its servers, AI services, advertising networks, or analytics services.
           </Text>
           <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
             Optional saved reflections keep only the selected reflection theme and saved content in this browser. You can clear that data from Privacy.
@@ -86,7 +86,7 @@ export const LaunchGate: React.FC<LaunchGateProps> = ({ onAccepted }) => {
         </View>
 
         <Text style={[styles.body, { color: theme.textSecondary }]}>
-          This Beta supports English only. By continuing, you confirm that you are at least 18 years old and located in the United States. The reflection text you enter is processed on this device to provide the experience and is not sent off-device by Inner Compass.
+          This Beta supports English only. By continuing, you confirm that you are at least 18 years old and located in the United States. Reflection guidance is for consideration and does not determine what you should do. The reflection text you enter is processed on this device to provide the experience and is not intentionally transmitted off-device by Inner Compass.
         </Text>
 
         <Pressable
