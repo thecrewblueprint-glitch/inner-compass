@@ -43,7 +43,7 @@ const PassageCard: React.FC<{ passage: WisdomPassage }> = ({ passage }) => {
         {passage.section ? ` · ${passage.section}` : ''}
       </Text>
       {passage.sourceUrl && (
-        <Pressable onPress={() => openExternalUrl(passage.sourceUrl)} accessibilityRole="link">
+        <Pressable onPress={() => openExternalUrl(passage.sourceUrl!)} accessibilityRole="link">
           <Text style={[styles.sourceLink, { color: theme.accentPrimary }]}>View source ↗</Text>
         </Pressable>
       )}
