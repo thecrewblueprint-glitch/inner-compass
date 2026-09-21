@@ -25,7 +25,7 @@ import { evaluateSafetyUpstream } from './safety/safetyRouter';
 import { retrieveGroundedGuidance } from './retrieval/retrievalEngine';
 import { validateGrounding } from './validation/groundingValidator';
 import { getCategoryById } from './knowledgeBase/kbLoader';
-import { WISDOM_AFFIRMATIONS } from './data/wisdomLibrary';
+import { getWisdomArchiveEntry } from './data/wisdomArchive';
 import { Category, EmergencyResource, ExistentialRoot, GuidanceResult, KBEntry, SavedReflection } from './types';
 import { ThemeProvider, useTheme } from './theme';
 import { recordCategoryInteraction } from './services/dailyAffirmationService';
@@ -66,15 +66,6 @@ const ROOT_NAVIGATION: NavigationState = {
   crisisAlert: null,
   wisdomLinkContext: null,
   readsLinkContext: null,
-};
-
-const getCategoryAffirmation = (categoryId: number, fallback: string): string => {
-  const candidate = WISDOM_AFFIRMATIONS.find(
-    (item) =>
-      item.category_id === categoryId &&
-      ['CATEGORY_VERIFIED', 'APPROVED', 'SOURCE_LINKED'].includes(item.review_status)
-  );
-  return candidate?.text || fallback;
 };
 
 const AppContent: React.FC = () => {
@@ -235,12 +226,14 @@ const AppContent: React.FC = () => {
 
   const makeGuidance = (category: Category, safety: ReturnType<typeof evaluateSafetyUpstream>): GuidanceResult => {
     const grounding = validateGrounding(null, category);
+    const wisdom = getWisdomArchiveEntry(category.category_id);
     return {
       category,
       safety,
       grounding,
-      affirmation: getCategoryAffirmation(category.category_id, category.synthesis_note),
-      synthesis: category.synthesis_note,
+      affirmation: wisdom.affirmation,
+      synthesis: wisdom.guidanceSummary,
+      wisdom,
       guidanceSource: 'canonical_deterministic',
     };
   };
