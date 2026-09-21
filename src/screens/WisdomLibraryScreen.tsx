@@ -219,6 +219,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
                 {onSelectCategoryId && (
                   <Pressable
                     onPress={() => onSelectCategoryId(entry.categoryId)}
+                    accessibilityLabel={`Open reflection guidance for ${entry.categoryName}`}
                     style={[styles.actionButton, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
                   >
                     <Text style={[styles.actionText, { color: theme.accentPrimary }]}>Open as reflection →</Text>
@@ -228,6 +229,7 @@ export const WisdomLibraryScreen: React.FC<WisdomLibraryScreenProps> = ({
                 {onOpenSuggestedReads && (
                   <Pressable
                     onPress={() => onOpenSuggestedReads(entry.categoryId)}
+                    accessibilityLabel={`Suggested reads related to ${entry.categoryName}`}
                     style={[styles.actionButton, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}
                   >
                     <Text style={[styles.actionText, { color: theme.accentPrimary }]}>Suggested Reads →</Text>
