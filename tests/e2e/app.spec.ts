@@ -71,7 +71,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByLabel('Submit Reflection').click();
 
     await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
-    await expect(page.getByText('REFLECTION', { exact: true })).toBeVisible();
+    await expect(page.getByText('POSITIVE AFFIRMATION', { exact: true })).toBeVisible();
     await expect(page.getByText('RESEARCH-INFORMED REFLECTION')).toBeVisible();
     expect(guidanceRequests).toEqual([]);
 
@@ -87,12 +87,12 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Journal (1)');
     await expect(page.getByText('Bookmarked Wisdom & Affirmations')).toBeVisible();
     await page.getByLabel(/Explore wisdom related to/).click();
-    await expect(page.getByText('WISDOM ACROSS TRADITIONS')).toBeVisible();
+    await expect(page.getByText('SEARCHABLE REFLECTION ARCHIVE')).toBeVisible();
     await expect(page.getByText('Showing wisdom connected to your current selection.')).toBeVisible();
-    await expect(page.getByText(/summarizes the source instead of reproducing the full passage/).first()).toBeVisible();
+    await expect(page.getByText('SOURCE PASSAGE SUMMARY', { exact: true }).first()).toBeVisible();
 
     await navigateFromHeader(page, 'Wisdom');
-    await expect(page.getByText(/71 entries/)).toBeVisible();
+    await expect(page.getByText('25 reflection themes', { exact: true })).toBeVisible();
 
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
@@ -173,7 +173,7 @@ test.describe('Inner Compass web app core flow', () => {
     await assertNoHorizontalScroller(page);
 
     await navigateFromHeader(page, 'Wisdom');
-    await expect(page.getByText('All traditions', { exact: true })).toBeVisible();
+    await expect(page.getByText('SEARCHABLE REFLECTION ARCHIVE')).toBeVisible();
     await assertNoHorizontalScroller(page);
 
     await navigateFromHeader(page, 'Suggested Reads');
@@ -189,6 +189,31 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('Color:', { exact: true })).toBeVisible();
     await expect(page.getByText('🌈 All', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
+  });
+
+  test('Wisdom is independently searchable and matches reflection output', async ({ page }) => {
+    await page.goto('/');
+
+    const input = page.getByRole('textbox', { name: 'Problem Input' });
+    await input.fill(SAFE_REFLECTION);
+    await page.getByLabel('Submit Reflection').click();
+
+    await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
+    const reflectionAffirmation = (await page.getByTestId('grounded-affirmation-text').textContent())?.trim();
+    expect(reflectionAffirmation).toBeTruthy();
+
+    await page.getByLabel('Open wisdom for category 1').click();
+    await expect(page.getByText('SEARCHABLE REFLECTION ARCHIVE')).toBeVisible();
+    await expect(page.getByText(reflectionAffirmation!, { exact: true })).toBeVisible();
+
+    await page.getByText('Search the full archive').click();
+    const search = page.getByRole('textbox', { name: 'Search Wisdom Archive' });
+    await search.fill('anger');
+    await expect(page.getByText(/reflection theme/i).first()).toBeVisible();
+    await expect(page.getByText(/anger/i).first()).toBeVisible();
+
+    await search.fill('');
+    await expect(page.getByText('25 reflection themes', { exact: true })).toBeVisible();
   });
 
   test('internal links connect guidance, reads, wisdom, and categories', async ({ page }) => {
