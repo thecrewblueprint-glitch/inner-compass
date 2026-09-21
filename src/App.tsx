@@ -467,7 +467,7 @@ const AppContent: React.FC = () => {
             <View style={styles.themeButtonContent}>
               <View style={[styles.themeMiniDot, { backgroundColor: theme.accentPrimary }]} />
               <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>
-                {theme.icon} {theme.name}
+                🎨 Colors
               </Text>
             </View>
           </Pressable>
