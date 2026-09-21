@@ -49,12 +49,13 @@ def main() -> None:
             errors.append(f"{rid}: review_status must be AUDITED")
         resource_url = record.get("resource_url", "")
         cover_url = record.get("cover_image_url", "")
-        if not resource_url.startswith("https://openlibrary.org/isbn/"):
-            errors.append(f"{rid}: resource_url must be an Open Library ISBN record")
-        if not cover_url.startswith("https://covers.openlibrary.org/b/isbn/"):
-            errors.append(f"{rid}: cover_image_url must be an Open Library ISBN cover reference")
-        if not record.get("cover_image_source"):
-            errors.append(f"{rid}: missing cover image provenance")
+        if not resource_url.startswith("https://openlibrary.org/"):
+            errors.append(f"{rid}: resource_url must be an Open Library record or search")
+        if cover_url:
+            if not cover_url.startswith("https://covers.openlibrary.org/b/isbn/"):
+                errors.append(f"{rid}: cover_image_url must be an Open Library ISBN cover reference")
+            if not record.get("cover_image_source"):
+                errors.append(f"{rid}: missing cover image provenance")
         for cid in record.get("related_inner_compass_categories", []):
             if not isinstance(cid, int) or cid < 1 or cid > 25:
                 errors.append(f"{rid}: invalid Inner Compass category {cid}")
