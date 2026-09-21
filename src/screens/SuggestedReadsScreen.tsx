@@ -66,6 +66,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
   const [openAccessOnly, setOpenAccessOnly] = useState(false);
   const [pathway, setPathway] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [showMoreFilters, setShowMoreFilters] = useState(false);
   const [failedCovers, setFailedCovers] = useState<Record<string, boolean>>({});
   const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
   const [linkedWisdomRecordId, setLinkedWisdomRecordId] = useState<string | null>(initialWisdomRecordId);
@@ -93,6 +94,18 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
   );
 
   const selectedPathway = READING_PATHWAYS.find((p) => p.pathway_id === pathway);
+
+  const resetDiscovery = () => {
+    setTradition('ALL');
+    setBranchFilter('ALL');
+    setRegion('ALL');
+    setRecordType('ALL');
+    setDifficulty('ALL');
+    setOpenAccessOnly(false);
+    setPathway(null);
+    setLinkedCategoryId(null);
+    setLinkedWisdomRecordId(null);
+  };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -153,117 +166,116 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
         </View>
       )}
 
-      <View style={styles.pathways}>
-        <Pressable
-          onPress={() => setPathway(null)}
-          style={[styles.pathwayCard, { backgroundColor: pathway === null ? theme.accentPrimary : theme.card, borderColor: pathway === null ? theme.accentPrimary : theme.cardBorder }]}
-        >
-          <Text style={[styles.pathwayTitle, { color: pathway === null ? theme.accentText : theme.textPrimary }]}>Browse all</Text>
-          <Text style={[styles.pathwayDesc, { color: pathway === null ? theme.accentText : theme.textSecondary }]}>All available reading selections</Text>
-        </Pressable>
-        {READING_PATHWAYS.map((item) => (
-          <Pressable
-            key={item.pathway_id}
-            onPress={() => setPathway(item.pathway_id)}
-            style={[styles.pathwayCard, { backgroundColor: pathway === item.pathway_id ? theme.accentPrimary : theme.card, borderColor: pathway === item.pathway_id ? theme.accentPrimary : theme.cardBorder }]}
-          >
-            <Text style={[styles.pathwayTitle, { color: pathway === item.pathway_id ? theme.accentText : theme.textPrimary }]}>{item.title}</Text>
-            <Text numberOfLines={2} style={[styles.pathwayDesc, { color: pathway === item.pathway_id ? theme.accentText : theme.textSecondary }]}>{item.description}</Text>
-          </Pressable>
-        ))}
-      </View>
+      <View style={[styles.discoveryPanel, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}>
+        <Text style={[styles.discoveryTitle, { color: theme.textPrimary }]}>What do you want to explore?</Text>
+        <Text style={[styles.discoveryHint, { color: theme.textSecondary }]}>
+          Start with a school of thought. You can narrow the list further only when you need to.
+        </Text>
 
-      <TextInput
-        value={query}
-        onChangeText={setQuery}
-        placeholder="Search books, traditions, authors, themes…"
-        placeholderTextColor={theme.textMuted}
-        accessibilityLabel="Search Suggested Reads"
-        style={[styles.search, { color: theme.textPrimary, backgroundColor: theme.inputBg, borderColor: theme.inputBorder }]}
-      />
+        <Text style={[styles.filterLabel, { color: theme.textMuted }]}>School of thought / tradition</Text>
+        <View style={styles.filters}>
+          {['ALL', ...traditions].map((item) => (
+            <Pressable
+              key={item}
+              onPress={() => {
+                setTradition(item);
+                setBranchFilter('ALL');
+              }}
+              accessibilityRole="button"
+              accessibilityState={{ selected: tradition === item }}
+              style={[styles.schoolChip, { backgroundColor: tradition === item ? theme.accentPrimary : theme.badgeBg, borderColor: tradition === item ? theme.accentPrimary : theme.badgeBorder }]}
+            >
+              <Text style={{ color: tradition === item ? theme.accentText : theme.badgeText, fontWeight: '800', fontSize: 12 }}>
+                {item === 'ALL' ? 'Explore everything' : item}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
 
-      <View style={styles.filters}>
-        {['ALL', ...traditions].map((item) => (
-          <Pressable
-            key={item}
-            onPress={() => setTradition(item)}
-            style={[styles.chip, { backgroundColor: tradition === item ? theme.accentPrimary : theme.badgeBg, borderColor: tradition === item ? theme.accentPrimary : theme.badgeBorder }]}
-          >
-            <Text style={{ color: tradition === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-              {item === 'ALL' ? 'All traditions' : item}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
+        {tradition !== 'ALL' && branches.some((item) => READING_RECORDS.some((record) => record.tradition === tradition && record.branch_coverage.includes(item))) && (
+          <>
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Schools / branches within {tradition}</Text>
+            <View style={styles.filters}>
+              {['ALL', ...branches.filter((item) => READING_RECORDS.some((record) => record.tradition === tradition && record.branch_coverage.includes(item)))].map((item) => (
+                <Pressable
+                  key={item}
+                  onPress={() => setBranchFilter(item)}
+                  accessibilityRole="button"
+                  accessibilityState={{ selected: branchFilter === item }}
+                  style={[styles.chip, { backgroundColor: branchFilter === item ? theme.accentPrimary : theme.badgeBg, borderColor: branchFilter === item ? theme.accentPrimary : theme.badgeBorder }]}
+                >
+                  <Text style={{ color: branchFilter === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
+                    {item === 'ALL' ? 'All branches' : item}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
+          </>
+        )}
 
-      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Branch / school</Text>
-      <View style={styles.filters}>
-        {['ALL', ...branches].map((item) => (
-          <Pressable
-            key={item}
-            onPress={() => setBranchFilter(item)}
-            style={[styles.chip, { backgroundColor: branchFilter === item ? theme.accentPrimary : theme.badgeBg, borderColor: branchFilter === item ? theme.accentPrimary : theme.badgeBorder }]}
-          >
-            <Text style={{ color: branchFilter === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-              {item === 'ALL' ? 'All branches' : item}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
+        <TextInput
+          value={query}
+          onChangeText={setQuery}
+          placeholder="Search a title, author, idea, or topic…"
+          placeholderTextColor={theme.textMuted}
+          accessibilityLabel="Search Suggested Reads"
+          style={[styles.search, { color: theme.textPrimary, backgroundColor: theme.inputBg, borderColor: theme.inputBorder }]}
+        />
 
-      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Region</Text>
-      <View style={styles.filters}>
-        {['ALL', ...regions].map((item) => (
-          <Pressable
-            key={item}
-            onPress={() => setRegion(item)}
-            style={[styles.chip, { backgroundColor: region === item ? theme.accentPrimary : theme.badgeBg, borderColor: region === item ? theme.accentPrimary : theme.badgeBorder }]}
-          >
-            <Text style={{ color: region === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-              {item === 'ALL' ? 'All regions' : item}
-            </Text>
+        <View style={styles.discoveryActions}>
+          <Pressable onPress={() => setShowMoreFilters((value) => !value)} accessibilityRole="button" accessibilityState={{ expanded: showMoreFilters }}>
+            <Text style={[styles.actionText, { color: theme.accentPrimary }]}>{showMoreFilters ? 'Hide more filters' : 'More filters'}</Text>
           </Pressable>
-        ))}
-      </View>
+          <Pressable onPress={resetDiscovery}>
+            <Text style={[styles.actionText, { color: theme.accentPrimary }]}>Reset</Text>
+          </Pressable>
+        </View>
 
-      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Book type</Text>
-      <View style={styles.filters}>
-        {['ALL', ...recordTypes].map((item) => (
-          <Pressable
-            key={item}
-            onPress={() => setRecordType(item)}
-            style={[styles.chip, { backgroundColor: recordType === item ? theme.accentPrimary : theme.badgeBg, borderColor: recordType === item ? theme.accentPrimary : theme.badgeBorder }]}
-          >
-            <Text style={{ color: recordType === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-              {item === 'ALL' ? 'All book types' : item.replaceAll('_', ' ')}
-            </Text>
-          </Pressable>
-        ))}
-      </View>
+        {showMoreFilters && (
+          <View style={[styles.advancedFilters, { borderTopColor: theme.cardBorder }]}>
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Reading path</Text>
+            <View style={styles.filters}>
+              <Pressable onPress={() => setPathway(null)} style={[styles.chip, { backgroundColor: pathway === null ? theme.accentPrimary : theme.badgeBg, borderColor: pathway === null ? theme.accentPrimary : theme.badgeBorder }]}>
+                <Text style={{ color: pathway === null ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>Any path</Text>
+              </Pressable>
+              {READING_PATHWAYS.map((item) => (
+                <Pressable key={item.pathway_id} onPress={() => setPathway(item.pathway_id)} style={[styles.chip, { backgroundColor: pathway === item.pathway_id ? theme.accentPrimary : theme.badgeBg, borderColor: pathway === item.pathway_id ? theme.accentPrimary : theme.badgeBorder }]}>
+                  <Text style={{ color: pathway === item.pathway_id ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>{item.title}</Text>
+                </Pressable>
+              ))}
+            </View>
 
-      <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Reading level / access</Text>
-      <View style={styles.filters}>
-        {['ALL', 'BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'SPECIALIST'].map((item) => (
-          <Pressable
-            key={item}
-            onPress={() => setDifficulty(item)}
-            style={[styles.chip, { backgroundColor: difficulty === item ? theme.accentPrimary : theme.badgeBg, borderColor: difficulty === item ? theme.accentPrimary : theme.badgeBorder }]}
-          >
-            <Text style={{ color: difficulty === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-              {item === 'ALL' ? 'All levels' : item}
-            </Text>
-          </Pressable>
-        ))}
-        <Pressable
-          onPress={() => setOpenAccessOnly((value) => !value)}
-          accessibilityRole="button"
-          accessibilityState={{ selected: openAccessOnly }}
-          style={[styles.chip, { backgroundColor: openAccessOnly ? theme.accentPrimary : theme.badgeBg, borderColor: openAccessOnly ? theme.accentPrimary : theme.badgeBorder }]}
-        >
-          <Text style={{ color: openAccessOnly ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>
-            Public-domain / open access
-          </Text>
-        </Pressable>
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Region</Text>
+            <View style={styles.filters}>
+              {['ALL', ...regions].map((item) => (
+                <Pressable key={item} onPress={() => setRegion(item)} style={[styles.chip, { backgroundColor: region === item ? theme.accentPrimary : theme.badgeBg, borderColor: region === item ? theme.accentPrimary : theme.badgeBorder }]}>
+                  <Text style={{ color: region === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>{item === 'ALL' ? 'Any region' : item}</Text>
+                </Pressable>
+              ))}
+            </View>
+
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Book type</Text>
+            <View style={styles.filters}>
+              {['ALL', ...recordTypes].map((item) => (
+                <Pressable key={item} onPress={() => setRecordType(item)} style={[styles.chip, { backgroundColor: recordType === item ? theme.accentPrimary : theme.badgeBg, borderColor: recordType === item ? theme.accentPrimary : theme.badgeBorder }]}>
+                  <Text style={{ color: recordType === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>{item === 'ALL' ? 'Any book type' : humanizeLabel(item)}</Text>
+                </Pressable>
+              ))}
+            </View>
+
+            <Text style={[styles.filterLabel, { color: theme.textMuted }]}>Reading level / access</Text>
+            <View style={styles.filters}>
+              {['ALL', 'BEGINNER', 'INTERMEDIATE', 'ADVANCED', 'SPECIALIST'].map((item) => (
+                <Pressable key={item} onPress={() => setDifficulty(item)} style={[styles.chip, { backgroundColor: difficulty === item ? theme.accentPrimary : theme.badgeBg, borderColor: difficulty === item ? theme.accentPrimary : theme.badgeBorder }]}>
+                  <Text style={{ color: difficulty === item ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>{item === 'ALL' ? 'Any level' : humanizeLabel(item)}</Text>
+                </Pressable>
+              ))}
+              <Pressable onPress={() => setOpenAccessOnly((value) => !value)} accessibilityRole="button" accessibilityState={{ selected: openAccessOnly }} style={[styles.chip, { backgroundColor: openAccessOnly ? theme.accentPrimary : theme.badgeBg, borderColor: openAccessOnly ? theme.accentPrimary : theme.badgeBorder }]}>
+                <Text style={{ color: openAccessOnly ? theme.accentText : theme.badgeText, fontWeight: '700', fontSize: 11 }}>Free / open access</Text>
+              </Pressable>
+            </View>
+          </View>
+        )}
       </View>
 
       <Text style={[styles.count, { color: theme.textMuted }]}>{filtered.length} suggested reads</Text>
@@ -405,6 +417,12 @@ const styles = StyleSheet.create({
   linkContext: { borderWidth: 1, borderRadius: 12, padding: 12, marginBottom: 12, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
   linkContextText: { fontSize: 11, fontWeight: '600', flex: 1 },
   clearLink: { fontSize: 11, fontWeight: '800' },
+  discoveryPanel: { borderWidth: 1, borderRadius: 17, padding: 16, marginBottom: 14 },
+  discoveryTitle: { fontSize: 18, fontWeight: '800', marginBottom: 4 },
+  discoveryHint: { fontSize: 12, lineHeight: 18, marginBottom: 10 },
+  discoveryActions: { flexDirection: 'row', gap: 18, marginTop: 8 },
+  advancedFilters: { borderTopWidth: 1, marginTop: 12, paddingTop: 8 },
+  schoolChip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 12, paddingVertical: 8 },
   pathways: { flexDirection: 'row', flexWrap: 'wrap', gap: 10, paddingVertical: 4, marginBottom: 12 },
   pathwayCard: { width: 220, maxWidth: '100%', minHeight: 92, borderWidth: 1, borderRadius: 15, padding: 13 },
   pathwayTitle: { fontSize: 13, fontWeight: '800', marginBottom: 5 },
