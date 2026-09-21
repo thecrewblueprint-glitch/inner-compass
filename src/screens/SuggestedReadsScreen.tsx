@@ -67,6 +67,8 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
   const [pathway, setPathway] = useState<string | null>(null);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [showMoreFilters, setShowMoreFilters] = useState(false);
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 12;
   const [failedCovers, setFailedCovers] = useState<Record<string, boolean>>({});
   const [linkedCategoryId, setLinkedCategoryId] = useState<number | null>(initialCategoryId);
   const [linkedWisdomRecordId, setLinkedWisdomRecordId] = useState<string | null>(initialWisdomRecordId);
@@ -107,6 +109,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
     setLinkedWisdomRecordId(null);
   };
 
+  useEffect(() => {
+    setPage(1);
+  }, [query, tradition, branchFilter, region, recordType, difficulty, openAccessOnly, pathway, linkedCategoryId, linkedWisdomRecordId]);
+
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     const pathwayIds = selectedPathway ? new Set(selectedPathway.reading_ids) : null;
@@ -137,6 +143,10 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
       ].join(' ').toLowerCase().includes(q);
     });
   }, [query, tradition, branchFilter, region, recordType, difficulty, openAccessOnly, selectedPathway, linkedCategoryId, linkedWisdomRecordId]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPages);
+  const paginated = filtered.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -281,7 +291,7 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
       <Text style={[styles.count, { color: theme.textMuted }]}>{filtered.length} suggested reads</Text>
 
       <View style={styles.grid}>
-        {filtered.map((record) => {
+        {paginated.map((record) => {
           const isExpanded = expandedId === record.reading_id;
           const coverFailed = Boolean(failedCovers[record.reading_id]);
           return (
@@ -396,6 +406,51 @@ export const SuggestedReadsScreen: React.FC<SuggestedReadsScreenProps> = ({
           );
         })}
       </View>
+
+      {filtered.length > PAGE_SIZE && (
+        <View style={styles.pagination}>
+          <Pressable
+            disabled={safePage === 1}
+            onPress={() => setPage((value) => Math.max(1, value - 1))}
+            accessibilityLabel="Previous page of suggested reads"
+            style={[styles.pageButton, { backgroundColor: theme.card, borderColor: theme.cardBorder, opacity: safePage === 1 ? 0.45 : 1 }]}
+          >
+            <Text style={[styles.pageButtonText, { color: theme.textPrimary }]}>← Previous</Text>
+          </Pressable>
+
+          <View style={styles.pageNumbers}>
+            {Array.from({ length: totalPages }, (_, index) => index + 1)
+              .filter((number) => number === 1 || number === totalPages || Math.abs(number - safePage) <= 1)
+              .map((number, index, visible) => (
+                <React.Fragment key={number}>
+                  {index > 0 && number - visible[index - 1] > 1 && (
+                    <Text style={[styles.pageEllipsis, { color: theme.textMuted }]}>…</Text>
+                  )}
+                  <Pressable
+                    onPress={() => setPage(number)}
+                    accessibilityLabel={`Page ${number} of suggested reads`}
+                    accessibilityState={{ selected: safePage === number }}
+                    style={[styles.pageNumber, { backgroundColor: safePage === number ? theme.accentPrimary : theme.card, borderColor: safePage === number ? theme.accentPrimary : theme.cardBorder }]}
+                  >
+                    <Text style={{ color: safePage === number ? theme.accentText : theme.textPrimary, fontWeight: '800', fontSize: 11 }}>{number}</Text>
+                  </Pressable>
+                </React.Fragment>
+              ))}
+          </View>
+
+          <Pressable
+            disabled={safePage === totalPages}
+            onPress={() => setPage((value) => Math.min(totalPages, value + 1))}
+            accessibilityLabel="Next page of suggested reads"
+            style={[styles.pageButton, { backgroundColor: theme.card, borderColor: theme.cardBorder, opacity: safePage === totalPages ? 0.45 : 1 }]}
+          >
+            <Text style={[styles.pageButtonText, { color: theme.textPrimary }]}>Next →</Text>
+          </Pressable>
+        </View>
+      )}
+      <Text style={[styles.pageSummary, { color: theme.textMuted }]}>
+        {filtered.length === 0 ? 'No matching reads' : `Showing ${(safePage - 1) * PAGE_SIZE + 1}–${Math.min(safePage * PAGE_SIZE, filtered.length)} of ${filtered.length}`}
+      </Text>
     </ScrollView>
   );
 };
@@ -433,6 +488,13 @@ const styles = StyleSheet.create({
   chip: { borderWidth: 1, borderRadius: 18, paddingHorizontal: 11, paddingVertical: 6 },
   count: { fontSize: 11, fontWeight: '800', textTransform: 'uppercase', letterSpacing: 0.5, marginVertical: 12 },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: 14, alignItems: 'flex-start' },
+  pagination: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 10, marginTop: 22 },
+  pageNumbers: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  pageButton: { borderWidth: 1, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 8 },
+  pageButtonText: { fontSize: 11, fontWeight: '800' },
+  pageNumber: { minWidth: 34, borderWidth: 1, borderRadius: 10, paddingHorizontal: 9, paddingVertical: 8, alignItems: 'center' },
+  pageEllipsis: { fontSize: 13, paddingHorizontal: 2 },
+  pageSummary: { fontSize: 10, fontWeight: '700', textAlign: 'center', marginTop: 8 },
   card: { width: 500, maxWidth: '100%', borderWidth: 1, borderRadius: 17, padding: 15 },
   cardLead: { flexDirection: 'row', gap: 15 },
   cover: { width: 118, height: 168, borderRadius: 10 },
