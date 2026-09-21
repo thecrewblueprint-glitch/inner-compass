@@ -146,6 +146,12 @@ const AppContent: React.FC = () => {
     setNavigationStack((previous) => [...previous, next]);
   };
 
+  const navigateHome = () => {
+    setClarificationPrompt(null);
+    setNavigationMenuOpen(false);
+    setNavigationStack([ROOT_NAVIGATION]);
+  };
+
   const navigateBack = () => {
     setNavigationStack((previous) =>
       previous.length > 1 ? previous.slice(0, -1) : previous
@@ -486,6 +492,17 @@ const AppContent: React.FC = () => {
         </View>
 
         <View style={styles.navRightSection}>
+          {currentTab !== 'reflect' || guidanceResult !== null || canGoBack ? (
+            <Pressable
+              onPress={navigateHome}
+              accessibilityRole="button"
+              accessibilityLabel="Go to Inner Compass home"
+              style={[styles.backButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
+            >
+              <Text style={[styles.backButtonText, { color: theme.textPrimary }]}>⌂ Home</Text>
+            </Pressable>
+          ) : null}
+
           {canGoBack && (
             <Pressable
               onPress={navigateBack}
