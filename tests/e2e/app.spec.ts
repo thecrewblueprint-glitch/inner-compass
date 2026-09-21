@@ -96,7 +96,7 @@ test.describe('Inner Compass web app core flow', () => {
 
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
-    await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
+    await expect(page.getByText('View details').first()).toBeVisible();
 
     await navigateFromHeader(page, 'Privacy');
     await expect(page.getByText('PRIVACY & LOCAL DATA')).toBeVisible();
@@ -199,7 +199,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByLabel('Submit Reflection').click();
 
     await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
-    const reflectionAffirmation = (await page.getByTestId('grounded-affirmation-text').textContent())?.trim();
+    const reflectionAffirmation = (await page.getByLabel('Reflection affirmation').textContent())?.trim();
     expect(reflectionAffirmation).toBeTruthy();
 
     await page.getByLabel('Open wisdom for category 1').click();
@@ -298,7 +298,7 @@ test.describe('Inner Compass web app core flow', () => {
       )
     ).toBeVisible();
 
-    await expect(page.getByText('REFLECTION', { exact: true })).toHaveCount(0);
+    await expect(page.getByText('POSITIVE AFFIRMATION', { exact: true })).toHaveCount(0);
 
     await input.fill(
       'I feel like everything is changing and slipping away from my hands. I am grieving because someone close to me passed away.'
@@ -306,7 +306,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByLabel('Submit Reflection').click();
 
     await expect(page.getByText('REFLECTION THEME', { exact: true })).toBeVisible();
-    await expect(page.getByText('REFLECTION', { exact: true })).toBeVisible();
+    await expect(page.getByText('POSITIVE AFFIRMATION', { exact: true })).toBeVisible();
   });
 
   test('direct taxonomy navigation cannot bypass Category 10 hard ceiling', async ({ page }) => {
