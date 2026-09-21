@@ -479,7 +479,7 @@ const AppContent: React.FC = () => {
             <View style={styles.brandCopy}>
               <Text style={[styles.brandTitle, { color: theme.textPrimary }]}>INNER COMPASS</Text>
               <Text style={[styles.brandSubtitle, { color: theme.textMuted }]}>
-                Research-Informed Wisdom & Reflection
+                Wisdom & Reflection
               </Text>
             </View>
           </View>
@@ -687,7 +687,7 @@ const AppContent: React.FC = () => {
       </View>
 
       <View style={[styles.footer, { backgroundColor: theme.topBar, borderTopColor: theme.topBarBorder }]}>
-        <Text style={[styles.footerText, { color: theme.textMuted }]}>Beta · 18+ · U.S. · English only · General-wellness reflection</Text>
+        <Text style={[styles.footerText, { color: theme.textMuted }]}>Beta · 18+ · U.S. · English only · Reflection & education</Text>
         <View style={styles.footerLinks}>
           <Pressable accessibilityRole="link" onPress={() => openLegalDocument('terms')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Legal & Safety</Text></Pressable>
           <Pressable accessibilityRole="link" onPress={() => openLegalDocument('health-data')}><Text style={[styles.footerLink, { color: theme.accentPrimary }]}>Consumer Health Data Policy</Text></Pressable>
