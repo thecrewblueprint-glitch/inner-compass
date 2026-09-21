@@ -31,7 +31,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
         </View>
         <Text style={[styles.title, { color: theme.textPrimary }]}>Your reflection stays on this device</Text>
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-          Inner Compass processes your reflection on this device. Your original reflection text is not saved to your journal or sent to analytics, advertising, or AI services.
+          In the current Beta, Inner Compass processes your reflection on this device. Your original reflection text is not saved to your journal or intentionally sent to Inner Compass servers, analytics, advertising, or AI services.
         </Text>
       </View>
 
@@ -73,7 +73,7 @@ export const PrivacyScreen: React.FC<PrivacyScreenProps> = ({
       <View style={[styles.notice, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
         <Text style={[styles.noticeTitle, { color: theme.textPrimary }]}>Beta availability</Text>
         <Text style={[styles.noticeText, { color: theme.textSecondary }]}>
-          Inner Compass is research-informed reflective guidance, not therapy, diagnosis, medical care, legal advice, or emergency response. It is currently available to adults 18+ in the United States and supports English only.
+          Inner Compass provides research-informed reflection and educational content, not therapy, diagnosis, medical care, individualized professional advice, or emergency response. Its guidance is for consideration rather than a determination of what you should do. It is currently available to adults 18+ in the United States and supports English only.
         </Text>
         {onOpenLegal && (
           <Pressable
