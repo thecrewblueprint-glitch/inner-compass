@@ -130,7 +130,6 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
         {
           backgroundColor: theme.card,
           borderColor: theme.cardBorder,
-          borderLeftColor: theme.accentPrimary,
         },
       ]}
       {...({ 'data-testid': 'daily-affirmation-widget' } as any)}
@@ -198,7 +197,6 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
           {
             backgroundColor: theme.quoteBg,
             borderColor: theme.quoteBorder,
-            borderLeftColor: theme.accentPrimary,
           },
         ]}
       >
@@ -246,7 +244,6 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
           {
             backgroundColor: theme.affirmationBg,
             borderColor: theme.affirmationBorder,
-            borderLeftColor: theme.accentPrimary,
           },
         ]}
       >
@@ -411,7 +408,6 @@ const styles = StyleSheet.create({
   quoteCard: {
     borderRadius: 12,
     borderWidth: 1,
-    borderLeftWidth: 3,
     padding: 16,
     marginBottom: 14,
   },
@@ -470,7 +466,6 @@ const styles = StyleSheet.create({
   affirmationBox: {
     borderRadius: 10,
     borderWidth: 1,
-    borderLeftWidth: 4,
     padding: 14,
     marginBottom: 16,
   },

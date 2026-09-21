@@ -129,7 +129,7 @@ export const CrisisScreen: React.FC<CrisisScreenProps> = ({
                   ]}
                   onPress={() => handleCall(res.tel)}
                 >
-                  <Text style={styles.callButtonText}>Call Now</Text>
+                  <Text style={[styles.callButtonText, { color: theme.accentText }]}>Call Now</Text>
                 </Pressable>
               )}
 
@@ -216,8 +216,6 @@ const styles = StyleSheet.create({
     lineHeight: 21,
   },
   reasonBox: {
-    borderLeftWidth: 3,
-    borderLeftColor: '#C84255',
     borderWidth: 1,
     padding: 12,
     borderRadius: 8,
@@ -303,7 +301,6 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
   },
   callButtonText: {
-    color: '#FFFFFF',
     fontSize: 12,
     fontWeight: '700',
     letterSpacing: 0.2,

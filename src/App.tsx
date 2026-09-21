@@ -461,10 +461,15 @@ const AppContent: React.FC = () => {
           <Pressable
             onPress={() => setThemePickerVisible(true)}
             accessibilityRole="button"
-            accessibilityLabel="Open Colors"
+            accessibilityLabel={`Theme: ${theme.name}. Click to change atmosphere.`}
             style={[styles.themeButton, { backgroundColor: theme.card, borderColor: theme.cardBorder }]}
           >
-            <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>🎨 Colors</Text>
+            <View style={styles.themeButtonContent}>
+              <View style={[styles.themeMiniDot, { backgroundColor: theme.accentPrimary }]} />
+              <Text style={[styles.themeButtonText, { color: theme.textPrimary }]}>
+                {theme.icon} {theme.name}
+              </Text>
+            </View>
           </Pressable>
 
           <View style={styles.brandRow}>
@@ -558,7 +563,7 @@ const AppContent: React.FC = () => {
                       {
                         color: active
                           ? crisis
-                            ? '#FFFFFF'
+                            ? theme.accentText
                             : theme.tabActiveText
                           : crisis
                             ? theme.crisisText
@@ -572,7 +577,7 @@ const AppContent: React.FC = () => {
                     <Text
                       style={[
                         styles.menuItemStatus,
-                        { color: crisis ? '#FFFFFF' : theme.accentPrimary },
+                        { color: crisis ? theme.accentText : theme.accentPrimary },
                       ]}
                     >
                       Current
@@ -728,6 +733,8 @@ const styles = StyleSheet.create({
   backButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7 },
   backButtonText: { fontSize: 11, fontWeight: '800' },
   themeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 10, paddingVertical: 7, flexShrink: 0 },
+  themeButtonContent: { flexDirection: 'row', alignItems: 'center', gap: 6 },
+  themeMiniDot: { width: 8, height: 8, borderRadius: 4 },
   themeButtonText: { fontSize: 11, fontWeight: '700' },
   menuButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 7, minWidth: 76, alignItems: 'center', marginLeft: 'auto' },
   menuButtonText: { fontSize: 11, fontWeight: '800' },

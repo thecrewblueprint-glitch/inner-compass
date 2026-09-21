@@ -86,8 +86,6 @@ export const SavedJournalScreen: React.FC<SavedJournalScreenProps> = ({
                       {
                         backgroundColor: theme.affirmationBg,
                         borderColor: theme.affirmationBorder,
-                        borderLeftColor: theme.accentPrimary,
-                        borderLeftWidth: 4,
                       },
                     ]}
                   >
@@ -214,7 +212,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   affirmationBox: {
-    borderLeftWidth: 3,
     borderWidth: 1,
     padding: 12,
     borderRadius: 8,

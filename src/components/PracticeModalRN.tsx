@@ -73,7 +73,6 @@ export const PracticeModalRN: React.FC<PracticeModalProps> = ({
                 {
                   backgroundColor: theme.practiceBg,
                   borderColor: theme.practiceBorder,
-                  borderLeftColor: theme.accentPrimary,
                 },
               ]}
             >
@@ -233,7 +232,6 @@ const styles = StyleSheet.create({
     marginTop: 3,
   },
   techniqueBox: {
-    borderLeftWidth: 3,
     borderWidth: 1,
     padding: 14,
     borderRadius: 10,

@@ -20,16 +20,12 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
   const [selectedFamily, setSelectedFamily] = useState<string>('all');
 
   const families: { key: ThemeFamily; name: string; icon: string; shortName: string }[] = [
-    { key: 'red', name: 'Red & Crimson', icon: '🔴', shortName: 'Red' },
-    { key: 'orange', name: 'Orange & Terracotta', icon: '🏺', shortName: 'Orange' },
-    { key: 'yellow', name: 'Gold & Amber', icon: '🌾', shortName: 'Gold' },
-    { key: 'green', name: 'Sage & Emerald', icon: '🌿', shortName: 'Green' },
-    { key: 'teal', name: 'Teal & Seafoam', icon: '🌊', shortName: 'Teal' },
-    { key: 'blue', name: 'Ocean & Sky', icon: '🔷', shortName: 'Blue' },
-    { key: 'indigo', name: 'Indigo & Twilight', icon: '🌌', shortName: 'Indigo' },
-    { key: 'purple', name: 'Lavender & Violet', icon: '🪻', shortName: 'Purple' },
-    { key: 'rose', name: 'Rose & Blush', icon: '🌸', shortName: 'Rose' },
-    { key: 'earth', name: 'Earth & Sand', icon: '🪵', shortName: 'Earth' },
+    { key: 'rose', name: 'Rose & Sunset', icon: '🌸', shortName: 'Rose' },
+    { key: 'amber', name: 'Amber & Earth', icon: '🏺', shortName: 'Amber' },
+    { key: 'green', name: 'Sage & Emerald', icon: '🌿', shortName: 'Sage' },
+    { key: 'teal', name: 'Teal & Lagoon', icon: '🌊', shortName: 'Teal' },
+    { key: 'blue', name: 'Ocean & Sky', icon: '🔷', shortName: 'Ocean' },
+    { key: 'purple', name: 'Twilight & Lavender', icon: '🪻', shortName: 'Twilight' },
     { key: 'neutral', name: 'Slate & Charcoal', icon: '🪨', shortName: 'Slate' },
   ];
 
@@ -67,7 +63,7 @@ export const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ visible, onC
                 <Text style={[styles.title, { color: theme.textPrimary }]}>Color & Atmosphere</Text>
               </View>
               <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
-                Full base color spectrum with balanced light & matte dark editions
+                Off-white ivory lights & soft dusk darks complemented with sunset, aurora & gold accents
               </Text>
             </View>
             <Pressable
