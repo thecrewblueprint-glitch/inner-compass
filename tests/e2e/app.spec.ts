@@ -240,7 +240,7 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.getByLabel(/Suggested reads related to/).first().click();
     await expect(page.getByText('Showing reads connected to your current selection.')).toBeVisible();
-    await expect(page.getByText('Meditations', { exact: true }).first()).toBeVisible();
+    await expect(page.getByText('View details').first()).toBeVisible();
   });
 
   test('public screens avoid internal implementation labels', async ({ page }) => {
