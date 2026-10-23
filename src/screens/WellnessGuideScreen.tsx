@@ -100,7 +100,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
     <Pressable
       onPress={() => openReference(id)}
       accessibilityRole="link"
-      accessibilityLabel={'Open source ' + id}
+      accessibilityLabel={'View source ' + id}
       style={styles.sourceAction}
     >
       <Text style={[styles.sourceActionText, eyebrow]}>View source {id} ↗</Text>
@@ -205,7 +205,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
             </Text>
           </View>
           <Pressable onPress={() => go('traditions')} accessibilityRole="button"
-            accessibilityLabel="Explore wellness traditions" style={[styles.primaryButton, { backgroundColor: theme.accentPrimary }]}>
+            accessibilityLabel="Explore traditions" style={[styles.primaryButton, { backgroundColor: theme.accentPrimary }]}>
             <Text style={[styles.primaryButtonText, { color: theme.accentText }]}>Explore traditions →</Text>
           </Pressable>
         </View>
@@ -276,7 +276,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
               <View style={[styles.progressFill, { backgroundColor: theme.accentPrimary,
                 width: (100 * completed.length / WELLNESS_JOURNEY.length) + '%' }]} />
             </View>
-            <Pressable onPress={resetDays} accessibilityRole="button" accessibilityLabel="Reset wellness journey checkmarks">
+            <Pressable onPress={resetDays} accessibilityRole="button" accessibilityLabel="Reset my checkmarks">
               <Text style={[styles.reset, eyebrow]}>Reset my checkmarks</Text>
             </Pressable>
           </View>
@@ -313,7 +313,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
               <Text style={[styles.sectionTitle, primary]}>{kind === 'Tradition' ? 'Philosophy and traditions' : 'Health research and guidance'}</Text>
               {WELLNESS_SOURCES.filter((entry) => entry.kind === kind).map((entry) => (
                 <Pressable key={entry.id} onPress={() => openReference(entry.id)}
-                  accessibilityRole="link" accessibilityLabel={'Open external source ' + entry.title}
+                  accessibilityRole="link" 
                   style={[styles.sourceCard, cardStyle]}>
                   <Text style={[styles.kicker, eyebrow]}>{entry.id} · {entry.publisher}</Text>
                   <Text style={[styles.emphasis, primary]}>{entry.title} ↗</Text>
@@ -329,12 +329,12 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
       )}
 
       <View style={[styles.bottomNav, { borderTopColor: theme.cardBorder }]}>
-        <Pressable onPress={onReturnToCompass} accessibilityRole="button" accessibilityLabel="Return to Inner Compass"
+        <Pressable onPress={onReturnToCompass} accessibilityRole="button" accessibilityLabel="Inner Compass home"
           style={[styles.backButton, cardStyle]}>
           <Text style={[styles.backText, eyebrow]}>← Inner Compass home</Text>
         </Pressable>
         <Pressable onPress={() => go('overview')} accessibilityRole="button"
-          accessibilityLabel="Return to wellness volume overview" style={[styles.backButton, cardStyle]}>
+          accessibilityLabel="Volume I overview" style={[styles.backButton, cardStyle]}>
           <Text style={[styles.backText, primary]}>Volume I overview ↑</Text>
         </Pressable>
       </View>
