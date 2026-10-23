@@ -14,7 +14,8 @@
     "audit:deterministic": "python3 tools/eval/check_deterministic_only_policy.py",
     "audit:reads": "python3 tools/eval/audit_reading_directory.py",
     "audit:safety": "tsx tools/eval/safety_matrix.ts",
-    "audit:release": "python3 tools/eval/audit_release_readiness.py"
+    "audit:release": "python3 tools/eval/audit_release_readiness.py",
+    "audit:wellness": "tsx tools/eval/audit_wellness_volumes.ts"
   },
   "dependencies": {
     "express": "^4.21.2",
