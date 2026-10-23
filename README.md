@@ -34,6 +34,7 @@ Current surfaces:
 - **Taxonomy** — all 25 problem categories and the three canonical pillars
 - **Wisdom** — a searchable 25-theme reflection archive of source-passage summaries, positive affirmations, and practical category guidance; exact quotation display remains rights-gated
 - **Suggested Reads** — the deeper knowledge library for books, primary texts, scholarship, philosophical branches, traditions, historical context, pathways, and legal reading links
+- **Health & Wellness** — *The Whole Life Field Guide* now includes six fully authored volumes (Foundations, Eastern Wisdom, Western Philosophy, Spiritual Growth, Mind–Body Connection and Living the Philosophy), 28 deeper follow-on chapters, 22 additional exercises, and the first volume's 12 traditions, 18 practices, 21-day optional path, and 24 source references. Each volume has independent page navigation and links back to Inner Compass; no private Personality information is included.
 - **Journal** — local bookmarks without raw reflection text
 - **Privacy** — personalization toggle and clear-local-data controls
 - **Legal & Safety** — Terms, Privacy, Consumer Health Data, Safety/Crisis, and Accessibility notices
@@ -154,3 +155,41 @@ The default project-site URL will be:
 `https://thecrewblueprint-glitch.github.io/inner-compass/`
 
 A custom domain can later replace that URL without changing the application architecture.
+
+## Health & Wellness volume library (public editorial content only)
+
+`src/screens/WellnessGuideScreen.tsx` implements the in-app library with five pages:
+**Overview · Traditions · Practices · 21-Day Journey · Sources**.
+The section appears in the main navigation and on the Reflect home screen.
+Five additional authored volumes (II–VI) are stored in `src/data/wellnessVolumes.ts`, with
+28 chapters and 22 further exercises. `src/screens/WellnessVolumeScreen.tsx`
+provides separate overview, chapter, exercise and source pages, with one detailed reader
+page per chapter. All six volumes are selectable from a browsable in-app shelf.
+Every page keeps a return route to Inner Compass. It uses the existing
+Beta eligibility gate, theme tokens and deterministic local-only runtime.
+
+The separate guide content in `src/data/wellnessGuide.ts` is a hand-curated,
+**public-safe editorial derivative** of general philosophy and health references.
+No private Personality repository URL, personal record, therapy notes, personality
+assessment or profile data is read, embedded, requested or imported at runtime.
+The public app remains deployable without any credentials for Personality.
+Only actual completed volumes appear as published books. The first six volumes
+are independently authored and the design supports later additions, chapter pages,
+source inventories and regression tests without altering canonical guidance.
+
+The 21-day optional checklist is stored locally under
+`inner_compass_wellness_journey_v1`, so the existing clear-all-data flow removes it.
+The library does not route freeform health input, alter the reflection safety router,
+create health diagnoses, or claim spiritual practices provide medical treatments.
+
+The `tests/e2e/app.spec.ts` suite checks navigation, content filtering, source-link
+visibility, local persistence and return to the Reflect home screen.
+
+## React Native build dependency boundary
+
+The web product aliases `react-native` to `react-native-web` in Vite. Native React
+Native / Metro are development/build tooling for the future native track, not the
+shipped web runtime. `react-native` is therefore declared in `devDependencies`.
+The security workflow continues to audit the production runtime dependency set;
+this does **not** eliminate any advisories in the development/native dependency tree.
+Review upstream `braces` advisory GHSA-vfj7-8cjw-p6xm before native packaging.

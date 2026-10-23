@@ -114,6 +114,69 @@ test.describe('Inner Compass web app core flow', () => {
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
   });
 
+  test('wellness volume has independent pages, private progress, source links and a return route', async ({ page }) => {
+    await page.goto('/');
+    await page.getByLabel('Open navigation menu').click();
+    await page.getByLabel('Navigate to Health & Wellness').click();
+    await expect(page.getByText('THE WHOLE LIFE FIELD GUIDE', { exact: false })).toBeVisible();
+    await expect(page.getByText('Mind. Body. Soul.')).toBeVisible();
+
+    await page.getByLabel('Wellness page: Traditions').click();
+    await expect(page.getByText('Wisdom traditions', { exact: true })).toBeVisible();
+    await page.getByLabel('Search wellness traditions').fill('Stoicism');
+    await expect(page.getByText('Stoicism', { exact: true })).toBeVisible();
+    await expect(page.getByText('Buddhism', { exact: true })).toHaveCount(0);
+    await expect(page.getByLabel('Open source P2')).toBeVisible();
+
+    await page.getByLabel('Wellness page: Practices').click();
+    await page.getByLabel('Filter Body wellness practices').click();
+    await expect(page.getByText('Comfortable everyday movement', { exact: true })).toBeVisible();
+    await expect(page.getByText('Fact / interpretation / choice', { exact: true })).toHaveCount(0);
+
+    await page.getByLabel('Wellness page: 21-Day Journey').click();
+    await page.getByRole('checkbox', { name: 'Day 1: Choose one value' }).click();
+    await expect(page.getByText('1 of 21 explored', { exact: true })).toBeVisible();
+    expect(await page.evaluate(() => localStorage.getItem('inner_compass_wellness_journey_v1'))).toBe('[0]');
+
+    await page.getByLabel('Wellness page: Sources').click();
+    await expect(page.getByText('Sources & further reading')).toBeVisible();
+    await expect(page.getByLabel('Open external source Stoicism')).toBeVisible();
+
+    await page.getByLabel('Back to Inner Compass home').click();
+    await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
+    await expect(page.getByLabel('Open Health & Wellness Library')).toBeVisible();
+    await page.getByLabel('Open Health & Wellness Library').click();
+    await expect(page.getByText('Mind. Body. Soul.')).toBeVisible();
+    await page.getByLabel('Wellness page: 21-Day Journey').click();
+    await expect(page.getByText('1 of 21 explored', { exact: true })).toBeVisible();
+  });
+
+  test('all six published wellness volumes offer chapter pages and route back to Inner Compass', async ({ page }) => {
+    await page.goto('/');
+    await navigateFromHeader(page, 'Health & Wellness');
+    for (const [roman, title] of [
+      ['II', 'Eastern Wisdom'], ['III', 'Western Philosophy'],
+      ['IV', 'Spiritual Growth'], ['V', 'The Mind–Body Connection'],
+      ['VI', 'Living the Philosophy'], ['I', 'Foundations of Wellness']
+    ] as const) {
+      await page.getByRole('button', { name: 'Open Volume ' + roman + ': ' + title }).click();
+      if (roman !== 'I') {
+        await expect(page.getByText(title, { exact: true }).first()).toBeVisible();
+        await page.getByLabel('Chapters page for Volume ' + ({'II':2,'III':3,'IV':4,'V':5,'VI':6} as const)[roman]).click();
+        await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+        await expect(page.getByText('Going deeper')).toBeVisible();
+        await expect(page.getByText('Practice in ordinary life')).toBeVisible();
+        await page.getByLabel('Next wellness chapter').click();
+        await expect(page.getByText('Going deeper')).toBeVisible();
+        await page.getByLabel('Back to volume chapter list').click();
+      } else {
+        await expect(page.getByText('Mind. Body. Soul.')).toBeVisible();
+      }
+    }
+    await page.getByLabel('Back to Inner Compass home').click();
+    await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
+  });
+
   test('header navigation stays compact and works on a narrow viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
@@ -177,8 +240,9 @@ test.describe('Inner Compass web app core flow', () => {
     await assertNoHorizontalScroller(page);
 
     await navigateFromHeader(page, 'Suggested Reads');
-    await expect(page.getByText('All branches', { exact: true })).toBeVisible();
-    await expect(page.getByText('Public-domain / open access', { exact: true })).toBeVisible();
+    await expect(page.getByText('Explore everything', { exact: true })).toBeVisible();
+    await page.getByText('More filters', { exact: true }).click();
+    await expect(page.getByText('Free / open access', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
 
     await navigateFromHeader(page, 'Legal & Safety');
@@ -357,17 +421,20 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
 
-    await page.getByText('Madhyamaka', { exact: true }).click();
+    await page.getByLabel('Choose a school of thought or tradition').click();
+    await page.getByText('Mahayana Buddhism', { exact: true }).last().click();
+    await page.getByLabel('Choose a school or branch within Mahayana Buddhism').click();
+    await page.getByText('Madhyamaka', { exact: true }).last().click();
     await expect(page.getByText('The Fundamental Wisdom of the Middle Way', { exact: true })).toBeVisible();
 
-    await page.getByText('Madhyamaka', { exact: true }).click();
-    await page.getByText('All branches', { exact: true }).click();
-    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
+    await page.getByLabel('Choose a school of thought or tradition').click();
+    await page.getByText('Japanese Buddhist traditions', { exact: true }).last().click();
+    await page.getByLabel('Choose a school or branch within Japanese Buddhist traditions').click();
+    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).last().click();
     await expect(page.getByText('Kukai: Major Works', { exact: true })).toBeVisible();
 
-    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
-    await page.getByText('All branches', { exact: true }).click();
-    await page.getByText('Sikh philosophy / theology', { exact: true }).click();
+    await page.getByLabel('Choose a school of thought or tradition').click();
+    await page.getByText('Sikh philosophy and theology', { exact: true }).last().click();
     await expect(page.getByText('Sikhism: A Very Short Introduction', { exact: true })).toBeVisible();
   });
 
