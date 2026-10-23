@@ -240,7 +240,8 @@ test.describe('Inner Compass web app core flow', () => {
     await assertNoHorizontalScroller(page);
 
     await navigateFromHeader(page, 'Suggested Reads');
-    await expect(page.getByText('All branches', { exact: true })).toBeVisible();
+    await expect(page.getByText('Explore everything', { exact: true })).toBeVisible();
+    await page.getByText('More filters', { exact: true }).click();
     await expect(page.getByText('Public-domain / open access', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
 
@@ -420,17 +421,20 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('CURATED DIGITAL LIBRARY')).toBeVisible();
 
-    await page.getByText('Madhyamaka', { exact: true }).click();
+    await page.getByLabel('Choose a school of thought or tradition').click();
+    await page.getByText('Mahayana Buddhism', { exact: true }).last().click();
+    await page.getByLabel('Choose a school or branch within Mahayana Buddhism').click();
+    await page.getByText('Madhyamaka', { exact: true }).last().click();
     await expect(page.getByText('The Fundamental Wisdom of the Middle Way', { exact: true })).toBeVisible();
 
-    await page.getByText('Madhyamaka', { exact: true }).click();
-    await page.getByText('All branches', { exact: true }).click();
-    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
+    await page.getByLabel('Choose a school of thought or tradition').click();
+    await page.getByText('Japanese Buddhist traditions', { exact: true }).last().click();
+    await page.getByLabel('Choose a school or branch within Japanese Buddhist traditions').click();
+    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).last().click();
     await expect(page.getByText('Kukai: Major Works', { exact: true })).toBeVisible();
 
-    await page.getByText('Shingon / esoteric Buddhism', { exact: true }).click();
-    await page.getByText('All branches', { exact: true }).click();
-    await page.getByText('Sikh philosophy / theology', { exact: true }).click();
+    await page.getByLabel('Choose a school of thought or tradition').click();
+    await page.getByText('Sikh philosophy and theology', { exact: true }).last().click();
     await expect(page.getByText('Sikhism: A Very Short Introduction', { exact: true })).toBeVisible();
   });
 
