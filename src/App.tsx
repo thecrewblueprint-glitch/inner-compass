@@ -14,6 +14,7 @@ import { TaxonomyBrowserScreen } from './screens/TaxonomyBrowserScreen';
 import { SavedJournalScreen } from './screens/SavedJournalScreen';
 import { WisdomLibraryScreen } from './screens/WisdomLibraryScreen';
 import { SuggestedReadsScreen } from './screens/SuggestedReadsScreen';
+import { WellnessGuideScreen } from './screens/WellnessGuideScreen';
 import { PrivacyScreen } from './screens/PrivacyScreen';
 import { LegalScreen, LegalDocumentKey } from './screens/LegalScreen';
 import { DiagnosticsScreen } from './screens/DiagnosticsScreen';
@@ -40,7 +41,7 @@ const IS_DIAGNOSTICS_ENABLED =
     typeof window !== 'undefined' &&
     new URLSearchParams(window.location.search).get('debug') === '1');
 
-type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'journal' | 'privacy' | 'legal' | 'crisis' | 'diagnostics';
+type AppTab = 'reflect' | 'taxonomy' | 'wisdom' | 'reads' | 'wellness' | 'journal' | 'privacy' | 'legal' | 'crisis' | 'diagnostics';
 
 type CrisisAlert = {
   reason?: string;
@@ -451,6 +452,7 @@ const AppContent: React.FC = () => {
     { id: 'taxonomy', label: 'Categories' },
     { id: 'wisdom', label: 'Wisdom' },
     { id: 'reads', label: 'Suggested Reads' },
+    { id: 'wellness', label: 'Health & Wellness' },
     { id: 'journal', label: `Journal${savedReflections.length ? ` (${savedReflections.length})` : ''}` },
     { id: 'privacy', label: 'Privacy' },
     { id: 'legal', label: 'Legal & Safety' },
@@ -636,6 +638,7 @@ const AppContent: React.FC = () => {
               clarificationPrompt={clarificationPrompt}
               dailyInteractionTimestamp={dailyInteractionTimestamp}
               onOpenLegal={() => openLegalDocument('terms')}
+              onOpenWellness={() => navigateToTab('wellness')}
               onOpenHealthData={() => openLegalDocument('health-data')}
               onOpenCrisis={() => navigateToTab('crisis')}
             />
@@ -665,6 +668,10 @@ const AppContent: React.FC = () => {
             onSelectCategoryId={handleSelectCategoryId}
             onOpenWisdomRecord={openWisdomRecord}
           />
+        )}
+
+        {currentTab === 'wellness' && (
+          <WellnessGuideScreen onReturnToCompass={navigateHome} />
         )}
 
         {currentTab === 'journal' && (
