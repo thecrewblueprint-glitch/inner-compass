@@ -126,7 +126,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByLabel('Search wellness traditions').fill('Stoicism');
     await expect(page.getByText('Stoicism', { exact: true })).toBeVisible();
     await expect(page.getByText('Buddhism', { exact: true })).toHaveCount(0);
-    await expect(page.getByLabel('Open source P2')).toBeVisible();
+    await expect(page.getByLabel('View source P2')).toBeVisible();
 
     await page.getByLabel('Wellness page: Practices').click();
     await page.getByLabel('Filter Body wellness practices').click();
@@ -140,7 +140,7 @@ test.describe('Inner Compass web app core flow', () => {
 
     await page.getByLabel('Wellness page: Sources').click();
     await expect(page.getByText('Sources & further reading')).toBeVisible();
-    await expect(page.getByLabel('Open external source Stoicism')).toBeVisible();
+    await expect(page.getByRole('link', { name: /Stoicism/ })).toBeVisible();
 
     await page.getByLabel('Back to Inner Compass home').click();
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
@@ -163,7 +163,7 @@ test.describe('Inner Compass web app core flow', () => {
       if (roman !== 'I') {
         await expect(page.getByText(title, { exact: true }).first()).toBeVisible();
         await page.getByLabel('Chapters page for Volume ' + ({'II':2,'III':3,'IV':4,'V':5,'VI':6} as const)[roman]).click();
-        await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+        await page.getByRole('button', { name: /Read chapter 1:/ }).click();
         await expect(page.getByText('Going deeper')).toBeVisible();
         await expect(page.getByText('Practice in ordinary life')).toBeVisible();
         await page.getByLabel('Next wellness chapter').click();
@@ -198,7 +198,7 @@ test.describe('Inner Compass web app core flow', () => {
       await volumeFive.click();
       await expect(page.getByText('A field guide to the mind–body connection')).toBeVisible();
       await page.getByLabel('Chapters page for Volume 5').click();
-      await page.getByRole('button', { name: /^Read chapter 2:/ }).click();
+      await page.getByRole('button', { name: /Read chapter 2:/ }).click();
       await expect(page.getByText('Sleep as a basic form of care')).toBeVisible();
 
       await volumeSix.click();
@@ -207,7 +207,7 @@ test.describe('Inner Compass web app core flow', () => {
       await expect(page.getByText('Sleep as a basic form of care')).toHaveCount(0);
 
       await page.getByLabel('Chapters page for Volume 6').click();
-      await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+      await page.getByRole('button', { name: /Read chapter 1:/ }).click();
       await expect(page.getByText('Let values guide a real decision')).toBeVisible();
 
       await volumeFive.click();
@@ -234,7 +234,7 @@ test.describe('Inner Compass web app core flow', () => {
     await page.getByRole('button', { name: 'Open Volume V: The Mind–Body Connection' }).click();
     await assertAccessible('Volume V overview');
     await page.getByLabel('Chapters page for Volume 5').click();
-    await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+    await page.getByRole('button', { name: /Read chapter 1:/ }).click();
     await assertAccessible('Volume V chapter detail');
     await page.getByRole('button', { name: 'Open Volume VI: Living the Philosophy' }).click();
     await assertAccessible('Volume VI overview');
