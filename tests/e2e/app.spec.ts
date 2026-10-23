@@ -114,6 +114,48 @@ test.describe('Inner Compass web app core flow', () => {
     expect(consoleErrors, `Console errors: ${consoleErrors.join(' | ')}`).toEqual([]);
   });
 
+  test('site sharing contains only the public URL, never a private reflection', async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'share', {
+        configurable: true,
+        value: async (data: { title: string; text: string; url: string }) => {
+          (window as unknown as { __testShare?: typeof data }).__testShare = data;
+        },
+      });
+    });
+    await page.goto('/');
+    const privateDraft = 'My private reflection for the share regression test';
+    await page.getByRole('textbox', { name: 'Problem Input' }).fill(privateDraft);
+    await page.getByRole('button', { name: 'Share Inner Compass' }).click();
+    const payload = await page.evaluate(
+      () => (window as unknown as { __testShare?: { title: string; text: string; url: string } }).__testShare
+    );
+    expect(payload?.url).toBe('https://thecrewblueprint-glitch.github.io/inner-compass/');
+    expect(payload?.title).toBe('Inner Compass Beta');
+    expect(JSON.stringify(payload)).not.toContain(privateDraft);
+    await expect(page.getByText('Site link shared.')).toBeVisible();
+    await expect(page.locator('meta[property="og:description"]')).toHaveAttribute('content', /six volumes/i);
+  });
+
+  test('site sharing offers a clipboard fallback on browsers without native Share', async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'share', { configurable: true, value: undefined });
+      Object.defineProperty(navigator, 'clipboard', {
+        configurable: true,
+        value: {
+          writeText: async (value: string) => {
+            (window as unknown as { __copiedSite?: string }).__copiedSite = value;
+          },
+        },
+      });
+    });
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Share Inner Compass' }).click();
+    const copied = await page.evaluate(() => (window as unknown as { __copiedSite?: string }).__copiedSite);
+    expect(copied).toBe('https://thecrewblueprint-glitch.github.io/inner-compass/');
+    await expect(page.getByText('Site link copied to clipboard.')).toBeVisible();
+  });
+
   test('wellness volume has independent pages, private progress, source links and a return route', async ({ page }) => {
     await page.goto('/');
     await page.getByLabel('Open navigation menu').click();
