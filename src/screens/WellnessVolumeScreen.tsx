@@ -52,7 +52,7 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
     <View>
       <Pressable onPress={() => setSelectedChapter(null)} accessibilityRole="button"
         accessibilityLabel="Back to volume chapter list" style={styles.textButton}>
-        <Text style={[styles.link, accent]}>← All chapters</Text>
+        <Text style={[styles.link, accent]}>← Back to volume chapter list</Text>
       </Pressable>
       <Text style={[styles.label, accent]}>{item.tradition.toUpperCase()}</Text>
       <Text style={[styles.title, primary]}>{item.title}</Text>
@@ -80,7 +80,7 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
           setSelectedChapter(next.id);
         }}
         style={[styles.cta, { backgroundColor: theme.accentPrimary }]}>
-        <Text style={[styles.ctaText, { color: theme.accentText }]}>Next chapter →</Text>
+        <Text style={[styles.ctaText, { color: theme.accentText }]}>Next wellness chapter →</Text>
       </Pressable>
     </View>
   );
@@ -135,11 +135,11 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
           <Text style={[styles.sectionTitle, primary]}>Inside this volume</Text>
           {volume.chapters.map((item, index) => (
             <Pressable key={item.id} accessibilityRole="button"
-              accessibilityLabel={'Read chapter ' + (index + 1) + ': ' + item.title}
+              
               onPress={() => {setPage('chapters');setSelectedChapter(item.id);}}
               style={[styles.chapterCard, card]}>
               <Text style={[styles.label, accent]}>CHAPTER {String(index + 1).padStart(2,'0')} · {item.tradition}</Text>
-              <Text style={[styles.cardTitle, primary]}>{item.title} →</Text>
+              <Text style={[styles.cardTitle, primary]}>{`Read chapter ${index + 1}: ${item.title} →`}</Text>
               <Text style={[styles.body, secondary]}>{item.principle}</Text>
             </Pressable>
           ))}
@@ -153,11 +153,11 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
             <Text style={[styles.intro, secondary]}>Select any chapter to open its teaching, context, exercise, reflection and references.</Text>
             {volume.chapters.map((item, index) => (
               <Pressable key={item.id} accessibilityRole="button"
-                accessibilityLabel={'Read chapter ' + (index + 1) + ': ' + item.title}
+                
                 onPress={() => setSelectedChapter(item.id)}
                 style={[styles.chapterCard, card]}>
                 <Text style={[styles.label, accent]}>CHAPTER {String(index+1).padStart(2,'0')} · {item.tradition}</Text>
-                <Text style={[styles.cardTitle, primary]}>{item.title} →</Text>
+                <Text style={[styles.cardTitle, primary]}>{`Read chapter ${index + 1}: ${item.title} →`}</Text>
                 <Text style={[styles.body, secondary]}>{item.principle}</Text>
               </Pressable>
             ))}
@@ -190,7 +190,7 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
           </Text>
           {references.map((entry) => (
             <Pressable key={entry.id} onPress={() => openSource(entry.id)}
-              accessibilityRole="link" accessibilityLabel={'Open ' + entry.title}
+              accessibilityRole="link" 
               style={[styles.chapterCard, card]}>
               <Text style={[styles.label, accent]}>{entry.id} · {entry.kind.toUpperCase()} · {entry.publisher}</Text>
               <Text style={[styles.cardTitle, primary]}>{entry.title} ↗</Text>
@@ -201,11 +201,11 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
       <View style={[styles.bottom, { borderTopColor: theme.cardBorder }]}>
         <Pressable onPress={onReturnToCompass} accessibilityRole="button"
           accessibilityLabel="Return to Inner Compass" style={[styles.linkButton, card]}>
-          <Text style={[styles.link, accent]}>← Inner Compass</Text>
+          <Text style={[styles.link, accent]}>← Return to Inner Compass</Text>
         </Pressable>
         <Pressable onPress={() => selectPage('overview')} accessibilityRole="button"
           accessibilityLabel="Back to volume overview" style={[styles.linkButton, card]}>
-          <Text style={[styles.link, accent]}>Volume overview ↑</Text>
+          <Text style={[styles.link, accent]}>← Back to volume overview</Text>
         </Pressable>
       </View>
       <Text style={[styles.disclaimer, secondary]}>
