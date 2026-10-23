@@ -20,6 +20,7 @@ interface HomeScreenProps {
   dailyInteractionTimestamp?: number;
   onOpenLegal?: () => void;
   onOpenHealthData?: () => void;
+  onOpenWellness?: () => void;
   onOpenCrisis?: () => void;
 }
 
@@ -61,6 +62,7 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   dailyInteractionTimestamp,
   onOpenLegal,
   onOpenHealthData,
+  onOpenWellness,
   onOpenCrisis,
 }) => {
   const { theme } = useTheme();
@@ -234,6 +236,32 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
           ))}
         </View>
       </View>
+
+      {/* Dedicated, public-safe wellness library entry point. */}
+      {onOpenWellness && (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Open Health & Wellness Library"
+          onPress={onOpenWellness}
+          style={({ pressed }) => [
+            styles.wellnessCard,
+            { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder },
+            pressed && { opacity: 0.85 },
+          ]}
+        >
+          <Text style={[styles.wellnessKicker, { color: theme.accentPrimary }]}>
+            EXPLORE · VOLUME I
+          </Text>
+          <Text style={[styles.wellnessTitle, { color: theme.textPrimary }]}>Health & Wellness</Text>
+          <Text style={[styles.wellnessText, { color: theme.textSecondary }]}>
+            The Whole Life Field Guide: explore philosophy and spirituality, mind–body practices,
+            a 21-day reflection journey, and research references in a dedicated library.
+          </Text>
+          <Text style={[styles.wellnessLink, { color: theme.accentPrimary }]}>
+            Enter the wellness library →
+          </Text>
+        </Pressable>
+      )}
 
       {/* Persistent release / safety notice */}
       <View style={[styles.privacyNote, { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder }]}>
@@ -410,6 +438,11 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     lineHeight: 18,
   },
+  wellnessCard: { borderWidth: 1, borderRadius: 16, padding: 20, marginBottom: 24 },
+  wellnessKicker: { fontSize: 10, fontWeight: '800', letterSpacing: 0.7, marginBottom: 8 },
+  wellnessTitle: { fontFamily: 'serif', fontSize: 24, fontWeight: '600', marginBottom: 6 },
+  wellnessText: { fontSize: 13, lineHeight: 21 },
+  wellnessLink: { fontSize: 12, fontWeight: '800', marginTop: 15 },
   privacyNote: {
     padding: 14,
     borderRadius: 12,
