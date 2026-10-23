@@ -219,6 +219,29 @@ test.describe('Inner Compass web app core flow', () => {
     }
   });
 
+  test('new wellness pages pass automated serious and critical accessibility checks', async ({ page }) => {
+    await page.goto('/');
+    await navigateFromHeader(page, 'Health & Wellness');
+    const assertAccessible = async (surface: string) => {
+      const result = await new AxeBuilder({ page }).analyze();
+      const blocking = result.violations.filter((violation) =>
+        ['serious', 'critical'].includes(violation.impact || '')
+      );
+      expect(blocking, surface + ': ' + JSON.stringify(blocking, null, 2)).toEqual([]);
+    };
+
+    await assertAccessible('Volume I overview');
+    await page.getByRole('button', { name: 'Open Volume V: The Mind–Body Connection' }).click();
+    await assertAccessible('Volume V overview');
+    await page.getByLabel('Chapters page for Volume 5').click();
+    await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+    await assertAccessible('Volume V chapter detail');
+    await page.getByRole('button', { name: 'Open Volume VI: Living the Philosophy' }).click();
+    await assertAccessible('Volume VI overview');
+    await page.getByLabel('Exercises page for Volume 6').click();
+    await assertAccessible('Volume VI exercises');
+  });
+
   test('header navigation stays compact and works on a narrow viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
