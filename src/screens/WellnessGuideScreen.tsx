@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useTheme } from '../theme';
 import { WellnessVolumeScreen } from './WellnessVolumeScreen';
-import { VOLUME_DIRECTORY } from '../data/wellnessVolumes';
+import { WellnessVolumePicker } from '../components/WellnessVolumePicker';
 import {
   WELLNESS_JOURNEY, WELLNESS_PRACTICES, WELLNESS_SOURCES, WELLNESS_TRADITIONS,
   WellnessDomain,
@@ -53,6 +53,12 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
   const [completed, setCompleted] = useState<number[]>(readProgress);
   const [volume, setVolume] = useState(1);
 
+  // Switching books always opens that book from the beginning.
+  const selectVolume = (nextVolume: number) => {
+    setPage('overview');
+    setVolume(nextVolume);
+  };
+
   const filteredTraditions = useMemo(() => {
     const term = search.trim().toLowerCase();
     return WELLNESS_TRADITIONS.filter((entry) => !term ||
@@ -94,7 +100,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
     <Pressable
       onPress={() => openReference(id)}
       accessibilityRole="link"
-      accessibilityLabel={'Open source ' + id}
+      accessibilityLabel={'View source ' + id}
       style={styles.sourceAction}
     >
       <Text style={[styles.sourceActionText, eyebrow]}>View source {id} ↗</Text>
@@ -104,8 +110,9 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
   if (volume !== 1) {
     return (
       <WellnessVolumeScreen
+        key={volume}
         volumeId={volume as 2 | 3 | 4 | 5 | 6}
-        onSelectVolume={setVolume}
+        onSelectVolume={selectVolume}
         onReturnToCompass={onReturnToCompass}
       />
     );
@@ -136,27 +143,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
       </View>
 
       <Text style={[styles.smallLabel, eyebrow]}>THE SIX-VOLUME COLLECTION</Text>
-      <View style={styles.volumeShelf} accessibilityLabel="Browse wellness volumes">
-        {VOLUME_DIRECTORY.map((entry) => {
-          const selected = entry.id === volume;
-          return (
-            <Pressable key={entry.id} onPress={() => setVolume(entry.id)}
-              accessibilityRole="button"
-              accessibilityLabel={'Open Volume ' + ['','I','II','III','IV','V','VI'][entry.id] + ': ' + entry.title}
-              accessibilityState={{ selected }}
-              style={[styles.volumeButton, {
-                backgroundColor: selected ? theme.accentPrimary : theme.card,
-                borderColor: selected ? theme.accentPrimary : theme.cardBorder,
-              }]}>
-              <Text style={[styles.volumeButtonText, {
-                color: selected ? theme.accentText : theme.textPrimary,
-              }]}>
-                {['','I','II','III','IV','V','VI'][entry.id]} · {entry.title}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </View>
+      <WellnessVolumePicker selectedVolume={volume} onSelectVolume={selectVolume} />
 
       <View style={styles.nav} accessibilityLabel="Health and wellness volume pages">
         {PAGES.map((item) => {
@@ -218,7 +205,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
             </Text>
           </View>
           <Pressable onPress={() => go('traditions')} accessibilityRole="button"
-            accessibilityLabel="Explore wellness traditions" style={[styles.primaryButton, { backgroundColor: theme.accentPrimary }]}>
+            accessibilityLabel="Explore traditions" style={[styles.primaryButton, { backgroundColor: theme.accentPrimary }]}>
             <Text style={[styles.primaryButtonText, { color: theme.accentText }]}>Explore traditions →</Text>
           </Pressable>
         </View>
@@ -289,7 +276,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
               <View style={[styles.progressFill, { backgroundColor: theme.accentPrimary,
                 width: (100 * completed.length / WELLNESS_JOURNEY.length) + '%' }]} />
             </View>
-            <Pressable onPress={resetDays} accessibilityRole="button" accessibilityLabel="Reset wellness journey checkmarks">
+            <Pressable onPress={resetDays} accessibilityRole="button" accessibilityLabel="Reset my checkmarks">
               <Text style={[styles.reset, eyebrow]}>Reset my checkmarks</Text>
             </Pressable>
           </View>
@@ -326,7 +313,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
               <Text style={[styles.sectionTitle, primary]}>{kind === 'Tradition' ? 'Philosophy and traditions' : 'Health research and guidance'}</Text>
               {WELLNESS_SOURCES.filter((entry) => entry.kind === kind).map((entry) => (
                 <Pressable key={entry.id} onPress={() => openReference(entry.id)}
-                  accessibilityRole="link" accessibilityLabel={'Open external source ' + entry.title}
+                  accessibilityRole="link" 
                   style={[styles.sourceCard, cardStyle]}>
                   <Text style={[styles.kicker, eyebrow]}>{entry.id} · {entry.publisher}</Text>
                   <Text style={[styles.emphasis, primary]}>{entry.title} ↗</Text>
@@ -342,12 +329,12 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
       )}
 
       <View style={[styles.bottomNav, { borderTopColor: theme.cardBorder }]}>
-        <Pressable onPress={onReturnToCompass} accessibilityRole="button" accessibilityLabel="Return to Inner Compass"
+        <Pressable onPress={onReturnToCompass} accessibilityRole="button" accessibilityLabel="Inner Compass home"
           style={[styles.backButton, cardStyle]}>
           <Text style={[styles.backText, eyebrow]}>← Inner Compass home</Text>
         </Pressable>
         <Pressable onPress={() => go('overview')} accessibilityRole="button"
-          accessibilityLabel="Return to wellness volume overview" style={[styles.backButton, cardStyle]}>
+          accessibilityLabel="Volume I overview" style={[styles.backButton, cardStyle]}>
           <Text style={[styles.backText, primary]}>Volume I overview ↑</Text>
         </Pressable>
       </View>
@@ -371,9 +358,6 @@ const styles = StyleSheet.create({
   heroText: { fontSize: 14, lineHeight: 23, maxWidth: 630 },
   heroStats: { flexDirection: 'row', gap: 16, flexWrap: 'wrap', marginTop: 20 },
   heroStat: { fontSize: 11, fontWeight: '800' },
-  volumeShelf: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 4, marginBottom: 23 },
-  volumeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 13, paddingVertical: 11, flexGrow: 1 },
-  volumeButtonText: { fontSize: 11, fontWeight: '800' },
   nav: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, marginBottom: 24 },
   navButton: { borderWidth: 1, borderRadius: 9, paddingHorizontal: 13, paddingVertical: 10 },
   navText: { fontSize: 11, fontWeight: '800' },
