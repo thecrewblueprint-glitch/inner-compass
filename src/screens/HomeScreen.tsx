@@ -274,17 +274,17 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         </Text>
         <View style={styles.noticeLinks}>
           {onOpenLegal && (
-            <Pressable accessibilityRole="link" accessibilityLabel="Open legal and safety notices" onPress={onOpenLegal}>
+            <Pressable accessibilityRole="link" onPress={onOpenLegal}>
               <Text style={[styles.noticeLink, { color: theme.accentPrimary }]}>Legal & Safety</Text>
             </Pressable>
           )}
           {onOpenHealthData && (
-            <Pressable accessibilityRole="link" accessibilityLabel="Open Consumer Health Data Privacy Policy" onPress={onOpenHealthData}>
+            <Pressable accessibilityRole="link" onPress={onOpenHealthData}>
               <Text style={[styles.noticeLink, { color: theme.accentPrimary }]}>Consumer Health Data Policy</Text>
             </Pressable>
           )}
           {onOpenCrisis && (
-            <Pressable accessibilityRole="link" accessibilityLabel="Open crisis lifelines" onPress={onOpenCrisis}>
+            <Pressable accessibilityRole="link" onPress={onOpenCrisis}>
               <Text style={[styles.noticeLink, { color: theme.crisisAccent }]}>Lifelines 24/7</Text>
             </Pressable>
           )}
