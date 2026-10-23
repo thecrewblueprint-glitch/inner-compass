@@ -12,6 +12,9 @@ import { Category, ExistentialRoot } from '../types';
 import { useTheme } from '../theme';
 import { DailyAffirmationWidget } from '../components/DailyAffirmationWidget';
 
+const SHARE_URL = 'https://thecrewblueprint-glitch.github.io/inner-compass/';
+const SHARE_TEXT = 'Inner Compass Beta — source-linked philosophical reflection and six volumes of Health & Wellness (18+, U.S.).';
+
 interface HomeScreenProps {
   onSubmit: (problemText: string, preferredRoot?: ExistentialRoot | null) => void;
   onSelectDailyCategory?: (category: Category) => void;
@@ -68,6 +71,31 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   const { theme } = useTheme();
   const [problemInput, setProblemInput] = useState('');
   const [selectedRoot, setSelectedRoot] = useState<ExistentialRoot | null>(null);
+  const [shareStatus, setShareStatus] = useState('');
+
+  const handleShare = async () => {
+    // Share only the canonical home URL, never reflection input, journal data, or local settings.
+    try {
+      if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+        await navigator.share({ title: 'Inner Compass Beta', text: SHARE_TEXT, url: SHARE_URL });
+        setShareStatus('Site link shared.');
+        return;
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name === 'AbortError') return;
+      // A device share failure can still use the clipboard fallback.
+    }
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(SHARE_URL);
+        setShareStatus('Site link copied to clipboard.');
+        return;
+      }
+    } catch {
+      // Clipboard permissions vary by browser. Keep an ordinary selectable URL available.
+    }
+    setShareStatus(`Copy this link: ${SHARE_URL}`);
+  };
 
   const handleSubmit = () => {
     if (!problemInput.trim() || isLoading) return;
@@ -85,6 +113,26 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
         <Text style={[styles.subtitle, { color: theme.textSecondary }]}>
           Share what is on your mind. Inner Compass connects your reflection with source-linked ideas from philosophy and research-informed approaches to reflection. It offers perspectives to consider, not an assessment of you or a recommendation about what you should do.
         </Text>
+      </View>
+
+      <View style={styles.shareRow}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Share Inner Compass"
+          onPress={() => { void handleShare(); }}
+          style={({ pressed }) => [
+            styles.shareButton,
+            { backgroundColor: theme.card, borderColor: theme.cardBorder },
+            pressed && { opacity: 0.82 },
+          ]}
+        >
+          <Text style={[styles.shareButtonText, { color: theme.accentPrimary }]}>↗ Share Inner Compass</Text>
+        </Pressable>
+        {shareStatus ? (
+          <Text accessibilityLiveRegion="polite" selectable style={[styles.shareStatus, { color: theme.textSecondary }]}>
+            {shareStatus}
+          </Text>
+        ) : null}
       </View>
 
       <DailyAffirmationWidget
@@ -302,6 +350,10 @@ const styles = StyleSheet.create({
     width: '100%',
     alignSelf: 'center',
   },
+  shareRow: { alignItems: 'center', marginBottom: 22, gap: 9 },
+  shareButton: { borderWidth: 1, borderRadius: 11, paddingHorizontal: 17, paddingVertical: 12, minHeight: 44, justifyContent: 'center' },
+  shareButtonText: { fontSize: 13, fontWeight: '800' },
+  shareStatus: { fontSize: 12, textAlign: 'center', lineHeight: 19 },
   header: {
     alignItems: 'center',
     marginBottom: 24,
