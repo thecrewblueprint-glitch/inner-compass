@@ -239,28 +239,32 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
       {/* Dedicated, public-safe wellness library entry point. */}
       {onOpenWellness && (
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Open Health & Wellness Library"
-          onPress={onOpenWellness}
-          style={({ pressed }) => [
-            styles.wellnessCard,
-            { backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder },
-            pressed && { opacity: 0.85 },
-          ]}
-        >
+        <View style={[styles.wellnessCard, {
+          backgroundColor: theme.badgeBg, borderColor: theme.badgeBorder,
+        }]}>
           <Text style={[styles.wellnessKicker, { color: theme.accentPrimary }]}>
-            EXPLORE · VOLUME I
+            EXPLORE · SIX-VOLUME COLLECTION
           </Text>
           <Text style={[styles.wellnessTitle, { color: theme.textPrimary }]}>Health & Wellness</Text>
           <Text style={[styles.wellnessText, { color: theme.textSecondary }]}>
-            The Whole Life Field Guide: explore philosophy and spirituality, mind–body practices,
-            a 21-day reflection journey, and research references in a dedicated library.
+            The Whole Life Field Guide: six complete volumes on philosophy, spirituality,
+            mind–body practices, a 21-day reflection journey, and researched sources.
           </Text>
-          <Text style={[styles.wellnessLink, { color: theme.accentPrimary }]}>
-            Enter the wellness library →
-          </Text>
-        </Pressable>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Open Health & Wellness Library"
+            onPress={onOpenWellness}
+            style={({ pressed }) => [
+              styles.wellnessEntry,
+              { borderColor: theme.accentPrimary },
+              pressed && { opacity: 0.85 },
+            ]}
+          >
+            <Text style={[styles.wellnessLink, { color: theme.accentPrimary }]}>
+              Open Health & Wellness Library
+            </Text>
+          </Pressable>
+        </View>
       )}
 
       {/* Persistent release / safety notice */}
@@ -442,7 +446,8 @@ const styles = StyleSheet.create({
   wellnessKicker: { fontSize: 10, fontWeight: '800', letterSpacing: 0.7, marginBottom: 8 },
   wellnessTitle: { fontFamily: 'serif', fontSize: 24, fontWeight: '600', marginBottom: 6 },
   wellnessText: { fontSize: 13, lineHeight: 21 },
-  wellnessLink: { fontSize: 12, fontWeight: '800', marginTop: 15 },
+  wellnessEntry: { alignSelf: 'flex-start', borderWidth: 1, borderRadius: 9, padding: 11, marginTop: 15 },
+  wellnessLink: { fontSize: 12, fontWeight: '800' },
   privacyNote: {
     padding: 14,
     borderRadius: 12,
