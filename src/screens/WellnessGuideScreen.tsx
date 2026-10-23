@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useTheme } from '../theme';
+import { WellnessVolumeScreen } from './WellnessVolumeScreen';
+import { VOLUME_DIRECTORY } from '../data/wellnessVolumes';
 import {
   WELLNESS_JOURNEY, WELLNESS_PRACTICES, WELLNESS_SOURCES, WELLNESS_TRADITIONS,
   WellnessDomain,
@@ -49,7 +51,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<Filter>('All');
   const [completed, setCompleted] = useState<number[]>(readProgress);
-  const [volume] = useState(1); // The library can add fully authored volumes without replacing Volume I.
+  const [volume, setVolume] = useState(1);
 
   const filteredTraditions = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -99,6 +101,16 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
     </Pressable>
   );
 
+  if (volume !== 1) {
+    return (
+      <WellnessVolumeScreen
+        volumeId={volume as 2 | 3 | 4 | 5 | 6}
+        onSelectVolume={setVolume}
+        onReturnToCompass={onReturnToCompass}
+      />
+    );
+  }
+
   return (
     <ScrollView key={page} contentContainerStyle={styles.container}>
       <View style={styles.breadcrumb}>
@@ -121,6 +133,29 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
           <Text style={[styles.heroStat, primary]}>18 practices</Text>
           <Text style={[styles.heroStat, primary]}>24 sources</Text>
         </View>
+      </View>
+
+      <Text style={[styles.smallLabel, eyebrow]}>THE SIX-VOLUME COLLECTION</Text>
+      <View style={styles.volumeShelf} accessibilityLabel="Browse wellness volumes">
+        {VOLUME_DIRECTORY.map((entry) => {
+          const selected = entry.id === volume;
+          return (
+            <Pressable key={entry.id} onPress={() => setVolume(entry.id)}
+              accessibilityRole="button"
+              accessibilityLabel={'Open Volume ' + ['','I','II','III','IV','V','VI'][entry.id] + ': ' + entry.title}
+              accessibilityState={{ selected }}
+              style={[styles.volumeButton, {
+                backgroundColor: selected ? theme.accentPrimary : theme.card,
+                borderColor: selected ? theme.accentPrimary : theme.cardBorder,
+              }]}>
+              <Text style={[styles.volumeButtonText, {
+                color: selected ? theme.accentText : theme.textPrimary,
+              }]}>
+                {['','I','II','III','IV','V','VI'][entry.id]} · {entry.title}
+              </Text>
+            </Pressable>
+          );
+        })}
       </View>
 
       <View style={styles.nav} accessibilityLabel="Health and wellness volume pages">
@@ -336,6 +371,9 @@ const styles = StyleSheet.create({
   heroText: { fontSize: 14, lineHeight: 23, maxWidth: 630 },
   heroStats: { flexDirection: 'row', gap: 16, flexWrap: 'wrap', marginTop: 20 },
   heroStat: { fontSize: 11, fontWeight: '800' },
+  volumeShelf: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginTop: 4, marginBottom: 23 },
+  volumeButton: { borderWidth: 1, borderRadius: 10, paddingHorizontal: 13, paddingVertical: 11, flexGrow: 1 },
+  volumeButtonText: { fontSize: 11, fontWeight: '800' },
   nav: { flexDirection: 'row', flexWrap: 'wrap', gap: 7, marginBottom: 24 },
   navButton: { borderWidth: 1, borderRadius: 9, paddingHorizontal: 13, paddingVertical: 10 },
   navText: { fontSize: 11, fontWeight: '800' },
