@@ -242,7 +242,7 @@ test.describe('Inner Compass web app core flow', () => {
     await navigateFromHeader(page, 'Suggested Reads');
     await expect(page.getByText('Explore everything', { exact: true })).toBeVisible();
     await page.getByText('More filters', { exact: true }).click();
-    await expect(page.getByText('Public-domain / open access', { exact: true })).toBeVisible();
+    await expect(page.getByText('Free / open access', { exact: true })).toBeVisible();
     await assertNoHorizontalScroller(page);
 
     await navigateFromHeader(page, 'Legal & Safety');
