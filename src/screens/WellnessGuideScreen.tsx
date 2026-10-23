@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useTheme } from '../theme';
 import {
@@ -45,7 +45,6 @@ interface WellnessGuideScreenProps {
 /** A self-contained series-ready library within the existing Inner Compass eligibility gate. */
 export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onReturnToCompass }) => {
   const { theme } = useTheme();
-  const scrollRef = useRef<ScrollView>(null);
   const [page, setPage] = useState<Page>('overview');
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState<Filter>('All');
@@ -66,7 +65,6 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
 
   const go = (next: Page) => {
     setPage(next);
-    scrollRef.current?.scrollTo({ y: 0, animated: false });
   };
 
   const toggleDay = (day: number) => {
@@ -102,7 +100,7 @@ export const WellnessGuideScreen: React.FC<WellnessGuideScreenProps> = ({ onRetu
   );
 
   return (
-    <ScrollView ref={scrollRef} contentContainerStyle={styles.container}>
+    <ScrollView key={page} contentContainerStyle={styles.container}>
       <View style={styles.breadcrumb}>
         <Pressable onPress={onReturnToCompass} accessibilityRole="button" accessibilityLabel="Back to Inner Compass home"
           style={[styles.backButton, cardStyle]}>
