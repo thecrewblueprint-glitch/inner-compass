@@ -42,6 +42,9 @@ jobs:
       - name: Audit Suggested Reads directory
         run: npm run audit:reads
 
+      - name: Audit six-volume wellness content
+        run: npm run audit:wellness
+
       - name: Audit safety and contextual routing
         run: npm run audit:safety
 
