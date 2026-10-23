@@ -151,6 +151,32 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('1 of 21 explored', { exact: true })).toBeVisible();
   });
 
+  test('all six published wellness volumes offer chapter pages and route back to Inner Compass', async ({ page }) => {
+    await page.goto('/');
+    await navigateFromHeader(page, 'Health & Wellness');
+    for (const [roman, title] of [
+      ['II', 'Eastern Wisdom'], ['III', 'Western Philosophy'],
+      ['IV', 'Spiritual Growth'], ['V', 'The Mind–Body Connection'],
+      ['VI', 'Living the Philosophy'], ['I', 'Foundations of Wellness']
+    ] as const) {
+      await page.getByRole('button', { name: 'Open Volume ' + roman + ': ' + title }).click();
+      if (roman !== 'I') {
+        await expect(page.getByText(title, { exact: true }).first()).toBeVisible();
+        await page.getByLabel('Chapters page for Volume ' + ({'II':2,'III':3,'IV':4,'V':5,'VI':6} as const)[roman]).click();
+        await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+        await expect(page.getByText('Going deeper')).toBeVisible();
+        await expect(page.getByText('Practice in ordinary life')).toBeVisible();
+        await page.getByLabel('Next wellness chapter').click();
+        await expect(page.getByText('Going deeper')).toBeVisible();
+        await page.getByLabel('Back to volume chapter list').click();
+      } else {
+        await expect(page.getByText('Mind. Body. Soul.')).toBeVisible();
+      }
+    }
+    await page.getByLabel('Back to Inner Compass home').click();
+    await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
+  });
+
   test('header navigation stays compact and works on a narrow viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
