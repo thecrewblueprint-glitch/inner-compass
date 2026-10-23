@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useTheme } from '../theme';
+import { WellnessVolumePicker } from '../components/WellnessVolumePicker';
 import { WELLNESS_SOURCES } from '../data/wellnessGuide';
-import { VolumeChapter, VolumeId, WELLNESS_VOLUMES, VOLUME_DIRECTORY } from '../data/wellnessVolumes';
+import { VolumeChapter, VolumeId, WELLNESS_VOLUMES } from '../data/wellnessVolumes';
 
 type Page = 'overview' | 'chapters' | 'exercises' | 'references';
 
@@ -103,24 +104,7 @@ export const WellnessVolumeScreen: React.FC<Props> = ({ volumeId, onSelectVolume
       </View>
 
       <Text style={[styles.label, accent]}>BROWSE THE SIX-VOLUME COLLECTION</Text>
-      <View style={styles.shelf}>
-        {VOLUME_DIRECTORY.map((v) => {
-          const active = v.id === volumeId;
-          return (
-            <Pressable key={v.id} onPress={() => onSelectVolume(v.id)} accessibilityRole="button"
-              accessibilityLabel={'Open Volume ' + ['','I','II','III','IV','V','VI'][v.id] + ': ' + v.title}
-              accessibilityState={{ selected: active }}
-              style={[styles.volumeButton, {
-                backgroundColor: active ? theme.accentPrimary : theme.card,
-                borderColor: active ? theme.accentPrimary : theme.cardBorder,
-              }]}>
-              <Text style={[styles.volumeText, { color: active ? theme.accentText : theme.textPrimary }]}>
-                {['','I','II','III','IV','V','VI'][v.id]} · {v.title}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </View>
+      <WellnessVolumePicker selectedVolume={volumeId} onSelectVolume={onSelectVolume} />
 
       <View style={[styles.nav, { borderBottomColor: theme.cardBorder }]}>
         {([
@@ -243,9 +227,6 @@ const styles = StyleSheet.create({
   title:{fontFamily:'serif',fontSize:29,fontWeight:'600',lineHeight:38,marginBottom:14},
   intro:{fontSize:14,lineHeight:23,marginBottom:14},
   body:{fontSize:14,lineHeight:23,marginBottom:10},
-  shelf:{flexDirection:'row',flexWrap:'wrap',gap:8,marginBottom:20},
-  volumeButton:{borderWidth:1,borderRadius:10,paddingHorizontal:12,paddingVertical:11,flexGrow:1},
-  volumeText:{fontSize:11,fontWeight:'800'},
   nav:{flexDirection:'row',flexWrap:'wrap',gap:8,borderBottomWidth:1,paddingBottom:17,marginBottom:22},
   navButton:{borderWidth:1,borderRadius:10,paddingHorizontal:14,paddingVertical:10},
   navText:{fontSize:12,fontWeight:'800'},
