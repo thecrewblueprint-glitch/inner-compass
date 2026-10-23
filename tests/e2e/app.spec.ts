@@ -177,6 +177,48 @@ test.describe('Inner Compass web app core flow', () => {
     await expect(page.getByText('What is weighing on your heart?')).toBeVisible();
   });
 
+  test('Volume V and VI navigation stays tappable at narrow widths and resets chapters', async ({ page }) => {
+    for (const width of [320, 375, 414]) {
+      await page.setViewportSize({ width, height: 780 });
+      await page.goto('/');
+      await navigateFromHeader(page, 'Health & Wellness');
+
+      const volumeFive = page.getByRole('button', { name: 'Open Volume V: The Mind–Body Connection' });
+      const volumeSix = page.getByRole('button', { name: 'Open Volume VI: Living the Philosophy' });
+
+      for (const button of [volumeFive, volumeSix]) {
+        await expect(button).toBeVisible();
+        const rectangle = await button.boundingBox();
+        expect(rectangle).not.toBeNull();
+        expect(rectangle!.width).toBeGreaterThan(100);
+        expect(rectangle!.x).toBeGreaterThanOrEqual(0);
+        expect(rectangle!.x + rectangle!.width).toBeLessThanOrEqual(width + 1);
+      }
+
+      await volumeFive.click();
+      await expect(page.getByText('A field guide to the mind–body connection')).toBeVisible();
+      await page.getByLabel('Chapters page for Volume 5').click();
+      await page.getByRole('button', { name: /^Read chapter 2:/ }).click();
+      await expect(page.getByText('Sleep as a basic form of care')).toBeVisible();
+
+      await volumeSix.click();
+      await expect(page.getByText('A field guide to living the philosophy')).toBeVisible();
+      await expect(page.getByText('Inside this volume')).toBeVisible();
+      await expect(page.getByText('Sleep as a basic form of care')).toHaveCount(0);
+
+      await page.getByLabel('Chapters page for Volume 6').click();
+      await page.getByRole('button', { name: /^Read chapter 1:/ }).click();
+      await expect(page.getByText('Let values guide a real decision')).toBeVisible();
+
+      await volumeFive.click();
+      await expect(page.getByText('A field guide to the mind–body connection')).toBeVisible();
+      await expect(page.getByText('Let values guide a real decision')).toHaveCount(0);
+
+      await page.getByRole('button', { name: 'Open Volume I: Foundations of Wellness' }).click();
+      await expect(page.getByText('A guide to whole-person wellness')).toBeVisible();
+    }
+  });
+
   test('header navigation stays compact and works on a narrow viewport', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/');
