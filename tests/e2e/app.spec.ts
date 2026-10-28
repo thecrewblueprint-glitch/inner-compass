@@ -39,7 +39,7 @@ test.describe('Inner Compass web app core flow', () => {
       if (req.method() !== 'GET' && req.method() !== 'HEAD') requests.push(req.url());
     });
     await page.goto('/');
-    const button = page.getByRole('button', { name: 'Download an optional 30-day reflection calendar preview' });
+    const button = page.getByText('Calendar Preview (.ics)', { exact: true });
     await expect(button).toBeVisible();
     const [download] = await Promise.all([
       page.waitForEvent('download'),
