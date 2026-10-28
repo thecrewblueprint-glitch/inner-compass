@@ -319,8 +319,7 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
         </View>
 
         <View style={styles.actionsRight}>
-          {typeof document !== 'undefined' && (
-            <Pressable
+          <Pressable
               style={({ pressed }) => [styles.actionButton,
                 { backgroundColor: theme.card, borderColor: theme.cardBorder },
                 pressed && { opacity: 0.75 }]}
@@ -332,7 +331,6 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
                 Calendar Preview (.ics)
               </Text>
             </Pressable>
-          )}
           {onUseAsPrompt && (
             <Pressable
               style={({ pressed }) => [
@@ -367,11 +365,9 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
           )}
         </View>
       </View>
-      {typeof document !== 'undefined' && (
-        <Text style={[styles.traditionText, { color: theme.textMuted }]}>
+      <Text style={[styles.traditionText, { color: theme.textMuted }]}>
           Calendar export is optional. Import is manual; deleting the downloaded file does not remove imported events.
-        </Text>
-      )}
+      </Text>
     </View>
   );
 };
