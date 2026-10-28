@@ -51,6 +51,9 @@ jobs:
       - name: Audit production release contract
         run: npm run audit:release
 
+      - name: Audit deterministic offline calendar export
+        run: npm run audit:calendar
+
       - name: TypeScript check
         run: npm run lint
 
