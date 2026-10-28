@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { readFile } from 'node:fs/promises';
 
 const SAFE_REFLECTION =
   'I feel deeply lonely and disconnected even when surrounded by friends and coworkers.';
@@ -32,6 +33,29 @@ const assertNoHorizontalScroller = async (page: import('@playwright/test').Page)
 };
 
 test.describe('Inner Compass web app core flow', () => {
+  test('optional calendar preview downloads original private-data-free ICS without a provider write', async ({ page }) => {
+    const requests: string[] = [];
+    page.on('request', (req) => {
+      if (req.method() !== 'GET' && req.method() !== 'HEAD') requests.push(req.url());
+    });
+    await page.goto('/');
+    const button = page.getByTestId('reflection-calendar-export');
+    await expect(button).toBeVisible();
+    const [download] = await Promise.all([
+      page.waitForEvent('download'),
+      button.click(),
+    ]);
+    expect(download.suggestedFilename()).toBe('inner-compass-reflections-preview.ics');
+    const location = await download.path();
+    expect(location).toBeTruthy();
+    const text = await readFile(location!, 'utf8');
+    expect((text.match(/BEGIN:VEVENT/g) || []).length).toBe(30);
+    expect(text).toContain('METHOD:PUBLISH');
+    expect(text).not.toMatch(/saved_reflections|birth|raw reflection|email/i);
+    expect(requests).toEqual([]);
+    await expect(page.getByText(/deleting the downloaded file does not remove imported events/i)).toBeVisible();
+  });
+
   test('loads, reflects locally, saves privately, and navigates core surfaces', async ({ page }) => {
     const consoleErrors: string[] = [];
     const pageErrors: string[] = [];
