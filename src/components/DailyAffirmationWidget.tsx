@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Category, PillarType } from '../types';
+import { buildReflectionCalendar } from '../services/reflectionCalendar';
 import { useTheme } from '../theme';
 import {
   DailyAffirmationItem,
@@ -121,6 +122,24 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
     if (onUseAsPrompt) {
       onUseAsPrompt(`Reflecting on ${item.category.category_name}: ${item.dailyAffirmation}`);
     }
+  };
+
+  const handleCalendarExport = () => {
+    // Browser-only opt-in export; no calendar API, server write or personal data.
+    if (typeof document === 'undefined' || typeof URL === 'undefined') return;
+    const today = new Date();
+    const localDay = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'),
+      String(today.getDate()).padStart(2, '0')].join('-');
+    const calendar = buildReflectionCalendar({ startDate: localDay, days: 30 });
+    const blob = new Blob([calendar], { type: 'text/calendar;charset=utf-8' });
+    const objectUrl = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = objectUrl;
+    anchor.download = 'inner-compass-reflections-preview.ics';
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(objectUrl);
   };
 
   return (
@@ -300,6 +319,20 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
         </View>
 
         <View style={styles.actionsRight}>
+          {typeof document !== 'undefined' && (
+            <Pressable
+              style={({ pressed }) => [styles.actionButton,
+                { backgroundColor: theme.card, borderColor: theme.cardBorder },
+                pressed && { opacity: 0.75 }]}
+              onPress={handleCalendarExport}
+              accessibilityLabel="Download an optional 30-day reflection calendar preview"
+              {...({ 'data-testid': 'reflection-calendar-export' } as any)}
+            >
+              <Text style={[styles.actionButtonText, { color: theme.textSecondary }]}>
+                Calendar Preview (.ics)
+              </Text>
+            </Pressable>
+          )}
           {onUseAsPrompt && (
             <Pressable
               style={({ pressed }) => [
@@ -334,6 +367,11 @@ export const DailyAffirmationWidget: React.FC<DailyAffirmationWidgetProps> = ({
           )}
         </View>
       </View>
+      {typeof document !== 'undefined' && (
+        <Text style={[styles.traditionText, { color: theme.textMuted }]}>
+          Calendar export is optional. Import is manual; deleting the downloaded file does not remove imported events.
+        </Text>
+      )}
     </View>
   );
 };
