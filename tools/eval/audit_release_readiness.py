@@ -81,6 +81,31 @@ def main() -> None:
     if "RCW 19.373.020" not in health_policy:
         errors.append("consumer health data policy is missing its Washington legal source")
 
+    # Fail closed on production Pages launch gates: a green content audit is
+    # not permission to silently bypass age/region attestation or legal review.
+    pages = read(".github/workflows/pages.yml")
+    if 'VITE_INNER_COMPASS_PREVIEW: "false"' not in pages:
+        errors.append("Pages build does not explicitly disable preview/eligibility bypass")
+    if 'VITE_INNER_COMPASS_DEBUG: "false"' not in pages:
+        errors.append("Pages build does not explicitly disable debug mode")
+
+    legal_config = read("src/legal/legalConfig.ts")
+    for variable in ("VITE_LEGAL_OPERATOR_NAME", "VITE_LEGAL_CONTACT_EMAIL",
+                     "VITE_LEGAL_COUNSEL_REVIEWED", "VITE_PUBLIC_LAUNCH_APPROVED"):
+        if variable not in legal_config:
+            errors.append(f"Release configuration missing external owner gate: {variable}")
+    if "LEGAL_CONFIG.counselReviewed &&" not in legal_config or (
+            "LEGAL_CONFIG.publicLaunchApproved" not in legal_config):
+        errors.append("Public release may not require both counsel and owner approval")
+
+    server = read("server.ts")
+    if "if (!isProduction)" not in server or "app.post('/api/eval/guidance'" not in server:
+        errors.append("Test reflection endpoint is not visibly isolated to nonproduction")
+    if "rawReflectionProductionTransport: false" not in server:
+        errors.append("Production health lacks raw reflection transport exclusion")
+    if "releaseTier" not in server or "CONTROLLED_BETA" not in server:
+        errors.append("Production server does not expose a controlled-beta release tier")
+
     if errors:
         for error in errors:
             print(f"FAIL: {error}")
