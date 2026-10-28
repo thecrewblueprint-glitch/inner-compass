@@ -15,7 +15,8 @@
     "audit:reads": "python3 tools/eval/audit_reading_directory.py",
     "audit:safety": "tsx tools/eval/safety_matrix.ts",
     "audit:release": "python3 tools/eval/audit_release_readiness.py",
-    "audit:wellness": "tsx tools/eval/audit_wellness_volumes.ts"
+    "audit:wellness": "tsx tools/eval/audit_wellness_volumes.ts",
+    "audit:calendar": "tsx tools/eval/test_reflection_calendar.ts"
   },
   "dependencies": {
     "express": "^4.21.2",
