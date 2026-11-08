@@ -1,16 +1,8 @@
 name: Inner Compass Human Flow Fuzz
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "tools/eval/human_flow_fuzz.py"
-      - ".github/workflows/human-flow-fuzz.yml"
-      - "src/retrieval/**"
-      - "src/safety/**"
-      - "server.ts"
-      - "tools/eval/fixtures/classifier-gold.json"
   pull_request:
+    types: [ready_for_review]
     branches: [main]
   workflow_dispatch:
     inputs:

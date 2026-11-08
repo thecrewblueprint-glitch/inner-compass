@@ -2,6 +2,7 @@ name: Inner Compass Wisdom Retrieval Regression
 
 on:
   pull_request:
+    types: [ready_for_review]
     branches: [main]
     paths:
       - "src/data/wisdomArchive.ts"

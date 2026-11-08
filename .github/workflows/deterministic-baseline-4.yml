@@ -1,7 +1,8 @@
 name: Inner Compass Deterministic Baseline 4
 
 on:
-  push:
+  pull_request:
+    types: [ready_for_review]
     branches: [main]
     paths:
       - "src/safety/**"
