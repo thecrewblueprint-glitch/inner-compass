@@ -1,9 +1,8 @@
 name: Inner Compass Web E2E
 
 on:
-  push:
-    branches: [main]
   pull_request:
+    types: [ready_for_review]
     branches: [main]
   workflow_dispatch:
 
